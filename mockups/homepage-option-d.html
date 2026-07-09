@@ -162,16 +162,6 @@
     opacity:var(--scrim,1);
     background:linear-gradient(180deg, var(--paper) 0%, color-mix(in srgb, var(--paper) 72%, transparent) 40%, color-mix(in srgb, var(--paper) 30%, transparent) 62%, transparent 84%);}
   .no-fx .hero-media::after{display:none;}
-  /* facet gems: the diamond motif drifts over the title card, then clears on scroll */
-  .hero .gems{position:absolute; inset:0; z-index:4; pointer-events:none;}
-  .hero .gem{position:absolute; width:var(--s,40px); aspect-ratio:1; pointer-events:none;
-    will-change:transform; animation:gemin .8s ease .6s both;}
-  .hero .gem::before{content:""; position:absolute; inset:0; rotate:45deg; scale:.7071;
-    background:var(--gg,var(--cyan)); box-shadow:0 8px 30px rgba(0,0,0,.28); animation:gfloat 8s ease-in-out infinite;}
-  .hero .gem.line::before{background:transparent; border:1px solid rgba(244,243,240,.4); box-shadow:none;}
-  @keyframes gfloat{50%{translate:0 10px;}}
-  @keyframes gemin{from{opacity:0;}}
-  .no-fx .hero .gems{display:none;}
   /* headline: split into words/chars by JS (fx mode only); chars start as outlines, then fill */
   .hero h1 .hw{display:inline-block; will-change:transform;}
   .hero h1 .ch{display:inline-block; color:transparent; -webkit-text-stroke:1.3px var(--ink);
@@ -535,14 +525,6 @@
       </div>
     </div>
     <div class="scrollhint" aria-hidden="true">Scroll</div>
-    <div class="gems" aria-hidden="true">
-      <span class="gem" style="--s:120px; --gg:var(--cyan); right:11%; top:20%;" data-depth="32"></span>
-      <span class="gem line" style="--s:200px; right:19%; top:34%;" data-depth="15"></span>
-      <span class="gem" style="--s:18px; --gg:var(--violet); right:29%; top:26%;" data-depth="56"></span>
-      <span class="gem" style="--s:13px; --gg:var(--magenta); right:7%; top:52%;" data-depth="70"></span>
-      <span class="gem line" style="--s:80px; right:8%; top:66%;" data-depth="42"></span>
-      <span class="gem" style="--s:15px; --gg:var(--cyan); right:22%; top:74%;" data-depth="60"></span>
-    </div>
     <div class="hero-media" id="heromedia">
       <canvas id="seq" aria-label="Film of an arena show, rewinding from show night to the empty room"></canvas>
       <img class="seq-poster" src="assets/video/hum-tv-awards-poster.jpg" alt="Awards show stage built by Encore">
@@ -1172,7 +1154,6 @@
 
     const heroCopy = document.querySelector('.hero-copy');
     const heroMedia = document.getElementById('heromedia');
-    const gemsEl = document.querySelector('.hero .gems');
     const hint = document.querySelector('.scrollhint');
     const outro = document.querySelector('.hero-outro');
     const caps = [...document.querySelectorAll('#caps span')];
@@ -1263,21 +1244,6 @@
     });
     stick.addEventListener('mouseleave', ()=>push.forEach(p=>{ p.x(0); p.y(0); }));
 
-    // facet gems drift with the pointer, each at its own depth
-    const gemEls = [...document.querySelectorAll('.hero .gem')].map(el=>({el, d:+el.dataset.depth||24, x:0, y:0, tx:0, ty:0}));
-    let graf=null;
-    function gtick(){ let live=false;
-      gemEls.forEach(g=>{ g.x+=(g.tx-g.x)*.08; g.y+=(g.ty-g.y)*.08;
-        if(Math.abs(g.tx-g.x)>.15||Math.abs(g.ty-g.y)>.15) live=true;
-        g.el.style.transform=`translate(${g.x}px,${g.y}px)`; });
-      graf=live?requestAnimationFrame(gtick):null; }
-    stick.addEventListener('mousemove', e=>{
-      const r=stick.getBoundingClientRect();
-      const nx=e.clientX/r.width-.5, ny=(e.clientY-r.top)/r.height-.5;
-      gemEls.forEach(g=>{ g.tx=nx*g.d; g.ty=ny*g.d; });
-      if(!graf) graf=requestAnimationFrame(gtick);
-    });
-
     const heroState = {p:0};
     gsap.to(heroState, {
       p:1, ease:'none',
@@ -1292,7 +1258,6 @@
         heroCopy.style.opacity = c;
         heroCopy.style.transform = `translateY(${(1-c)*-44}px)`;
         heroCopy.style.pointerEvents = c < .4 ? 'none' : '';
-        if(gemsEl) gemsEl.style.opacity = c;                 // gems belong to the title card; clear with it
         heroMedia.style.setProperty('--scrim', c.toFixed(3)); // scrim fades out with the copy
         hint.style.opacity = 1 - clamp01(p / 0.14);          // hint still goes as soon as you scroll
         const o = clamp01((p - 0.82) / 0.13);                // the closing line lands before the pin releases

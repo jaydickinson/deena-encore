@@ -1,0 +1,8 @@
+.git
+node_modules
+dist
+original-assets
+mockups/assets/video/encore-videos
+.DS_Store
+**/.DS_Store
+*.log

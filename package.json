@@ -1,0 +1,14 @@
+{
+  "name": "encore-homepage-redesign",
+  "private": true,
+  "description": "Homepage redesign concepts for Encore EMEA (standalone HTML mockups)",
+  "scripts": {
+    "dev": "bun mockups/serve.ts mockups",
+    "build": "bun build.ts",
+    "preview": "bun mockups/serve.ts dist",
+    "deploy": "bun build.ts && rsync -az --delete dist/ root@hetzner.jakedickinson.co.uk:/var/www/decks/encore-emea/"
+  },
+  "devDependencies": {
+    "playwright": "^1.61.1"
+  }
+}

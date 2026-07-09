@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Encore · Homepage (Option A-v2 · house lights down · faceted hero + brief)</title>
+<meta name="description" content="Encore is the global event production partner: event technology, production, creative and design for events that transform. Option A with the facet gems from Option E in the hero and a fill-in-the-blanks brief.">
+<meta name="theme-color" content="#0A0714">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800;900&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#0A0714; --navy:#1F1646; --surface:#14102B;
+    --line:rgba(255,255,255,.14);
+    --white:#FFFFFF; --dim:#C9C5DC; --muted:#8B85A6;
+    --cyan:#11BFDD; --magenta:#C13FA8; --amber:#F9C429; --green:#90C74F; --violet:#7B5CFF;
+    --spectrum:linear-gradient(90deg,var(--cyan),var(--violet) 30%,var(--magenta) 55%,#E7262B 75%,var(--amber));
+    --maxw:1360px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth; background:var(--void);}
+  body{margin:0; background:var(--void); color:var(--white);
+    font-family:'Archivo',-apple-system,BlinkMacSystemFont,sans-serif; font-weight:400; line-height:1.6;
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;}
+  h1,h2,h3{font-family:'Big Shoulders Display','Archivo',sans-serif; font-weight:800;
+    text-transform:uppercase; line-height:.86; letter-spacing:.01em; margin:0;}
+  h1{font-size:clamp(58px,10.5vw,172px);} h2{font-size:clamp(40px,6vw,96px);} h3{font-size:clamp(24px,2.6vw,34px); font-weight:700;}
+  p{margin:0 0 18px;} a{color:inherit; text-decoration:none;}
+  :focus-visible{outline:2px solid var(--amber); outline-offset:3px;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 clamp(22px,5vw,72px);}
+  .cue{font-family:'JetBrains Mono',monospace; font-weight:500; font-size:13px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--gel,var(--cyan)); display:inline-flex; align-items:center; gap:12px;}
+  .cue::before{content:""; width:10px; height:10px; background:var(--gel,var(--cyan)); display:inline-block;}
+  .lead{font-size:clamp(17px,1.5vw,21px); color:var(--dim);}
+  section{position:relative;}
+  .pad{padding:clamp(84px,10vw,150px) 0;}
+  .btn{display:inline-flex; align-items:center; gap:10px; font-family:'JetBrains Mono',monospace;
+    font-weight:700; text-transform:uppercase; letter-spacing:.08em; font-size:14px; padding:16px 28px;
+    border:1px solid transparent; cursor:pointer; transition:.25s cubic-bezier(.2,.7,.2,1); border-radius:0;}
+  .btn svg{transition:transform .25s;} .btn:hover svg{transform:translateX(4px);}
+  .btn-gel{background:var(--amber); color:var(--void);}
+  .btn-gel:hover{transform:translateY(-2px); box-shadow:0 0 34px rgba(249,196,41,.45);}
+  .btn-ghost{border-color:var(--line); background:rgba(10,7,20,.3); color:#fff; backdrop-filter:blur(6px);}
+  .btn-ghost:hover{border-color:#fff; background:rgba(255,255,255,.08);}
+  .ico{width:1em; height:1em; display:inline-block; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; vertical-align:-.12em;}
+  .grain{position:absolute; inset:0; z-index:2; opacity:.06; pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+  .beamline{height:2px; background:var(--spectrum); border:0; margin:0;}
+  /* ===== facet gems (borrowed from option E): outer box takes the parallax x/y, ::before is the rotated facet ===== */
+  .gems{position:absolute; inset:0; z-index:2; pointer-events:none;}
+  .gem{position:absolute; width:var(--s,40px); aspect-ratio:1; pointer-events:none;
+    animation:gemin .7s ease .8s both;}
+  .gem::before{content:""; position:absolute; inset:0; rotate:45deg; scale:.7071;
+    background:var(--gg,var(--cyan)); animation:gfloat 8s ease-in-out infinite;}
+  .gem.line::before{background:transparent; border:1px solid rgba(255,255,255,.34);}
+  @keyframes gfloat{50%{translate:0 9px;}}
+  @keyframes gemin{from{opacity:0;}}
+  .sr{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;}
+  /* ===== nav ===== */
+  header.nav{position:fixed; top:0; left:0; right:0; z-index:60; padding:14px clamp(16px,4vw,40px);}
+  header.nav .row{display:flex; align-items:center; justify-content:space-between; gap:20px;
+    max-width:var(--maxw); margin:0 auto; padding:10px 14px 10px 20px;
+    background:rgba(10,7,20,.55);
+    -webkit-backdrop-filter:blur(20px) saturate(130%); backdrop-filter:blur(20px) saturate(130%);
+    border:1px solid var(--line); box-shadow:0 16px 44px rgba(0,0,0,.4);}
+  .brand{display:inline-flex; align-items:center;}
+  .brand img{height:30px; width:auto; display:block;}
+  nav.menu{display:flex; gap:28px; align-items:center; font-family:'Archivo'; font-weight:600;
+    text-transform:uppercase; letter-spacing:.06em; font-size:13px; color:#fff;}
+  nav.menu a.lnk{position:relative; padding:4px 0;}
+  nav.menu a.lnk::after{content:""; position:absolute; left:0; bottom:-2px; width:0; height:2px; background:var(--spectrum); transition:width .25s;}
+  nav.menu a.lnk:hover::after{width:100%;}
+  .mkt{font-family:'JetBrains Mono',monospace; font-weight:500; font-size:12px; border:1px solid var(--line); padding:6px 12px; color:var(--dim);
+    background:none; cursor:pointer; border-radius:0; transition:border-color .25s, color .25s;}
+  .mkt:hover{border-color:#fff; color:#fff;}
+  /* region dropdown — UI only, selection goes nowhere */
+  .mkt-wrap{position:relative; display:inline-block;}
+  .mkt-menu{position:absolute; top:calc(100% + 10px); right:0; z-index:80; min-width:200px;
+    background:rgba(10,7,20,.94); -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px);
+    border:1px solid var(--line); box-shadow:0 18px 44px rgba(0,0,0,.5); padding:6px;
+    display:none; flex-direction:column;}
+  .mkt-wrap.open .mkt-menu{display:flex;}
+  .mkt-wrap.up .mkt-menu{top:auto; bottom:calc(100% + 10px); right:auto; left:0;}
+  .mkt-menu button{font-family:'JetBrains Mono',monospace; font-weight:500; font-size:12px; letter-spacing:.06em; text-transform:uppercase;
+    text-align:left; color:var(--dim); background:none; border:0; border-radius:0; padding:10px 12px; cursor:pointer;
+    display:flex; align-items:center; justify-content:space-between; gap:14px; transition:background .2s, color .2s;}
+  .mkt-menu button:hover{background:rgba(255,255,255,.07); color:#fff;}
+  .mkt-menu button.on{color:var(--amber);}
+  .mkt-menu button.on::after{content:"●"; font-size:8px;}
+  nav.menu .btn{padding:11px 20px; font-size:12px;}
+  .hamb{display:none; flex-direction:column; justify-content:center; gap:5px; width:44px; height:44px; padding:0; border:0; background:none; cursor:pointer; position:relative; z-index:2;}
+  .hamb span{display:block; width:24px; height:2px; background:#fff; margin:0 auto; transition:transform .3s, opacity .3s;}
+  .hamb.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamb.open span:nth-child(2){opacity:0; transform:scaleX(0);}
+  .hamb.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .mobmenu{position:fixed; inset:0; z-index:55; background:rgba(10,7,20,.97);
+    -webkit-backdrop-filter:blur(18px); backdrop-filter:blur(18px);
+    display:flex; overflow-y:auto; -webkit-overflow-scrolling:touch; overscroll-behavior:contain;
+    padding:max(86px,10vh) 22px 44px; opacity:0; pointer-events:none; transition:opacity .35s;}
+  .mobmenu.open{opacity:1; pointer-events:auto;}
+  .mobmenu nav{display:flex; flex-direction:column; align-items:center; gap:6px; margin:auto;}
+  .mobmenu a{font-family:'Big Shoulders Display'; font-weight:800; text-transform:uppercase;
+    font-size:clamp(34px,9vw,54px); color:#fff; padding:6px 0; opacity:0; transform:translateY(18px); transition:opacity .4s, transform .4s;}
+  .mobmenu a.btn{font-family:'JetBrains Mono',monospace; font-weight:700; font-size:15px; margin-top:20px; padding:16px 34px; color:var(--void);}
+  .mobmenu.open a{opacity:1; transform:none;}
+  .mobmenu.open a:nth-child(1){transition-delay:.06s} .mobmenu.open a:nth-child(2){transition-delay:.12s}
+  .mobmenu.open a:nth-child(3){transition-delay:.18s} .mobmenu.open a:nth-child(4){transition-delay:.24s}
+  .mobmenu.open a:nth-child(5){transition-delay:.30s}
+  /* ===== HERO — house lights down ===== */
+  .hero{position:relative; min-height:100svh; display:flex; align-items:center; overflow:hidden; color:#fff;}
+  .hero video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;}
+  .hero .scrim{position:absolute; inset:0; z-index:1;
+    background:linear-gradient(180deg, rgba(10,7,20,.72), rgba(10,7,20,.45) 45%, rgba(10,7,20,.92));}
+  .hero .c{position:relative; z-index:3; width:100%; padding-top:100px;}
+  .hero h1{max-width:11ch;}
+  /* the signature: house lights down, then a beam sweeps across the headline */
+  .beamtext{background:linear-gradient(100deg, #fff 0%, #fff 38%, var(--amber) 46%, #fff 54%, #fff 100%);
+    background-size:280% 100%; background-position:100% 0;
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    animation:sweep 2.4s cubic-bezier(.3,.6,.2,1) .9s both;}
+  @keyframes sweep{from{background-position:100% 0;} to{background-position:0% 0;}}
+  .houselights{position:fixed; inset:0; z-index:70; background:#000; pointer-events:none; animation:housedown 1.4s ease .15s both;}
+  @keyframes housedown{from{opacity:1;} to{opacity:0;}}
+  .hero .lead{max-width:52ch; margin:26px 0 32px; text-shadow:0 2px 14px rgba(0,0,0,.55);}
+  .hero .cue{background:rgba(10,7,20,.55); padding:8px 14px; -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+    text-shadow:0 2px 12px rgba(0,0,0,.65); margin-bottom:22px;}
+  .hero .meta{position:absolute; bottom:34px; left:0; right:0; z-index:3;}
+  .hero .meta .in{display:flex; justify-content:space-between; align-items:center; gap:18px; flex-wrap:wrap;
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--dim);}
+  .hero .meta .in > span{display:flex; align-items:center; gap:10px;}
+  .hero .meta .bar{width:1px; height:34px; background:#fff; opacity:.6; animation:drop 1.8s infinite;}
+  @keyframes drop{0%{transform:scaleY(0); transform-origin:top;}50%{transform:scaleY(1); transform-origin:top;}51%{transform-origin:bottom;}100%{transform:scaleY(0); transform-origin:bottom;}}
+  @media(prefers-reduced-motion:reduce){
+    .houselights{animation:none; opacity:0;}
+    .beamtext{animation:none; background-position:0% 0;}
+    .hero .meta .bar{animation:none;}
+    .gem, .gem::before{animation:none;}
+  }
+  /* ===== credibility strip ===== */
+  .credstrip{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:rgba(20,16,43,.5);}
+  .credstrip .in{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; padding:30px 0;}
+  .cred{display:flex; align-items:baseline; gap:12px; justify-content:center;}
+  .cred b{font-family:'Big Shoulders Display'; font-weight:900; font-size:clamp(30px,3vw,46px); line-height:1; color:#fff;}
+  .cred small{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted);}
+  /* ===== services — alternating splits ===== */
+  .svc{display:grid; grid-template-columns:1.05fr 1fr; gap:clamp(34px,5vw,90px); align-items:center; padding:clamp(56px,7vw,100px) 0;}
+  .svc + .svc{border-top:1px solid var(--line);}
+  .svc.flip .media{order:2;} .svc.flip .txt{order:1;}
+  .svc .media{position:relative; overflow:hidden; border:1px solid var(--line); aspect-ratio:16/11;}
+  .svc .media img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .8s cubic-bezier(.2,.7,.2,1);}
+  .svc:hover .media img{transform:scale(1.05);}
+  .svc .media::after{content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--g,var(--cyan));}
+  .svc .media .shade{position:absolute; inset:0; background:linear-gradient(120deg, rgba(10,7,20,.25), transparent 55%);}
+  .svc .num{font-family:'Big Shoulders Display'; font-weight:900; font-size:clamp(64px,7vw,110px); line-height:.8; color:transparent;
+    -webkit-text-stroke:1px var(--g,var(--cyan)); opacity:.85;}
+  .svc h3{margin:16px 0 14px; font-size:clamp(30px,3.4vw,48px);}
+  .svc p{color:var(--dim); max-width:46ch;}
+  .svc ul{list-style:none; margin:20px 0 26px; padding:0; display:flex; flex-wrap:wrap; gap:10px;}
+  .svc li{font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.06em; text-transform:uppercase;
+    padding:7px 14px; border:1px solid var(--line); color:var(--dim);}
+  .svc .go{display:inline-flex; align-items:center; gap:8px; font-family:'JetBrains Mono',monospace; font-weight:700;
+    text-transform:uppercase; letter-spacing:.06em; font-size:13px; color:var(--g,var(--cyan));}
+  .svc .go .ar{transition:transform .25s;} .svc .go:hover .ar{transform:translateX(5px);}
+  .svc.s-tech{--g:var(--cyan);} .svc.s-prod{--g:var(--magenta);} .svc.s-creative{--g:var(--amber);} .svc.s-fab{--g:var(--green);}
+  /* ===== event types ===== */
+  .etypes{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .etype{position:relative; overflow:hidden; border:1px solid var(--line); aspect-ratio:16/10; display:flex; align-items:flex-end; isolation:isolate;}
+  .etype img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; transition:transform .7s;}
+  .etype::before{content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(180deg, rgba(10,7,20,.12) 30%, rgba(10,7,20,.9) 100%);}
+  .etype:hover img{transform:scale(1.06);}
+  .etype .t{position:relative; z-index:2; padding:20px 22px; width:100%; display:flex; justify-content:space-between; align-items:center; gap:10px;}
+  .etype h3{font-size:clamp(22px,2vw,30px); text-shadow:0 2px 10px rgba(0,0,0,.6);}
+  .etype .ar{font-size:20px; transition:transform .25s;}
+  .etype:hover .ar{transform:translateX(5px);}
+  /* ===== quote ===== */
+  .qsec{overflow:hidden;}
+  .qsec .wrap{position:relative; z-index:2;}
+  .quote{max-width:900px; margin:0 auto; text-align:center;}
+  .quote blockquote{font-family:'Big Shoulders Display'; font-weight:700; text-transform:uppercase; font-size:clamp(28px,4vw,56px);
+    line-height:1.02; margin:26px 0 22px; color:#fff;}
+  .quote cite{font-family:'JetBrains Mono',monospace; font-style:normal; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted);}
+  /* ===== moving gallery: two marquees, opposite directions ===== */
+  .reel{padding:clamp(70px,9vw,120px) 0; overflow:hidden; border-top:1px solid var(--line);}
+  .marquee{overflow:hidden; width:100%;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);}
+  .marquee + .marquee{margin-top:clamp(14px,1.6vw,20px);}
+  .track{display:flex; width:max-content; will-change:transform;}
+  .track.l{animation:reelL 60s linear infinite;}
+  .track.r{animation:reelR 70s linear infinite;}
+  .marquee:hover .track{animation-play-state:paused;}
+  @keyframes reelL{to{transform:translateX(-50%);}}
+  @keyframes reelR{from{transform:translateX(-50%);}}
+  .frame{position:relative; flex:0 0 auto; width:clamp(240px,30vw,420px); aspect-ratio:16/10;
+    margin-right:clamp(14px,1.6vw,20px); overflow:hidden; border:1px solid var(--line);}
+  .frame img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .8s cubic-bezier(.2,.7,.2,1);}
+  .frame:hover img{transform:scale(1.05);}
+  .frame::after{content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--g,var(--cyan));}
+  .frame.g-cyan{--g:var(--cyan);} .frame.g-magenta{--g:var(--magenta);} .frame.g-amber{--g:var(--amber);}
+  .frame.g-green{--g:var(--green);} .frame.g-violet{--g:var(--violet);}
+  @media(prefers-reduced-motion:reduce){
+    .track{animation:none;}
+    .marquee{overflow-x:auto; -webkit-overflow-scrolling:touch;}
+  }
+  /* ===== finale ===== */
+  .finale{position:relative; overflow:hidden; color:#fff; text-align:center;}
+  .finale video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;}
+  .finale .scrim{position:absolute; inset:0; z-index:1; background:linear-gradient(180deg, rgba(10,7,20,.82), rgba(10,7,20,.68) 50%, rgba(10,7,20,.92));}
+  /* ===== the brief: a fill-in-the-blanks one-liner, deliberately not a boxed lead form ===== */
+  .brief{margin-top:38px;}
+  .brief .line{font-family:'Archivo',sans-serif; font-weight:500; font-size:clamp(19px,2.3vw,29px); line-height:2;
+    color:#fff; margin:0 0 4px; text-shadow:0 2px 14px rgba(0,0,0,.55);}
+  .brief :is(input,select){font:inherit; color:var(--amber); background:transparent; border:0; border-radius:0;
+    border-bottom:2px solid var(--line); padding:0 4px 2px; text-align:center; transition:border-color .25s;}
+  .brief :is(input,select):hover{border-color:var(--muted);}
+  .brief :is(input,select):focus{outline:none; border-color:var(--amber);}
+  .brief ::placeholder{color:var(--muted); opacity:1;}
+  .brief select{appearance:none; -webkit-appearance:none; cursor:pointer; text-align:center;}
+  .brief select:has(option[value=""]:checked){color:var(--muted);}
+  .brief option{background:var(--navy); color:#fff;}
+  .brief .err{border-color:#E7262B;}
+  .brief .send{display:flex; align-items:center; justify-content:center; gap:20px; flex-wrap:wrap; margin-top:32px;}
+  .brief [hidden]{display:none !important;}
+  .brief .note{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--dim); text-align:left; max-width:24ch;}
+  .brief .alt{display:inline-block; margin-top:22px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--dim); border-bottom:1px solid var(--line); padding-bottom:3px; transition:color .25s, border-color .25s;}
+  .brief .alt:hover{color:#fff; border-color:#fff;}
+  .brief .ok{margin:32px auto 0; max-width:46ch; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--green); line-height:1.9;}
+  .brief .ok::before{content:""; display:inline-block; width:10px; height:10px; background:var(--green); rotate:45deg; margin-right:12px;}
+  footer.site{background:#070510; color:var(--muted); padding:80px 0 34px;}
+  footer.site .brand img{height:40px;}
+  footer.site a{display:block; padding:6px 0; font-size:14px; color:var(--muted);}
+  footer.site a:hover{color:#fff;}
+  .colhead{font-family:'JetBrains Mono',monospace; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#fff; margin-bottom:10px; font-size:12px;}
+  .grid{display:grid; gap:22px;} .g4{grid-template-columns:repeat(4,1fr);}
+  /* ===== font switcher — discreet preview toggle: shows the whole design in Encore's brand font (Open Sans) ===== */
+  body.brandfont, body.brandfont *{font-family:'Open Sans','Archivo',sans-serif !important;}
+  /* Open Sans reads heavier & wider than the condensed display face. All-caps + weight 800 turns it
+     shouty, so in brand-font mode soften the big headings: sentence case, lighter weight, tight tracking
+     and smaller sizes for a more modern, editorial feel. Small mono labels stay uppercase. */
+  body.brandfont h1,body.brandfont h2,body.brandfont h3,body.brandfont .quote blockquote{
+    text-transform:none !important; letter-spacing:-.022em; line-height:1.07; font-weight:600;}
+  body.brandfont h1{font-weight:700; font-size:clamp(38px,6.1vw,100px) !important;}
+  body.brandfont h2{font-size:clamp(26px,3.5vw,54px) !important;}
+  /* mix it up: keep the short service & event-type titles UPPERCASE as crisp tracked labels,
+     playing against the sentence-case statement heads for rhythm */
+  body.brandfont .svc h3, body.brandfont .etype h3{text-transform:uppercase !important; letter-spacing:.045em; font-weight:700;}
+  body.brandfont .svc h3{font-size:clamp(23px,2.4vw,34px) !important;}
+  body.brandfont .etype h3{font-size:clamp(17px,1.7vw,23px) !important;}
+  body.brandfont .num{font-size:clamp(42px,4.4vw,68px) !important; font-weight:700;}
+  body.brandfont .cred b{font-size:clamp(24px,2.3vw,35px) !important; font-weight:700;}
+  body.brandfont .quote blockquote{font-size:clamp(22px,2.8vw,40px) !important; line-height:1.18; font-weight:600;}
+  .fontswitch{position:fixed; right:14px; bottom:14px; z-index:90;
+    display:inline-flex; align-items:center; gap:9px; padding:8px 13px;
+    font-family:'JetBrains Mono',monospace; font-weight:500; font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    background:rgba(10,7,20,.6); border:1px solid var(--line); color:var(--dim); cursor:pointer;
+    -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+    opacity:.32; transition:opacity .3s, color .25s, border-color .25s;}
+  .fontswitch:hover, .fontswitch:focus-visible{opacity:1; color:#fff; border-color:#fff;}
+  .fontswitch .dot{width:8px; height:8px; background:var(--amber); rotate:45deg; flex:0 0 auto; transition:background .25s;}
+  body.brandfont .fontswitch .dot{background:var(--muted);}
+  @media(max-width:600px){ .fontswitch{right:10px; bottom:10px; padding:7px 10px; font-size:10px;} }
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1; transform:none;}
+  .reveal.d1{transition-delay:.08s;} .reveal.d2{transition-delay:.16s;} .reveal.d3{transition-delay:.24s;}
+  @media(max-width:960px){
+    .svc{grid-template-columns:1fr; gap:26px;} .svc.flip .media{order:0;} .svc.flip .txt{order:1;}
+    .etypes{grid-template-columns:1fr 1fr;}
+    .credstrip .in{grid-template-columns:1fr 1fr; gap:26px;}
+    nav.menu{display:none;} .hamb{display:flex;}
+    .g4{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:600px){
+    .etypes{grid-template-columns:1fr;}
+    .g4{grid-template-columns:1fr;}
+    .hero .meta .in{justify-content:center; text-align:center;}
+    .hero .gem.line, .hero .gem.m-hide, .qsec .gem.line, .qsec .gem.m-hide{display:none;}
+    .brief .line{line-height:2.2;}
+    .brief .send{flex-direction:column;}
+    .brief .note{text-align:center;}
+  }
+</style>
+</head>
+<body>
+
+<div class="houselights" aria-hidden="true"></div>
+
+<!-- ===== HEADER ===== -->
+<header class="nav" id="nav">
+  <div class="row">
+    <a class="brand" href="#" aria-label="Encore home"><img src="assets/encore-logo-white.png" alt="Encore"></a>
+    <nav class="menu">
+      <a class="lnk" href="#services">What we do</a>
+      <a class="lnk" href="#events">Event types</a>
+      <a class="lnk" href="#venues">Venues</a>
+      <a class="lnk" href="#">About</a>
+      <div class="mkt-wrap">
+        <button class="mkt" type="button" aria-haspopup="true" aria-expanded="false">EMEA ▾</button>
+        <div class="mkt-menu" role="menu">
+          <button type="button" role="menuitem" data-region="North America">North America</button>
+          <button type="button" role="menuitem" data-region="EMEA" class="on">EMEA</button>
+          <button type="button" role="menuitem" data-region="APAC">APAC</button>
+        </div>
+      </div>
+      <a class="btn btn-gel" href="#venues">Start your event</a>
+    </nav>
+    <button class="hamb" id="hamb" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobmenu" id="mobmenu">
+  <nav>
+    <a href="#services">What we do</a>
+    <a href="#events">Event types</a>
+    <a href="#venues">Venues</a>
+    <a href="#">About</a>
+    <a href="#venues" class="btn btn-gel">Start your event</a>
+  </nav>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" data-gems>
+  <video autoplay muted loop playsinline poster="assets/video/encore-home-reel-poster.jpg">
+    <source src="assets/video/encore-home-reel.mp4" type="video/mp4">
+  </video>
+  <div class="scrim"></div><div class="grain"></div>
+  <div class="gems" aria-hidden="true">
+    <span class="gem" style="--s:110px; --gg:var(--cyan); right:13%; top:16%;" data-depth="34"></span>
+    <span class="gem line" style="--s:210px; right:21%; top:30%;" data-depth="16"></span>
+    <span class="gem" style="--s:20px; --gg:var(--magenta); right:31%; top:22%;" data-depth="54"></span>
+    <span class="gem" style="--s:13px; --gg:var(--amber); right:8%; top:48%;" data-depth="72"></span>
+    <span class="gem m-hide" style="--s:52px; --gg:var(--violet); right:27%; top:58%;" data-depth="26"></span>
+    <span class="gem line" style="--s:88px; right:6%; top:64%;" data-depth="44"></span>
+    <span class="gem" style="--s:16px; --gg:var(--green); right:18%; top:72%;" data-depth="60"></span>
+  </div>
+  <div class="wrap c">
+    <span class="cue" style="--gel:var(--amber);">House lights down</span>
+    <h1><span class="beamtext">Events that<br>transform.</span></h1>
+    <p class="lead">Event technology, production, creative and design &amp; fabrication. One global partner, from the first idea to the final blackout.</p>
+    <div style="display:flex; gap:14px; flex-wrap:wrap;">
+      <a class="btn btn-gel" href="#venues">Start your event <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-ghost" href="#services">What we do</a>
+    </div>
+  </div>
+  <div class="meta">
+    <div class="wrap in">
+      <span>Live · Hybrid · Virtual</span>
+      <span><span class="bar"></span> Scroll</span>
+      <span>2,200+ venues · 23 countries</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CREDIBILITY STRIP ===== -->
+<div class="credstrip" role="presentation">
+  <div class="wrap in">
+    <div class="cred"><b data-count="85" data-suffix="+">0</b><small>Years of shows</small></div>
+    <div class="cred"><b data-count="12000" data-suffix="" data-comma="1">0</b><small>Team members</small></div>
+    <div class="cred"><b data-count="400" data-suffix="k">0</b><small>Events a year</small></div>
+    <div class="cred"><b data-count="30" data-suffix="M">0</b><small>People reached</small></div>
+  </div>
+</div>
+
+<!-- ===== SERVICES ===== -->
+<section class="pad" id="services" style="padding-bottom:clamp(40px,5vw,70px);">
+  <div class="wrap">
+    <div class="reveal" style="max-width:760px; margin-bottom:20px;">
+      <div class="cue" style="--gel:var(--cyan);">What we do</div>
+      <h2 style="margin-top:18px;">The whole show,<br>under one roof.</h2>
+    </div>
+
+    <div class="svc s-tech reveal">
+      <div class="media"><img src="assets/img/AdobeStock_473049258-scaled.jpg" alt="Lighting console close-up" loading="lazy"><div class="shade"></div></div>
+      <div class="txt">
+        <div class="num">01</div>
+        <h3>Event technology</h3>
+        <p>Audio, video, lighting, LED and immersive tech, specified and operated by certified technicians who live in these rooms year-round.</p>
+        <ul><li>Audio &amp; PA</li><li>LED &amp; projection</li><li>Lighting</li><li>Interactive</li></ul>
+        <a class="go" href="#">Explore event technology <span class="ar">→</span></a>
+      </div>
+    </div>
+
+    <div class="svc s-prod flip reveal">
+      <div class="media"><img src="assets/img/home-production-services-3.jpg" alt="Full stage production with LED wall" loading="lazy"><div class="shade"></div></div>
+      <div class="txt">
+        <div class="num">02</div>
+        <h3>Production</h3>
+        <p>Show callers, stage managers, rigging and logistics. We carry your event from site visit to load-out without dropping a cue.</p>
+        <ul><li>Staging</li><li>Show calling</li><li>Rigging</li><li>Logistics</li></ul>
+        <a class="go" href="#">Explore production <span class="ar">→</span></a>
+      </div>
+    </div>
+
+    <div class="svc s-creative reveal">
+      <div class="media"><img src="assets/img/home-modal-inspire-1.jpg" alt="Immersive creative staging" loading="lazy"><div class="shade"></div></div>
+      <div class="txt">
+        <div class="num">03</div>
+        <h3>Creative</h3>
+        <p>Strategy, story and content. Our creative teams turn an agenda into a narrative your audience actually remembers.</p>
+        <ul><li>Messaging</li><li>Content</li><li>Design</li><li>Experience</li></ul>
+        <a class="go" href="#">Explore creative <span class="ar">→</span></a>
+      </div>
+    </div>
+
+    <div class="svc s-fab flip reveal">
+      <div class="media"><img src="assets/img/home-design-fabrication-2.jpg" alt="Custom scenic build" loading="lazy"><div class="shade"></div></div>
+      <div class="txt">
+        <div class="num">04</div>
+        <h3>Design &amp; fabrication</h3>
+        <p>Booths, scenic and custom builds through Hargrove, designed and made in-house, shipped anywhere your show goes.</p>
+        <ul><li>Exhibits</li><li>Scenic</li><li>Custom builds</li><li>Graphics</li></ul>
+        <a class="go" href="#">Explore design &amp; fabrication <span class="ar">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="beamline">
+
+<!-- ===== EVENT TYPES ===== -->
+<section class="pad" id="events" style="background:var(--surface);">
+  <div class="wrap">
+    <div class="reveal" style="display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; margin-bottom:50px;">
+      <div>
+        <div class="cue" style="--gel:var(--magenta);">Event types</div>
+        <h2 style="margin-top:18px;">Whatever the room,<br>we own the moment.</h2>
+      </div>
+      <a class="btn btn-ghost" href="#">All event types</a>
+    </div>
+    <div class="etypes">
+      <a class="etype reveal" href="#"><img src="assets/img/AdobeStock_191779307-scaled.jpg" alt="" loading="lazy"><div class="t"><h3>Meetings &amp; conferences</h3><span class="ar">→</span></div></a>
+      <a class="etype reveal d1" href="#"><img src="assets/img/AdobeStock_433864356-copy.jpg" alt="" loading="lazy"><div class="t"><h3>Hybrid &amp; virtual</h3><span class="ar">→</span></div></a>
+      <a class="etype reveal d2" href="#"><img src="assets/img/inspire-audiences-with-the-persuasive.jpg" alt="" loading="lazy"><div class="t"><h3>Product launches</h3><span class="ar">→</span></div></a>
+      <a class="etype reveal" href="#"><img src="assets/img/AdobeStock_1087309299_home3.jpg" alt="" loading="lazy"><div class="t"><h3>Conventions &amp; tradeshows</h3><span class="ar">→</span></div></a>
+      <a class="etype reveal d1" href="#"><img src="assets/img/home-production-services-1.jpg" alt="" loading="lazy"><div class="t"><h3>Galas &amp; award shows</h3><span class="ar">→</span></div></a>
+      <a class="etype reveal d2" href="#"><img src="assets/img/AdobeStock_36514925-copy.jpg" alt="" loading="lazy"><div class="t"><h3>Weddings &amp; celebrations</h3><span class="ar">→</span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUOTE ===== -->
+<section class="pad qsec" data-gems>
+  <div class="gems" aria-hidden="true" style="z-index:0; opacity:.6;">
+    <span class="gem" style="--s:120px; --gg:var(--magenta); left:5%; top:22%;" data-depth="30"></span>
+    <span class="gem line" style="--s:200px; left:1%; top:38%;" data-depth="14"></span>
+    <span class="gem m-hide" style="--s:15px; --gg:var(--cyan); left:22%; top:66%;" data-depth="60"></span>
+    <span class="gem" style="--s:13px; --gg:var(--green); left:31%; top:18%;" data-depth="70"></span>
+    <span class="gem" style="--s:22px; --gg:var(--amber); right:11%; top:24%;" data-depth="52"></span>
+    <span class="gem line" style="--s:150px; right:4%; top:46%;" data-depth="20"></span>
+    <span class="gem" style="--s:92px; --gg:var(--violet); right:8%; top:60%;" data-depth="36"></span>
+  </div>
+  <div class="wrap quote reveal">
+    <div class="cue" style="--gel:var(--amber); justify-content:center;">From concept to reality</div>
+    <blockquote>"They don't just run the tech. They carry the whole show, so we can carry the message."</blockquote>
+    <cite>VP Global Events · Fortune 100 technology company</cite>
+  </div>
+</section>
+
+<!-- ===== MOVING GALLERY ===== -->
+<section class="reel" aria-label="Recent shows">
+  <div class="wrap">
+    <div class="reveal" style="max-width:760px; margin-bottom:44px;">
+      <div class="cue" style="--gel:var(--violet);">On the floor</div>
+      <h2 style="margin-top:18px;">A year of rooms<br>that came alive.</h2>
+    </div>
+  </div>
+  <div class="marquee" aria-hidden="true">
+    <div class="track l">
+      <div class="frame g-cyan"><img src="assets/img/AdobeStock_473049258-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="frame g-magenta"><img src="assets/img/home-production-services-3.jpg" alt="" loading="lazy"></div>
+      <div class="frame g-amber"><img src="assets/img/home-modal-inspire-1.jpg" alt="" loading="lazy"></div>
+      <div class="frame g-green"><img src="assets/img/home-design-fabrication-2.jpg" alt="" loading="lazy"></div>
+      <div class="frame g-violet"><img src="assets/img/AdobeStock_191779307-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="frame g-cyan"><img src="assets/img/AdobeStock_433864356-copy.jpg" alt="" loading="lazy"></div>
+    </div>
+  </div>
+  <div class="marquee" aria-hidden="true">
+    <div class="track r">
+      <div class="frame g-magenta"><img src="assets/img/inspire-audiences-with-the-persuasive.jpg" alt="" loading="lazy"></div>
+      <div class="frame g-amber"><img src="assets/img/AdobeStock_1087309299_home3.jpg" alt="" loading="lazy"></div>
+      <div class="frame g-green"><img src="assets/img/home-production-services-1.jpg" alt="" loading="lazy"></div>
+      <div class="frame g-violet"><img src="assets/img/AdobeStock_36514925-copy.jpg" alt="" loading="lazy"></div>
+      <div class="frame g-cyan"><img src="assets/img/2019_05_Hargrove_00295-copy.jpg" alt="" loading="lazy"></div>
+      <div class="frame g-magenta"><img src="assets/img/AdobeStock_676000805_home2.jpg" alt="" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINALE ===== -->
+<section class="finale" id="venues" style="padding:clamp(110px,14vw,190px) 0;">
+  <video autoplay muted loop playsinline preload="none" data-autoplay poster="assets/video/encore-lighting-poster.jpg">
+    <source src="assets/video/encore-lighting.mp4" type="video/mp4">
+  </video>
+  <div class="scrim"></div><div class="grain"></div>
+  <div class="wrap" style="position:relative; z-index:3; text-align:center; max-width:860px; margin:0 auto;">
+    <div class="reveal">
+      <div class="cue" style="--gel:var(--amber); justify-content:center;">Standing by</div>
+      <h2 style="margin:18px 0 14px; font-size:clamp(44px,7.5vw,104px);">Let's build<br>your show.</h2>
+      <p class="lead" style="margin-bottom:0;">On-site at 2,200+ venues worldwide, or anywhere you can get a truck.</p>
+      <form class="brief" id="brief" novalidate>
+        <p class="line">We're planning
+          <label class="sr" for="bf-type">Event type</label>
+          <select id="bf-type" name="event-type" required>
+            <option value="" selected>an event…</option>
+            <option>a meeting or conference</option>
+            <option>a hybrid or virtual event</option>
+            <option>a product launch</option>
+            <option>a convention or tradeshow</option>
+            <option>a gala or award show</option>
+            <option>a wedding or celebration</option>
+            <option>something else entirely</option>
+          </select>
+          for
+          <label class="sr" for="bf-size">Guest count</label>
+          <input id="bf-size" name="guests" type="text" inputmode="numeric" placeholder="how many" style="width:10ch;">
+          guests in
+          <label class="sr" for="bf-city">City or venue</label>
+          <input id="bf-city" name="city" type="text" placeholder="which city" style="width:10ch;">,
+          around
+          <label class="sr" for="bf-when">When</label>
+          <input id="bf-when" name="when" type="text" placeholder="when" style="width:7ch;">.
+        </p>
+        <p class="line">I'm
+          <label class="sr" for="bf-name">Your name</label>
+          <input id="bf-name" name="name" type="text" autocomplete="name" required placeholder="your name" style="width:11ch;">,
+          reach me at
+          <label class="sr" for="bf-email">Work email</label>
+          <input id="bf-email" name="email" type="email" autocomplete="email" required placeholder="work email" style="width:14ch;">.
+        </p>
+        <div class="send">
+          <button class="btn btn-gel" type="submit">Start your event <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <span class="note">A producer replies within one working day.</span>
+        </div>
+        <p class="ok" hidden>Cue received. A producer will reply within one working day.</p>
+        <a class="alt" href="#">Prefer to browse first? Find your venue →</a>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site">
+  <div class="wrap">
+    <div class="grid g4" style="margin-bottom:44px;">
+      <div>
+        <a class="brand" href="#" aria-label="Encore home"><img src="assets/encore-logo-white.png" alt="Encore"></a>
+        <p style="margin-top:16px; font-size:14px; color:var(--muted); max-width:30ch;">The global production partner for events that transform.</p>
+        <div class="mkt-wrap up">
+          <button class="mkt" type="button" aria-haspopup="true" aria-expanded="false">EMEA ▾</button>
+          <div class="mkt-menu" role="menu">
+            <button type="button" role="menuitem" data-region="North America">North America</button>
+            <button type="button" role="menuitem" data-region="EMEA" class="on">EMEA</button>
+            <button type="button" role="menuitem" data-region="APAC">APAC</button>
+          </div>
+        </div>
+      </div>
+      <div><div class="colhead">What we do</div><a href="#">Event technology</a><a href="#">Production</a><a href="#">Creative</a><a href="#">Design &amp; fabrication</a></div>
+      <div><div class="colhead">Planners</div><a href="#">Find your venue</a><a href="#">Case studies</a><a href="#">Event planning resources</a><a href="#">Sustainability</a></div>
+      <div><div class="colhead">Company</div><a href="#">About Encore</a><a href="#">Careers</a><a href="#">Hotel &amp; venue partners</a><a href="#">Contact</a></div>
+    </div>
+    <hr class="beamline" style="opacity:.5;">
+    <div style="padding-top:20px; font-size:12px; color:var(--muted); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-family:'JetBrains Mono',monospace;">
+      <span>© Encore Global · concept mockup A-v2 · "house lights down", faceted</span>
+      <span>Footage: encoreglobal.com · figures from encoreglobal.com/about</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== FONT SWITCHER (discreet preview toggle) ===== -->
+<button class="fontswitch" id="fontswitch" type="button" aria-pressed="false" title="Preview this design in Encore's brand font (Open Sans)">
+  <span class="dot" aria-hidden="true"></span>
+  <span class="fs-label">Aa · Display</span>
+</button>
+
+<script>
+  const rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // discreet font switcher: swap the whole page to Open Sans (brand font) to preview, and back
+  (function(){
+    const btn=document.getElementById('fontswitch'); if(!btn) return;
+    const label=btn.querySelector('.fs-label'), KEY='encore-a-font';
+    function apply(on){
+      document.body.classList.toggle('brandfont',on);
+      btn.setAttribute('aria-pressed',on);
+      label.textContent = on ? 'Aa · Open Sans' : 'Aa · Display';
+      try{ localStorage.setItem(KEY, on?'1':'0'); }catch(e){}
+    }
+    let on=false; try{ on=localStorage.getItem(KEY)==='1'; }catch(e){}
+    apply(on);
+    btn.addEventListener('click',()=>apply(!document.body.classList.contains('brandfont')));
+  })();
+  // region dropdown — opens and picks, never navigates
+  (function(){
+    const wraps=[...document.querySelectorAll('.mkt-wrap')]; if(!wraps.length) return;
+    const closeAll=()=>wraps.forEach(w=>{ w.classList.remove('open'); w.querySelector('.mkt').setAttribute('aria-expanded','false'); });
+    wraps.forEach(w=>{
+      const btn=w.querySelector('.mkt');
+      btn.addEventListener('click',e=>{ e.stopPropagation();
+        const open=!w.classList.contains('open'); closeAll();
+        w.classList.toggle('open',open); btn.setAttribute('aria-expanded',open); });
+      w.querySelectorAll('.mkt-menu button').forEach(b=>b.addEventListener('click',e=>{ e.stopPropagation();
+        const r=b.dataset.region;
+        document.querySelectorAll('.mkt').forEach(m=>m.textContent=r+' ▾');
+        document.querySelectorAll('.mkt-menu button').forEach(x=>x.classList.toggle('on', x.dataset.region===r));
+        closeAll(); }));
+    });
+    addEventListener('click',e=>{ if(!e.target.closest('.mkt-wrap')) closeAll(); });
+    addEventListener('keydown',e=>{ if(e.key==='Escape') closeAll(); });
+  })();
+  // mobile menu
+  (function(){
+    const hamb=document.getElementById('hamb'), mob=document.getElementById('mobmenu'); if(!hamb||!mob) return;
+    function set(open){ mob.classList.toggle('open',open); hamb.classList.toggle('open',open);
+      hamb.setAttribute('aria-expanded',open); document.documentElement.style.overflow=open?'hidden':''; }
+    hamb.addEventListener('click',()=>set(!mob.classList.contains('open')));
+    mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>set(false)));
+    addEventListener('keydown',e=>{ if(e.key==='Escape') set(false); });
+  })();
+  // reveals
+  const ro=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in'); ro.unobserve(e.target);}}),{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>rm?el.classList.add('in'):ro.observe(el));
+  // count-up
+  function fmt(v,comma){ v=Math.round(v)+''; return comma?v.replace(/\B(?=(\d{3})+(?!\d))/g,','):v; }
+  function animateCount(el){
+    const target=+el.dataset.count, suf=el.dataset.suffix||'', comma=el.dataset.comma==='1', dur=1400, t0=performance.now();
+    (function step(t){let p=Math.min((t-t0)/dur,1); p=1-Math.pow(1-p,3);
+      el.textContent=fmt(target*p,comma)+suf; if(p<1) requestAnimationFrame(step);})(t0);
+  }
+  const co=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){
+    const el=e.target;
+    rm ? el.textContent=fmt(+el.dataset.count, el.dataset.comma==='1')+(el.dataset.suffix||'') : animateCount(el);
+    co.unobserve(el);}}),{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
+  // gems: pointer parallax at different depths (vanilla, no library) — runs in any [data-gems] section
+  (function(){
+    if(rm) return;
+    document.querySelectorAll('[data-gems]').forEach(scope=>{
+      const gems=[...scope.querySelectorAll('.gem')].map(el=>({el, d:+el.dataset.depth||24, x:0, y:0, tx:0, ty:0}));
+      if(!gems.length) return;
+      let raf=null;
+      function tick(){
+        let live=false;
+        gems.forEach(g=>{
+          g.x+=(g.tx-g.x)*.08; g.y+=(g.ty-g.y)*.08;
+          if(Math.abs(g.tx-g.x)>.15||Math.abs(g.ty-g.y)>.15) live=true;
+          g.el.style.transform=`translate(${g.x}px,${g.y}px)`;
+        });
+        raf=live?requestAnimationFrame(tick):null;
+      }
+      scope.addEventListener('pointermove',e=>{
+        const r=scope.getBoundingClientRect();
+        const nx=e.clientX/r.width-.5, ny=(e.clientY-r.top)/r.height-.5;
+        gems.forEach(g=>{ g.tx=nx*g.d; g.ty=ny*g.d; });
+        if(!raf) raf=requestAnimationFrame(tick);
+      });
+    });
+  })();
+  // the brief: front-end only, no data goes anywhere
+  (function(){
+    const f=document.getElementById('brief'); if(!f) return;
+    const required=[...f.querySelectorAll('[required]')];
+    required.forEach(el=>el.addEventListener('input',()=>el.classList.remove('err')));
+    f.addEventListener('submit',e=>{
+      e.preventDefault();
+      let firstBad=null;
+      required.forEach(el=>{
+        const bad=!el.value.trim()||(el.type==='email'&&!el.checkValidity());
+        el.classList.toggle('err',bad);
+        if(bad&&!firstBad) firstBad=el;
+      });
+      if(firstBad){ firstBad.focus(); return; }
+      f.querySelector('.send').hidden=true;
+      f.querySelector('.ok').hidden=false;
+      f.querySelectorAll('.line input, .line select').forEach(el=>el.disabled=true);
+    });
+  })();
+  // moving gallery: clone each track's frames once so translateX(-50%) loops seamlessly
+  document.querySelectorAll('.reel .track').forEach(t=>{
+    [...t.children].forEach(k=>{ const c=k.cloneNode(true); c.setAttribute('aria-hidden','true'); t.appendChild(c); });
+  });
+  // lazy play finale video
+  const vo=new IntersectionObserver((es)=>es.forEach(e=>{
+    const v=e.target.matches('video')?e.target:e.target.querySelector('video'); if(!v) return;
+    if(e.isIntersecting){ if(v.preload==='none') v.preload='auto'; v.play().catch(()=>{}); } else v.pause();
+  }),{threshold:.25});
+  document.querySelectorAll('[data-autoplay]').forEach(el=>vo.observe(el));
+</script>
+</body>
+</html>

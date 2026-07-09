@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Encore · Homepage (Option B · the run sheet · video-in-type)</title>
+<meta name="description" content="Encore is the global event production partner: event technology, production, creative and design for events that transform.">
+<meta name="theme-color" content="#0A0714">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800;900&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#0A0714; --navy:#1F1646; --surface:#14102B;
+    --line:rgba(255,255,255,.14);
+    --white:#FFFFFF; --dim:#C9C5DC; --muted:#8B85A6;
+    --cyan:#11BFDD; --magenta:#C13FA8; --amber:#F9C429; --green:#90C74F; --violet:#7B5CFF;
+    --spectrum:linear-gradient(90deg,var(--cyan),var(--violet) 30%,var(--magenta) 55%,#E7262B 75%,var(--amber));
+    --maxw:1360px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth; background:var(--void);}
+  body{margin:0; background:var(--void); color:var(--white);
+    font-family:'Archivo',-apple-system,BlinkMacSystemFont,sans-serif; font-weight:400; line-height:1.6;
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;}
+  h1,h2,h3{font-family:'Big Shoulders Display','Archivo',sans-serif; font-weight:800;
+    text-transform:uppercase; line-height:.86; letter-spacing:.01em; margin:0;}
+  h2{font-size:clamp(40px,6vw,96px);} h3{font-size:clamp(22px,2.4vw,30px); font-weight:700;}
+  p{margin:0 0 18px;} a{color:inherit; text-decoration:none;}
+  :focus-visible{outline:2px solid var(--amber); outline-offset:3px;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 clamp(22px,5vw,72px);}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  .cue{font-family:'JetBrains Mono',monospace; font-weight:500; font-size:13px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--gel,var(--cyan)); display:inline-flex; align-items:center; gap:12px;}
+  .cue::before{content:""; width:10px; height:10px; background:var(--gel,var(--cyan)); display:inline-block;}
+  .lead{font-size:clamp(17px,1.5vw,21px); color:var(--dim);}
+  section{position:relative;}
+  .pad{padding:clamp(84px,10vw,150px) 0;}
+  .btn{display:inline-flex; align-items:center; gap:10px; font-family:'JetBrains Mono',monospace;
+    font-weight:700; text-transform:uppercase; letter-spacing:.08em; font-size:14px; padding:16px 28px;
+    border:1px solid transparent; cursor:pointer; transition:.25s cubic-bezier(.2,.7,.2,1); border-radius:0;}
+  .btn svg{transition:transform .25s;} .btn:hover svg{transform:translateX(4px);}
+  .btn-gel{background:var(--amber); color:var(--void);}
+  .btn-gel:hover{transform:translateY(-2px); box-shadow:0 0 34px rgba(249,196,41,.45);}
+  .btn-ghost{border-color:var(--line); background:rgba(10,7,20,.3); color:#fff; backdrop-filter:blur(6px);}
+  .btn-ghost:hover{border-color:#fff; background:rgba(255,255,255,.08);}
+  .ico{width:1em; height:1em; display:inline-block; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; vertical-align:-.12em;}
+  .grain{position:absolute; inset:0; z-index:2; opacity:.06; pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+  .beamline{height:2px; background:var(--spectrum); border:0; margin:0;}
+  /* ===== nav ===== */
+  header.nav{position:fixed; top:0; left:0; right:0; z-index:60; padding:14px clamp(16px,4vw,40px);}
+  header.nav .row{display:flex; align-items:center; justify-content:space-between; gap:20px;
+    max-width:var(--maxw); margin:0 auto; padding:10px 14px 10px 20px;
+    background:rgba(10,7,20,.55);
+    -webkit-backdrop-filter:blur(20px) saturate(130%); backdrop-filter:blur(20px) saturate(130%);
+    border:1px solid var(--line); box-shadow:0 16px 44px rgba(0,0,0,.4);}
+  .brand{display:inline-flex; align-items:center;}
+  .brand img{height:30px; width:auto; display:block;}
+  nav.menu{display:flex; gap:28px; align-items:center; font-family:'Archivo'; font-weight:600;
+    text-transform:uppercase; letter-spacing:.06em; font-size:13px; color:#fff;}
+  nav.menu a.lnk{position:relative; padding:4px 0;}
+  nav.menu a.lnk::after{content:""; position:absolute; left:0; bottom:-2px; width:0; height:2px; background:var(--spectrum); transition:width .25s;}
+  nav.menu a.lnk:hover::after{width:100%;}
+  .mkt{font-family:'JetBrains Mono',monospace; font-weight:500; font-size:12px; border:1px solid var(--line); padding:6px 12px; color:var(--dim);
+    background:none; cursor:pointer; border-radius:0; transition:border-color .25s, color .25s;}
+  .mkt:hover{border-color:#fff; color:#fff;}
+  /* region dropdown — UI only, selection goes nowhere */
+  .mkt-wrap{position:relative; display:inline-block;}
+  .mkt-menu{position:absolute; top:calc(100% + 10px); right:0; z-index:80; min-width:200px;
+    background:rgba(10,7,20,.94); -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px);
+    border:1px solid var(--line); box-shadow:0 18px 44px rgba(0,0,0,.5); padding:6px;
+    display:none; flex-direction:column;}
+  .mkt-wrap.open .mkt-menu{display:flex;}
+  .mkt-wrap.up .mkt-menu{top:auto; bottom:calc(100% + 10px); right:auto; left:0;}
+  .mkt-menu button{font-family:'JetBrains Mono',monospace; font-weight:500; font-size:12px; letter-spacing:.06em; text-transform:uppercase;
+    text-align:left; color:var(--dim); background:none; border:0; border-radius:0; padding:10px 12px; cursor:pointer;
+    display:flex; align-items:center; justify-content:space-between; gap:14px; transition:background .2s, color .2s;}
+  .mkt-menu button:hover{background:rgba(255,255,255,.07); color:#fff;}
+  .mkt-menu button.on{color:var(--amber);}
+  .mkt-menu button.on::after{content:"●"; font-size:8px;}
+  nav.menu .btn{padding:11px 20px; font-size:12px;}
+  .hamb{display:none; flex-direction:column; justify-content:center; gap:5px; width:44px; height:44px; padding:0; border:0; background:none; cursor:pointer; position:relative; z-index:2;}
+  .hamb span{display:block; width:24px; height:2px; background:#fff; margin:0 auto; transition:transform .3s, opacity .3s;}
+  .hamb.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamb.open span:nth-child(2){opacity:0; transform:scaleX(0);}
+  .hamb.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .mobmenu{position:fixed; inset:0; z-index:55; background:rgba(10,7,20,.97);
+    -webkit-backdrop-filter:blur(18px); backdrop-filter:blur(18px);
+    display:flex; overflow-y:auto; -webkit-overflow-scrolling:touch; overscroll-behavior:contain;
+    padding:max(86px,10vh) 22px 44px; opacity:0; pointer-events:none; transition:opacity .35s;}
+  .mobmenu.open{opacity:1; pointer-events:auto;}
+  .mobmenu nav{display:flex; flex-direction:column; align-items:center; gap:6px; margin:auto;}
+  .mobmenu a{font-family:'Big Shoulders Display'; font-weight:800; text-transform:uppercase;
+    font-size:clamp(34px,9vw,54px); color:#fff; padding:6px 0; opacity:0; transform:translateY(18px); transition:opacity .4s, transform .4s;}
+  .mobmenu a.btn{font-family:'JetBrains Mono',monospace; font-weight:700; font-size:15px; margin-top:20px; padding:16px 34px;}
+  .mobmenu.open a{opacity:1; transform:none;}
+  .mobmenu.open a:nth-child(1){transition-delay:.06s} .mobmenu.open a:nth-child(2){transition-delay:.12s}
+  .mobmenu.open a:nth-child(3){transition-delay:.18s} .mobmenu.open a:nth-child(4){transition-delay:.24s}
+  .mobmenu.open a:nth-child(5){transition-delay:.30s}
+  /* ===== HERO — full-bleed reel, the headline is a window into it =====
+     the whole viewport is video: dimmed to ~20% everywhere, full brightness inside the letters */
+  .hero{position:relative; min-height:100svh; display:flex; align-items:flex-end; overflow:hidden;}
+  .herovid{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;}
+  .knock{position:absolute; inset:0; width:100%; height:100%; z-index:1; pointer-events:none;}
+  .knock text{font-family:'Big Shoulders Display','Archivo',sans-serif; font-weight:900; text-transform:uppercase;}
+  .hero .heroscrim{position:absolute; inset:0; z-index:2; pointer-events:none;
+    background:linear-gradient(180deg, rgba(10,7,20,.32) 0%, transparent 26%, transparent 52%, rgba(10,7,20,.94) 100%);}
+  .hero .c{position:relative; z-index:3; width:100%; padding-bottom:44px;}
+  .hero .cue{background:rgba(10,7,20,.55); padding:8px 14px; -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+    text-shadow:0 2px 12px rgba(0,0,0,.65);}
+  .mobhead{display:none; font-size:clamp(64px,19vw,110px); margin:18px 0 4px;}
+  .hero .under{padding-top:26px;}
+  .hero .under .in{display:flex; justify-content:space-between; align-items:flex-end; gap:26px; flex-wrap:wrap;}
+  .hero .lead{max-width:46ch; margin:0; text-shadow:0 2px 14px rgba(0,0,0,.55);}
+  .hero .runhead{font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--dim);
+    display:flex; gap:26px; flex-wrap:wrap; padding:22px 0 0; border-top:1px solid rgba(255,255,255,.22); margin-top:30px; width:100%;
+    text-shadow:0 1px 8px rgba(0,0,0,.6);}
+  .hero .runhead b{color:var(--amber); font-weight:500;}
+  @media(max-width:860px){
+    .knock{display:none;}
+    .mobhead{display:block;}
+    .hero .heroscrim{background:linear-gradient(180deg, rgba(10,7,20,.55) 0%, rgba(10,7,20,.35) 40%, rgba(10,7,20,.94) 100%);}
+  }
+  /* ===== the mark assembles =====
+     the real Encore mark (from the brand SVG): each facet is its own path, so the pieces
+     fly in and resolve into the exact logo — many pieces, one show */
+  .mark{width:clamp(110px,11vw,150px); margin-bottom:38px;}
+  .mark svg{display:block; width:100%; height:auto; overflow:visible;}
+  .mark svg path{transform-box:fill-box; transform-origin:center;}
+  @media(prefers-reduced-motion:no-preference){
+    .mark svg path{opacity:0; transform:translate(var(--dx,26px),var(--dy,-32px)) scale(.2);
+      transition:transform .95s cubic-bezier(.2,.7,.25,1), opacity .6s ease; transition-delay:var(--d,0s);}
+    .mark svg path:nth-child(2n){--dx:-34px;--dy:22px;}
+    .mark svg path:nth-child(3n){--dx:28px;--dy:36px;}
+    .mark svg path:nth-child(5n){--dx:-24px;--dy:-40px;}
+    .mark svg path:nth-child(7n){--dx:40px;--dy:-14px;}
+    .mark svg path:nth-child(11n){--dx:-42px;--dy:-6px;}
+    .mark svg path:nth-child(3n+1){--d:.08s;}
+    .mark svg path:nth-child(3n+2){--d:.2s;}
+    .mark svg path:nth-child(4n+3){--d:.32s;}
+    .mark svg path:nth-child(5n){--d:.42s;}
+    .mark svg path:nth-child(9n){--d:.52s;}
+    .mark.in svg path{opacity:1; transform:none;}
+  }
+  /* ===== run sheet — services as cue rows ===== */
+  .runsheet{border-top:1px solid var(--line);}
+  .rhead{display:grid; grid-template-columns:110px 90px 1fr auto 60px; gap:18px; padding:14px 0;
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted);
+    border-bottom:1px solid var(--line);}
+  .rrow{position:relative; display:grid; grid-template-columns:110px 90px 1fr auto 60px; gap:18px; align-items:center;
+    padding:34px 0; border-bottom:1px solid var(--line); transition:background .3s; isolation:isolate;}
+  .rrow::before{content:""; position:absolute; left:0; top:0; bottom:0; width:0; background:var(--g,var(--cyan)); opacity:.14; transition:width .45s cubic-bezier(.2,.7,.2,1); z-index:-1;}
+  .rrow:hover::before,.rrow:focus-visible::before{width:100%;}
+  .rrow .q{font-family:'JetBrains Mono',monospace; font-weight:700; font-size:15px; color:var(--g,var(--cyan)); letter-spacing:.08em;}
+  .rrow .tc{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted); letter-spacing:.06em;}
+  .rrow h3{font-size:clamp(30px,4.4vw,64px); transition:transform .35s cubic-bezier(.2,.7,.2,1);}
+  .rrow:hover h3{transform:translateX(14px);}
+  .rrow .dept{font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--dim); text-align:right;}
+  .rrow .ar{font-size:26px; color:var(--g,var(--cyan)); text-align:right; transition:transform .25s;}
+  .rrow:hover .ar{transform:translateX(6px);}
+  .rrow.s-tech{--g:var(--cyan);} .rrow.s-prod{--g:var(--magenta);} .rrow.s-creative{--g:var(--amber);} .rrow.s-fab{--g:var(--green);}
+  /* hover preview thumb that follows the cursor */
+  .rpeek{position:fixed; z-index:50; width:300px; aspect-ratio:16/10; pointer-events:none; overflow:hidden;
+    border:1px solid var(--line); box-shadow:0 30px 70px rgba(0,0,0,.55);
+    opacity:0; transform:scale(.92) rotate(-1.5deg); transition:opacity .25s, transform .25s;}
+  .rpeek.show{opacity:1; transform:scale(1) rotate(-1.5deg);}
+  .rpeek img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .2s;}
+  .rpeek img.on{opacity:1;}
+  @media(hover:none){.rpeek{display:none;}}
+  /* ===== stats — LED wall counters ===== */
+  .board{background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .board > .in{display:grid; grid-template-columns:repeat(4,1fr); gap:0;}
+  .board .cell{padding:clamp(34px,4vw,60px) clamp(20px,2.6vw,40px); border-left:1px solid var(--line);}
+  .board .cell:first-child{border-left:0;}
+  .board b{display:block; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:clamp(28px,3.6vw,54px); line-height:1; color:var(--gel,var(--cyan));
+    text-shadow:0 0 22px color-mix(in srgb, var(--gel,var(--cyan)) 55%, transparent);}
+  .board small{display:block; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-top:12px;}
+  .board .k-cyan{--gel:var(--cyan);} .board .k-magenta{--gel:var(--magenta);} .board .k-amber{--gel:var(--amber);} .board .k-green{--gel:var(--green);}
+  /* ===== marquee ===== */
+  .marquee{overflow:hidden; padding:30px 0; position:relative;}
+  .marquee .track{display:flex; width:max-content; animation:mq 36s linear infinite;}
+  .marquee:hover .track{animation-play-state:paused;}
+  .marquee span{font-family:'Big Shoulders Display'; font-weight:700; text-transform:uppercase; font-size:clamp(34px,5vw,72px); line-height:1;
+    color:transparent; -webkit-text-stroke:1px rgba(255,255,255,.45); padding:0 18px; white-space:nowrap;}
+  .marquee span b{color:#fff; -webkit-text-stroke:0; font-weight:800;}
+  .marquee span i{font-style:normal; color:var(--amber); -webkit-text-stroke:0; padding:0 14px;}
+  @keyframes mq{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  @media(prefers-reduced-motion:reduce){.marquee .track{animation:none;}}
+  /* ===== filmstrip work row ===== */
+  .strip{display:flex; gap:18px; overflow-x:auto; padding:6px 6px 26px; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;}
+  .strip::-webkit-scrollbar{height:6px;} .strip::-webkit-scrollbar-thumb{background:var(--navy);}
+  .shot{position:relative; flex:0 0 clamp(280px,32vw,460px); aspect-ratio:16/10; overflow:hidden; border:1px solid var(--line); scroll-snap-align:start;}
+  .shot img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .7s;}
+  .shot:hover img{transform:scale(1.05);}
+  .shot .tag{position:absolute; z-index:2; bottom:12px; left:12px; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.06em;
+    color:#fff; background:rgba(10,7,20,.65); padding:6px 12px; backdrop-filter:blur(4px); text-transform:uppercase;}
+  /* ===== finale ===== */
+  .finale{position:relative; overflow:hidden; color:#fff; text-align:center;}
+  .finale video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;}
+  .finale .scrim{position:absolute; inset:0; z-index:1; background:linear-gradient(180deg, rgba(10,7,20,.82), rgba(10,7,20,.68) 50%, rgba(10,7,20,.92));}
+  footer.site{background:#070510; color:var(--muted); padding:80px 0 34px;}
+  footer.site .brand img{height:40px;}
+  footer.site a{display:block; padding:6px 0; font-size:14px; color:var(--muted);}
+  footer.site a:hover{color:#fff;}
+  .colhead{font-family:'JetBrains Mono',monospace; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#fff; margin-bottom:10px; font-size:12px;}
+  .grid{display:grid; gap:22px;} .g4{grid-template-columns:repeat(4,1fr);}
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1; transform:none;}
+  .reveal.d1{transition-delay:.08s;} .reveal.d2{transition-delay:.16s;}
+  @media(max-width:960px){
+    nav.menu{display:none;} .hamb{display:flex;}
+    .rhead{display:none;}
+    .rrow{grid-template-columns:64px 1fr 40px; gap:12px;}
+    .rrow .tc,.rrow .dept{display:none;}
+    .board > .in{grid-template-columns:1fr 1fr;}
+    .board .cell{border-left:0; border-top:1px solid var(--line);}
+    .board .cell:nth-child(-n+2){border-top:0;}
+    .board .cell:nth-child(2n){border-left:1px solid var(--line);}
+    .g4{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:600px){ .g4{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="nav" id="nav">
+  <div class="row">
+    <a class="brand" href="#" aria-label="Encore home"><img src="../assets/encore-logo-white.png" alt="Encore"></a>
+    <nav class="menu">
+      <a class="lnk" href="#runsheet">What we do</a>
+      <a class="lnk" href="#work">Work</a>
+      <a class="lnk" href="#venues">Venues</a>
+      <a class="lnk" href="#">About</a>
+      <div class="mkt-wrap">
+        <button class="mkt" type="button" aria-haspopup="true" aria-expanded="false">EMEA ▾</button>
+        <div class="mkt-menu" role="menu">
+          <button type="button" role="menuitem" data-region="North America">North America</button>
+          <button type="button" role="menuitem" data-region="EMEA" class="on">EMEA</button>
+          <button type="button" role="menuitem" data-region="APAC">APAC</button>
+        </div>
+      </div>
+      <a class="btn btn-gel" href="#venues">Start your event</a>
+    </nav>
+    <button class="hamb" id="hamb" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobmenu" id="mobmenu">
+  <nav>
+    <a href="#runsheet">What we do</a>
+    <a href="#work">Work</a>
+    <a href="#venues">Venues</a>
+    <a href="#">About</a>
+    <a href="#venues" class="btn btn-gel">Start your event</a>
+  </nav>
+</div>
+
+<!-- ===== HERO — full-bleed reel, the headline is a window into it ===== -->
+<section class="hero" aria-label="Show time — Encore show reel">
+  <video class="herovid" autoplay muted loop playsinline poster="../assets/video/encore-lighting-poster.jpg">
+    <source src="../assets/video/encore-lighting.mp4" type="video/mp4">
+  </video>
+  <!-- the dim: everything outside the letters drops to ~20%; the letters stay full brightness -->
+  <svg class="knock" viewBox="0 0 1440 810" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <mask id="knockmask">
+        <rect width="1440" height="810" fill="#fff"/>
+        <text x="72" y="500" font-size="330" fill="#000" textLength="1296" lengthAdjust="spacingAndGlyphs">SHOW TIME.</text>
+      </mask>
+    </defs>
+    <rect width="1440" height="810" fill="#0A0714" fill-opacity="0.8" mask="url(#knockmask)"/>
+  </svg>
+  <div class="heroscrim"></div>
+  <div class="grain" style="z-index:2;"></div>
+  <div class="wrap c">
+    <div class="cue" style="--gel:var(--amber);">Encore · tonight's running order</div>
+    <h1 class="mobhead">Show<br>time.</h1>
+    <div class="under">
+      <div class="in">
+        <p class="lead">We are Encore, the production company behind 400,000 events a year. Technology, production, creative and fabrication, run from one desk.</p>
+        <div style="display:flex; gap:14px; flex-wrap:wrap;">
+          <a class="btn btn-gel" href="#venues">Start your event <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-ghost" href="#runsheet">Read the run sheet</a>
+        </div>
+      </div>
+      <div class="runhead">
+        <span>SHOW <b>ENCORE·GLOBAL</b></span>
+        <span>DOORS <b>ALWAYS OPEN</b></span>
+        <span>VENUES <b>2,200+</b></span>
+        <span>CREW <b>12,000</b></span>
+        <span>STATUS <b>STANDING BY</b></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RUN SHEET — services ===== -->
+<section class="pad" id="runsheet" style="padding-top:clamp(60px,7vw,100px);">
+  <div class="wrap">
+    <!-- the mark assembles: the real Encore mark, facet by facet -->
+    <div class="mark" aria-hidden="true">
+      <svg viewBox="0 0 90 111" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.1542 58.7067L13.7229 62.1445L17.1542 65.5824H10.2916V58.7067H17.1542Z" fill="#D1D2D2"/>
+        <path d="M6.86263 69.0203L10.2916 72.4558V79.3315L6.86263 82.7694L0 75.8937L6.86263 69.0203Z" fill="#F19633"/>
+        <path d="M34.3113 96.5172L27.4488 103.393L34.3113 110.269L41.1739 103.393L34.3113 96.5172Z" fill="#1875BA"/>
+        <path d="M27.4469 48.3924L20.5843 55.2681L27.4469 62.1437L34.3094 55.2681L27.4469 48.3924Z" fill="#D1D2D2"/>
+        <path d="M51.4626 17.457L58.3253 24.3327V38.0818L44.6024 24.3327H51.4626V17.457Z" fill="#856A3B"/>
+        <path d="M48.0337 14.0191L51.4626 17.457H44.6024L48.0337 14.0191Z" fill="#937239"/>
+        <path d="M58.3253 65.5824V86.2073L51.4626 93.0807V86.2073H44.6024V79.3315H37.7397L51.4626 65.5824H58.3253Z" fill="#4E4B85"/>
+        <path d="M78.9108 65.5824L75.4795 69.0203L72.0481 65.5824H78.9108Z" fill="#2E408B"/>
+        <path d="M24.0168 44.9576H17.1542V51.8333H24.0168V44.9576Z" fill="#F9C429"/>
+        <path d="M34.3118 0.269146L27.4493 7.14481L34.3118 14.0205L41.1744 7.14481L34.3118 0.269146Z" fill="#90C74F"/>
+        <path d="M58.3253 44.9576V58.7067L51.4626 65.5824H30.8771L27.4482 62.1446L34.3084 55.2688L27.4482 48.3954L30.8771 44.9576H58.3253Z" fill="#CA2B2F"/>
+        <path d="M20.5852 82.7698L13.7226 89.6454L20.5852 96.5211L27.4477 89.6454L20.5852 82.7698Z" fill="#E7262B"/>
+        <path d="M44.6024 24.3327L58.3253 38.0818V44.9576H30.8771V38.0818H37.7397V31.2061H44.6024V24.3327Z" fill="#953037"/>
+        <path d="M75.4795 41.5197L78.9108 44.9576H72.0481L75.4795 41.5197Z" fill="#268748"/>
+        <path d="M72.0482 44.9576L68.6192 48.3954L65.1879 44.9576H72.0482Z" fill="#F19633"/>
+        <path d="M61.7566 55.2688L72.0482 65.5824H58.3253V58.7067L61.7566 55.2688Z" fill="#11BFDD"/>
+        <path d="M72.0481 65.5824L75.4795 69.0203L58.3253 86.2073V65.5824H72.0481Z" fill="#564E91"/>
+        <path d="M51.4626 93.0807L48.0337 96.5185L44.6024 93.0807H51.4626Z" fill="#4E4B85"/>
+        <path d="M44.6024 86.2073H51.4626V93.0807H44.6024L41.171 89.6452L34.3084 96.5185L27.4482 89.6452L37.7397 79.3315H44.6024V86.2073Z" fill="#11BFDD"/>
+        <path d="M44.6024 93.0807L48.0337 96.5185L44.6024 99.9564V93.0807Z" fill="#A4529C"/>
+        <path d="M20.586 96.5173L13.7234 103.393L20.586 110.269L27.4485 103.393L20.586 96.5173Z" fill="#1875BA"/>
+        <path d="M58.3253 58.7067V65.5824H51.4626L58.3253 58.7067Z" fill="#21A8BE"/>
+        <path d="M58.3253 38.0818L65.1879 44.9576H58.3253V38.0818Z" fill="#CA2B2F"/>
+        <path d="M58.3253 24.3327L75.4795 41.5197L72.0481 44.9576H65.1879L58.3253 38.0818V24.3327Z" fill="#937239"/>
+        <path d="M44.6024 10.5812L48.0337 14.0191L44.6024 17.457V10.5812Z" fill="#90C74F"/>
+        <path d="M51.4626 17.457V24.3327H44.6024L41.171 20.8948L44.6024 17.457H51.4626Z" fill="#F19633"/>
+        <path d="M20.5774 0.268871L13.7148 7.14453L20.5774 14.0202L27.4399 7.14453L20.5774 0.268871Z" fill="#90C74F"/>
+        <path d="M20.5849 14.0192L13.7223 20.8948L20.5849 27.7705L27.4474 20.8948L20.5849 14.0192Z" fill="#90C74F"/>
+        <path d="M6.86263 27.7706L10.2916 31.2061V38.0818L6.86263 41.5197L0 34.644L6.86263 27.7706Z" fill="#F9C429"/>
+        <path d="M37.7397 79.3315V72.4558H30.8771L34.3084 69.0203L30.8771 65.5824H51.4626L37.7397 79.3315Z" fill="#953037"/>
+        <path d="M37.7397 72.4558V79.3315L34.3084 82.7694L30.8771 79.3315V72.4558H37.7397Z" fill="#E7262B"/>
+        <path d="M30.8771 72.4558V79.3315L27.4482 75.8937L30.8771 72.4558Z" fill="#CA2B2F"/>
+        <path d="M27.4482 75.8937L30.8771 79.3315H24.0168L27.4482 75.8937Z" fill="#D1D2D2"/>
+        <path d="M30.8771 72.4558L27.4482 75.8937L24.0168 72.4558H30.8771Z" fill="#D1D2D2"/>
+        <path d="M30.8771 65.5824L34.3084 69.0203L30.8771 72.4558V65.5824Z" fill="#A4529C"/>
+        <path d="M27.4482 62.1446L30.8771 65.5824H24.0168L27.4482 62.1446Z" fill="#D1D2D2"/>
+        <path d="M24.0168 65.5824V72.4558L20.5855 69.0203L24.0168 65.5824Z" fill="#D1D2D2"/>
+        <path d="M17.1542 65.5824L20.5855 69.0203L17.1542 72.4558V65.5824Z" fill="#D1D2D2"/>
+        <path d="M24.0168 65.5824L20.5855 69.0203L17.1542 65.5824H24.0168Z" fill="#D18437"/>
+        <path d="M24.0168 58.7067L27.4482 62.1445L24.0168 65.5824V58.7067Z" fill="#D18437"/>
+        <path d="M24.0168 58.7067H17.1542V65.5824H24.0168V58.7067Z" fill="#F19633"/>
+        <path d="M17.1542 58.7067V65.5824L13.7229 62.1445L17.1542 58.7067Z" fill="#D18437"/>
+        <path d="M20.5855 55.2688L24.0168 58.7067H17.1542L20.5855 55.2688Z" fill="#D18437"/>
+        <path d="M24.0168 51.8309L20.5855 55.2688L17.1542 51.8309H24.0168Z" fill="#D4A935"/>
+        <path d="M17.1542 51.8309L20.5855 55.2688L17.1542 58.7067V51.8309Z" fill="#D1D2D2"/>
+        <path d="M24.0168 72.4558V79.3315L20.5855 82.7694L17.1542 79.3315V72.4558H24.0168Z" fill="#F19633"/>
+        <path d="M24.0168 72.4558L27.4482 75.8937L24.0168 79.3315V72.4558Z" fill="#D18437"/>
+        <path d="M20.5855 69.0203L24.0168 72.4558H17.1542L20.5855 69.0203Z" fill="#D18437"/>
+        <path d="M13.7229 75.8937L17.1542 79.3315H10.2916L13.7229 75.8937Z" fill="#D1D2D2"/>
+        <path d="M17.1542 72.4558V79.3315L13.7229 75.8937L17.1542 72.4558Z" fill="#D18437"/>
+        <path d="M17.1542 72.4558L13.7229 75.8937L10.2916 72.4558H17.1542Z" fill="#D1D2D2"/>
+        <path d="M10.2916 72.4558L13.7229 75.8937L10.2916 79.3315V72.4558Z" fill="#D18437"/>
+        <path d="M65.1879 44.9576L68.6192 48.3954L58.3253 58.7067V44.9576H65.1879Z" fill="#E7262B"/>
+        <path d="M30.8771 31.2061V38.0818L27.4482 34.644L30.8771 31.2061Z" fill="#CA2B2F"/>
+        <path d="M34.3084 14.0191L44.6024 24.3327V31.2061H37.7397V38.0818H30.8771V31.2061L34.3084 27.7706L27.4482 20.8948L34.3084 14.0191Z" fill="#E7262B"/>
+        <path d="M24.0168 44.9576L27.4482 48.3954L24.0168 51.831V44.9576Z" fill="#D4A935"/>
+        <path d="M20.5855 41.5197L24.0168 44.9576H17.1542L20.5855 41.5197Z" fill="#D4A935"/>
+        <path d="M30.8771 44.9576L27.4482 48.3954L24.0168 44.9576H30.8771Z" fill="#D1D2D2"/>
+        <path d="M24.0168 38.0818V44.9576L20.5855 41.5197L24.0168 38.0818Z" fill="#D1D2D2"/>
+        <path d="M27.4482 34.644L30.8771 38.0818H24.0168L27.4482 34.644Z" fill="#D1D2D2"/>
+        <path d="M30.8771 31.2061L27.4482 34.644L24.0168 31.2061H30.8771Z" fill="#D1D2D2"/>
+        <path d="M17.1542 38.0818L20.5855 41.5197L17.1542 44.9576V38.0818Z" fill="#D1D2D2"/>
+        <path d="M17.1542 44.9576V51.831L13.7229 48.3954L17.1542 44.9576Z" fill="#D4A935"/>
+        <path d="M17.1542 44.9576L13.7229 48.3954L17.1542 51.831H10.2916V44.9576H17.1542Z" fill="#D1D2D2"/>
+        <path d="M10.2939 51.8309H3.43132V58.7067H10.2939V51.8309Z" fill="#D1D2D2"/>
+        <path d="M24.0168 38.0818L20.5855 41.5197L17.1542 38.0818H24.0168Z" fill="#D4A935"/>
+        <path d="M24.0168 31.2061L27.4482 34.644L24.0168 38.0818V31.2061Z" fill="#D4A935"/>
+        <path d="M20.5855 27.7706L24.0168 31.2061V38.0818H17.1542V31.2061L20.5855 27.7706Z" fill="#F9C429"/>
+        <path d="M17.1542 31.2061V38.0818L13.7229 34.644L17.1542 31.2061Z" fill="#D4A935"/>
+        <path d="M13.7229 34.644L17.1542 38.0818H10.2916L13.7229 34.644Z" fill="#D1D2D2"/>
+        <path d="M17.1542 31.2061L13.7229 34.644L10.2916 31.2061H17.1542Z" fill="#D1D2D2"/>
+        <path d="M10.2916 31.2061L13.7229 34.644L10.2916 38.0818V31.2061Z" fill="#D4A935"/>
+        <path d="M78.9108 44.9576L89.2047 55.2688L78.9108 65.5824H72.0481L61.7566 55.2688L72.0481 44.9576H78.9108Z" fill="#1875BA"/>
+      </svg>
+    </div>
+    <div class="reveal" style="max-width:760px; margin-bottom:40px;">
+      <div class="cue" style="--gel:var(--cyan);">The running order</div>
+      <h2 style="margin-top:18px;">Four departments.<br>One cue stack.</h2>
+    </div>
+    <div class="runsheet reveal">
+      <div class="rhead"><span>Cue</span><span>TC</span><span>Item</span><span>Dept</span><span></span></div>
+      <a class="rrow s-tech" href="#" data-peek="../assets/img/AdobeStock_473049258-scaled.jpg">
+        <span class="q">Q·01</span><span class="tc">00:00:04</span>
+        <h3>Event technology</h3>
+        <span class="dept">AUD · VID · LX</span><span class="ar">→</span>
+      </a>
+      <a class="rrow s-prod" href="#" data-peek="../assets/img/home-production-services-3.jpg">
+        <span class="q">Q·02</span><span class="tc">00:00:08</span>
+        <h3>Production</h3>
+        <span class="dept">STAGE · RIG · OPS</span><span class="ar">→</span>
+      </a>
+      <a class="rrow s-creative" href="#" data-peek="../assets/img/home-modal-inspire-1.jpg">
+        <span class="q">Q·03</span><span class="tc">00:00:12</span>
+        <h3>Creative</h3>
+        <span class="dept">STORY · CONTENT</span><span class="ar">→</span>
+      </a>
+      <a class="rrow s-fab" href="#" data-peek="../assets/img/home-design-fabrication-2.jpg">
+        <span class="q">Q·04</span><span class="tc">00:00:16</span>
+        <h3>Design &amp; fabrication</h3>
+        <span class="dept">SCENIC · EXHIBITS</span><span class="ar">→</span>
+      </a>
+    </div>
+    <p class="mono" style="margin-top:18px; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted);">Hover a cue to preview · full case studies in the work reel below</p>
+  </div>
+</section>
+
+<!-- hover preview -->
+<div class="rpeek" id="rpeek" aria-hidden="true">
+  <img src="../assets/img/AdobeStock_473049258-scaled.jpg" alt="">
+  <img src="../assets/img/home-production-services-3.jpg" alt="">
+  <img src="../assets/img/home-modal-inspire-1.jpg" alt="">
+  <img src="../assets/img/home-design-fabrication-2.jpg" alt="">
+</div>
+
+<!-- ===== BOARD — stats as desk readouts ===== -->
+<div class="board">
+  <div class="in">
+    <div class="cell k-cyan reveal"><b data-count="2200" data-suffix="+" data-comma="1">0</b><small>Partner venues</small></div>
+    <div class="cell k-magenta reveal d1"><b data-count="23">0</b><small>Countries</small></div>
+    <div class="cell k-amber reveal"><b data-count="400" data-suffix="K">0</b><small>Events a year</small></div>
+    <div class="cell k-green reveal d1"><b data-count="30" data-suffix="M">0</b><small>People reached</small></div>
+  </div>
+</div>
+
+<!-- ===== EVENT TYPES — marquee ===== -->
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span><b>Meetings</b> <i>·</i> Conferences <i>·</i> <b>Galas</b> <i>·</i> Product launches <i>·</i> <b>Tradeshows</b> <i>·</i> Award shows <i>·</i> <b>Hybrid &amp; virtual</b> <i>·</i> Weddings <i>·</i> </span>
+    <span><b>Meetings</b> <i>·</i> Conferences <i>·</i> <b>Galas</b> <i>·</i> Product launches <i>·</i> <b>Tradeshows</b> <i>·</i> Award shows <i>·</i> <b>Hybrid &amp; virtual</b> <i>·</i> Weddings <i>·</i> </span>
+  </div>
+</div>
+<hr class="beamline">
+
+<!-- ===== WORK — filmstrip ===== -->
+<section class="pad" id="work">
+  <div class="wrap">
+    <div class="reveal" style="display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; margin-bottom:44px;">
+      <div>
+        <div class="cue" style="--gel:var(--magenta);">The work reel</div>
+        <h2 style="margin-top:18px;">Straight from<br>the last load-out.</h2>
+      </div>
+      <a class="btn btn-ghost" href="#">All case studies</a>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="strip reveal">
+      <a class="shot" href="#"><img src="../assets/img/AdobeStock_1087309299_home3.jpg" alt="" loading="lazy"><span class="tag">Front of house · Arena kick-off</span></a>
+      <a class="shot" href="#"><img src="../assets/img/inspire-audiences-with-the-persuasive.jpg" alt="" loading="lazy"><span class="tag">Launch · Immersive brand night</span></a>
+      <a class="shot" href="#"><img src="../assets/img/AdobeStock_433864356-copy.jpg" alt="" loading="lazy"><span class="tag">Hybrid · Global town hall</span></a>
+      <a class="shot" href="#"><img src="../assets/img/2019_05_Hargrove_00295-copy.jpg" alt="" loading="lazy"><span class="tag">Scenic · Custom photo moment</span></a>
+      <a class="shot" href="#"><img src="../assets/img/AdobeStock_191779307-scaled.jpg" alt="" loading="lazy"><span class="tag">Conference · 6,000 delegates</span></a>
+      <a class="shot" href="#"><img src="../assets/img/AdobeStock_36514925-copy.jpg" alt="" loading="lazy"><span class="tag">Celebration · Private gala</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINALE ===== -->
+<section class="finale" id="venues" style="padding:clamp(110px,14vw,190px) 0;">
+  <video autoplay muted loop playsinline preload="none" data-autoplay poster="../assets/video/encore-home-reel-poster.jpg">
+    <source src="../assets/video/encore-home-reel.mp4" type="video/mp4">
+  </video>
+  <div class="scrim"></div><div class="grain"></div>
+  <div class="wrap" style="position:relative; z-index:3; text-align:center; max-width:860px; margin:0 auto;">
+    <div class="reveal">
+      <div class="cue" style="--gel:var(--amber); justify-content:center;">Final cue</div>
+      <h2 style="margin:18px 0 14px; font-size:clamp(44px,7.5vw,104px);">Your name<br>on the run sheet.</h2>
+      <p class="lead" style="margin-bottom:30px;">Tell us the date and the room. We'll bring everything else.</p>
+      <div style="display:flex; gap:14px; flex-wrap:wrap; justify-content:center;">
+        <a class="btn btn-gel" href="#">Start your event <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="#">Find your venue</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site">
+  <div class="wrap">
+    <div class="grid g4" style="margin-bottom:44px;">
+      <div>
+        <a class="brand" href="#" aria-label="Encore home"><img src="../assets/encore-logo-white.png" alt="Encore"></a>
+        <p style="margin-top:16px; font-size:14px; color:var(--muted); max-width:30ch;">The global production partner for events that transform.</p>
+        <div class="mkt-wrap up">
+          <button class="mkt" type="button" aria-haspopup="true" aria-expanded="false">EMEA ▾</button>
+          <div class="mkt-menu" role="menu">
+            <button type="button" role="menuitem" data-region="North America">North America</button>
+            <button type="button" role="menuitem" data-region="EMEA" class="on">EMEA</button>
+            <button type="button" role="menuitem" data-region="APAC">APAC</button>
+          </div>
+        </div>
+      </div>
+      <div><div class="colhead">What we do</div><a href="#">Event technology</a><a href="#">Production</a><a href="#">Creative</a><a href="#">Design &amp; fabrication</a></div>
+      <div><div class="colhead">Planners</div><a href="#">Find your venue</a><a href="#">Case studies</a><a href="#">Event planning resources</a><a href="#">Sustainability</a></div>
+      <div><div class="colhead">Company</div><a href="#">About Encore</a><a href="#">Careers</a><a href="#">Hotel &amp; venue partners</a><a href="#">Contact</a></div>
+    </div>
+    <hr class="beamline" style="opacity:.5;">
+    <div style="padding-top:20px; font-size:12px; color:var(--muted); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-family:'JetBrains Mono',monospace;">
+      <span>© Encore Global · concept mockup B · "the run sheet"</span>
+      <span>Footage: encoreglobal.com · figures from encoreglobal.com/about</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // region dropdown — opens and picks, never navigates
+  (function(){
+    const wraps=[...document.querySelectorAll('.mkt-wrap')]; if(!wraps.length) return;
+    const closeAll=()=>wraps.forEach(w=>{ w.classList.remove('open'); w.querySelector('.mkt').setAttribute('aria-expanded','false'); });
+    wraps.forEach(w=>{
+      const btn=w.querySelector('.mkt');
+      btn.addEventListener('click',e=>{ e.stopPropagation();
+        const open=!w.classList.contains('open'); closeAll();
+        w.classList.toggle('open',open); btn.setAttribute('aria-expanded',open); });
+      w.querySelectorAll('.mkt-menu button').forEach(b=>b.addEventListener('click',e=>{ e.stopPropagation();
+        const r=b.dataset.region;
+        document.querySelectorAll('.mkt').forEach(m=>m.textContent=r+' ▾');
+        document.querySelectorAll('.mkt-menu button').forEach(x=>x.classList.toggle('on', x.dataset.region===r));
+        closeAll(); }));
+    });
+    addEventListener('click',e=>{ if(!e.target.closest('.mkt-wrap')) closeAll(); });
+    addEventListener('keydown',e=>{ if(e.key==='Escape') closeAll(); });
+  })();
+  // mobile menu
+  (function(){
+    const hamb=document.getElementById('hamb'), mob=document.getElementById('mobmenu'); if(!hamb||!mob) return;
+    function set(open){ mob.classList.toggle('open',open); hamb.classList.toggle('open',open);
+      hamb.setAttribute('aria-expanded',open); document.documentElement.style.overflow=open?'hidden':''; }
+    hamb.addEventListener('click',()=>set(!mob.classList.contains('open')));
+    mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>set(false)));
+    addEventListener('keydown',e=>{ if(e.key==='Escape') set(false); });
+  })();
+  // reveals
+  const ro=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in'); ro.unobserve(e.target);}}),{threshold:.15});
+  document.querySelectorAll('.reveal, .mark').forEach(el=>rm?el.classList.add('in'):ro.observe(el));
+  // count-up (desk readouts)
+  function fmt(v,comma){ v=Math.round(v)+''; return comma?v.replace(/\B(?=(\d{3})+(?!\d))/g,','):v; }
+  function animateCount(el){
+    const target=+el.dataset.count, suf=el.dataset.suffix||'', comma=el.dataset.comma==='1', dur=1400, t0=performance.now();
+    (function step(t){let p=Math.min((t-t0)/dur,1); p=1-Math.pow(1-p,3);
+      el.textContent=fmt(target*p,comma)+suf; if(p<1) requestAnimationFrame(step);})(t0);
+  }
+  const co=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){
+    const el=e.target;
+    rm ? el.textContent=fmt(+el.dataset.count, el.dataset.comma==='1')+(el.dataset.suffix||'') : animateCount(el);
+    co.unobserve(el);}}),{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
+  // lazy play finale video
+  const vo=new IntersectionObserver((es)=>es.forEach(e=>{
+    const v=e.target.matches('video')?e.target:e.target.querySelector('video'); if(!v) return;
+    if(e.isIntersecting){ if(v.preload==='none') v.preload='auto'; v.play().catch(()=>{}); } else v.pause();
+  }),{threshold:.25});
+  document.querySelectorAll('[data-autoplay]').forEach(el=>vo.observe(el));
+  // run-sheet hover preview follows the cursor
+  (function(){
+    const peek=document.getElementById('rpeek'); if(!peek) return;
+    const imgs=[...peek.querySelectorAll('img')];
+    const rows=[...document.querySelectorAll('.rrow')];
+    if(matchMedia('(hover:none)').matches || rm) return;
+    let raf=null, x=0, y=0;
+    function move(e){ x=e.clientX; y=e.clientY;
+      if(!raf) raf=requestAnimationFrame(()=>{ peek.style.left=(x+26)+'px'; peek.style.top=(y-90)+'px'; raf=null; }); }
+    rows.forEach((r,i)=>{
+      r.addEventListener('mouseenter',()=>{ imgs.forEach((im,j)=>im.classList.toggle('on', j===i)); peek.classList.add('show'); });
+      r.addEventListener('mouseleave',()=>peek.classList.remove('show'));
+      r.addEventListener('mousemove',move);
+    });
+  })();
+</script>
+</body>
+</html>

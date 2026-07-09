@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Encore · Homepage concepts</title>
+<meta name="description" content="Encore homepage redesign concepts. Dark, video-led directions built around the stage-light spectrum.">
+<meta name="theme-color" content="#0A0714">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#0A0714; --navy:#1F1646; --surface:#14102B;
+    --line:rgba(255,255,255,.14);
+    --white:#fff; --dim:#C9C5DC; --muted:#8B85A6;
+    --cyan:#11BFDD; --magenta:#C13FA8; --amber:#F9C429; --green:#90C74F; --violet:#7B5CFF;
+    --spectrum:linear-gradient(90deg,var(--cyan),var(--violet) 30%,var(--magenta) 55%,#E7262B 75%,var(--amber));
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--void); color:#fff; font-family:'Archivo',sans-serif; line-height:1.6;
+    -webkit-font-smoothing:antialiased; min-height:100svh;}
+  a{color:inherit; text-decoration:none;}
+  :focus-visible{outline:2px solid var(--amber); outline-offset:3px;}
+  .wrap{max-width:1280px; margin:0 auto; padding:clamp(40px,6vw,90px) clamp(22px,5vw,72px) 60px;}
+  header{display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; margin-bottom:clamp(40px,6vw,80px);}
+  header img{height:34px; display:block;}
+  .mono{font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted);}
+  h1{font-family:'Big Shoulders Display',sans-serif; font-weight:900; text-transform:uppercase; line-height:.86;
+    font-size:clamp(52px,8vw,120px); margin:0 0 14px;}
+  .sub{color:var(--dim); max-width:62ch; font-size:clamp(16px,1.4vw,19px); margin:0 0 clamp(40px,5vw,70px);}
+  .beamline{height:2px; background:var(--spectrum); border:0; margin:26px 0 clamp(40px,5vw,64px);}
+  .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
+  .card{position:relative; border:1px solid var(--line); background:var(--surface); overflow:hidden; display:flex; flex-direction:column;
+    transition:transform .35s cubic-bezier(.2,.7,.2,1), border-color .35s;}
+  .card:hover{transform:translateY(-6px); border-color:var(--g,var(--cyan));}
+  .card::after{content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--g,var(--cyan));}
+  .card .im{aspect-ratio:16/10; overflow:hidden; background:#070510;}
+  .card .im img{width:100%; height:100%; object-fit:cover; object-position:top; display:block; transition:transform .7s;}
+  .card:hover .im img{transform:scale(1.04);}
+  .card .c{padding:22px 22px 26px; display:flex; flex-direction:column; gap:10px; flex:1;}
+  .card .id{font-family:'JetBrains Mono',monospace; font-weight:500; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--g,var(--cyan));}
+  .card h2{font-family:'Big Shoulders Display',sans-serif; font-weight:800; text-transform:uppercase; font-size:clamp(26px,2.4vw,36px); line-height:.9; margin:0;}
+  .card p{color:var(--dim); font-size:14px; margin:0; flex:1;}
+  .card .go{font-family:'JetBrains Mono',monospace; font-weight:700; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#fff;
+    display:inline-flex; gap:8px; align-items:center; margin-top:8px;}
+  .card .go .ar{transition:transform .25s;} .card:hover .go .ar{transform:translateX(5px);}
+  .card.o-a{--g:var(--amber);} .card.o-b{--g:var(--magenta);} .card.o-c{--g:var(--cyan);} .card.o-d{--g:var(--violet);} .card.o-e{--g:var(--green);}
+  footer{margin-top:clamp(50px,7vw,90px); font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--muted); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;}
+  .archive{margin-top:clamp(50px,7vw,90px); border:1px solid var(--line);}
+  .archive summary{list-style:none; cursor:pointer; display:flex; align-items:center; gap:14px; padding:18px 22px;
+    font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted);
+    transition:color .25s;}
+  .archive summary::-webkit-details-marker{display:none;}
+  .archive summary:hover{color:#fff;}
+  .archive summary .chev{transition:transform .25s; font-family:'Archivo',sans-serif;}
+  .archive[open] summary .chev{transform:rotate(90deg);}
+  .archive summary .count{margin-left:auto; color:var(--muted);}
+  .archive .inner{padding:6px 22px 26px;}
+  .archive .note{color:var(--muted); font-size:13px; margin:0 0 22px; max-width:70ch;}
+  .archive .cards .card{opacity:.75; transition:opacity .35s, transform .35s cubic-bezier(.2,.7,.2,1), border-color .35s;}
+  .archive .cards .card:hover{opacity:1;}
+  @media(max-width:900px){ .cards{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="assets/encore-logo-white.png" alt="Encore">
+    <span class="mono">Homepage redesign · concept round 01</span>
+  </header>
+  <h1>Five ways to<br>raise the lights.</h1>
+  <p class="sub">Homepage concepts for encoreglobal.com. The live line-up: Option A V2, the classic round-01 rebuild with Option E's facet gems and a fill-in-the-blanks brief; Option D, the chosen dark-first studio direction from round 02; and the C V2 lead-generation cut. Retired concepts from both rounds live on in the archive below.</p>
+  <hr class="beamline">
+  <div class="cards">
+    <a class="card o-a" href="homepage-option-a-v2.html">
+      <div class="im"><img src="assets/img/preview-a.png" alt="Option A V2 preview" loading="lazy"></div>
+      <div class="c">
+        <span class="id">Option A · V2 faceted</span>
+        <h2>House lights down, faceted</h2>
+        <p>Option A with the facet gems from Option E drifting through the hero on pointer parallax, and the finale rebuilt as a fill-in-the-blanks brief instead of plain buttons.</p>
+        <span class="go">Open concept <span class="ar">→</span></span>
+      </div>
+    </a>
+    <a class="card o-d" href="homepage-option-d.html">
+      <div class="im"><img src="assets/img/preview-d.png" alt="Option D preview" loading="lazy"></div>
+      <div class="c">
+        <span class="id">Option D · the studio</span>
+        <h2>Daylight</h2>
+        <p>Dark-first with a light switch. Bricolage Grotesque, sharp edges, gel-facet accents from the mark, a scroll-scrubbed build film for the hero and real Encore shows revealed through scroll masks.</p>
+        <span class="go">Open concept <span class="ar">→</span></span>
+      </div>
+    </a>
+    <a class="card o-c" href="homepage-option-c-v2.html">
+      <div class="im"><img src="assets/img/preview-c.png" alt="Option C V2 preview" loading="lazy"></div>
+      <div class="c">
+        <span class="id">Option C · V2 lead engine</span>
+        <h2>Concept to contact</h2>
+        <p>C-lorem re-tuned for lead generation: CTAs above the fold, a producer on call from every scroll depth, conversion bands between sections and a booking-sheet form finale.</p>
+        <span class="go">Open concept <span class="ar">→</span></span>
+      </div>
+    </a>
+  </div>
+  <details class="archive">
+    <summary><span class="chev">›</span> Archive · earlier concepts <span class="count">5 retired</span></summary>
+    <div class="inner">
+      <p class="note">Concepts retired from the main line-up. They still run in full; assets are shared with the live options.</p>
+      <div class="cards">
+        <a class="card o-a" href="archive/homepage-option-a.html">
+          <div class="im"><img src="assets/img/preview-a.png" alt="Option A preview" loading="lazy"></div>
+          <div class="c">
+            <span class="id">Option A · safe but cinematic</span>
+            <h2>House lights down</h2>
+            <p>A classic vertical page with full-bleed video, a spotlight-sweep headline reveal and gel-coded service splits. Superseded by the V2 faceted cut in the live line-up.</p>
+            <span class="go">Open concept <span class="ar">→</span></span>
+          </div>
+        </a>
+        <a class="card o-b" href="archive/homepage-option-b.html">
+          <div class="im"><img src="assets/img/preview-b.png" alt="Option B preview" loading="lazy"></div>
+          <div class="c">
+            <span class="id">Option B · the risk</span>
+            <h2>The run sheet</h2>
+            <p>The page is structured like a show's running order. The reel plays inside the headline, services are cue rows with hover previews, stats read like desk readouts.</p>
+            <span class="go">Open concept <span class="ar">→</span></span>
+          </div>
+        </a>
+        <a class="card o-c" href="archive/homepage-option-c.html">
+          <div class="im"><img src="assets/img/preview-c.png" alt="Option C preview" loading="lazy"></div>
+          <div class="c">
+            <span class="id">Option C · the show film</span>
+            <h2>Concept to show time</h2>
+            <p>One continuous film scrubbed by scroll while four chapters travel sideways, from an empty room to a full one. Swipe stories on mobile.</p>
+            <span class="go">Open concept <span class="ar">→</span></span>
+          </div>
+        </a>
+        <a class="card o-c" href="archive/homepage-option-c-lorem.html">
+          <div class="im"><img src="assets/img/preview-c.png" alt="Option C lorem preview" loading="lazy"></div>
+          <div class="c">
+            <span class="id">Option C-lorem · placeholder copy</span>
+            <h2>Concept to show time, unwritten</h2>
+            <p>The same build as Option C with every headline and paragraph swapped for lorem ipsum, to judge the layout without the words.</p>
+            <span class="go">Open concept <span class="ar">→</span></span>
+          </div>
+        </a>
+        <a class="card o-e" href="archive/homepage-option-e.html">
+          <div class="im"><img src="assets/img/preview-e.png" alt="Option E preview" loading="lazy"></div>
+          <div class="c">
+            <span class="id">Option E · the showpiece</span>
+            <h2>Facets</h2>
+            <p>The Encore diamond as architecture. A diamond iris opens onto real event film, services are gel-washed rooms that stack like lighting cues, event rows flood with colour, and the CTA plays the show film inside a diamond. GSAP-driven.</p>
+            <span class="go">Open concept <span class="ar">→</span></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </details>
+  <footer>
+    <span>© Encore Global · internal design concepts</span>
+    <span>Assets: encoreglobal.com · Mixkit</span>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en-GB" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Encore · Homepage (Option D · daylight · placeholder copy)</title>
+<meta name="description" content="Option D with placeholder lorem ipsum copy: same layout, motion and structure, content-neutral.">
+<meta name="theme-color" content="#0C0C0E" id="themecolor">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<script>
+  // apply saved theme before first paint
+  (function(){
+    var t = null;
+    try { t = localStorage.getItem('encore-theme'); } catch(e) {}
+    if (t !== 'dark' && t !== 'light') t = 'dark';
+    document.documentElement.dataset.theme = t;
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* dark house by default; sharp geometry; colour comes from the mark's gel facets */
+    --paper:#0C0C0E; --ink:#F4F3F0; --soft:#151517; --card:#141417; --band:#161620;
+    --hairline:rgba(244,243,240,.14); --hairline-strong:rgba(244,243,240,.28);
+    --muted:#96939D; --dim:#C4C1CA;
+    /* CTAs wear the cyan brand gel in both themes */
+    --btn-bg:#11BFDD; --btn-fg:#062A31; --btn-hi:#43D2EC;
+    --glass:rgba(12,12,14,.66);
+    --shadow:0 18px 50px rgba(0,0,0,.42);
+    --cyan:#11BFDD; --magenta:#C13FA8; --amber:#F9C429; --green:#90C74F; --violet:#7B5CFF; --red:#E7262B;
+    /* brand keyline: a single cyan light-beam that fades out at both ends */
+    --facet:linear-gradient(90deg, transparent, var(--cyan) 16%, var(--cyan) 84%, transparent);
+    /* cursor-tracked keyline glow (driven by JS) */
+    --gx:50; --glow:0;
+    --maxw:1240px; --rad:0px;
+  }
+  [data-theme="light"]{
+    --paper:#FAF9F6; --ink:#131217; --soft:#F0EEE9; --card:#FFFFFF; --band:#FFFFFF;
+    --hairline:rgba(19,18,23,.12); --hairline-strong:rgba(19,18,23,.26);
+    --muted:#6E6B75; --dim:#44414B;
+    --glass:rgba(250,249,246,.72);
+    --shadow:0 18px 50px rgba(19,18,23,.08);
+  }
+  *{box-sizing:border-box;}
+  html{background:var(--paper);}
+  html.themed, html.themed body, html.themed .card, html.themed .nav .row, html.themed .testi, html.themed .t-card{transition:background-color .35s, color .35s, border-color .35s;}
+  body{margin:0; background:var(--paper); color:var(--ink);
+    font-family:'Open Sans',-apple-system,BlinkMacSystemFont,sans-serif; font-weight:400; line-height:1.6;
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;}
+  h1,h2,h3{font-family:'Open Sans',sans-serif; font-weight:700;
+    line-height:1.02; letter-spacing:-.022em; margin:0; text-wrap:balance;}
+  h1{font-size:clamp(42px,6.6vw,100px); font-weight:750;}
+  h2{font-size:clamp(34px,4.6vw,68px);}
+  h3{font-size:clamp(24px,2.6vw,38px); letter-spacing:-.015em;}
+  p{margin:0 0 18px;} a{color:inherit; text-decoration:none;}
+  :focus-visible{outline:2px solid var(--cyan); outline-offset:3px;}
+  ::selection{background:var(--cyan); color:#062A31;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 clamp(20px,4.5vw,60px);}
+  .pad{padding:clamp(80px,9vw,140px) 0;}
+  .label{font-size:12px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--muted);}
+  .label.dot{display:inline-flex; align-items:center; gap:11px;}
+  .label.dot::before{content:""; width:7px; height:7px; transform:rotate(45deg); background:var(--gel,var(--amber)); flex:0 0 7px;}
+  .lead{font-size:clamp(16px,1.4vw,20px); color:var(--dim); font-weight:400;}
+  .btn{position:relative; display:inline-flex; align-items:center; justify-content:center; gap:9px; font-family:'Open Sans',sans-serif;
+    font-weight:550; font-size:15px; letter-spacing:.005em; padding:15px 28px; border-radius:0;
+    border:1px solid transparent; cursor:pointer; overflow:hidden;
+    transition:transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .25s, background .25s, border-color .25s;}
+  .btn svg{transition:transform .25s;} .btn:hover svg{transform:translateX(4px);}
+  .btn-solid{background:var(--btn-bg); color:var(--btn-fg);}
+  /* a followspot crosses the button face on hover; snaps home instantly on leave */
+  .btn-solid::before{content:""; position:absolute; top:-4px; bottom:-4px; left:-40%; width:34%;
+    background:linear-gradient(100deg, transparent, rgba(255,255,255,.6) 50%, transparent);
+    transform:skewX(-18deg); pointer-events:none;}
+  .btn-solid:hover::before{transform:skewX(-18deg) translateX(440%); transition:transform .6s cubic-bezier(.3,.6,.3,1);}
+  .btn-solid::after{content:""; position:absolute; left:0; right:0; bottom:0; height:3px; background:var(--btn-fg);
+    transform:scaleX(0); transform-origin:left; transition:transform .3s cubic-bezier(.2,.7,.2,1);}
+  .btn-solid:hover{transform:translateY(-2px); background:var(--btn-hi); box-shadow:0 10px 34px rgba(17,191,221,.4);}
+  .btn-solid:hover::after{transform:scaleX(1);}
+  .btn-quiet{border-color:var(--hairline-strong); color:var(--ink); background:transparent;}
+  .btn-quiet:hover{border-color:var(--ink); background:color-mix(in srgb, var(--ink) 5%, transparent);}
+  .ico{width:1em; height:1em; display:inline-block; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; vertical-align:-.12em;}
+
+  /* ===== nav: thin full-width strip, facet edge on top ===== */
+  header.nav{position:fixed; top:0; left:0; right:0; z-index:60; padding:0;
+    background:var(--glass);
+    -webkit-backdrop-filter:blur(18px) saturate(140%); backdrop-filter:blur(18px) saturate(140%);
+    border-bottom:1px solid var(--hairline);}
+  header.nav::before{content:""; display:block; height:2px; background:var(--facet);}
+  header.nav .row{display:flex; align-items:center; justify-content:space-between; gap:18px;
+    max-width:var(--maxw); margin:0 auto; height:60px; padding:0 clamp(20px,4.5vw,60px);}
+  .brand{display:inline-flex; align-items:center;}
+  .brand img{height:24px; width:auto; display:block;}
+  .brand img.logo-dark{display:none;}
+  [data-theme="dark"] .brand img.logo-light{display:none;}
+  [data-theme="dark"] .brand img.logo-dark{display:block;}
+  nav.menu{display:flex; gap:4px; align-items:center; font-weight:500; font-size:14px;}
+  nav.menu a.lnk{padding:8px 14px; border-radius:0; color:var(--dim); transition:background .2s, color .2s;}
+  nav.menu a.lnk:hover{background:color-mix(in srgb, var(--ink) 6%, transparent); color:var(--ink);}
+  nav.menu .btn{height:36px; padding:0 20px; font-size:13.5px; margin-left:8px;}
+  .tgl{width:36px; height:36px; border-radius:0; border:1px solid var(--hairline-strong); background:transparent;
+    color:var(--ink); cursor:pointer; display:inline-flex; align-items:center; justify-content:center; padding:0;
+    transition:border-color .25s, background .25s;}
+  .tgl:hover{border-color:var(--ink); background:color-mix(in srgb, var(--ink) 6%, transparent);}
+  .tgl svg{width:17px; height:17px; stroke:currentColor; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round;}
+  .tgl .moon{display:none;}
+  [data-theme="dark"] .tgl .sun{display:none;}
+  [data-theme="dark"] .tgl .moon{display:block;}
+  .mkt-wrap{position:relative; display:inline-block;}
+  .mkt{font-family:'Open Sans',sans-serif; font-weight:500; font-size:13px; border:1px solid var(--hairline-strong);
+    border-radius:0; height:36px; display:inline-flex; align-items:center; padding:0 14px; color:var(--dim);
+    background:none; cursor:pointer; transition:border-color .25s, color .25s;}
+  .mkt:hover{border-color:var(--ink); color:var(--ink);}
+  .mkt-menu{position:absolute; top:calc(100% + 10px); right:0; z-index:80; min-width:190px;
+    background:var(--card); border:1px solid var(--hairline); border-radius:0; box-shadow:var(--shadow);
+    padding:6px; display:none; flex-direction:column;}
+  .mkt-wrap.open .mkt-menu{display:flex;}
+  .mkt-wrap.up .mkt-menu{top:auto; bottom:calc(100% + 10px); right:auto; left:0;}
+  .mkt-menu button{font-family:'Open Sans',sans-serif; font-weight:500; font-size:13px; text-align:left; color:var(--dim);
+    background:none; border:0; border-radius:0; padding:10px 12px; cursor:pointer;
+    display:flex; align-items:center; justify-content:space-between; gap:14px; transition:background .2s, color .2s;}
+  .mkt-menu button:hover{background:color-mix(in srgb, var(--ink) 6%, transparent); color:var(--ink);}
+  .mkt-menu button.on{color:var(--cyan);}
+  .mkt-menu button.on::after{content:"●"; font-size:8px;}
+  /* mobile CTA: lives in the nav strip once the full menu is hidden */
+  .mob-cta{display:none; height:38px; padding:0 16px; font-size:13px; white-space:nowrap; margin-left:auto;}
+  .hamb{display:none; flex-direction:column; justify-content:center; gap:5px; width:44px; height:44px; padding:0; border:0; background:none; cursor:pointer; position:relative; z-index:2;}
+  .hamb span{display:block; width:22px; height:2px; border-radius:2px; background:var(--ink); margin:0 auto; transition:transform .3s, opacity .3s;}
+  .hamb.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamb.open span:nth-child(2){opacity:0; transform:scaleX(0);}
+  .hamb.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .mobmenu{position:fixed; inset:0; z-index:55; background:var(--paper);
+    display:flex; overflow-y:auto; -webkit-overflow-scrolling:touch; overscroll-behavior:contain;
+    padding:max(90px,12vh) 24px 44px; opacity:0; pointer-events:none; transition:opacity .3s;}
+  .mobmenu.open{opacity:1; pointer-events:auto;}
+  .mobmenu nav{display:flex; flex-direction:column; align-items:flex-start; gap:4px; margin:auto 0; width:100%; max-width:520px; margin-inline:auto;}
+  .mobmenu a{font-family:'Open Sans',sans-serif; font-weight:700; letter-spacing:-.02em;
+    font-size:clamp(34px,8.5vw,52px); color:var(--ink); padding:6px 0; opacity:0; transform:translateY(16px); transition:opacity .4s, transform .4s;}
+  .mobmenu a.btn{font-family:'Open Sans',sans-serif; font-weight:550; font-size:16px; letter-spacing:0; margin-top:22px; padding:16px 32px;}
+  /* .mobmenu a sets color:var(--ink), which would leave the solid button ink-on-ink */
+  .mobmenu a.btn-solid{color:var(--btn-fg);}
+  .mobmenu.open a{opacity:1; transform:none;}
+  .mobmenu.open a:nth-child(1){transition-delay:.05s} .mobmenu.open a:nth-child(2){transition-delay:.1s}
+  .mobmenu.open a:nth-child(3){transition-delay:.15s} .mobmenu.open a:nth-child(4){transition-delay:.2s}
+  .mobmenu.open a:nth-child(5){transition-delay:.25s} .mobmenu.open a:nth-child(6){transition-delay:.3s}
+
+  /* ===== hero: film plays fullscreen, scroll rewinds the build ===== */
+  .hero{position:relative; height:330svh;}
+  .hero-stick{position:sticky; top:0; height:100svh; overflow:hidden;}
+  .hero-copy{position:absolute; left:0; right:0; top:0; z-index:5; padding-top:calc(78px + 6svh);}
+  .hero-copy .label{margin-bottom:14px; display:inline-flex;}
+  .hero-lead{margin:18px 0 0; max-width:44ch; font-size:clamp(15px,1.3vw,19px); color:var(--dim);}
+  .hero-row{margin-top:28px;}
+  .hero-row .ctas{display:flex; gap:12px; flex-wrap:wrap;}
+  @media(max-width:960px){
+    .hero-row{margin-top:16px;}
+  }
+  .hero-media{position:absolute; inset:0; z-index:2; background:var(--soft);}
+  /* legibility scrim over the playing film; JS fades it with the copy */
+  .hero-media::after{content:""; position:absolute; inset:0; z-index:3; pointer-events:none;
+    opacity:var(--scrim,1);
+    background:linear-gradient(180deg, var(--paper) 0%, color-mix(in srgb, var(--paper) 72%, transparent) 40%, color-mix(in srgb, var(--paper) 30%, transparent) 62%, transparent 84%);}
+  .no-fx .hero-media::after{display:none;}
+  /* facet gems: the diamond motif drifts over the title card, then clears on scroll */
+  .hero .gems{position:absolute; inset:0; z-index:4; pointer-events:none;}
+  .hero .gem{position:absolute; width:var(--s,40px); aspect-ratio:1; pointer-events:none;
+    will-change:transform; animation:gemin .8s ease .6s both;}
+  .hero .gem::before{content:""; position:absolute; inset:0; rotate:45deg; scale:.7071;
+    background:var(--gg,var(--cyan)); box-shadow:0 8px 30px rgba(0,0,0,.28); animation:gfloat 8s ease-in-out infinite;}
+  .hero .gem.line::before{background:transparent; border:1px solid rgba(244,243,240,.4); box-shadow:none;}
+  @keyframes gfloat{50%{translate:0 10px;}}
+  @keyframes gemin{from{opacity:0;}}
+  .no-fx .hero .gems{display:none;}
+  /* headline: split into words/chars by JS (fx mode only); chars start as outlines, then fill */
+  .hero h1 .hw{display:inline-block; will-change:transform;}
+  .hero h1 .ch{display:inline-block; color:transparent; -webkit-text-stroke:1.3px var(--ink);
+    transition:color .5s cubic-bezier(.2,.7,.2,1);}
+  .hero h1.filled .ch{color:var(--ink);}
+  /* the hero's gel word: cyan outline, cyan fill */
+  .hero h1 .hw.gel .ch{-webkit-text-stroke-color:var(--cyan);}
+  .hero h1.filled .hw.gel .ch{color:var(--cyan);}
+  /* weight contrast: a light lead-in line sits over a heavy statement line */
+  .hero h1{line-height:1.0;}
+  .hero h1 .hl1{font-weight:300; font-size:.58em; letter-spacing:0; opacity:.9;}
+  .hero h1 .hl2{font-weight:800; letter-spacing:-.03em;}
+  .hero-media canvas{position:absolute; inset:0; width:100%; height:100%; display:block;}
+  .hero-media .seq-poster{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:none;}
+  .hero-media video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:none;}
+  /* fx mode: the live film sits over the canvas; JS crossfades to the canvas when the rewind grabs it */
+  .fx .hero-media video{display:block; transition:opacity .35s;}
+  .hero-cap{position:absolute; left:0; right:0; bottom:0; z-index:6;
+    padding:90px clamp(20px,4.5vw,60px) clamp(26px,4svh,44px);
+    background:linear-gradient(180deg, transparent, rgba(0,0,0,.5));}
+  .hero-cap .in{max-width:var(--maxw); margin:0 auto; display:flex; justify-content:space-between; align-items:flex-end; gap:18px;}
+  .caps{position:relative; height:1.4em; font-family:'Open Sans',sans-serif; font-weight:650;
+    font-size:clamp(20px,2.4vw,32px); letter-spacing:-.015em; color:#fff; text-shadow:0 2px 18px rgba(0,0,0,.45);}
+  .caps span{position:absolute; left:0; bottom:0; white-space:nowrap; opacity:0; transform:translateY(12px);
+    transition:opacity .45s, transform .45s;}
+  .caps span.on{opacity:1; transform:none;}
+  .capix{font-size:12px; font-weight:500; letter-spacing:.14em; color:rgba(255,255,255,.85); text-shadow:0 1px 10px rgba(0,0,0,.5); white-space:nowrap;
+    display:inline-flex; align-items:center; gap:10px;}
+  .capix::before{content:""; flex:0 0 7px; width:7px; height:7px; transform:rotate(45deg);
+    background:var(--gel,var(--amber)); transition:background .45s;}
+  /* cue rail: the rewind's four chapters, each segment filling with its gel as the scrub crosses it */
+  .cue-rail{display:flex; flex-direction:column; align-items:flex-end; gap:11px;}
+  .cue-segs{display:flex; gap:8px;}
+  .cue-segs .cs{width:clamp(40px,4vw,58px); height:3px; background:rgba(255,255,255,.28); overflow:hidden;}
+  .cue-segs .cs i{display:block; height:100%; background:var(--g,var(--cyan)); transform:scaleX(0); transform-origin:left;}
+  /* the line the rewind lands on before the pin releases */
+  .hero-outro{position:absolute; inset:0; z-index:5; display:flex; align-items:center; justify-content:center;
+    margin:0; padding:0 clamp(20px,4.5vw,60px); text-align:center; pointer-events:none; opacity:0;
+    font-family:'Open Sans',sans-serif; font-weight:650; letter-spacing:-.02em; line-height:1.08;
+    font-size:clamp(30px,4.6vw,64px); color:#fff; text-shadow:0 2px 26px rgba(0,0,0,.5);}
+  .no-fx .hero-outro{display:none;}
+  .scrollhint{position:absolute; z-index:5; right:clamp(20px,4.5vw,60px); top:calc(84px + 5svh); display:flex; align-items:center; gap:10px;
+    font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted);}
+  .scrollhint::after{content:""; width:1px; height:34px; background:var(--hairline-strong); animation:drip 1.9s infinite;}
+  @keyframes drip{0%{transform:scaleY(0); transform-origin:top;}55%{transform:scaleY(1); transform-origin:top;}56%{transform-origin:bottom;}100%{transform:scaleY(0); transform-origin:bottom;}}
+
+  /* ===== stats: house numbers ; outlined numerals that fill as they land, like the hero headline ===== */
+  .stats{position:relative; overflow:hidden; background:var(--band); border-bottom:1px solid var(--hairline);
+    padding:clamp(56px,6.5vw,104px) 0;}
+  .stats::before{content:""; position:absolute; top:0; left:0; right:0; height:3px; background:var(--facet);}
+  /* the diamond motif as quiet structure: a giant hairline gem bleeding off the band's edge */
+  .stats .orn{position:absolute; right:-120px; top:50%; translate:0 -50%; width:320px; height:320px;
+    rotate:45deg; border:1px solid var(--hairline-strong); pointer-events:none;}
+  .stats .orn::after{content:""; position:absolute; inset:38px; border:1px solid var(--hairline);}
+  /* direct child only: the reveal observer adds .in to the .stat cells too */
+  .stats > .in{position:relative; z-index:1; display:grid; grid-template-columns:repeat(4,auto);
+    justify-content:space-between; align-items:end; gap:clamp(24px,4vw,60px);}
+  .stat b{display:block; font-family:'Open Sans',sans-serif; font-weight:800; letter-spacing:-.035em; line-height:.95;
+    font-size:clamp(46px,6vw,112px);
+    color:transparent; -webkit-text-stroke:1.5px var(--ink);
+    transition:color .8s cubic-bezier(.2,.7,.2,1);}
+  .stat.filled b{color:var(--ink);}
+  .stat small{display:block; margin-top:16px; font-size:11.5px; font-weight:600; letter-spacing:.15em;
+    text-transform:uppercase; color:var(--muted);}
+
+  /* ===== services: sticky stacking cards ===== */
+  .svc-head{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; margin-bottom:clamp(34px,4vw,56px);}
+  .svc-stack{display:flex; flex-direction:column; gap:22px;}
+  .svc-card{position:sticky; top:calc(96px + var(--i)*14px); display:grid; grid-template-columns:1fr 1.05fr;
+    min-height:min(62svh,560px); border-radius:var(--rad); overflow:hidden;
+    background:var(--card); border:1px solid var(--hairline); box-shadow:var(--shadow);}
+  .svc-card .txt{padding:clamp(26px,3.4vw,52px); display:flex; flex-direction:column; justify-content:center; gap:0;}
+  .svc-card .num{font-family:'Open Sans',sans-serif; font-weight:400; font-size:14px; color:var(--muted); margin-bottom:14px; display:flex; align-items:center; gap:11px;}
+  .svc-card .num::after{content:""; flex:0 0 7px; width:7px; height:7px; transform:rotate(45deg); background:var(--gel,var(--amber));}
+  .svc-card h3{margin-bottom:14px;}
+  .svc-card p{color:var(--dim); max-width:46ch; font-size:15px;}
+  .svc-card ul{list-style:none; margin:14px 0 24px; padding:0; display:flex; flex-wrap:wrap; gap:8px;}
+  .svc-card li{font-size:12.5px; font-weight:500; padding:7px 14px; border:1px solid var(--hairline-strong); border-radius:0; color:var(--dim);}
+  .svc-card .go{display:inline-flex; align-items:center; gap:8px; font-weight:550; font-size:14.5px; color:var(--ink);}
+  .svc-card .go .ar{transition:transform .25s;} .svc-card .go:hover .ar{transform:translateX(5px);}
+  .svc-card .media{position:relative; overflow:hidden; min-height:280px;}
+  .svc-card .media img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;}
+
+  /* ===== work: scroll-mask showcase ===== */
+  .work-head{margin-bottom:clamp(10px,2vw,24px);}
+  .case{position:relative; height:280svh;}
+  .case-stick{position:sticky; top:0; height:100svh; overflow:hidden; display:flex; align-items:flex-end;}
+  .case-media{position:absolute; inset:0; background:var(--soft);}
+  .case-media video, .case-media img.poster{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+  .case-title{position:absolute; inset:0; z-index:3; display:grid; place-items:center; text-align:center; pointer-events:none; padding:0 20px;}
+  .case-title h3{font-size:clamp(34px,5.4vw,76px); font-weight:750;}
+  .case-meta{position:relative; z-index:4; width:100%; padding:0 clamp(20px,4.5vw,60px) clamp(28px,5svh,52px);}
+  .case-meta .in{max-width:var(--maxw); margin:0 auto; display:flex; justify-content:space-between; align-items:flex-end; gap:18px; flex-wrap:wrap;
+    color:#fff; text-shadow:0 2px 16px rgba(0,0,0,.5); opacity:0; transform:translateY(22px);}
+  .case-meta h3{font-size:clamp(26px,3vw,44px); color:#fff;}
+  .case-meta .sub{font-size:14px; color:rgba(255,255,255,.85); margin-top:6px;}
+  .case-meta .tags{display:flex; gap:8px; flex-wrap:wrap;}
+  .case-meta .tags span{font-size:12px; font-weight:500; letter-spacing:.06em; padding:7px 14px; border-radius:0;
+    border:1px solid rgba(255,255,255,.5); border-bottom:2px solid var(--case-gel,rgba(255,255,255,.5));
+    backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);}
+  .case-word{--case-gel:var(--cyan);} .case-iris{--case-gel:var(--magenta);} .case-blinds{--case-gel:var(--amber);}
+  /* mask variants (initial states; JS scrubs them) */
+  .case-word .case-media{
+    -webkit-mask-image:var(--wordmask); mask-image:var(--wordmask);
+    -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
+    -webkit-mask-position:center; mask-position:center;
+    -webkit-mask-size:64% auto; mask-size:64% auto;}
+  .case-iris .case-media{clip-path:circle(9% at 50% 54%);}
+  .case-blinds .case-media{
+    -webkit-mask-image:repeating-linear-gradient(90deg,#000 0,#000 var(--open,2.2%),transparent var(--open,2.2%),transparent 12.5%);
+    mask-image:repeating-linear-gradient(90deg,#000 0,#000 var(--open,2.2%),transparent var(--open,2.2%),transparent 12.5%);}
+
+  /* ===== event types: the facet spectrum (each row carries its own gel) ===== */
+  #events{background:var(--band);}
+  .et-grid{display:grid; grid-template-columns:1.04fr .96fr; gap:clamp(28px,5vw,72px); align-items:stretch;}
+  .etypes{display:flex; flex-direction:column; justify-content:center;}
+  /* the preview panel takes the hovered row's photograph and gel */
+  .et-media{position:relative; overflow:hidden; min-height:460px; border:1px solid var(--hairline); background:var(--soft);}
+  .et-media::after{content:""; position:absolute; left:0; right:0; bottom:0; height:3px; z-index:2;
+    background:var(--eg,var(--cyan)); transition:background .4s;}
+  .et-media img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    opacity:0; transform:scale(1.05); transition:opacity .5s, transform .9s cubic-bezier(.2,.7,.2,1);}
+  .et-media img.on{opacity:1; transform:scale(1);}
+  .etype{--eg:var(--cyan); position:relative; display:flex; align-items:center; gap:16px; padding:22px 18px;
+    border-bottom:1px solid var(--hairline); transition:padding .28s cubic-bezier(.2,.7,.2,1), background .3s;}
+  .etype:first-child{border-top:1px solid var(--hairline);}
+  /* a facet bar draws down the left edge on hover, echoing the section facet strips */
+  .etype::before{content:""; position:absolute; left:0; top:0; bottom:0; width:2px; background:var(--eg);
+    transform:scaleY(0); transform-origin:top; transition:transform .3s cubic-bezier(.2,.7,.2,1);}
+  .etype .dia{width:9px; height:9px; flex:0 0 9px; transform:rotate(45deg); background:var(--eg);
+    transition:transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s;}
+  .etype .n{font-size:12.5px; color:var(--muted); font-weight:500; width:24px; transition:color .25s;}
+  .etype h3{font-size:clamp(19px,1.8vw,26px); font-weight:650; flex:1; transition:transform .28s cubic-bezier(.2,.7,.2,1);}
+  .etype .ar{font-size:18px; color:var(--muted); transition:transform .25s, color .25s;}
+  .etype:hover, .etype:focus-visible{padding-left:26px; background:color-mix(in srgb, var(--eg) 9%, transparent); outline:none;}
+  .etype:hover::before, .etype:focus-visible::before{transform:scaleY(1);}
+  .etype:hover .dia, .etype:focus-visible .dia{transform:rotate(45deg) scale(1.6); box-shadow:0 0 0 5px color-mix(in srgb, var(--eg) 20%, transparent);}
+  .etype:hover .n, .etype:focus-visible .n{color:var(--eg);}
+  .etype:hover h3, .etype:focus-visible h3{transform:translateX(5px);}
+  .etype:hover .ar, .etype:focus-visible .ar{transform:translateX(6px); color:var(--eg);}
+
+  /* ===== testimonials: two counter-sliding card rows on an inverted band ===== */
+  .testi{position:relative; overflow:hidden; padding:clamp(80px,9vw,140px) 0;
+    /* the band inverts against the page theme: daylight on the dark house, ink on the light one */
+    background:#EFEDE8; color:#131217;
+    --ink:#131217; --dim:#44414B; --muted:#6E6B75;
+    --hairline:rgba(19,18,23,.12); --hairline-strong:rgba(19,18,23,.3);
+    --card:#FFFFFF; --shadow:0 14px 40px rgba(19,18,23,.07);}
+  [data-theme="light"] .testi{background:#131217; color:#F4F3F0;
+    --ink:#F4F3F0; --dim:#C4C1CA; --muted:#96939D;
+    --hairline:rgba(244,243,240,.14); --hairline-strong:rgba(244,243,240,.3);
+    --card:#1C1B22; --shadow:0 14px 40px rgba(0,0,0,.35);}
+  .t-marquee{display:flex; flex-direction:column; gap:22px;
+    -webkit-mask-image:linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+    mask-image:linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);}
+  .t-row{display:flex; width:max-content; animation:t-slide var(--dur,56s) linear infinite;}
+  .t-row.rev{animation-direction:reverse;}
+  .t-row:hover, .t-row:focus-within{animation-play-state:paused;}
+  @keyframes t-slide{to{transform:translateX(-50%);}}
+  .t-set{display:flex; gap:22px; padding-right:22px;}
+  .t-card{width:min(400px,82vw); flex:0 0 auto; margin:0; display:flex; flex-direction:column; gap:18px;
+    background:var(--card); border:1px solid var(--hairline); box-shadow:var(--shadow);
+    padding:clamp(24px,2.4vw,34px); transition:border-color .25s, transform .25s;}
+  .t-card:hover{border-color:var(--hairline-strong); transform:translateY(-3px);}
+  .t-card .t-mark{width:9px; height:9px; flex:0 0 9px; transform:rotate(45deg); background:var(--gel,var(--cyan));}
+  .t-card blockquote{margin:0; font-size:15.5px; line-height:1.65; color:var(--dim);}
+  .t-card figcaption{margin-top:auto; padding-top:16px; border-top:1px solid var(--hairline);
+    display:flex; flex-direction:column; gap:3px;}
+  .t-card figcaption b{font-size:14.5px; font-weight:700; color:var(--ink);}
+  .t-card figcaption span{font-size:13px; color:var(--muted);}
+  @media(prefers-reduced-motion:reduce){
+    .t-row{animation:none; width:auto;}
+    .t-set.clone{display:none;}
+    .t-marquee{-webkit-mask-image:none; mask-image:none; overflow-x:auto; padding-bottom:8px;}
+  }
+
+  /* ===== keyline glow: a soft cyan bloom on the keyline nearest the cursor (not the nav) ===== */
+  .stats::after, .cta::after, footer.site::after{
+    content:""; position:absolute; left:0; right:0; top:-8px; height:18px; z-index:4; pointer-events:none;
+    opacity:var(--glow,0);
+    background:radial-gradient(78px 18px at calc(var(--gx,50) * 1%) 50%,
+      rgba(67,210,236,.8), rgba(17,191,221,.3) 44%, transparent 72%);
+    filter:blur(5px);}
+
+  /* ===== CTA: full-bleed film moment + lead form ===== */
+  .cta{position:relative; overflow:hidden; background:#0A0A0C; color:#fff;
+    padding:clamp(80px,9vw,150px) clamp(24px,5vw,80px);}
+  .cta::before{content:""; position:absolute; top:0; left:0; right:0; height:3px; background:var(--facet); z-index:3;}
+  .cta video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.55; z-index:0;}
+  .cta .scrim{position:absolute; inset:0; z-index:1;
+    background:linear-gradient(180deg, rgba(10,10,12,.78), rgba(10,10,12,.42) 45%, rgba(10,10,12,.85));}
+  .cta-grid{position:relative; z-index:2; max-width:var(--maxw); margin:0 auto;
+    display:grid; grid-template-columns:1fr .95fr; gap:clamp(36px,5vw,80px); align-items:center;}
+  .cta h2{color:#fff; max-width:14ch; margin:16px 0; font-size:clamp(34px,4.6vw,68px); text-shadow:0 2px 24px rgba(0,0,0,.45);}
+  .cta .lead{color:rgba(255,255,255,.88); max-width:42ch; margin:0 0 30px; text-shadow:0 1px 12px rgba(0,0,0,.5);}
+  .cta .label{color:rgba(255,255,255,.85);}
+  .cta .btn-quiet{border-color:rgba(255,255,255,.5); color:#fff;}
+  .cta .btn-quiet:hover{border-color:#fff; background:rgba(255,255,255,.1);}
+  /* lead form card: fixed dark glass so it sits on the film in both themes */
+  .leadform{position:relative; background:rgba(12,12,14,.66); border:1px solid rgba(255,255,255,.16);
+    -webkit-backdrop-filter:blur(14px) saturate(130%); backdrop-filter:blur(14px) saturate(130%);
+    box-shadow:var(--shadow); padding:clamp(24px,3vw,40px);}
+  .leadform .fhead{margin-bottom:20px;}
+  .leadform .fhead h3{color:#fff; font-size:clamp(20px,1.9vw,27px);}
+  .leadform .fhead p{margin:7px 0 0; font-size:13.5px; color:rgba(255,255,255,.66);}
+  .fgrid{display:grid; grid-template-columns:1fr 1fr; gap:15px 12px;}
+  .field{display:flex; flex-direction:column; gap:6px;}
+  .field.full{grid-column:1/-1;}
+  .field label{font-size:11px; font-weight:500; letter-spacing:.13em; text-transform:uppercase; color:rgba(255,255,255,.62);}
+  .field :is(input,select,textarea){font-family:'Open Sans',sans-serif; font-size:14.5px; color:#fff; width:100%;
+    background:rgba(255,255,255,.055); border:1px solid rgba(255,255,255,.22); border-radius:0; padding:11px 13px;
+    transition:border-color .2s, background .2s;}
+  .field ::placeholder{color:rgba(255,255,255,.38);}
+  .field :is(input,select,textarea):hover{border-color:rgba(255,255,255,.42);}
+  .field :is(input,select,textarea):focus{border-color:var(--cyan); background:rgba(255,255,255,.09); outline:none;}
+  .field select{appearance:none; -webkit-appearance:none; padding-right:34px; cursor:pointer;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat:no-repeat; background-position:right 12px center; background-size:15px;}
+  .field select option{color:#0C0C0E; background:#fff;}
+  .field input[type="date"]{color-scheme:dark;}
+  .field textarea{min-height:96px; resize:vertical;}
+  .frow{display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:20px;}
+  .frow small{font-size:12.5px; color:rgba(255,255,255,.6);}
+  .leadform.sent :is(.fhead,.fgrid,.frow){display:none;}
+  .form-ok{display:none; flex-direction:column; align-items:flex-start; gap:12px; padding:clamp(8px,1.5vw,18px) 0;}
+  .leadform.sent .form-ok{display:flex;}
+  .form-ok .dm{width:12px; height:12px; transform:rotate(45deg); background:var(--amber);}
+  .form-ok h3{color:#fff; font-size:clamp(22px,2vw,30px);}
+  .form-ok p{margin:0; font-size:14.5px; color:rgba(255,255,255,.75); max-width:38ch;}
+
+  /* ===== footer ===== */
+  footer.site{position:relative; background:var(--band); border-top:0; padding:clamp(56px,7vw,90px) 0 30px; color:var(--muted);}
+  footer.site::before{content:""; position:absolute; top:0; left:0; right:0; height:3px; background:var(--facet);}
+  footer.site a{font-size:14px; color:var(--muted); transition:color .2s, transform .25s;}
+  footer.site a:hover{color:var(--ink);}
+  .foot-brand p{margin:16px 0 0; font-size:15px; color:var(--dim); max-width:26ch; text-wrap:balance;}
+  .soc{display:flex; gap:8px; margin-top:24px;}
+  footer.site .soc a{display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px;
+    border:1px solid var(--hairline-strong); color:var(--muted);
+    transition:border-color .2s, color .2s, background .2s;}
+  footer.site .soc a:hover{border-color:var(--ink); color:var(--ink); background:color-mix(in srgb, var(--ink) 5%, transparent);}
+  .soc svg{width:16px; height:16px; fill:currentColor;}
+  /* column heads take the gel diamonds, same grammar as the section labels */
+  .colhead{display:flex; align-items:center; gap:10px; font-size:12px; font-weight:600;
+    letter-spacing:.12em; text-transform:uppercase; color:var(--ink); margin-bottom:14px;}
+  .colhead::before{content:""; width:7px; height:7px; flex:0 0 7px; transform:rotate(45deg); background:var(--gel,var(--amber));}
+  .foot-col a{display:block; padding:6px 0;}
+  .foot-col a:hover{transform:translateX(4px);}
+  .grid{display:grid; gap:22px;} .g4{grid-template-columns:1.4fr 1fr 1fr 1fr;}
+  .footrow{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px 24px;
+    border-top:1px solid var(--hairline); margin-top:clamp(30px,4vw,48px); padding-top:22px;}
+  .legal{display:flex; flex-wrap:wrap; gap:2px 22px;}
+  footer.site .legal a{font-size:12.5px; padding:6px 0;}
+  .foot-ctl{display:flex; align-items:center; gap:10px; margin-left:auto;}
+  .mkt-wrap.up.end .mkt-menu{left:auto; right:0;}
+  .footnote{display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px 24px;
+    margin-top:16px; font-size:12px; color:var(--muted);}
+
+  .reveal{opacity:0; transform:translateY(22px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1; transform:none;}
+  .reveal.d1{transition-delay:.08s;} .reveal.d2{transition-delay:.16s;} .reveal.d3{transition-delay:.24s;}
+
+  /* ===== fallback mode (small screens / reduced motion / no gsap) ===== */
+  .no-fx .hero{height:auto;}
+  .no-fx .hero-stick{position:static; height:auto; overflow:visible; padding-top:calc(78px + 4svh);}
+  .no-fx .hero-copy{position:static; padding-top:0;}
+  .no-fx .hero-copy .wrap{padding-top:calc(78px + 4svh);}
+  .no-fx .hero-media{position:relative; inset:auto; clip-path:none; overflow:hidden;
+    aspect-ratio:16/9; margin:14px auto 0; width:100%;}
+  .no-fx .hero-media canvas{display:none;}
+  .no-fx .hero-media .seq-poster{display:block;}
+  .no-fx.play-video .hero-media .seq-poster{display:none;}
+  .no-fx.play-video .hero-media video{display:block;}
+  .no-fx .hero-cap, .no-fx .scrollhint{display:none;}
+  .no-fx .case{height:auto;}
+  .no-fx .case-stick{position:relative; height:auto; min-height:72svh; overflow:hidden;
+    max-width:var(--maxw); margin:0 auto 22px; width:calc(100% - 2*clamp(20px,4.5vw,60px));}
+  .no-fx .case-media{-webkit-mask-image:none !important; mask-image:none !important; clip-path:none !important;}
+  .no-fx .case-media::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, transparent 40%, rgba(0,0,0,.55));}
+  .no-fx .case-title{display:none;}
+  .no-fx .case-meta .in{opacity:1 !important; transform:none !important;}
+
+  @media(max-width:960px){
+    nav.menu{display:none;} .hamb{display:flex;} .mob-cta{display:inline-flex;}
+    .svc-card{grid-template-columns:1fr; min-height:0;}
+    .svc-card .media{order:-1; min-height:0; aspect-ratio:16/9; position:relative;}
+    .svc-card .media img{position:absolute;}
+    .stats > .in{grid-template-columns:1fr 1fr; gap:36px 24px;}
+    .stats .orn{display:none;}
+    .et-grid{grid-template-columns:1fr;}
+    .et-media{display:none;}
+    .cta-grid{grid-template-columns:1fr;}
+    .g4{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:620px){ .g4{grid-template-columns:1fr;} .fgrid{grid-template-columns:1fr;} }
+  @media(prefers-reduced-motion:reduce){
+    .scrollhint::after{animation:none;}
+    .reveal{transition:none;}
+    .btn-solid::before{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="nav" id="nav">
+  <div class="row">
+    <a class="brand" href="#" aria-label="Encore home">
+      <img class="logo-light" src="assets/encore-logo.png" alt="Encore">
+      <img class="logo-dark" src="assets/encore-logo-white.png" alt="Encore">
+    </a>
+    <nav class="menu">
+      <a class="lnk" href="#services">What we do</a>
+      <a class="lnk" href="#work">Work</a>
+      <a class="lnk" href="#events">Event types</a>
+      <a class="lnk" href="#">About</a>
+      <div class="mkt-wrap">
+        <button class="mkt" type="button" aria-haspopup="true" aria-expanded="false">EMEA ▾</button>
+        <div class="mkt-menu" role="menu">
+          <button type="button" role="menuitem" data-region="North America">North America</button>
+          <button type="button" role="menuitem" data-region="EMEA" class="on">EMEA</button>
+          <button type="button" role="menuitem" data-region="APAC">APAC</button>
+        </div>
+      </div>
+      <button class="tgl" type="button" data-toggle-theme aria-label="Switch between light and dark theme">
+        <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.4"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/></svg>
+        <svg class="moon" viewBox="0 0 24 24"><path d="M20.5 14.2A8.6 8.6 0 0 1 9.8 3.5a8.6 8.6 0 1 0 10.7 10.7Z"/></svg>
+      </button>
+      <a class="btn btn-solid" href="#contact">Start your event</a>
+    </nav>
+    <a class="btn btn-solid mob-cta" href="#contact">Start your event</a>
+    <button class="hamb" id="hamb" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobmenu" id="mobmenu">
+  <nav>
+    <a href="#services">What we do</a>
+    <a href="#work">Work</a>
+    <a href="#events">Event types</a>
+    <a href="#">About</a>
+    <a href="#contact" class="btn btn-solid">Start your event</a>
+    <a href="#" class="btn btn-quiet" data-toggle-theme>Switch theme</a>
+  </nav>
+</div>
+
+<!-- ===== HERO: film plays fullscreen; scroll rewinds the build to the empty room ===== -->
+<section class="hero" id="hero">
+  <div class="hero-stick">
+    <div class="hero-copy">
+      <div class="wrap">
+        <span class="label dot" style="--gel:var(--cyan);">Lorem ipsum dolor sit amet · EMEA</span>
+        <h1>Lorem ipsum<br>dolor sit amet.</h1>
+        <p class="hero-lead">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua veniam.</p>
+        <div class="hero-row">
+          <div class="ctas">
+            <a class="btn btn-solid" href="#contact">Start your event <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn-quiet" href="#work">See the work</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scrollhint" aria-hidden="true">Scroll</div>
+    <div class="gems" aria-hidden="true">
+      <span class="gem" style="--s:120px; --gg:var(--cyan); right:11%; top:20%;" data-depth="32"></span>
+      <span class="gem line" style="--s:200px; right:19%; top:34%;" data-depth="15"></span>
+      <span class="gem" style="--s:18px; --gg:var(--violet); right:29%; top:26%;" data-depth="56"></span>
+      <span class="gem" style="--s:13px; --gg:var(--magenta); right:7%; top:52%;" data-depth="70"></span>
+      <span class="gem line" style="--s:80px; right:8%; top:66%;" data-depth="42"></span>
+      <span class="gem" style="--s:15px; --gg:var(--cyan); right:22%; top:74%;" data-depth="60"></span>
+    </div>
+    <div class="hero-media" id="heromedia">
+      <canvas id="seq" aria-label="Film of an arena show, rewinding from show night to the empty room"></canvas>
+      <img class="seq-poster" src="assets/video/hum-tv-awards-poster.jpg" alt="Awards show stage built by Encore">
+      <video muted loop playsinline preload="none" poster="assets/video/hum-tv-awards-poster.jpg">
+        <source src="assets/video/hum-tv-awards.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-cap" aria-hidden="true">
+      <div class="in">
+        <div class="caps" id="caps">
+          <span class="on">Lorem ipsum.</span>
+          <span>Dolor sit.</span>
+          <span>Sed eiusmod.</span>
+          <span>Ut enim.</span>
+        </div>
+        <div class="cue-rail">
+          <span class="capix" id="capix">01 / 04 · Lorem ipsum</span>
+          <div class="cue-segs" id="cuesegs">
+            <span class="cs"><i></i></span>
+            <span class="cs"><i></i></span>
+            <span class="cs"><i></i></span>
+            <span class="cs"><i></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="hero-outro" aria-hidden="true">Lorem ipsum dolor<br>sit amet elit.</p>
+  </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<div class="stats">
+  <span class="orn" aria-hidden="true"></span>
+  <div class="wrap in">
+    <div class="stat reveal"><b data-count="2200" data-suffix="+" data-comma="1">0</b><small>Partner venues</small></div>
+    <div class="stat reveal d1"><b data-count="23">0</b><small>Countries</small></div>
+    <div class="stat reveal d2"><b data-count="400" data-suffix="k">0</b><small>Events a year</small></div>
+    <div class="stat reveal d3"><b data-count="12000" data-comma="1">0</b><small>Crew worldwide</small></div>
+  </div>
+</div>
+
+<!-- ===== SERVICES ===== -->
+<section class="pad" id="services">
+  <div class="wrap">
+    <div class="svc-head reveal">
+      <div>
+        <span class="label dot" style="--gel:var(--cyan);">What we do</span>
+        <h2 style="margin-top:16px;">One team from<br>brief to show day.</h2>
+      </div>
+      <a class="btn btn-quiet" href="#">All services</a>
+    </div>
+    <div class="svc-stack">
+      <article class="svc-card" style="--i:0; --gel:var(--cyan);">
+        <div class="txt">
+          <span class="num">01 · Lorem ipsum</span>
+          <h3>Lorem ipsum</h3>
+          <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam quis nostrud.</p>
+          <ul><li>Lorem</li><li>Ipsum &amp; dolor</li><li>Consectetur</li><li>Elit</li></ul>
+          <a class="go" href="#">Explore lorem ipsum <span class="ar">→</span></a>
+        </div>
+        <div class="media"><img src="assets/img/AdobeStock_473049258-scaled.jpg" alt="Lighting console close-up" loading="lazy"></div>
+      </article>
+      <article class="svc-card" style="--i:1; --gel:var(--magenta);">
+        <div class="txt">
+          <span class="num">02 · Dolor sit amet</span>
+          <h3>Dolor sit amet</h3>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, excepteur sint occaecat.</p>
+          <ul><li>Sed do</li><li>Eiusmod</li><li>Tempor</li><li>Incididunt</li></ul>
+          <a class="go" href="#">Explore dolor sit amet <span class="ar">→</span></a>
+        </div>
+        <div class="media"><img src="assets/img/home-production-services-3.jpg" alt="Full stage production with LED wall" loading="lazy"></div>
+      </article>
+      <article class="svc-card" style="--i:2; --gel:var(--amber);">
+        <div class="txt">
+          <span class="num">03 · Consectetur</span>
+          <h3>Consectetur</h3>
+          <p>Ut labore et dolore magna aliqua, ut enim ad minim veniam; quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
+          <ul><li>Labore</li><li>Dolore</li><li>Magna</li><li>Aliqua</li></ul>
+          <a class="go" href="#">Explore consectetur <span class="ar">→</span></a>
+        </div>
+        <div class="media"><img src="assets/img/home-modal-inspire-1.jpg" alt="Immersive creative staging" loading="lazy"></div>
+      </article>
+      <article class="svc-card" style="--i:3; --gel:var(--green);">
+        <div class="txt">
+          <span class="num">04 · Adipiscing elit</span>
+          <h3>Adipiscing elit</h3>
+          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sed perspiciatis.</p>
+          <ul><li>Ut enim</li><li>Ad minim</li><li>Veniam</li><li>Quis</li></ul>
+          <a class="go" href="#">Explore adipiscing elit <span class="ar">→</span></a>
+        </div>
+        <div class="media"><img src="assets/img/home-design-fabrication-2.jpg" alt="Custom scenic build" loading="lazy"></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WORK: scroll-mask showcase ===== -->
+<section id="work">
+  <div class="wrap work-head reveal">
+    <span class="label dot" style="--gel:var(--magenta);">Recent rooms</span>
+    <h2 style="margin-top:16px; max-width:14ch;">Three shows, three very different rooms.</h2>
+    <p class="lead" style="max-width:52ch; margin-top:16px;" id="worklead">Lorem ipsum dolor sit amet. Keep scrolling, each one opens up.</p>
+  </div>
+
+  <article class="case case-word" id="case1">
+    <div class="case-stick">
+      <div class="case-media">
+        <video muted loop playsinline preload="none" data-autoplay poster="assets/video/cvent-connect-poster.jpg">
+          <source src="assets/video/cvent-connect.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="case-meta">
+        <div class="in">
+          <div>
+            <h3>Lorem Ipsum Europe 2024</h3>
+            <div class="sub">London · Lorem ipsum &amp; dolor</div>
+          </div>
+          <div class="tags"><span>Lorem ipsum</span><span>Dolor &amp; sit</span><span>Amet elit</span></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="case case-iris" id="case2">
+    <div class="case-stick">
+      <div class="case-media">
+        <video muted loop playsinline preload="none" data-autoplay poster="assets/video/evolution-london-poster.jpg">
+          <source src="assets/video/evolution-london.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="case-title"><h3 id="case2title" style="color:var(--ink);">Lorem ipsum, dolor sit amet.</h3></div>
+      <div class="case-meta">
+        <div class="in">
+          <div>
+            <h3>Consectetur Adipiscing · Sed Do Eiusmod 2025</h3>
+            <div class="sub">London · Lorem ipsum &amp; dolor sit amet</div>
+          </div>
+          <div class="tags"><span>Tempor</span><span>Incididunt</span><span>Ut labore</span></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="case case-blinds" id="case3">
+    <div class="case-stick">
+      <div class="case-media">
+        <video muted loop playsinline preload="none" data-autoplay poster="assets/video/hum-tv-awards-poster.jpg">
+          <source src="assets/video/hum-tv-awards.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="case-meta">
+        <div class="in">
+          <div>
+            <h3>Magna Aliqua Awards</h3>
+            <div class="sub">Ut Enim Arena · Lorem ipsum dolor</div>
+          </div>
+          <div class="tags"><span>Veniam</span><span>Quis</span><span>Nostrud</span></div>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- ===== EVENT TYPES ===== -->
+<section class="pad" id="events">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:clamp(30px,4vw,50px);">
+      <span class="label dot" style="--gel:var(--green);">Event types</span>
+      <h2 style="margin-top:16px;">Any room. Any format.</h2>
+    </div>
+    <div class="et-grid">
+      <div class="etypes reveal">
+        <a class="etype" href="#" style="--eg:var(--cyan);"><span class="dia" aria-hidden="true"></span><span class="n">01</span><h3>Meetings &amp; conferences</h3><span class="ar">→</span></a>
+        <a class="etype" href="#" style="--eg:var(--magenta);"><span class="dia" aria-hidden="true"></span><span class="n">02</span><h3>Hybrid &amp; virtual</h3><span class="ar">→</span></a>
+        <a class="etype" href="#" style="--eg:var(--amber);"><span class="dia" aria-hidden="true"></span><span class="n">03</span><h3>Product launches</h3><span class="ar">→</span></a>
+        <a class="etype" href="#" style="--eg:var(--green);"><span class="dia" aria-hidden="true"></span><span class="n">04</span><h3>Conventions &amp; tradeshows</h3><span class="ar">→</span></a>
+        <a class="etype" href="#" style="--eg:var(--violet);"><span class="dia" aria-hidden="true"></span><span class="n">05</span><h3>Galas &amp; award shows</h3><span class="ar">→</span></a>
+        <a class="etype" href="#" style="--eg:var(--red);"><span class="dia" aria-hidden="true"></span><span class="n">06</span><h3>Weddings &amp; celebrations</h3><span class="ar">→</span></a>
+      </div>
+      <div class="et-media reveal d1" id="etmedia" aria-hidden="true">
+        <img class="on" src="assets/img/inspire-audiences-with-the-persuasive.jpg" alt="" loading="lazy">
+        <img src="assets/img/AdobeStock_433864356-copy.jpg" alt="" loading="lazy">
+        <img src="assets/img/AdobeStock_1087309299_home3.jpg" alt="" loading="lazy">
+        <img src="assets/img/2019_05_Hargrove_00295-copy.jpg" alt="" loading="lazy">
+        <img src="assets/img/AdobeStock_191779307-scaled.jpg" alt="" loading="lazy">
+        <img src="assets/img/AdobeStock_36514925-copy.jpg" alt="" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS: two counter-sliding card rows on an inverted band ===== -->
+<section class="testi">
+  <div class="wrap reveal" style="margin-bottom:clamp(34px,4.5vw,56px);">
+    <span class="label dot" style="--gel:var(--cyan);">From concept to reality</span>
+    <h2 style="margin-top:16px;">Take their word for it.</h2>
+  </div>
+  <div class="t-marquee reveal d1">
+    <div class="t-row" style="--dur:58s;">
+      <div class="t-set">
+        <figure class="t-card" style="--gel:var(--cyan);">
+          <span class="t-mark" aria-hidden="true"></span>
+          <blockquote>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”</blockquote>
+          <figcaption><b>Lorem Ipsum</b><span>Dolor Sit · Amet Consectetur</span></figcaption>
+        </figure>
+        <figure class="t-card" style="--gel:var(--magenta);">
+          <span class="t-mark" aria-hidden="true"></span>
+          <blockquote>“Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute.”</blockquote>
+          <figcaption><b>Sed Eiusmod</b><span>Tempor Incididunt · Labore Group</span></figcaption>
+        </figure>
+        <figure class="t-card" style="--gel:var(--amber);">
+          <span class="t-mark" aria-hidden="true"></span>
+          <blockquote>“Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur sint occaecat.”</blockquote>
+          <figcaption><b>Magna Aliqua</b><span>Ut Enim · Ad Minim Ltd</span></figcaption>
+        </figure>
+        <figure class="t-card" style="--gel:var(--green);">
+          <span class="t-mark" aria-hidden="true"></span>
+          <blockquote>“Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.”</blockquote>
+          <figcaption><b>Veniam Quis</b><span>Nostrud · Exercitation Studio</span></figcaption>
+        </figure>
+        <figure class="t-card" style="--gel:var(--violet);">
+          <span class="t-mark" aria-hidden="true"></span>
+          <blockquote>“Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque.”</blockquote>
+          <figcaption><b>Ullamco Laboris</b><span>Nisi Ut · Aliquip Events</span></figcaption>
+        </figure>
+        <figure class="t-card" style="--gel:var(--red);">
+          <span class="t-mark" aria-hidden="true"></span>
+          <blockquote>“Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos.”</blockquote>
+          <figcaption><b>Commodo Consequat</b><span>Duis Aute · Irure &amp; Co</span></figcaption>
+        </figure>
+      </div>
+      <div class="t-set clone" aria-hidden="true">
+        <figure class="t-card" style="--gel:var(--cyan);">
+          <span class="t-mark"></span>
+          <blockquote>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”</blockquote>
+          <figcaption><b>Lorem Ipsum</b><span>Dolor Sit · Amet Consectetur</span></figcaption>
+        </figure>
+        <figure class="t-card" style="--gel:var(--magenta);">
+          <span class="t-mark"></span>
+          <blockquote>“Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute.”</blockquote>
+          <figcaption><b>Sed Eiusmod</b><span>Tempor Incididunt · Labore Group</span></figcaption>
+        </figure>
+        <figure class="t-card" style="--gel:var(--amber);">
+          <span class="t-mark"></span>
+          <blockquote>“Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur sint occaecat.”</blockquote>
+          <figcaption><b>Magna Aliqua</b><span>Ut Enim · Ad Minim Ltd</span></figcaption>
+        </figure>
+        <figure class="t-card" style="--gel:var(--green);">
+          <span class="t-mark"></span>
+          <blockquote>“Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.”</blockquote>
+          <figcaption><b>Veniam Quis</b><span>Nostrud · Exercitation Studio</span></figcaption>
+        </figure>
+        <figure class="t-card" style="--gel:var(--violet);">
+          <span class="t-mark"></span>
+          <blockquote>“Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque.”</blockquote>
+          <figcaption><b>Ullamco Laboris</b><span>Nisi Ut · Aliquip Events</span></figcaption>
+        </figure>
+        <figure class="t-card" style="--gel:var(--red);">
+          <span class="t-mark"></span>
+          <blockquote>“Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos.”</blockquote>
+          <figcaption><b>Commodo Consequat</b><span>Duis Aute · Irure &amp; Co</span></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="t-row rev" style="--dur:66s;">
+      <div class="t-set">
+        <figure class="t-card" style="--gel:var(--green);">
+          <span class="t-mark" aria-hidden="true"></span>
+          <blockquote>“Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius.”</blockquote>
+          <figcaption><b>Cillum Dolore</b><span>Eu Fugiat · Nulla Pariatur</span></figcaption>
+        </figure>
+        <figure class="t-card" style="--gel:var(--cyan);">
+          <span class="t-mark" aria-hidden="true"></span>
+          <blockquote>“Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur illum qui dolorem.”</blockquote>
+          <figcaption><b>Sint Occaecat</b><span>Cupidatat Non · Proident SA</span></figcaption>
+        </figure>
+        <figure class="t-card" style="--gel:var(--amber);">
+          <span class="t-mark" aria-hidden="true"></span>
+          <blockquote>“At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.”</blockquote>
+          <figcaption><b>Culpa Officia</b><span>Deserunt Mollit · Anim Studio</span></figcaption>
+        </figure>
+        <figure class="t-card" style="--gel:var(--magenta);">
+          <span class="t-mark" aria-hidden="true"></span>
+          <blockquote>“Et harum quidem rerum facilis est et expedita distinctio, nam libero tempore cum soluta nobis est eligendi optio.”</blockquote>
+          <figcaption><b>Perspiciatis Unde</b><span>Omnis Iste · Natus Group</span></figcaption>
+        </figure>
+        <figure class="t-card" style="--gel:var(--red);">
+          <span class="t-mark" aria-hidden="true"></span>
+          <blockquote>“Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae.”</blockquote>
+          <figcaption><b>Accusantium Dolor</b><span>Laudantium Totam · Rem Ltd</span></figcaption>
+        </figure>
+        <figure class="t-card" style="--gel:var(--violet);">
+          <span class="t-mark" aria-hidden="true"></span>
+          <blockquote>“Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut.”</blockquote>
+          <figcaption><b>Quae Inventore</b><span>Veritatis Quasi · Architecto</span></figcaption>
+        </figure>
+      </div>
+      <div class="t-set clone" aria-hidden="true">
+        <figure class="t-card" style="--gel:var(--green);">
+          <span class="t-mark"></span>
+          <blockquote>“Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius.”</blockquote>
+          <figcaption><b>Cillum Dolore</b><span>Eu Fugiat · Nulla Pariatur</span></figcaption>
+        </figure>
+        <figure class="t-card" style="--gel:var(--cyan);">
+          <span class="t-mark"></span>
+          <blockquote>“Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur illum qui dolorem.”</blockquote>
+          <figcaption><b>Sint Occaecat</b><span>Cupidatat Non · Proident SA</span></figcaption>
+        </figure>
+        <figure class="t-card" style="--gel:var(--amber);">
+          <span class="t-mark"></span>
+          <blockquote>“At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.”</blockquote>
+          <figcaption><b>Culpa Officia</b><span>Deserunt Mollit · Anim Studio</span></figcaption>
+        </figure>
+        <figure class="t-card" style="--gel:var(--magenta);">
+          <span class="t-mark"></span>
+          <blockquote>“Et harum quidem rerum facilis est et expedita distinctio, nam libero tempore cum soluta nobis est eligendi optio.”</blockquote>
+          <figcaption><b>Perspiciatis Unde</b><span>Omnis Iste · Natus Group</span></figcaption>
+        </figure>
+        <figure class="t-card" style="--gel:var(--red);">
+          <span class="t-mark"></span>
+          <blockquote>“Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae.”</blockquote>
+          <figcaption><b>Accusantium Dolor</b><span>Laudantium Totam · Rem Ltd</span></figcaption>
+        </figure>
+        <figure class="t-card" style="--gel:var(--violet);">
+          <span class="t-mark"></span>
+          <blockquote>“Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut.”</blockquote>
+          <figcaption><b>Quae Inventore</b><span>Veritatis Quasi · Architecto</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section id="contact" class="cta">
+  <video muted loop playsinline preload="none" data-autoplay poster="assets/video/encore-lighting-poster.jpg" aria-hidden="true">
+    <source src="assets/video/encore-lighting.mp4" type="video/mp4">
+  </video>
+  <div class="scrim"></div>
+  <div class="cta-grid">
+    <div class="reveal">
+      <span class="label dot" style="--gel:var(--amber);">Standing by</span>
+      <h2>Let's make something people talk about.</h2>
+      <p class="lead">On-site at 2,200+ venues worldwide, or anywhere you can get a truck.</p>
+      <a class="btn btn-quiet" href="#">Find your venue</a>
+    </div>
+    <form class="leadform reveal d1" id="leadform">
+      <div class="fhead">
+        <h3>Start your event</h3>
+        <p>Tell us what you're planning and the right producer will come back to you.</p>
+      </div>
+      <div class="fgrid">
+        <div class="field">
+          <label for="lf-name">Name</label>
+          <input id="lf-name" name="name" type="text" autocomplete="name" required placeholder="Your name">
+        </div>
+        <div class="field">
+          <label for="lf-email">Work email</label>
+          <input id="lf-email" name="email" type="email" autocomplete="email" required placeholder="you@company.com">
+        </div>
+        <div class="field">
+          <label for="lf-company">Company</label>
+          <input id="lf-company" name="company" type="text" autocomplete="organization" placeholder="Company or agency">
+        </div>
+        <div class="field">
+          <label for="lf-type">Event type</label>
+          <select id="lf-type" name="event-type">
+            <option value="" selected>Select a type</option>
+            <option>Meetings &amp; conferences</option>
+            <option>Hybrid &amp; virtual</option>
+            <option>Product launches</option>
+            <option>Conventions &amp; tradeshows</option>
+            <option>Galas &amp; award shows</option>
+            <option>Weddings &amp; celebrations</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="lf-date">Event date</label>
+          <input id="lf-date" name="date" type="date">
+        </div>
+        <div class="field">
+          <label for="lf-city">City or venue</label>
+          <input id="lf-city" name="city" type="text" placeholder="TBC is fine">
+        </div>
+        <div class="field full">
+          <label for="lf-msg">About your event</label>
+          <textarea id="lf-msg" name="message" placeholder="Audience size, format, and what it should feel like."></textarea>
+        </div>
+      </div>
+      <div class="frow">
+        <button class="btn btn-solid" type="submit">Start your event <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <small>We reply within one working day.</small>
+      </div>
+      <div class="form-ok" role="status">
+        <span class="dm" aria-hidden="true"></span>
+        <h3>Thanks, we're on it.</h3>
+        <p>Your brief is with the EMEA team. A producer will come back to you within one working day.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site">
+  <div class="wrap">
+    <div class="grid g4">
+      <div class="foot-brand">
+        <a class="brand" href="#" aria-label="Encore home">
+          <img class="logo-light" src="assets/encore-logo.png" alt="Encore" style="height:30px;">
+          <img class="logo-dark" src="assets/encore-logo-white.png" alt="Encore" style="height:30px;">
+        </a>
+        <p>The production partner for events that move people.</p>
+        <div class="soc">
+          <a href="#" aria-label="Encore on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg></a>
+          <a href="#" aria-label="Encore on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16Zm0 3.68a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32Zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88Z"/></svg></a>
+          <a href="#" aria-label="Encore on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg></a>
+          <a href="#" aria-label="Encore on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23Zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64Z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col"><div class="colhead" style="--gel:var(--cyan);">What we do</div><a href="#">Event technology</a><a href="#">Production</a><a href="#">Creative</a><a href="#">Design &amp; fabrication</a></div>
+      <div class="foot-col"><div class="colhead" style="--gel:var(--magenta);">Planners</div><a href="#">Find your venue</a><a href="#">Case studies</a><a href="#">Event planning resources</a><a href="#">Sustainability</a></div>
+      <div class="foot-col"><div class="colhead" style="--gel:var(--green);">Company</div><a href="#">About Encore</a><a href="#">Careers</a><a href="#">Hotel &amp; venue partners</a><a href="#">Contact</a></div>
+    </div>
+    <div class="footrow">
+      <nav class="legal" aria-label="Legal">
+        <a href="#">Privacy policy</a>
+        <a href="#">Terms of use</a>
+        <a href="#">Cookie preferences</a>
+        <a href="#">Modern slavery statement</a>
+      </nav>
+      <div class="foot-ctl">
+        <div class="mkt-wrap up end">
+          <button class="mkt" type="button" aria-haspopup="true" aria-expanded="false">EMEA ▾</button>
+          <div class="mkt-menu" role="menu">
+            <button type="button" role="menuitem" data-region="North America">North America</button>
+            <button type="button" role="menuitem" data-region="EMEA" class="on">EMEA</button>
+            <button type="button" role="menuitem" data-region="APAC">APAC</button>
+          </div>
+        </div>
+        <button class="tgl" type="button" data-toggle-theme aria-label="Switch between light and dark theme">
+          <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.4"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/></svg>
+          <svg class="moon" viewBox="0 0 24 24"><path d="M20.5 14.2A8.6 8.6 0 0 1 9.8 3.5a8.6 8.6 0 1 0 10.7 10.7Z"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="footnote">
+      <span>© Encore Global · concept mockup D · "daylight" · placeholder copy</span>
+      <span>Footage: Encore EMEA · figures from encoreglobal.com/about</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"
+  integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"
+  integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
+<script>
+  const rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const small = matchMedia('(max-width: 960px)').matches;
+  const fx = !rm && !small && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
+  document.documentElement.classList.add(fx ? 'fx' : 'no-fx');
+  const clamp01 = v => Math.max(0, Math.min(1, v));
+
+  // ---- theme switcher ----
+  (function(){
+    const meta = document.getElementById('themecolor');
+    function apply(t){
+      document.documentElement.dataset.theme = t;
+      meta.setAttribute('content', t === 'dark' ? '#0C0C0E' : '#FAF9F6');
+      try { localStorage.setItem('encore-theme', t); } catch(e) {}
+    }
+    apply(document.documentElement.dataset.theme);
+    requestAnimationFrame(()=>document.documentElement.classList.add('themed'));
+    document.querySelectorAll('[data-toggle-theme]').forEach(b=>b.addEventListener('click', e=>{
+      e.preventDefault();
+      apply(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
+    }));
+  })();
+
+  // ---- region dropdown (UI only) ----
+  (function(){
+    const wraps=[...document.querySelectorAll('.mkt-wrap')]; if(!wraps.length) return;
+    const closeAll=()=>wraps.forEach(w=>{ w.classList.remove('open'); w.querySelector('.mkt').setAttribute('aria-expanded','false'); });
+    wraps.forEach(w=>{
+      const btn=w.querySelector('.mkt');
+      btn.addEventListener('click',e=>{ e.stopPropagation();
+        const open=!w.classList.contains('open'); closeAll();
+        w.classList.toggle('open',open); btn.setAttribute('aria-expanded',open); });
+      w.querySelectorAll('.mkt-menu button').forEach(b=>b.addEventListener('click',e=>{ e.stopPropagation();
+        const r=b.dataset.region;
+        document.querySelectorAll('.mkt').forEach(m=>m.textContent=r+' ▾');
+        document.querySelectorAll('.mkt-menu button').forEach(x=>x.classList.toggle('on', x.dataset.region===r));
+        closeAll(); }));
+    });
+    addEventListener('click',e=>{ if(!e.target.closest('.mkt-wrap')) closeAll(); });
+    addEventListener('keydown',e=>{ if(e.key==='Escape') closeAll(); });
+  })();
+
+  // ---- mobile menu ----
+  (function(){
+    const hamb=document.getElementById('hamb'), mob=document.getElementById('mobmenu'); if(!hamb||!mob) return;
+    function set(open){ mob.classList.toggle('open',open); hamb.classList.toggle('open',open);
+      hamb.setAttribute('aria-expanded',open); document.documentElement.style.overflow=open?'hidden':''; }
+    hamb.addEventListener('click',()=>set(!mob.classList.contains('open')));
+    mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',ev=>{ if(!('toggleTheme' in a.dataset)) set(false); }));
+    addEventListener('keydown',e=>{ if(e.key==='Escape') set(false); });
+  })();
+
+  // ---- reveals ----
+  const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in'); ro.unobserve(e.target);}}),{threshold:.14});
+  document.querySelectorAll('.reveal').forEach(el=>rm?el.classList.add('in'):ro.observe(el));
+
+  // ---- count-up ----
+  function fmt(v,comma){ v=Math.round(v)+''; return comma?v.replace(/\B(?=(\d{3})+(?!\d))/g,','):v; }
+  function animateCount(el){
+    const target=+el.dataset.count, suf=el.dataset.suffix||'', comma=el.dataset.comma==='1', dur=1400, t0=performance.now();
+    (function step(t){let p=Math.min((t-t0)/dur,1); p=1-Math.pow(1-p,3);
+      el.textContent=fmt(target*p,comma)+suf;
+      if(p<1) requestAnimationFrame(step);
+      else el.closest('.stat')?.classList.add('filled');})(t0);   // the outline fills once the number lands
+  }
+  const co=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){
+    const el=e.target;
+    if(rm){ el.textContent=fmt(+el.dataset.count, el.dataset.comma==='1')+(el.dataset.suffix||''); el.closest('.stat')?.classList.add('filled'); }
+    else animateCount(el);
+    co.unobserve(el);}}),{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
+
+  // ---- lead form (mockup: no backend, browser handles validation) ----
+  (function(){
+    const f = document.getElementById('leadform'); if(!f) return;
+    f.addEventListener('submit', e=>{ e.preventDefault(); f.classList.add('sent'); });
+  })();
+
+  // ---- event types: the preview panel takes the hovered row's photo and gel ----
+  (function(){
+    const panel = document.getElementById('etmedia'); if(!panel) return;
+    const rows = [...document.querySelectorAll('.etype')];
+    const imgs = [...panel.querySelectorAll('img')];
+    const gels = ['var(--cyan)','var(--magenta)','var(--amber)','var(--green)','var(--violet)','var(--red)'];
+    function show(i){
+      imgs.forEach((im,k)=>im.classList.toggle('on', k===i));
+      panel.style.setProperty('--eg', gels[i] || gels[0]);
+    }
+    rows.forEach((r,i)=>['mouseenter','focus'].forEach(ev=>r.addEventListener(ev, ()=>show(i))));
+  })();
+
+  // ---- keyline glow: a soft cyan bloom on the keyline nearest the cursor ----
+  (function(){
+    if(rm || typeof gsap === 'undefined' || !matchMedia('(pointer:fine)').matches) return;
+    const el = document.documentElement;
+    const setX = gsap.quickTo(el, '--gx', {duration:.55, ease:'power3'});
+    const bars = [...document.querySelectorAll('.stats, .cta, footer.site')];
+    const setGlow = bars.map(b => gsap.quickTo(b, '--glow', {duration:.4, ease:'power2'}));
+    const REACH = 300, MAX = 0.5;                          // fade in as the cursor nears a keyline
+    addEventListener('pointermove', e=>{
+      setX(+(e.clientX / innerWidth * 100).toFixed(2));
+      let best=-1, bestD=Infinity;
+      bars.forEach((b,i)=>{ const d=Math.abs(b.getBoundingClientRect().top - e.clientY); if(d<bestD){ bestD=d; best=i; } });
+      bars.forEach((b,i)=>setGlow[i]( i===best && bestD<REACH ? MAX*(1-bestD/REACH) : 0 ));
+    }, {passive:true});
+  })();
+
+  // ---- lazy play/pause looping videos ----
+  const vo=new IntersectionObserver(es=>es.forEach(e=>{
+    const v=e.target.matches('video')?e.target:e.target.querySelector('video'); if(!v) return;
+    if(e.isIntersecting){ if(v.preload==='none') v.preload='auto'; v.play().catch(()=>{}); } else v.pause();
+  }),{threshold:.2});
+  document.querySelectorAll('[data-autoplay]').forEach(el=>vo.observe(el));
+
+  // ---- hero fallback: play the film loop instead of the sequence ----
+  if(!fx && !rm){
+    const hv=document.querySelector('.hero-media video');
+    if(hv){ document.documentElement.classList.add('play-video'); hv.setAttribute('data-autoplay',''); vo.observe(hv); }
+  }
+
+  // ---- word mask for case 1 (built here so the word is easy to change) ----
+  (function(){
+    const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 320'>`+
+      `<text x='500' y='160' text-anchor='middle' dominant-baseline='central' `+
+      `font-family='Arial Black, Arial, sans-serif' font-weight='900' font-size='250' letter-spacing='-8' fill='#000'>LOREM</text></svg>`;
+    document.getElementById('case1').style.setProperty('--wordmask', `url("data:image/svg+xml,${encodeURIComponent(svg)}")`);
+  })();
+
+  // ================= scroll effects (GSAP ScrollTrigger) =================
+  if (fx) {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ---- hero image sequence (rewind: show night -> empty room) ----
+    const FRAMES = 128;
+    const seqSrc = i => `assets/img/seq-hero/frame-${String(i+1).padStart(3,'0')}.jpg`;
+    const canvas = document.getElementById('seq');
+    const ctx = canvas.getContext('2d');
+    const imgs = new Array(FRAMES);
+    const firstFrame = FRAMES - 1;
+    let current = firstFrame;
+
+    function sizeCanvas(){
+      const dpr = Math.min(devicePixelRatio || 1, 2);
+      canvas.width = innerWidth * dpr;
+      canvas.height = innerHeight * dpr;
+      draw(current);
+    }
+    function draw(i){
+      const img = nearestLoaded(i); if(!img) return;
+      current = i;
+      const cw = canvas.width, ch = canvas.height;
+      const s = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
+      const w = img.naturalWidth * s, h = img.naturalHeight * s;
+      ctx.drawImage(img, (cw - w)/2, (ch - h)/2, w, h);
+    }
+    const okImg = im => im && im.complete && im.naturalWidth;
+    function nearestLoaded(i){
+      // frames load from the last frame backward, so search that side first
+      for(let k=i; k<FRAMES; k++) if(okImg(imgs[k])) return imgs[k];
+      for(let k=i-1; k>=0; k--) if(okImg(imgs[k])) return imgs[k];
+      return null;
+    }
+    // last frame straight away, the rest in the background
+    imgs[firstFrame] = new Image();
+    imgs[firstFrame].onload = ()=>draw(firstFrame);
+    imgs[firstFrame].src = seqSrc(firstFrame);
+    for(let i=FRAMES-2; i>=0; i--){ imgs[i] = new Image(); imgs[i].src = seqSrc(i); }
+    sizeCanvas();
+    addEventListener('resize', sizeCanvas);
+
+    const heroCopy = document.querySelector('.hero-copy');
+    const heroMedia = document.getElementById('heromedia');
+    const gemsEl = document.querySelector('.hero .gems');
+    const hint = document.querySelector('.scrollhint');
+    const outro = document.querySelector('.hero-outro');
+    const caps = [...document.querySelectorAll('#caps span')];
+    const capix = document.getElementById('capix');
+    const cueFills = [...document.querySelectorAll('#cuesegs .cs i')];
+    const capText  = ['Lorem ipsum.','Dolor sit.','Sed eiusmod.','Ut enim.'];
+    const capNames = ['01 / 04 · Lorem ipsum','02 / 04 · Dolor sit amet','03 / 04 · Consectetur elit','04 / 04 · Magna aliqua'];
+    const capGels  = ['var(--cyan)','var(--magenta)','var(--amber)','var(--green)'];
+    caps.forEach((c,k)=>{ c.textContent = capText[k]; c.classList.toggle('on', k===0); });
+    capix.textContent = capNames[0];
+    capix.style.setProperty('--gel', capGels[0]);
+    let capOn = 0;
+    function setCap(i){
+      if(i===capOn) return; capOn=i;
+      caps.forEach((c,k)=>c.classList.toggle('on', k===i));
+      capix.textContent = capNames[i];
+      capix.style.setProperty('--gel', capGels[i]);
+    }
+
+    // the live film: the page opens on it before the scroll grabs the rewind
+    const heroVideo = document.querySelector('.hero-media video');
+    heroVideo.style.opacity = 0;
+    let liveFilm = false;
+    function setLive(on){
+      if(on === liveFilm) return; liveFilm = on;
+      heroVideo.style.opacity = on ? 1 : 0;
+      if(on){ heroVideo.preload = 'auto'; heroVideo.play().catch(()=>{}); }
+      else setTimeout(()=>{ if(!liveFilm) heroVideo.pause(); }, 380); // pause once the fade is done
+    }
+    setLive(true);
+    // pause the film whenever the hero leaves the viewport
+    new IntersectionObserver(es=>es.forEach(e=>{
+      if(!e.isIntersecting) heroVideo.pause();
+      else if(liveFilm) heroVideo.play().catch(()=>{});
+    }),{threshold:0}).observe(document.querySelector('.hero-stick'));
+
+    // ---- headline: outlined type-in, then magnetic words ----
+    const h1 = document.querySelector('.hero-copy h1');
+    h1.setAttribute('aria-label', h1.textContent.trim().replace(/\s+/g,' '));
+    h1.innerHTML = h1.innerHTML.split(/<br\s*\/?>/i).map((line, li) =>
+      `<span class="hl hl${li+1}" aria-hidden="true">` + line.trim().split(/\s+/).map(w =>
+        `<span class="hw${w==='dolor'?' gel':''}">` + [...w].map(c=>`<span class="ch">${c}</span>`).join('') + `</span>`
+      ).join(' ') + `</span>`
+    ).join('<br>');
+    const chars = [...h1.querySelectorAll('.ch')];
+
+    if (scrollY < innerHeight * .25) {
+      const tl = gsap.timeline({defaults:{ease:'power3.out'}});
+      tl.from('.hero-copy .label', {y:16, autoAlpha:0, duration:.5}, .1)
+        .from(chars, {yPercent:72, autoAlpha:0, duration:.55, stagger:.022}, .2)
+        .add(()=>{ // fill sweeps left-to-right across the outlines
+          chars.forEach((c,i)=>c.style.transitionDelay = (i*.02)+'s');
+          h1.classList.add('filled');
+          setTimeout(()=>chars.forEach(c=>c.style.transitionDelay=''), 2400);
+        }, .85)
+        .from('.hero-lead', {y:18, autoAlpha:0, duration:.5}, .95)
+        .from('.hero-row', {y:24, autoAlpha:0, duration:.6}, 1.05)
+        .from(heroMedia, {scale:1.07, duration:1.4, ease:'power2.out'}, 0)
+        .from('.hero-cap', {autoAlpha:0, duration:.5}, 1.3)
+        .from('.scrollhint', {autoAlpha:0, duration:.5}, 1.3);
+    } else {
+      h1.classList.add('filled'); // reloaded mid-page: skip the intro
+    }
+
+    // headline letters are magnetic the wrong way round: the cursor pushes them aside,
+    // and they spring back with a little overshoot once it moves on (buttons stay put)
+    const PUSH_R = 170, PUSH_MAX = 30;
+    const push = chars.map(el=>({
+      el,
+      x:gsap.quickTo(el,'x',{duration:.9, ease:'elastic.out(1,0.55)'}),
+      y:gsap.quickTo(el,'y',{duration:.9, ease:'elastic.out(1,0.55)'})
+    }));
+    const stick = document.querySelector('.hero-stick');
+    stick.addEventListener('mousemove', e=>{
+      for(const p of push){
+        const b = p.el.getBoundingClientRect();
+        // measure from the letter's resting centre, not its pushed position
+        const cx = b.left + b.width/2 - gsap.getProperty(p.el,'x');
+        const cy = b.top + b.height/2 - gsap.getProperty(p.el,'y');
+        const dx = cx - e.clientX, dy = cy - e.clientY;
+        const dist = Math.hypot(dx, dy);
+        if(dist < PUSH_R){
+          const f = 1 - dist/PUSH_R;
+          const s = f*f*PUSH_MAX;
+          p.x(dx/(dist||1)*s); p.y(dy/(dist||1)*s*.85);
+        } else { p.x(0); p.y(0); }
+      }
+    });
+    stick.addEventListener('mouseleave', ()=>push.forEach(p=>{ p.x(0); p.y(0); }));
+
+    // facet gems drift with the pointer, each at its own depth
+    const gemEls = [...document.querySelectorAll('.hero .gem')].map(el=>({el, d:+el.dataset.depth||24, x:0, y:0, tx:0, ty:0}));
+    let graf=null;
+    function gtick(){ let live=false;
+      gemEls.forEach(g=>{ g.x+=(g.tx-g.x)*.08; g.y+=(g.ty-g.y)*.08;
+        if(Math.abs(g.tx-g.x)>.15||Math.abs(g.ty-g.y)>.15) live=true;
+        g.el.style.transform=`translate(${g.x}px,${g.y}px)`; });
+      graf=live?requestAnimationFrame(gtick):null; }
+    stick.addEventListener('mousemove', e=>{
+      const r=stick.getBoundingClientRect();
+      const nx=e.clientX/r.width-.5, ny=(e.clientY-r.top)/r.height-.5;
+      gemEls.forEach(g=>{ g.tx=nx*g.d; g.ty=ny*g.d; });
+      if(!graf) graf=requestAnimationFrame(gtick);
+    });
+
+    const heroState = {p:0};
+    gsap.to(heroState, {
+      p:1, ease:'none',
+      scrollTrigger:{ trigger:'#hero', start:'top top', end:'bottom bottom', scrub:0.4 },
+      onUpdate(){
+        const p = heroState.p;
+        const k = Math.min(FRAMES-1, Math.floor(p*FRAMES));
+        draw(FRAMES-1-k); setCap(Math.min(3, Math.floor(p*4)));
+        cueFills.forEach((f,i)=>f.style.transform = `scaleX(${clamp01(p*4 - i)})`);
+        setLive(p < 0.02);                                   // grab the film off the live loop
+        const c = 1 - clamp01((p - 0.10) / 0.20);            // copy steps aside early, gone by 30%
+        heroCopy.style.opacity = c;
+        heroCopy.style.transform = `translateY(${(1-c)*-44}px)`;
+        heroCopy.style.pointerEvents = c < .4 ? 'none' : '';
+        if(gemsEl) gemsEl.style.opacity = c;                 // gems belong to the title card; clear with it
+        heroMedia.style.setProperty('--scrim', c.toFixed(3)); // scrim fades out with the copy
+        hint.style.opacity = 1 - clamp01(p / 0.14);          // hint still goes as soon as you scroll
+        const o = clamp01((p - 0.82) / 0.13);                // the closing line lands before the pin releases
+        outro.style.opacity = o;
+        outro.style.transform = `translateY(${(1-o)*18}px)`;
+        heroMedia.style.filter = o ? `brightness(${1 - o*.3})` : ''; // settle the empty room under the line
+      }
+    });
+
+    // ---- case 1: giant word mask zooms until the film fills the room ----
+    const m1 = document.querySelector('#case1 .case-media');
+    const meta1 = document.querySelector('#case1 .case-meta .in');
+    const s1 = {p:0};
+    gsap.to(s1, { p:1, ease:'none',
+      scrollTrigger:{ trigger:'#case1', start:'top top', end:'bottom bottom', scrub:0.4 },
+      onUpdate(){
+        const p = s1.p;
+        const z = clamp01(p/0.78);
+        const size = 64 * Math.pow(1 + 60*z*z, 1);           // 64% -> ~3900%
+        m1.style.webkitMaskSize = m1.style.maskSize = `${size}% auto`;
+        const mm = clamp01((p-0.78)/0.18);
+        meta1.style.opacity = mm;
+        meta1.style.transform = `translateY(${(1-mm)*22}px)`;
+      }
+    });
+
+    // ---- case 2: iris wipe ----
+    const m2 = document.querySelector('#case2 .case-media');
+    const t2 = document.getElementById('case2title');
+    const meta2 = document.querySelector('#case2 .case-meta .in');
+    const s2 = {p:0};
+    gsap.to(s2, { p:1, ease:'none',
+      scrollTrigger:{ trigger:'#case2', start:'top top', end:'bottom bottom', scrub:0.4 },
+      onUpdate(){
+        const p = s2.p;
+        const r = 9 + clamp01(p/0.8) * 91;                   // 9% -> 100%
+        m2.style.clipPath = `circle(${r}% at 50% 54%)`;
+        const tt = 1 - clamp01((p-0.18)/0.3);
+        t2.style.opacity = tt;
+        t2.style.transform = `scale(${1 + (1-tt)*0.12})`;
+        const mm = clamp01((p-0.78)/0.18);
+        meta2.style.opacity = mm;
+        meta2.style.transform = `translateY(${(1-mm)*22}px)`;
+      }
+    });
+
+    // ---- case 3: blinds wipe open ----
+    const m3 = document.querySelector('#case3 .case-media');
+    const meta3 = document.querySelector('#case3 .case-meta .in');
+    const s3 = {p:0};
+    gsap.to(s3, { p:1, ease:'none',
+      scrollTrigger:{ trigger:'#case3', start:'top top', end:'bottom bottom', scrub:0.4 },
+      onUpdate(){
+        const p = s3.p;
+        const open = 2.2 + clamp01(p/0.8) * 10.3;            // 2.2% -> 12.5% (fully open)
+        m3.style.setProperty('--open', open + '%');
+        const mm = clamp01((p-0.78)/0.18);
+        meta3.style.opacity = mm;
+        meta3.style.transform = `translateY(${(1-mm)*22}px)`;
+      }
+    });
+  } else {
+    // fallback: make sure case metas are visible and the copy doesn't promise scroll effects
+    document.querySelectorAll('.case-meta .in').forEach(el=>{ el.style.opacity=1; el.style.transform='none'; });
+    const wl=document.getElementById('worklead');
+    if(wl) wl.textContent='Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+  }
+</script>
+</body>
+</html>

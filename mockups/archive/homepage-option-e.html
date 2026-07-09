@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Encore · Homepage (Option E · facets · placeholder copy)</title>
+<meta name="description" content="Option E, facets: the Encore diamond as page architecture. A mosaic curtain reveal, gel-washed service rooms and GSAP-driven diamonds. Placeholder copy.">
+<meta name="theme-color" content="#0B0B0D">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* dark only; sharp geometry; the diamond facet is the architecture */
+    --paper:#0B0B0D; --ink:#F4F3F0; --soft:#151517; --card:#141417;
+    --hairline:rgba(244,243,240,.14); --hairline-strong:rgba(244,243,240,.28);
+    --muted:#96939D; --dim:#C4C1CA;
+    --btn-bg:#F4F3F0; --btn-fg:#0B0B0D;
+    --glass:rgba(11,11,13,.66);
+    --shadow:0 18px 50px rgba(0,0,0,.42);
+    --cyan:#11BFDD; --magenta:#C13FA8; --amber:#F9C429; --green:#90C74F; --violet:#7B5CFF; --red:#E7262B;
+    /* service rooms: house black with only a whisper of the room's gel */
+    --room-cyan:color-mix(in srgb, #11BFDD 7%, #0B0B0D);
+    --room-magenta:color-mix(in srgb, #C13FA8 7%, #0B0B0D);
+    --room-amber:color-mix(in srgb, #F9C429 6%, #0B0B0D);
+    --room-green:color-mix(in srgb, #90C74F 6%, #0B0B0D);
+    /* hard-stop facet bar: the diamond mosaic, not A/B/C's smooth spectrum */
+    --facet:linear-gradient(90deg, var(--cyan) 0 20%, var(--violet) 20% 40%, var(--magenta) 40% 60%, var(--red) 60% 80%, var(--amber) 80% 100%);
+    --maxw:1240px;
+  }
+  *{box-sizing:border-box;}
+  html{background:var(--paper);}
+  body{margin:0; background:var(--paper); color:var(--ink);
+    font-family:'Open Sans',-apple-system,BlinkMacSystemFont,sans-serif; font-weight:400; line-height:1.6;
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;}
+  /* display voice: the brand face, set heavy and tight */
+  .disp{font-family:'Open Sans',sans-serif; font-weight:750; line-height:1.04; letter-spacing:-.022em;
+    margin:0; text-wrap:balance;}
+  h1.disp{font-size:clamp(42px,6.4vw,104px); line-height:1.0;}
+  h2.disp{font-size:clamp(32px,4.2vw,60px);}
+  p{margin:0 0 18px;} a{color:inherit; text-decoration:none;}
+  :focus-visible{outline:2px solid var(--amber); outline-offset:3px;}
+  ::selection{background:var(--amber); color:#0B0B0D;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 clamp(20px,4.5vw,60px);}
+  .pad{padding:clamp(80px,9vw,140px) 0;}
+  .label{font-size:12px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--muted);}
+  .label.dot{display:inline-flex; align-items:center; gap:11px;}
+  .label.dot::before{content:""; width:7px; height:7px; rotate:45deg; background:var(--gel,var(--amber)); flex:0 0 7px;}
+  .lead{font-size:clamp(16px,1.4vw,20px); color:var(--dim); font-weight:400;}
+  .btn{position:relative; display:inline-flex; align-items:center; justify-content:center; gap:9px; font-family:'Open Sans',sans-serif;
+    font-weight:550; font-size:15px; letter-spacing:.005em; padding:15px 28px; border-radius:0;
+    border:1px solid transparent; cursor:pointer; overflow:hidden;
+    transition:transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .25s, background .25s, border-color .25s;}
+  .btn svg{transition:transform .25s;} .btn:hover svg{transform:translateX(4px);}
+  .btn-solid{background:var(--btn-bg); color:var(--btn-fg);}
+  .btn-solid::after{content:""; position:absolute; left:0; right:0; bottom:0; height:3px; background:var(--facet);
+    transform:scaleX(0); transform-origin:left; transition:transform .3s cubic-bezier(.2,.7,.2,1);}
+  .btn-solid:hover{transform:translateY(-2px); box-shadow:0 12px 30px rgba(0,0,0,.3);}
+  .btn-solid:hover::after{transform:scaleX(1);}
+  .btn-quiet{border-color:var(--hairline-strong); color:var(--ink); background:transparent;}
+  .btn-quiet:hover{border-color:var(--gel,var(--ink)); background:color-mix(in srgb, var(--ink) 5%, transparent);}
+  .ico{width:1em; height:1em; display:inline-block; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; vertical-align:-.12em;}
+  .ctas{display:flex; gap:12px; flex-wrap:wrap;}
+
+  /* gems: the diamond at every scale. outer box takes GSAP x/y, ::before is the rotated facet */
+  .gem{position:absolute; width:var(--s,40px); aspect-ratio:1; pointer-events:none;}
+  .gem::before{content:""; position:absolute; inset:0; rotate:45deg; scale:.7071;
+    background:var(--gg,var(--cyan)); animation:gfloat 8s ease-in-out infinite;}
+  .gem.line::before{background:transparent; border:1px solid rgba(244,243,240,.34);}
+  @keyframes gfloat{50%{translate:0 9px;}}
+
+  /* film grain: one quiet layer that makes the whole page read as footage */
+  .grain{position:fixed; inset:0; z-index:190; pointer-events:none; opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+  /* the diamond iris: four panels part from the centre, revealing the film through one growing diamond.
+     built by JS only when GSAP is live, so it can never trap the page */
+  .curtain{position:fixed; inset:0; z-index:220; pointer-events:none; display:none; overflow:hidden;}
+  .curtain.on{display:block;}
+  .curtain i{position:absolute; inset:0; display:block; background:#0B0B0D; will-change:transform;}
+
+  /* ===== nav: thin full-width strip, facet edge on top, live cue diamond ===== */
+  header.nav{position:fixed; top:0; left:0; right:0; z-index:60; padding:0;
+    background:var(--glass);
+    -webkit-backdrop-filter:blur(18px) saturate(140%); backdrop-filter:blur(18px) saturate(140%);
+    border-bottom:1px solid var(--hairline);}
+  header.nav::before{content:""; display:block; height:2px; background:var(--facet);}
+  header.nav .row{display:flex; align-items:center; justify-content:space-between; gap:18px;
+    max-width:var(--maxw); margin:0 auto; height:60px; padding:0 clamp(20px,4.5vw,60px);}
+  .brand{display:inline-flex; align-items:center;}
+  .brand img{height:24px; width:auto; display:block;}
+  nav.menu{display:flex; gap:4px; align-items:center; font-weight:500; font-size:14px;}
+  nav.menu a.lnk{padding:8px 14px; color:var(--dim); transition:background .2s, color .2s;}
+  nav.menu a.lnk:hover{background:color-mix(in srgb, var(--ink) 6%, transparent); color:var(--ink);}
+  nav.menu .btn{height:36px; padding:0 20px; font-size:13.5px; margin-left:8px;}
+  /* the cue diamond: takes the gel of whichever section you are in */
+  .cue{width:9px; height:9px; rotate:45deg; background:var(--amber); margin:0 10px 0 6px; flex:0 0 9px;
+    transition:background .5s;}
+  .mkt-wrap{position:relative; display:inline-block;}
+  .mkt{font-family:'Open Sans',sans-serif; font-weight:500; font-size:13px; border:1px solid var(--hairline-strong);
+    height:36px; display:inline-flex; align-items:center; padding:0 14px; color:var(--dim);
+    background:none; cursor:pointer; transition:border-color .25s, color .25s;}
+  .mkt:hover{border-color:var(--ink); color:var(--ink);}
+  .mkt-menu{position:absolute; top:calc(100% + 10px); right:0; z-index:80; min-width:190px;
+    background:var(--card); border:1px solid var(--hairline); box-shadow:var(--shadow);
+    padding:6px; display:none; flex-direction:column;}
+  .mkt-wrap.open .mkt-menu{display:flex;}
+  .mkt-wrap.up .mkt-menu{top:auto; bottom:calc(100% + 10px); right:auto; left:0;}
+  .mkt-menu button{font-family:'Open Sans',sans-serif; font-weight:500; font-size:13px; text-align:left; color:var(--dim);
+    background:none; border:0; padding:10px 12px; cursor:pointer;
+    display:flex; align-items:center; justify-content:space-between; gap:14px; transition:background .2s, color .2s;}
+  .mkt-menu button:hover{background:color-mix(in srgb, var(--ink) 6%, transparent); color:var(--ink);}
+  .mkt-menu button.on{color:var(--amber);}
+  .mkt-menu button.on::after{content:"●"; font-size:8px;}
+  .mob-cta{display:none; height:38px; padding:0 16px; font-size:13px; white-space:nowrap; margin-left:auto;}
+  .hamb{display:none; flex-direction:column; justify-content:center; gap:5px; width:44px; height:44px; padding:0; border:0; background:none; cursor:pointer; position:relative; z-index:2;}
+  .hamb span{display:block; width:22px; height:2px; border-radius:2px; background:var(--ink); margin:0 auto; transition:transform .3s, opacity .3s;}
+  .hamb.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamb.open span:nth-child(2){opacity:0; transform:scaleX(0);}
+  .hamb.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .mobmenu{position:fixed; inset:0; z-index:55; background:var(--paper);
+    display:flex; overflow-y:auto; -webkit-overflow-scrolling:touch; overscroll-behavior:contain;
+    padding:max(90px,12vh) 24px 44px; opacity:0; pointer-events:none; transition:opacity .3s;}
+  .mobmenu.open{opacity:1; pointer-events:auto;}
+  .mobmenu nav{display:flex; flex-direction:column; align-items:flex-start; gap:4px; margin:auto 0; width:100%; max-width:520px; margin-inline:auto;}
+  .mobmenu a{font-family:'Open Sans',sans-serif; font-weight:700; letter-spacing:-.02em;
+    font-size:clamp(34px,8.5vw,52px); color:var(--ink); padding:6px 0; opacity:0; transform:translateY(16px); transition:opacity .4s, transform .4s;}
+  .mobmenu a.btn{font-weight:550; font-size:16px; letter-spacing:0; margin-top:22px; padding:16px 32px;}
+  .mobmenu a.btn-solid{color:var(--btn-fg);}
+  .mobmenu.open a{opacity:1; transform:none;}
+  .mobmenu.open a:nth-child(1){transition-delay:.05s} .mobmenu.open a:nth-child(2){transition-delay:.1s}
+  .mobmenu.open a:nth-child(3){transition-delay:.15s} .mobmenu.open a:nth-child(4){transition-delay:.2s}
+  .mobmenu.open a:nth-child(5){transition-delay:.25s}
+
+  /* ===== hero: the film behind the mosaic ===== */
+  .hero{position:relative; min-height:100svh; display:flex; align-items:flex-end; overflow:hidden;
+    padding:calc(90px + 2svh) 0 clamp(120px,16svh,170px); color:#fff;}
+  .hero > video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;}
+  /* the gel change: a slow colour wash cycling over the film, like the desk stepping through states */
+  .gelwash{position:absolute; inset:0; z-index:1; mix-blend-mode:overlay; opacity:.3;
+    background:#11BFDD; animation:gelcycle 26s ease-in-out infinite;}
+  @keyframes gelcycle{0%,100%{background:#11BFDD} 30%{background:#7B5CFF} 55%{background:#C13FA8} 80%{background:#F9C429}}
+  .hero .scrim{position:absolute; inset:0; z-index:2;
+    background:linear-gradient(180deg, rgba(11,11,13,.7), rgba(11,11,13,.24) 45%, rgba(11,11,13,.86));}
+  .hero .gems{position:absolute; inset:0; z-index:3; pointer-events:none;}
+  .hero .gem{opacity:.95;}
+  .hero .wrap{position:relative; z-index:4; width:100%;}
+  .hero h1{color:#fff; text-shadow:0 2px 30px rgba(0,0,0,.45); max-width:14ch;}
+  .hero .ln{display:block; overflow:hidden; padding-bottom:.06em; margin-bottom:-.06em;}
+  .hero .rise{display:block; font-style:normal;}
+  .hero .label{color:rgba(255,255,255,.85);}
+  .hero .lead{color:rgba(255,255,255,.88); text-shadow:0 1px 12px rgba(0,0,0,.5); max-width:46ch; margin:22px 0 0;}
+  .hero .ctas{margin-top:30px;}
+  .hero .btn-quiet{border-color:rgba(255,255,255,.5); color:#fff;}
+  .hero .btn-quiet:hover{border-color:#fff; background:rgba(255,255,255,.1);}
+  /* cue list: the four services as a strip of gels along the foot of the film */
+  .cuelist{position:absolute; left:0; right:0; bottom:0; z-index:4;
+    border-top:1px solid rgba(255,255,255,.16); background:rgba(11,11,13,.34);
+    -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);}
+  .cuelist .cin{max-width:var(--maxw); margin:0 auto; padding:0 clamp(20px,4.5vw,60px);
+    display:grid; grid-template-columns:repeat(4,1fr);}
+  .cuelist a{display:flex; align-items:center; gap:11px; padding:17px 0;
+    font-size:11.5px; font-weight:500; letter-spacing:.13em; text-transform:uppercase;
+    color:rgba(255,255,255,.72); transition:color .2s;}
+  .cuelist a i{flex:0 0 8px; width:8px; height:8px; rotate:45deg; background:var(--gg,var(--cyan)); transition:scale .25s;}
+  .cuelist a:hover{color:#fff;} .cuelist a:hover i{scale:1.35;}
+  .cuelist a + a{border-left:1px solid rgba(255,255,255,.12); padding-left:20px;}
+  /* fx initial states: only applied when GSAP is confirmed live, so nothing can be stranded hidden */
+  .fx .hero .rise{transform:translateY(112%);}
+  .fx .hero .fin{opacity:0; transform:translateY(18px);}
+  .fx .hero .gem{opacity:0;}
+  .fx .cuelist{opacity:0;}
+
+  /* ===== news strip ===== */
+  .news{border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline);}
+  .news .nrow{display:flex; align-items:center; gap:clamp(20px,3.4vw,48px); padding:clamp(18px,2.4vw,28px) 0;}
+  .news .label{flex:0 0 auto;}
+  .nitem{display:flex; align-items:baseline; gap:11px; min-width:0; font-size:14px; color:var(--dim); transition:color .2s;}
+  .nitem::before{content:""; flex:0 0 7px; width:7px; height:7px; rotate:45deg; background:var(--gel,var(--violet)); align-self:center;}
+  .nitem .nt{white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  .nitem .nd{flex:0 0 auto; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted);}
+  .nitem:hover{color:var(--ink);}
+
+  /* ===== services: an intro on the house black, then four gel rooms that stack like cues ===== */
+  .svc-intro{padding:clamp(80px,9vw,130px) 0 clamp(56px,6vw,90px);}
+  .svc-head{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap;}
+  .svc-head h2{margin-top:16px;}
+  .rooms{position:relative;}
+  .room{position:sticky; top:0; min-height:100svh; display:flex; align-items:center; overflow:hidden;
+    background:var(--room,var(--soft)); box-shadow:0 -36px 80px rgba(0,0,0,.5);
+    padding:calc(62px + 4svh) 0 clamp(40px,6svh,70px);}
+  .room::before{content:""; position:absolute; top:0; left:0; right:0; height:4px; background:var(--gel); z-index:2;}
+  .roomnum{position:absolute; top:-2%; right:-1.5%; z-index:0; font-size:clamp(150px,26vw,360px);
+    line-height:1; color:transparent; -webkit-text-stroke:1.5px color-mix(in srgb, var(--gel) 45%, transparent);
+    user-select:none; pointer-events:none;}
+  .roomgrid{position:relative; z-index:1; display:grid; grid-template-columns:1.02fr 1fr;
+    gap:clamp(28px,5vw,84px); align-items:center; width:100%;}
+  .rtxt .label{color:color-mix(in srgb, var(--ink) 62%, transparent); margin-bottom:16px; display:inline-flex;}
+  .rtxt h3{font-size:clamp(34px,3.8vw,62px); margin-bottom:18px;}
+  .rtxt p{color:color-mix(in srgb, var(--ink) 78%, transparent); max-width:48ch; font-size:15.5px; margin-bottom:0;}
+  .rtxt ul{list-style:none; margin:22px 0 28px; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:11px 26px; max-width:44ch;}
+  .rtxt li{font-size:13.5px; color:color-mix(in srgb, var(--ink) 72%, transparent); display:flex; align-items:center; gap:10px;}
+  .rtxt li::before{content:""; flex:0 0 6px; width:6px; height:6px; rotate:45deg; background:var(--gel);}
+  .rtxt .go{display:inline-flex; align-items:center; gap:8px; font-weight:550; font-size:14.5px; color:var(--ink);
+    border-bottom:2px solid color-mix(in srgb, var(--gel) 60%, transparent); padding-bottom:3px;}
+  .rtxt .go .ar{transition:transform .25s;} .rtxt .go:hover .ar{transform:translateX(5px);}
+  .rmedia{position:relative;}
+  .rmedia .frame{position:relative; display:block; overflow:hidden; aspect-ratio:4/3; max-height:62svh; width:100%;
+    border:1px solid color-mix(in srgb, var(--gel) 30%, transparent);}
+  .rmedia img{width:100%; height:100%; object-fit:cover; display:block;}
+  .rmedia::after{content:""; position:absolute; width:22px; height:22px; rotate:45deg;
+    background:var(--gel); right:-11px; bottom:38px;}
+  /* fx: media starts as a small diamond and GSAP opens it to the full frame */
+  .fx .rmedia img{clip-path:polygon(50% 18%, 74% 50%, 50% 82%, 26% 50%);}
+  .fx .rtxt > *{opacity:0; transform:translateY(26px);}
+  .fx .roomnum{opacity:0;}
+
+  /* ===== stats ===== */
+  .stats{position:relative; overflow:hidden; border-bottom:1px solid var(--hairline); background:var(--paper);}
+  .stats::before{content:""; position:absolute; top:0; left:0; right:0; height:3px; background:var(--facet);}
+  .stats::after{content:""; position:absolute; right:-110px; top:50%; translate:0 -50%; width:300px; height:300px;
+    rotate:45deg; border:1px solid var(--hairline); pointer-events:none;}
+  .stats > .in{display:grid; grid-template-columns:repeat(4,1fr);}
+  .stat{padding:clamp(30px,3.8vw,54px) clamp(14px,2vw,30px);}
+  .stat + .stat{border-left:1px solid var(--hairline);}
+  .stat b{display:block; font-weight:750; letter-spacing:-.02em; font-size:clamp(34px,4.2vw,68px); line-height:1;}
+  .stat small{display:flex; align-items:center; gap:9px; margin-top:12px;
+    font-size:12px; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--muted);}
+  .stat small::before{content:""; flex:0 0 7px; width:7px; height:7px; rotate:45deg; background:var(--gg,var(--amber));}
+
+  /* ===== work: one big room, two beside it ===== */
+  .work-head{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; margin-bottom:clamp(28px,3.6vw,48px);}
+  .wgrid{display:grid; grid-template-columns:1.4fr 1fr; gap:16px;}
+  .wcard{position:relative; display:block; overflow:hidden; background:var(--card); border:1px solid var(--hairline);
+    transition:border-color .3s, transform .3s cubic-bezier(.2,.7,.2,1);}
+  .wcard:hover{border-color:var(--gel,var(--hairline-strong)); transform:translateY(-4px);}
+  .wcard::after{content:""; position:absolute; width:16px; height:16px; rotate:45deg; z-index:2;
+    background:var(--gel,var(--amber)); right:18px; top:18px; transition:rotate .45s cubic-bezier(.2,.7,.2,1);}
+  .wcard:hover::after{rotate:225deg;}
+  .wcard.big{grid-row:span 2;}
+  .wmedia{position:relative; display:block; aspect-ratio:16/10; overflow:hidden; background:var(--soft);}
+  .wcard.big .wmedia{height:100%; aspect-ratio:auto; min-height:420px;}
+  .wmedia video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    transition:transform .8s cubic-bezier(.2,.7,.2,1);}
+  .wcard:hover .wmedia video{transform:scale(1.05);}
+  .wcap{position:absolute; left:0; right:0; bottom:0; z-index:1; display:flex; justify-content:space-between; align-items:flex-end; gap:12px;
+    padding:34px 18px 16px; background:linear-gradient(180deg, transparent, rgba(0,0,0,.74));}
+  .wcap .wt{display:block; font-weight:650; font-size:15.5px; letter-spacing:-.01em; color:#fff;}
+  .wcap .ws{display:block; margin-top:3px; font-size:12.5px; color:rgba(255,255,255,.66);}
+  .wix{flex:0 0 auto; display:inline-flex; align-items:center; gap:9px; margin-bottom:2px;
+    font-size:11.5px; font-weight:500; letter-spacing:.14em; color:rgba(255,255,255,.66);}
+  .wix::before{content:""; width:7px; height:7px; rotate:45deg; background:var(--gel,var(--amber));}
+
+  /* ===== event types: rows that flood with their gel ===== */
+  .etype{position:relative; isolation:isolate; overflow:hidden; display:flex; align-items:center; gap:clamp(14px,2.4vw,26px);
+    padding:clamp(16px,2vw,24px) clamp(12px,1.6vw,22px); border-bottom:1px solid var(--hairline); color:var(--ink);
+    transition:color .3s;}
+  .etypes .etype:first-child{border-top:1px solid var(--hairline);}
+  .etype::before{content:""; position:absolute; inset:0; z-index:-1; background:var(--gel,var(--cyan));
+    transform:scaleY(0); transform-origin:bottom; transition:transform .35s cubic-bezier(.2,.7,.2,1);}
+  .etype:hover::before, .etype:focus-visible::before{transform:scaleY(1);}
+  .etype:hover, .etype:focus-visible{color:#0B0B0D;}
+  .etype .dm{flex:0 0 9px; width:9px; height:9px; rotate:45deg; background:var(--gel,var(--cyan));
+    transition:background .3s, rotate .45s cubic-bezier(.2,.7,.2,1);}
+  .etype:hover .dm{background:#0B0B0D; rotate:225deg;}
+  .etype .n{font-size:12.5px; font-weight:500; width:28px; color:var(--muted); transition:color .3s;}
+  .etype:hover .n{color:rgba(11,11,13,.6);}
+  .etype h3{flex:1; font-weight:700; letter-spacing:-.018em; line-height:1.1; margin:0; font-size:clamp(20px,2.4vw,34px);}
+  .etype .ar{font-size:20px; transform:translateX(-8px); opacity:0; transition:transform .3s, opacity .3s;}
+  .etype:hover .ar{transform:none; opacity:1;}
+
+  /* ===== testimonial with a drifting gem field behind it ===== */
+  .quotewrap{position:relative; overflow:hidden; padding:clamp(90px,11vw,170px) 0;}
+  .qfield{position:absolute; inset:0; z-index:0;}
+  .quote{position:relative; z-index:1; max-width:920px; margin:0 auto; padding:0 clamp(20px,4.5vw,60px); text-align:center;}
+  .quote .dm{display:inline-block; width:11px; height:11px; rotate:45deg; background:var(--violet); margin-bottom:28px;}
+  .quote blockquote{margin:0; font-weight:650; letter-spacing:-.018em;
+    font-size:clamp(24px,3vw,40px); line-height:1.25; color:var(--ink); text-wrap:balance;}
+  .quote figcaption{margin-top:24px; font-size:12px; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--muted);}
+
+  /* ===== CTA: the booking card, show film in the diamond beside a structured form ===== */
+  .cta{position:relative; overflow:hidden; background:var(--soft); border-top:1px solid var(--hairline);
+    padding:clamp(80px,9vw,140px) 0;}
+  .cta-head{display:flex; justify-content:space-between; align-items:flex-end; gap:24px 40px; flex-wrap:wrap;
+    margin-bottom:clamp(28px,3.6vw,48px);}
+  .cta-head h2{margin-top:16px; max-width:16ch;}
+  .cta-head .lead{margin:18px 0 0; max-width:44ch;}
+  .cta-card{position:relative; display:grid; grid-template-columns:.9fr 1.1fr;
+    border:1px solid var(--hairline); background:var(--paper); box-shadow:var(--shadow);}
+  .cta-card::before{content:""; position:absolute; top:-7px; left:34px; width:13px; height:13px;
+    rotate:45deg; background:var(--amber); z-index:1;}
+  .cta-show{position:relative; overflow:hidden; background:#09090B; display:flex; align-items:center;
+    justify-content:center; padding:clamp(28px,4vw,56px);}
+  .cta-show .dia{position:relative; width:min(380px,84%); aspect-ratio:1; display:block; overflow:hidden;
+    background:var(--card); clip-path:polygon(50% 0, 100% 50%, 50% 100%, 0 50%);}
+  .cta-show video{width:100%; height:100%; object-fit:cover; display:block;}
+  .cta-show .cap{position:absolute; left:clamp(18px,2.4vw,30px); bottom:clamp(14px,2vw,24px);
+    font-size:11px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--muted);}
+  .leadform{position:relative; border-left:1px solid var(--hairline); padding:clamp(24px,3.2vw,44px);}
+  .leadform .fhead h3{margin:0; font-weight:700; font-size:clamp(20px,1.9vw,27px); letter-spacing:-.015em; line-height:1.1;}
+  .leadform .fhead p{margin:7px 0 0; font-size:13.5px; color:var(--muted);}
+  /* fieldset dividers: the form reads in two beats, who you are and what you're planning */
+  .fset{display:flex; align-items:center; gap:10px; margin:26px 0 14px;
+    font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--muted);}
+  .fset::before{content:""; flex:0 0 7px; width:7px; height:7px; rotate:45deg; background:var(--amber);}
+  .fset::after{content:""; flex:1; height:1px; background:var(--hairline);}
+  .fgrid{display:grid; grid-template-columns:1fr 1fr; gap:14px 14px;}
+  .field{display:flex; flex-direction:column; gap:6px;}
+  .field.full{grid-column:1/-1;}
+  .field label{font-size:11px; font-weight:500; letter-spacing:.13em; text-transform:uppercase; color:var(--muted);}
+  .field :is(input,select,textarea){font-family:'Open Sans',sans-serif; font-size:14.5px; color:var(--ink); width:100%;
+    background:color-mix(in srgb, var(--ink) 4%, transparent); border:1px solid var(--hairline); border-radius:0;
+    padding:11px 13px; transition:border-color .2s, background .2s;}
+  .field ::placeholder{color:color-mix(in srgb, var(--muted) 72%, transparent);}
+  .field :is(input,select,textarea):hover{border-color:var(--hairline-strong);}
+  .field :is(input,select,textarea):focus{border-color:var(--amber); background:color-mix(in srgb, var(--ink) 7%, transparent); outline:none;}
+  .field select{appearance:none; -webkit-appearance:none; padding-right:34px; cursor:pointer;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F4F3F0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat:no-repeat; background-position:right 12px center; background-size:15px;}
+  .field select option{color:#0B0B0D; background:#fff;}
+  .field input[type="date"]{color-scheme:dark;}
+  .field textarea{min-height:86px; resize:vertical;}
+  /* the one amber button on the page: the section's gel owns the conversion moment */
+  .btn-amber{background:var(--amber); color:#0B0B0D; width:100%;}
+  .btn-amber:hover{transform:translateY(-2px); box-shadow:0 12px 30px rgba(0,0,0,.35); background:#FFCE49;}
+  .frow{display:flex; flex-direction:column; align-items:stretch; gap:12px; margin-top:26px;}
+  .frow small{font-size:12.5px; color:var(--muted);}
+  .leadform.sent :is(.fhead,.fset,.fgrid,.frow){display:none;}
+  .form-ok{display:none; flex-direction:column; align-items:flex-start; gap:12px; padding:clamp(8px,1.5vw,18px) 0;}
+  .leadform.sent .form-ok{display:flex;}
+  .form-ok .dm{width:12px; height:12px; rotate:45deg; background:var(--amber);}
+  .form-ok h3{margin:0; font-weight:700; font-size:clamp(22px,2vw,30px); letter-spacing:-.015em;}
+  .form-ok p{margin:0; font-size:14.5px; color:var(--dim); max-width:38ch;}
+
+  /* ===== footer: the diamond chain ===== */
+  footer.site{position:relative; padding:0 0 30px; color:var(--muted); border-top:1px solid var(--hairline);}
+  .fchain{display:flex; justify-content:center; gap:clamp(14px,2vw,22px); padding:24px 12px;
+    overflow:hidden; border-bottom:1px solid var(--hairline);}
+  .fchain i{flex:0 0 8px; width:8px; height:8px; rotate:45deg;}
+  .ftag{display:flex; justify-content:space-between; align-items:flex-end; gap:24px 40px; flex-wrap:wrap;
+    padding:clamp(44px,6vw,72px) 0 clamp(30px,4vw,46px); border-bottom:1px solid var(--hairline);}
+  .ftag p{margin:18px 0 0; font-size:clamp(22px,2.6vw,36px); font-weight:700; letter-spacing:-.02em;
+    line-height:1.2; color:var(--ink); max-width:22ch; text-wrap:balance;}
+  .fcols{display:grid; grid-template-columns:1.2fr 1fr 1fr 1fr; gap:22px; padding:clamp(30px,4vw,46px) 0 8px;}
+  footer.site a{display:block; padding:6px 0; font-size:14px; color:var(--muted); transition:color .2s;}
+  footer.site a:hover{color:var(--ink);}
+  /* footer.site a would leave the solid button ink-on-ink */
+  footer.site a.btn-solid{display:inline-flex; padding:15px 28px; font-size:15px; color:var(--btn-fg);}
+  .colhead{font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); margin-bottom:12px;}
+  .footrow{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+    border-top:1px solid var(--hairline); margin-top:26px; padding-top:22px; font-size:12.5px;}
+
+  .reveal{opacity:0; transform:translateY(22px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1; transform:none;}
+  .reveal.d1{transition-delay:.08s;} .reveal.d2{transition-delay:.16s;} .reveal.d3{transition-delay:.24s;}
+
+  @media(max-width:960px){
+    nav.menu{display:none;} .hamb{display:flex;} .mob-cta{display:inline-flex;}
+    .hero{padding-bottom:130px;}
+    .hero h1{max-width:none;}
+    .hero .gem.line{display:none;}
+    .cuelist .cin{grid-template-columns:1fr 1fr;}
+    .cuelist a{padding:12px 0;}
+    .cuelist a + a{border-left:0; padding-left:0;}
+    .room{position:static; min-height:0; padding:clamp(52px,8vw,80px) 0;}
+    .roomgrid{grid-template-columns:1fr; gap:26px; align-items:start;}
+    .rmedia{order:-1;}
+    .roomnum{font-size:clamp(120px,34vw,220px); top:auto; bottom:-4%;}
+    .rmedia::after{right:auto; left:-11px; bottom:30px;}
+    .news .nrow{overflow-x:auto; -webkit-overflow-scrolling:touch;}
+    .nitem{flex:0 0 auto;}
+    .nitem .nt{white-space:nowrap; overflow:visible; max-width:none;}
+    .wgrid{grid-template-columns:1fr;}
+    .wcard.big{grid-row:auto;}
+    .wcard.big .wmedia{height:auto; aspect-ratio:16/10; min-height:0;}
+    .stats > .in{grid-template-columns:1fr 1fr;}
+    .stat:nth-child(3){border-left:0;} .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--hairline);}
+    .cta-card{grid-template-columns:1fr;}
+    .cta-show{min-height:340px;}
+    .leadform{border-left:0; border-top:1px solid var(--hairline);}
+    .fcols{grid-template-columns:1fr 1fr;}
+    .qfield .gem.line{display:none;}
+  }
+  @media(max-width:620px){
+    .fcols{grid-template-columns:1fr;} .fgrid{grid-template-columns:1fr;}
+    .cuelist{display:none;}
+    .hero{padding-bottom:clamp(40px,7svh,70px);}
+    .rtxt ul{grid-template-columns:1fr;}
+    .etype .n{display:none;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .reveal{transition:none;}
+    .gem::before{animation:none;}
+    .gelwash{animation:none; opacity:.22;}
+    .wmedia video, .wcard, .btn, .etype::before, .etype .dm{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="nav" id="nav">
+  <div class="row">
+    <a class="brand" href="#" aria-label="Encore home">
+      <img src="../assets/encore-logo-white.png" alt="Encore">
+    </a>
+    <nav class="menu">
+      <a class="lnk" href="#services">What we do</a>
+      <a class="lnk" href="#work">Work</a>
+      <a class="lnk" href="#events">Event types</a>
+      <a class="lnk" href="#">About</a>
+      <span class="cue" id="cue" aria-hidden="true"></span>
+      <div class="mkt-wrap">
+        <button class="mkt" type="button" aria-haspopup="true" aria-expanded="false">EMEA ▾</button>
+        <div class="mkt-menu" role="menu">
+          <button type="button" role="menuitem" data-region="North America">North America</button>
+          <button type="button" role="menuitem" data-region="EMEA" class="on">EMEA</button>
+          <button type="button" role="menuitem" data-region="APAC">APAC</button>
+        </div>
+      </div>
+      <a class="btn btn-solid" href="#contact">Start your event</a>
+    </nav>
+    <a class="btn btn-solid mob-cta" href="#contact">Start your event</a>
+    <button class="hamb" id="hamb" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobmenu" id="mobmenu">
+  <nav>
+    <a href="#services">What we do</a>
+    <a href="#work">Work</a>
+    <a href="#events">Event types</a>
+    <a href="#">About</a>
+    <a href="#contact" class="btn btn-solid">Start your event</a>
+  </nav>
+</div>
+
+<!-- mosaic curtain (tiles built by JS only when GSAP is live) + grain -->
+<div class="curtain" id="curtain" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ===== HERO: the film behind the mosaic ===== -->
+<section class="hero" id="top" data-cue style="--gel:var(--amber);">
+  <video muted loop playsinline preload="none" data-autoplay poster="../assets/video/hum-tv-awards-poster.jpg" aria-hidden="true">
+    <source src="../assets/video/hum-tv-awards.mp4" type="video/mp4">
+  </video>
+  <div class="gelwash" aria-hidden="true"></div>
+  <div class="scrim" aria-hidden="true"></div>
+  <div class="gems" aria-hidden="true">
+    <span class="gem" style="--s:110px; --gg:var(--cyan); right:13%; top:16%;" data-depth="34"></span>
+    <span class="gem line" style="--s:210px; right:21%; top:30%;" data-depth="16"></span>
+    <span class="gem" style="--s:20px; --gg:var(--magenta); right:31%; top:22%;" data-depth="54"></span>
+    <span class="gem" style="--s:13px; --gg:var(--amber); right:8%; top:48%;" data-depth="72"></span>
+    <span class="gem" style="--s:52px; --gg:var(--violet); right:27%; top:58%;" data-depth="26"></span>
+    <span class="gem line" style="--s:88px; right:6%; top:64%;" data-depth="44"></span>
+  </div>
+  <div class="wrap">
+    <span class="label dot fin" style="--gel:var(--amber);">Lorem ipsum dolor · EMEA</span>
+    <h1 class="disp" style="margin-top:16px;">
+      <span class="ln"><em class="rise">Lorem ipsum</em></span>
+      <span class="ln"><em class="rise">dolor sit amet.</em></span>
+    </h1>
+    <p class="lead fin">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.</p>
+    <div class="ctas fin">
+      <a class="btn btn-solid" href="#contact">Start your event <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-quiet" href="#work">See the work</a>
+    </div>
+  </div>
+  <nav class="cuelist" aria-label="What we do">
+    <div class="cin">
+      <a href="#svc-1" style="--gg:var(--cyan);"><i aria-hidden="true"></i>01 · Lorem ipsum</a>
+      <a href="#svc-2" style="--gg:var(--magenta);"><i aria-hidden="true"></i>02 · Dolor sit amet</a>
+      <a href="#svc-3" style="--gg:var(--amber);"><i aria-hidden="true"></i>03 · Consectetur</a>
+      <a href="#svc-4" style="--gg:var(--green);"><i aria-hidden="true"></i>04 · Adipiscing elit</a>
+    </div>
+  </nav>
+</section>
+
+<!-- ===== NEWS STRIP ===== -->
+<div class="news">
+  <div class="wrap">
+    <div class="nrow reveal">
+      <span class="label">Latest</span>
+      <a class="nitem" href="#" style="--gel:var(--violet);"><span class="nt">Lorem ipsum dolor sit amet elit venue partnership</span><span class="nd">Jun 2026</span></a>
+      <a class="nitem" href="#" style="--gel:var(--cyan);"><span class="nt">Consectetur adipiscing sed do eiusmod awards</span><span class="nd">May 2026</span></a>
+      <a class="nitem" href="#" style="--gel:var(--magenta);"><span class="nt">Tempor incididunt ut labore sustainability report</span><span class="nd">Apr 2026</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SERVICES: intro, then four gel rooms ===== -->
+<section class="svc-intro" id="services">
+  <div class="wrap svc-head reveal">
+    <div>
+      <span class="label dot" style="--gel:var(--cyan);">What we do</span>
+      <h2 class="disp" style="margin-top:16px;">One team from<br>brief to show day.</h2>
+    </div>
+    <a class="btn btn-quiet" href="#" style="--gel:var(--cyan);">All services</a>
+  </div>
+</section>
+
+<div class="rooms">
+  <article class="room" id="svc-1" data-cue style="--gel:var(--cyan); --room:var(--room-cyan);">
+    <span class="roomnum disp" aria-hidden="true">01</span>
+    <div class="wrap roomgrid">
+      <div class="rtxt">
+        <span class="label dot">01 · What we do</span>
+        <h3 class="disp">Lorem ipsum</h3>
+        <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam quis nostrud.</p>
+        <ul><li>Lorem</li><li>Ipsum &amp; dolor</li><li>Consectetur</li><li>Elit</li></ul>
+        <a class="go" href="#">Explore lorem ipsum <span class="ar">→</span></a>
+      </div>
+      <div class="rmedia">
+        <span class="frame"><img src="../assets/img/AdobeStock_473049258-scaled.jpg" alt="Lighting console close-up" loading="lazy"></span>
+      </div>
+    </div>
+  </article>
+
+  <article class="room" id="svc-2" data-cue style="--gel:var(--magenta); --room:var(--room-magenta);">
+    <span class="roomnum disp" aria-hidden="true">02</span>
+    <div class="wrap roomgrid">
+      <div class="rtxt">
+        <span class="label dot">02 · What we do</span>
+        <h3 class="disp">Dolor sit amet</h3>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, excepteur sint occaecat.</p>
+        <ul><li>Sed do</li><li>Eiusmod</li><li>Tempor</li><li>Incididunt</li></ul>
+        <a class="go" href="#">Explore dolor sit amet <span class="ar">→</span></a>
+      </div>
+      <div class="rmedia">
+        <span class="frame"><img src="../assets/img/home-production-services-3.jpg" alt="Full stage production with LED wall" loading="lazy"></span>
+      </div>
+    </div>
+  </article>
+
+  <article class="room" id="svc-3" data-cue style="--gel:var(--amber); --room:var(--room-amber);">
+    <span class="roomnum disp" aria-hidden="true">03</span>
+    <div class="wrap roomgrid">
+      <div class="rtxt">
+        <span class="label dot">03 · What we do</span>
+        <h3 class="disp">Consectetur</h3>
+        <p>Ut labore et dolore magna aliqua, ut enim ad minim veniam; quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
+        <ul><li>Labore</li><li>Dolore</li><li>Magna</li><li>Aliqua</li></ul>
+        <a class="go" href="#">Explore consectetur <span class="ar">→</span></a>
+      </div>
+      <div class="rmedia">
+        <span class="frame"><img src="../assets/img/home-modal-inspire-1.jpg" alt="Immersive creative staging" loading="lazy"></span>
+      </div>
+    </div>
+  </article>
+
+  <article class="room" id="svc-4" data-cue style="--gel:var(--green); --room:var(--room-green);">
+    <span class="roomnum disp" aria-hidden="true">04</span>
+    <div class="wrap roomgrid">
+      <div class="rtxt">
+        <span class="label dot">04 · What we do</span>
+        <h3 class="disp">Adipiscing elit</h3>
+        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sed perspiciatis.</p>
+        <ul><li>Ut enim</li><li>Ad minim</li><li>Veniam</li><li>Quis</li></ul>
+        <a class="go" href="#">Explore adipiscing elit <span class="ar">→</span></a>
+      </div>
+      <div class="rmedia">
+        <span class="frame"><img src="../assets/img/home-design-fabrication-2.jpg" alt="Custom scenic build" loading="lazy"></span>
+      </div>
+    </div>
+  </article>
+</div>
+
+<!-- ===== STATS ===== -->
+<div class="stats" data-cue style="--gel:var(--violet);">
+  <div class="wrap in">
+    <div class="stat reveal" style="--gg:var(--cyan);"><b data-count="2200" data-suffix="+" data-comma="1">0</b><small>Partner venues</small></div>
+    <div class="stat reveal d1" style="--gg:var(--magenta);"><b data-count="23">0</b><small>Countries</small></div>
+    <div class="stat reveal d2" style="--gg:var(--amber);"><b data-count="400" data-suffix="k">0</b><small>Events a year</small></div>
+    <div class="stat reveal d3" style="--gg:var(--green);"><b data-count="12000" data-comma="1">0</b><small>Crew worldwide</small></div>
+  </div>
+</div>
+
+<!-- ===== WORK ===== -->
+<section class="pad" id="work" data-cue style="--gel:var(--magenta);">
+  <div class="wrap">
+    <div class="work-head reveal">
+      <div>
+        <span class="label dot" style="--gel:var(--magenta);">Recent rooms</span>
+        <h2 class="disp" style="margin-top:16px; max-width:16ch;">Three shows, three rooms.</h2>
+      </div>
+      <a class="btn btn-quiet" href="#" style="--gel:var(--magenta);">All case studies</a>
+    </div>
+    <div class="wgrid">
+      <a class="wcard big reveal" href="#" style="--gel:var(--cyan);">
+        <span class="wmedia">
+          <video muted loop playsinline preload="none" data-autoplay poster="../assets/video/cvent-connect-poster.jpg">
+            <source src="../assets/video/cvent-connect.mp4" type="video/mp4">
+          </video>
+          <span class="wcap">
+            <span><span class="wt">Lorem Ipsum Europe 2024</span><span class="ws">London · Lorem ipsum &amp; dolor</span></span>
+            <span class="wix">01</span>
+          </span>
+        </span>
+      </a>
+      <a class="wcard reveal d1" href="#" style="--gel:var(--magenta);">
+        <span class="wmedia">
+          <video muted loop playsinline preload="none" data-autoplay poster="../assets/video/evolution-london-poster.jpg">
+            <source src="../assets/video/evolution-london.mp4" type="video/mp4">
+          </video>
+          <span class="wcap">
+            <span><span class="wt">Consectetur Adipiscing 2025</span><span class="ws">London · Sed do eiusmod</span></span>
+            <span class="wix">02</span>
+          </span>
+        </span>
+      </a>
+      <a class="wcard reveal d2" href="#" style="--gel:var(--amber);">
+        <span class="wmedia">
+          <video muted loop playsinline preload="none" data-autoplay poster="../assets/video/hum-tv-awards-poster.jpg">
+            <source src="../assets/video/hum-tv-awards.mp4" type="video/mp4">
+          </video>
+          <span class="wcap">
+            <span><span class="wt">Magna Aliqua Awards</span><span class="ws">Ut Enim Arena · Lorem dolor</span></span>
+            <span class="wix">03</span>
+          </span>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EVENT TYPES ===== -->
+<section class="pad" id="events" data-cue style="padding-top:0; --gel:var(--green);">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:clamp(30px,4vw,50px);">
+      <span class="label dot" style="--gel:var(--green);">Event types</span>
+      <h2 class="disp" style="margin-top:16px;">Any room. Any format.</h2>
+    </div>
+    <div class="etypes reveal">
+      <a class="etype" href="#" style="--gel:var(--cyan);"><span class="dm" aria-hidden="true"></span><span class="n">01</span><h3>Meetings &amp; conferences</h3><span class="ar" aria-hidden="true">→</span></a>
+      <a class="etype" href="#" style="--gel:var(--magenta);"><span class="dm" aria-hidden="true"></span><span class="n">02</span><h3>Hybrid &amp; virtual</h3><span class="ar" aria-hidden="true">→</span></a>
+      <a class="etype" href="#" style="--gel:var(--amber);"><span class="dm" aria-hidden="true"></span><span class="n">03</span><h3>Product launches</h3><span class="ar" aria-hidden="true">→</span></a>
+      <a class="etype" href="#" style="--gel:var(--green);"><span class="dm" aria-hidden="true"></span><span class="n">04</span><h3>Conventions &amp; tradeshows</h3><span class="ar" aria-hidden="true">→</span></a>
+      <a class="etype" href="#" style="--gel:var(--violet);"><span class="dm" aria-hidden="true"></span><span class="n">05</span><h3>Galas &amp; award shows</h3><span class="ar" aria-hidden="true">→</span></a>
+      <a class="etype" href="#" style="--gel:var(--red);"><span class="dm" aria-hidden="true"></span><span class="n">06</span><h3>Weddings &amp; celebrations</h3><span class="ar" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIAL ===== -->
+<section class="quotewrap">
+  <div class="qfield" aria-hidden="true">
+    <span class="gem line" style="--s:230px; left:5%; top:8%;" data-sp="-70"></span>
+    <span class="gem" style="--s:13px; --gg:var(--violet); left:15%; top:68%;" data-sp="46"></span>
+    <span class="gem line" style="--s:150px; right:7%; top:14%;" data-sp="90"></span>
+    <span class="gem" style="--s:10px; --gg:var(--amber); right:17%; bottom:14%;" data-sp="-36"></span>
+    <span class="gem" style="--s:18px; --gg:var(--cyan); right:30%; top:6%;" data-sp="60"></span>
+  </div>
+  <figure class="quote reveal">
+    <span class="dm" aria-hidden="true"></span>
+    <blockquote>"Lorem ipsum dolor sit amet, consectetur adipiscing elit; sed do eiusmod tempor incididunt ut labore et dolore magna."</blockquote>
+    <figcaption>Lorem Ipsum · Dolor sit amet consectetur</figcaption>
+  </figure>
+</section>
+
+<!-- ===== CTA: the booking card ===== -->
+<section id="contact" class="cta" data-cue style="--gel:var(--amber);">
+  <div class="wrap">
+    <div class="cta-head reveal">
+      <div>
+        <span class="label dot" style="--gel:var(--amber);">Standing by</span>
+        <h2 class="disp">Let's make something people talk about.</h2>
+        <p class="lead">On-site at 2,200+ venues worldwide, or anywhere you can get a truck.</p>
+      </div>
+      <a class="btn btn-quiet" href="#" style="--gel:var(--amber);">Find your venue</a>
+    </div>
+    <div class="cta-card reveal d1">
+      <div class="cta-show" aria-hidden="true">
+        <span class="dia">
+          <video muted loop playsinline preload="none" data-autoplay poster="../assets/video/show-film-poster.jpg">
+            <source src="../assets/video/show-film.mp4" type="video/mp4">
+          </video>
+        </span>
+        <span class="gem" style="--s:22px; --gg:var(--amber); right:9%; top:12%;"></span>
+        <span class="gem" style="--s:12px; --gg:var(--cyan); left:10%; bottom:16%;"></span>
+        <span class="gem line" style="--s:58px; right:5%; bottom:8%;"></span>
+        <span class="cap">Lorem ipsum · dolor sit amet 2025</span>
+      </div>
+      <form class="leadform" id="leadform">
+        <div class="fhead">
+          <h3>Start your event</h3>
+          <p>Tell us what you're planning and the right producer will come back to you.</p>
+        </div>
+        <div class="fset">About you</div>
+        <div class="fgrid">
+          <div class="field">
+            <label for="lf-name">Name</label>
+            <input id="lf-name" name="name" type="text" autocomplete="name" required placeholder="Your name">
+          </div>
+          <div class="field">
+            <label for="lf-email">Work email</label>
+            <input id="lf-email" name="email" type="email" autocomplete="email" required placeholder="you@company.com">
+          </div>
+          <div class="field full">
+            <label for="lf-company">Company</label>
+            <input id="lf-company" name="company" type="text" autocomplete="organization" placeholder="Company or agency">
+          </div>
+        </div>
+        <div class="fset">Your event</div>
+        <div class="fgrid">
+          <div class="field">
+            <label for="lf-type">Event type</label>
+            <select id="lf-type" name="event-type">
+              <option value="" selected>Select a type</option>
+              <option>Meetings &amp; conferences</option>
+              <option>Hybrid &amp; virtual</option>
+              <option>Product launches</option>
+              <option>Conventions &amp; tradeshows</option>
+              <option>Galas &amp; award shows</option>
+              <option>Weddings &amp; celebrations</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="lf-date">Event date</label>
+            <input id="lf-date" name="date" type="date">
+          </div>
+          <div class="field full">
+            <label for="lf-city">City or venue</label>
+            <input id="lf-city" name="city" type="text" placeholder="TBC is fine">
+          </div>
+          <div class="field full">
+            <label for="lf-msg">About your event</label>
+            <textarea id="lf-msg" name="message" placeholder="Audience size, format, and what it should feel like."></textarea>
+          </div>
+        </div>
+        <div class="frow">
+          <button class="btn btn-amber" type="submit">Start your event <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <small>We reply within one working day.</small>
+        </div>
+        <div class="form-ok" role="status">
+          <span class="dm" aria-hidden="true"></span>
+          <h3>Thanks, we're on it.</h3>
+          <p>Your brief is with the EMEA team. A producer will come back to you within one working day.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER: the diamond chain ===== -->
+<footer class="site">
+  <div class="fchain" id="fchain" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="ftag">
+      <div>
+        <a class="brand" href="#" aria-label="Encore home">
+          <img src="../assets/encore-logo-white.png" alt="Encore" style="height:30px;">
+        </a>
+        <p>The production partner for events that move people.</p>
+      </div>
+      <a class="btn btn-solid" href="#contact">Start your event <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="fcols">
+      <div>
+        <div class="colhead">Region</div>
+        <div class="mkt-wrap up">
+          <button class="mkt" type="button" aria-haspopup="true" aria-expanded="false">EMEA ▾</button>
+          <div class="mkt-menu" role="menu">
+            <button type="button" role="menuitem" data-region="North America">North America</button>
+            <button type="button" role="menuitem" data-region="EMEA" class="on">EMEA</button>
+            <button type="button" role="menuitem" data-region="APAC">APAC</button>
+          </div>
+        </div>
+      </div>
+      <div><div class="colhead">What we do</div><a href="#">Event technology</a><a href="#">Production</a><a href="#">Creative</a><a href="#">Design &amp; fabrication</a></div>
+      <div><div class="colhead">Planners</div><a href="#">Find your venue</a><a href="#">Case studies</a><a href="#">Event planning resources</a><a href="#">Sustainability</a></div>
+      <div><div class="colhead">Company</div><a href="#">About Encore</a><a href="#">Careers</a><a href="#">Hotel &amp; venue partners</a><a href="#">Contact</a></div>
+    </div>
+    <div class="footrow">
+      <span>© Encore Global · concept mockup E · "facets" · placeholder copy</span>
+      <span>Footage: Encore EMEA · figures from encoreglobal.com/about</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"
+  integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"
+  integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
+<script>
+  const rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const small = matchMedia('(max-width: 960px)').matches;
+  const fx = !rm && !small && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
+  if(fx){ document.documentElement.classList.add('fx'); gsap.registerPlugin(ScrollTrigger); }
+
+  // ---- region dropdown (UI only) ----
+  (function(){
+    const wraps=[...document.querySelectorAll('.mkt-wrap')]; if(!wraps.length) return;
+    const closeAll=()=>wraps.forEach(w=>{ w.classList.remove('open'); w.querySelector('.mkt').setAttribute('aria-expanded','false'); });
+    wraps.forEach(w=>{
+      const btn=w.querySelector('.mkt');
+      btn.addEventListener('click',e=>{ e.stopPropagation();
+        const open=!w.classList.contains('open'); closeAll();
+        w.classList.toggle('open',open); btn.setAttribute('aria-expanded',open); });
+      w.querySelectorAll('.mkt-menu button').forEach(b=>b.addEventListener('click',e=>{ e.stopPropagation();
+        const r=b.dataset.region;
+        document.querySelectorAll('.mkt').forEach(m=>m.textContent=r+' ▾');
+        document.querySelectorAll('.mkt-menu button').forEach(x=>x.classList.toggle('on', x.dataset.region===r));
+        closeAll(); }));
+    });
+    addEventListener('click',e=>{ if(!e.target.closest('.mkt-wrap')) closeAll(); });
+    addEventListener('keydown',e=>{ if(e.key==='Escape') closeAll(); });
+  })();
+
+  // ---- mobile menu ----
+  (function(){
+    const hamb=document.getElementById('hamb'), mob=document.getElementById('mobmenu'); if(!hamb||!mob) return;
+    function set(open){ mob.classList.toggle('open',open); hamb.classList.toggle('open',open);
+      hamb.setAttribute('aria-expanded',open); document.documentElement.style.overflow=open?'hidden':''; }
+    hamb.addEventListener('click',()=>set(!mob.classList.contains('open')));
+    mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>set(false)));
+    addEventListener('keydown',e=>{ if(e.key==='Escape') set(false); });
+  })();
+
+  // ---- reveals (used everywhere except inside the fx-driven rooms/hero) ----
+  const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in'); ro.unobserve(e.target);}}),{threshold:.14});
+  document.querySelectorAll('.reveal').forEach(el=>rm?el.classList.add('in'):ro.observe(el));
+
+  // ---- count-up ----
+  function fmt(v,comma){ v=Math.round(v)+''; return comma?v.replace(/\B(?=(\d{3})+(?!\d))/g,','):v; }
+  function animateCount(el){
+    const target=+el.dataset.count, suf=el.dataset.suffix||'', comma=el.dataset.comma==='1', dur=1400, t0=performance.now();
+    (function step(t){let p=Math.min((t-t0)/dur,1); p=1-Math.pow(1-p,3);
+      el.textContent=fmt(target*p,comma)+suf; if(p<1) requestAnimationFrame(step);})(t0);
+  }
+  const co=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){
+    const el=e.target;
+    rm ? el.textContent=fmt(+el.dataset.count, el.dataset.comma==='1')+(el.dataset.suffix||'') : animateCount(el);
+    co.unobserve(el);}}),{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
+
+  // ---- lead form (mockup: no backend, browser handles validation) ----
+  (function(){
+    const f = document.getElementById('leadform'); if(!f) return;
+    f.addEventListener('submit', e=>{ e.preventDefault(); f.classList.add('sent'); });
+  })();
+
+  // ---- lazy play/pause looping videos (posters only under reduced motion) ----
+  if(!rm){
+    const vo=new IntersectionObserver(es=>es.forEach(e=>{
+      const v=e.target.matches('video')?e.target:e.target.querySelector('video'); if(!v) return;
+      if(e.isIntersecting){ if(v.preload==='none') v.preload='auto'; v.play().catch(()=>{}); } else v.pause();
+    }),{threshold:.2});
+    document.querySelectorAll('[data-autoplay]').forEach(el=>vo.observe(el));
+  }
+
+  // ---- footer diamond chain ----
+  (function(){
+    const c=document.getElementById('fchain'); if(!c) return;
+    const gels=['var(--cyan)','var(--violet)','var(--magenta)','var(--red)','var(--amber)','var(--green)'];
+    for(let i=0;i<36;i++){ const d=document.createElement('i'); d.style.background=gels[i%gels.length]; c.appendChild(d); }
+  })();
+
+  // ---- nav cue diamond: takes the gel of the section in view ----
+  (function(){
+    const cue=document.getElementById('cue'); if(!cue) return;
+    const obs=new IntersectionObserver(es=>es.forEach(e=>{
+      if(!e.isIntersecting) return;
+      const g=getComputedStyle(e.target).getPropertyValue('--gel').trim();
+      if(g) cue.style.background=g;
+    }),{rootMargin:'-45% 0px -45% 0px'});
+    document.querySelectorAll('[data-cue]').forEach(s=>obs.observe(s));
+  })();
+
+  // ---- GSAP: the diamond show ----
+  if(fx){
+    // 1) diamond iris: four panels part from the centre, one clean diamond of film grows to fullscreen
+    (function(){
+      const c=document.getElementById('curtain'); if(!c) return;
+      c.classList.add('on');
+      const clips=[
+        'polygon(0 0, 100% 0, 50% 50%)',    // top
+        'polygon(100% 0, 100% 100%, 50% 50%)', // right
+        'polygon(0 100%, 100% 100%, 50% 50%)', // bottom
+        'polygon(0 0, 0 100%, 50% 50%)'     // left
+      ];
+      const moves=[{yPercent:-102},{xPercent:102},{yPercent:102},{xPercent:-102}];
+      const panels=clips.map(cp=>{
+        const el=document.createElement('i');
+        el.style.clipPath=cp;
+        c.appendChild(el); return el;
+      });
+      panels.forEach((el,i)=>gsap.to(el,{...moves[i], duration:1.05, ease:'power3.inOut', delay:.3}));
+      gsap.delayedCall(1.5, ()=>c.remove());
+      setTimeout(()=>c.remove(), 2600); // backstop: rAF can stall in background tabs
+
+    })();
+
+    // 2) hero: headline rises out of the iris, gems and cue list settle in
+    (function(){
+      const tl=gsap.timeline({defaults:{ease:'power3.out'}, delay:.55});
+      tl.to('.hero .rise',{y:0, duration:1.05, stagger:.13})
+        .to('.hero .fin',{opacity:1, y:0, duration:.7, stagger:.1},'-=0.55')
+        .to('.hero .gem',{opacity:.95, duration:.8, stagger:.07},'-=0.5')
+        .to('.cuelist',{opacity:1, duration:.7},'-=0.4');
+    })();
+
+    // 3) hero gems: pointer parallax at different depths
+    (function(){
+      const hero=document.querySelector('.hero');
+      const gems=[...hero.querySelectorAll('.gem')]; if(!gems.length) return;
+      const qs=gems.map(g=>({x:gsap.quickTo(g,'x',{duration:1.1, ease:'power3.out'}),
+                             y:gsap.quickTo(g,'y',{duration:1.1, ease:'power3.out'}),
+                             d:+g.dataset.depth||24}));
+      hero.addEventListener('pointermove',e=>{
+        const r=hero.getBoundingClientRect();
+        const nx=e.clientX/r.width-.5, ny=e.clientY/r.height-.5;
+        qs.forEach(q=>{ q.x(nx*q.d); q.y(ny*q.d); });
+      });
+    })();
+
+    // 4) rooms: media opens from a diamond, text and numeral follow
+    document.querySelectorAll('.room').forEach(room=>{
+      const img=room.querySelector('.rmedia img');
+      const tl=gsap.timeline({defaults:{ease:'power3.out'},
+        scrollTrigger:{trigger:room, start:'top 62%', once:true}});
+      if(img) tl.to(img,{clipPath:'polygon(50% -120%, 175% 50%, 50% 220%, -75% 50%)', duration:1.15, ease:'power2.inOut'});
+      tl.to(room.querySelectorAll('.rtxt > *'),{opacity:1, y:0, duration:.7, stagger:.09},'-=0.75');
+      tl.to(room.querySelector('.roomnum'),{opacity:1, duration:.9},'<');
+    });
+
+    // 5) quote gem field: slow scroll parallax at mixed speeds
+    document.querySelectorAll('.qfield .gem').forEach(g=>{
+      gsap.to(g,{y:+g.dataset.sp||40, ease:'none',
+        scrollTrigger:{trigger:'.quotewrap', start:'top bottom', end:'bottom top', scrub:true}});
+    });
+  }
+</script>
+</body>
+</html>

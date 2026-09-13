@@ -1,0 +1,167 @@
+{
+  "$schema": "../page.schema.json",
+  "layout": "default",
+  "title": "Experience Design — Encore",
+  "description": "Explore Encore Experience Design: Audience insight, creative thinking and event design. Connected from the first idea to the last impression.",
+  "bodyClass": "service-page",
+  "bodyStyle": "--gel:#11bfdd",
+  "mainId": "main",
+  "stylesheets": [
+    "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap",
+    "assets/css/site-pages.css",
+    "assets/css/pages/services.css"
+  ],
+  "scripts": [
+    "assets/js/partials/site-pages.js",
+    "assets/js/partials/service-expertise.js"
+  ],
+  "sections": [
+    {
+      "component": "headers/parallax",
+      "data": {
+        "eyebrow": "Experience Design",
+        "title": "Every experience starts with",
+        "accent": "people.",
+        "description": "Audience insight, creative thinking and event design. Connected from the first idea to the last impression.",
+        "ctaLabel": "Start your event",
+        "ctaHref": "start-event.html",
+        "image": "assets/video/cvent-connect-poster.jpg",
+        "imageAlt": "Delegates networking between stands at a conference exhibition",
+        "focalPoint": "center center",
+        "colour": "#11bfdd",
+        "caption": "Think differently. Design the journey, from the first impression to the last.",
+        "backHref": "creative-content.html",
+        "backLabel": "Next: Creative & Content",
+        "video": "assets/video/cvent-connect.mp4",
+        "word": "Think",
+        "breadcrumb": {
+          "parents": [
+            {
+              "href": "homepage-option-1-updated.html#services",
+              "label": "What we do"
+            }
+          ],
+          "current": "Experience Design"
+        }
+      }
+    },
+    {
+      "component": "sections/service-story",
+      "data": {
+        "eyebrow": "We think differently",
+        "blocks": [
+          {
+            "title": "Strategy that starts with your audience.",
+            "paragraphs": [
+              "Great events begin with understanding the people you want to reach.",
+              "Our experience strategy brings together audience insight, creative thinking and strategic event design to create live experiences that connect people with brands.",
+              "From conferences and exhibitions to brand activations and immersive experiences, we consider the entire audience journey—how people arrive, move, interact and what they remember."
+            ]
+          },
+          {
+            "title": "Designed around people. Built with purpose.",
+            "paragraphs": [
+              "We translate your objectives into a clear experience strategy that guides every creative, spatial and technical decision.",
+              "By considering audience flow, room layouts, content moments and opportunities for interaction, we create connected experiences that are intuitive, engaging and aligned with your goals."
+            ],
+            "emphasis": [
+              "Because great event design isn’t just about how a space looks.",
+              "It’s about how people experience it."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "component": "sections/service-offerings",
+      "data": {
+        "eyebrow": "What we do",
+        "title": "Our Experience Strategy expertise",
+        "items": [
+          {
+            "number": "01",
+            "title": "Audience insight & engagement",
+            "description": "Understanding your audience, what matters to them and what will capture their attention."
+          },
+          {
+            "number": "02",
+            "title": "Event experience strategy",
+            "description": "Turning your objectives into a clear strategy and experience vision."
+          },
+          {
+            "number": "03",
+            "title": "Audience journey mapping",
+            "description": "Designing every touchpoint, from arrival to the final interaction."
+          },
+          {
+            "number": "04",
+            "title": "Spatial & event design strategy",
+            "description": "Planning how audiences move, interact and connect within the environment."
+          },
+          {
+            "number": "05",
+            "title": "Creative event strategy",
+            "description": "Translating audience insight and business objectives into an inspiring creative direction."
+          }
+        ]
+      }
+    },
+    {
+      "component": "sections/service-process",
+      "data": {
+        "eyebrow": "From first conversation to live experience",
+        "title": "A joined-up approach.",
+        "ctaLabel": "Tell us your brief",
+        "ctaHref": "start-event.html",
+        "items": [
+          {
+            "number": "01",
+            "title": "Listen & discover",
+            "description": "Together, we explore the audience, the ambition and the practical considerations that shape the brief."
+          },
+          {
+            "number": "02",
+            "title": "Map & imagine",
+            "description": "We develop the central idea and audience journey, exploring how each touchpoint could feel."
+          },
+          {
+            "number": "03",
+            "title": "Refine & connect",
+            "description": "We bring the design together with creative and technical teams, ready to move from concept into production."
+          }
+        ]
+      }
+    },
+    {
+      "component": "sections/related-work",
+      "data": {
+        "image": "assets/img/client-updates/_DSC1103.jpg",
+        "imageAlt": "Visitors exploring an illuminated exhibition floor",
+        "eyebrow": "Recent shows",
+        "title": "Explore experiences in action.",
+        "description": "See how creative ideas, spaces and production come together across our recent shows.",
+        "ctaHref": "case-studies.html",
+        "ctaLabel": "Explore our work"
+      }
+    },
+    {
+      "component": "sections/service-journey",
+      "data": {
+        "eyebrow": "Explore what we do",
+        "title": "Think. Create. Deliver.",
+        "description": "One partner for the full experience. Each service connects to the next, from the first idea to the final cue."
+      }
+    },
+    {
+      "component": "sections/service-cta",
+      "data": {
+        "eyebrow": "Start a conversation",
+        "title": "Start with your audience.",
+        "note": "Design prototype · draft copy",
+        "ctaHref": "start-event.html",
+        "ctaLabel": "Start your event",
+        "accent": "Create an experience they’ll remember."
+      }
+    }
+  ]
+}

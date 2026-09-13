@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en-GB">
+  {{> shared/head}}
+  <body data-microinteractions class="{{bodyClass}}" style="{{bodyStyle}}">
+    <a class="skip-link" href="#{{mainId}}">Skip to content</a>
+    {{> shared/site-header}}
+    <main id="{{mainId}}" tabindex="-1">
+      {{#each sections}} {{> (lookup this "component") data}} {{/each}}
+    </main>
+    {{> shared/site-footer}}
+  </body>
+</html>

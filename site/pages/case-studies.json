@@ -1,0 +1,51 @@
+{
+  "$schema": "../page.schema.json",
+  "layout": "default",
+  "title": "Case studies — Encore",
+  "description": "Encore event production case study design prototype.",
+  "bodyClass": "case-page",
+  "bodyStyle": "--gel:#90c74f",
+  "mainId": "main",
+  "stylesheets": [
+    "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap",
+    "assets/css/site-pages.css",
+    "assets/css/pages/case-studies.css"
+  ],
+  "scripts": [
+    "assets/js/partials/site-pages.js"
+  ],
+  "sections": [
+    {
+      "component": "headers/parallax",
+      "data": {
+        "eyebrow": "Recent Show / Case studies",
+        "title": "The proof",
+        "accent": "is on stage.",
+        "description": "Explore the events, ideas and experiences behind our latest work.",
+        "ctaLabel": "Explore the work",
+        "ctaHref": "#selected-stories",
+        "image": "assets/video/show-film-poster.jpg",
+        "imageAlt": "An Encore event production film still",
+        "focalPoint": "center center",
+        "colour": "#90c74f",
+        "caption": "05 selected stories · Project copy and final photography pending.",
+        "backHref": "",
+        "backLabel": "",
+        "video": "assets/video/show-film.mp4",
+        "word": "Shows",
+        "breadcrumb": {
+          "parents": [],
+          "current": "Case studies"
+        }
+      }
+    },
+    {
+      "component": "pages/case-studies/project-grid",
+      "data": {}
+    },
+    {
+      "component": "pages/case-studies/enquiry-cta",
+      "data": {}
+    }
+  ]
+}

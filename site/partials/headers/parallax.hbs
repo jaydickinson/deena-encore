@@ -1,0 +1,49 @@
+<section
+  class="page-header header-parallax"
+  style="--header-accent:{{colour}};--header-focus:{{focalPoint}}"
+  data-header-parallax
+  {{#if video}}data-header-video{{/if}}
+>
+  <div class="header-stage">
+    <div class="parallax-media">
+      <img
+        class="header-media"
+        src="{{image}}"
+        alt="{{imageAlt}}"
+        fetchpriority="high"
+      />
+      {{#if video}}
+        <video
+          class="header-media header-film"
+          muted
+          loop
+          playsinline
+          preload="none"
+          poster="{{image}}"
+          data-video-src="{{video}}"
+          aria-hidden="true"
+          tabindex="-1"
+        ></video>
+      {{/if}}
+    </div>
+    <div class="header-shade" aria-hidden="true"></div>
+    <div class="parallax-light" aria-hidden="true"></div>
+    {{#if word}}
+      <div class="parallax-word" aria-hidden="true">{{word}}</div>
+    {{/if}}
+    <div class="parallax-gems" aria-hidden="true">
+      <span style="--d:1"></span><span style="--d:2.2"></span><span
+        style="--d:3.4"
+      ></span>
+    </div>
+    <div class="wrap header-content">
+      {{> headers/copy}}
+    </div>
+    {{#if video}}
+      <button class="header-video-toggle" type="button" hidden>
+        Play background video
+      </button>
+    {{/if}}
+  </div>
+  {{> headers/caption}}
+</section>

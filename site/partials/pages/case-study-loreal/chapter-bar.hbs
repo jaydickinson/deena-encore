@@ -1,0 +1,10 @@
+<nav class="loreal-chapter-bar" aria-label="Case study progress" data-chapter-bar>
+  <div class="loreal-chapter-bar-inner">
+    {{#each chapters}}<a
+      href="#{{target}}"
+      style="--chapter-colour:{{colour}}"
+      ><span>{{number}}</span> {{label}}</a
+    >{{/each}}
+  </div>
+  <span class="loreal-chapter-bar-progress" aria-hidden="true"></span>
+</nav>

@@ -1,0 +1,16 @@
+<section
+  class="page-header header-image"
+  style="--header-accent:{{colour}};--header-focus:{{focalPoint}}"
+>
+  <div class="header-stage">
+    <img
+      class="header-media"
+      src="{{image}}"
+      alt="{{imageAlt}}"
+      fetchpriority="high"
+    />
+    <div class="header-shade" aria-hidden="true"></div>
+    <div class="wrap header-content">{{> headers/copy}}</div>
+  </div>
+  {{> headers/caption}}
+</section>

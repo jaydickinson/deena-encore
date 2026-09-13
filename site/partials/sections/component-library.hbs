@@ -1,0 +1,151 @@
+<section class="page-hero wrap component-intro">
+  <div class="cue" style="--gel: var(--amber)">Design system</div>
+  <h1>The details make<br />the experience.</h1>
+  <p class="lead">
+    Small, consistent interactions bring the pages to life. Explore the
+    behaviour below, then browse the shared building blocks.
+  </p>
+  <div class="component-jumps">
+    <a class="btn btn-ghost" href="#interaction-examples"
+      >Try the interactions <span aria-hidden="true">↓</span></a
+    ><a class="btn btn-ghost" href="header-library.html"
+      >Header options <span aria-hidden="true">↗</span></a
+    ><a class="btn btn-ghost" href="#component-index"
+      >Component index <span aria-hidden="true">↓</span></a
+    >
+  </div>
+</section>
+<section class="section wrap interaction-examples" id="interaction-examples">
+  <div class="cue">01 / Touchpoints</div>
+  <h2>Quiet movement.<br />Clear feedback.</h2>
+  <div class="interaction-grid">
+    <div class="interaction-panel">
+      <span class="demo-label">Buttons & links</span>
+      <h3>A little direction.</h3>
+      <p>
+        Hover or use the keyboard to focus a link. The arrow responds without
+        moving the text or changing the layout.
+      </p>
+      <a class="btn btn-gel" href="start-event.html"
+        >Start your event <span aria-hidden="true">↗</span></a
+      >
+    </div>
+    <div class="interaction-panel">
+      <span class="demo-label">Cards & diamonds</span
+      ><a class="motion-card" data-card href="case-studies.html"
+        ><div data-card-media>
+          <img
+            src="assets/img/client-updates/6Y8A3288_2.jpg"
+            alt="A live stage with dramatic lighting"
+            loading="lazy"
+          />
+        </div>
+        <span class="cue">Recent shows</span>
+        <h3>Look a little closer.</h3>
+        <p>Explore the work <span aria-hidden="true">↗</span></p></a
+      >
+    </div>
+    <div class="interaction-panel">
+      <span class="demo-label">Form focus</span>
+      <h3>A clear place to start.</h3>
+      <p>
+        Focus moves the accent to the field you’re using. This is a local
+        example and does not submit anything.
+      </p>
+      <label class="field"
+        ><span>Event idea</span
+        ><input
+          type="text"
+          placeholder="What do you have in mind?"
+          autocomplete="off"
+      /></label>
+    </div>
+  </div>
+</section>
+<section class="section motion-demo" id="motion-demo">
+  <div class="wrap">
+    <div class="motion-demo-heading">
+      <div>
+        <div class="cue">02 / Arriving in view</div>
+        <h2>Make an entrance.</h2>
+      </div>
+      <button
+        class="btn btn-ghost"
+        type="button"
+        data-motion-replay
+        aria-controls="reveal-examples"
+      >
+        Replay entrance <span aria-hidden="true">↻</span>
+      </button>
+    </div>
+    <p class="motion-preference-note">
+      Reduced motion is enabled: the content stays still and fully visible.
+    </p>
+    <div class="motion-demo-grid" id="reveal-examples">
+      <article data-reveal data-reveal-step="0">
+        <span class="cue">01 / Think differently</span>
+        <h3>Experience.</h3>
+        <p>A short rise as the section enters view.</p>
+        <a href="experience-design.html">Explore Experience Design ↗</a>
+      </article>
+      <article data-reveal data-reveal-step="1" style="--gel: var(--magenta)">
+        <span class="cue">02 / Design boldly</span>
+        <h3>Creative.</h3>
+        <p>A small stagger gives related ideas their own moment.</p>
+        <a href="creative-content.html">Explore Creative &amp; Content ↗</a>
+      </article>
+      <article data-reveal data-reveal-step="2" style="--gel: var(--amber)">
+        <span class="cue">03 / Deliver flawlessly</span>
+        <h3>Production.</h3>
+        <p>
+          Content remains available when motion or JavaScript is switched off.
+        </p>
+        <a href="technical-production.html">Explore Technical Production ↗</a>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="section wrap component-index" id="component-index">
+  <div class="cue">03 / Building blocks</div>
+  <h2>One source for every section.</h2>
+  <p class="lead">
+    {{@root.inventory.total}} partials used across {{@root.inventory.pageCount}}
+    site and review pages. This index is generated from the page configurations.
+  </p>
+  {{#each @root.inventory.groups}}
+  <details class="component-group">
+    <summary>{{title}} <span>{{components.length}} partials</span></summary>
+    <div class="component-list">
+      {{#each components}}
+      <article>
+        <h3>
+          <a href="{{previewHref}}" target="_blank" rel="noopener"
+            ><code>{{name}}</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="{{previewHref}}"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">{{source}}</p>
+        {{#if fields.length}}
+        <p class="component-fields">
+          Content fields: {{#each fields}}<code>{{this}}</code> {{/each}}
+        </p>
+        {{else}}
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        {{/if}}
+        <div class="component-usage">
+          {{#each usedBy}}<a href="{{href}}">{{title}} ↗</a>{{/each}}
+        </div>
+      </article>
+      {{/each}}
+    </div>
+  </details>
+  {{/each}}
+</section>

@@ -1,0 +1,44 @@
+{
+  "services": [
+    {
+      "href": "experience-design.html",
+      "number": "01",
+      "verb": "Think",
+      "tagline": "We think differently",
+      "title": "Experience Design",
+      "colour": "#11bfdd",
+      "image": "assets/img/client-updates/_DSC1103.jpg",
+      "imageAlt": "Guests exploring an illuminated exhibition floor",
+      "summary": "Audience insight, strategy and journey design that shape how people experience your event."
+    },
+    {
+      "href": "creative-content.html",
+      "number": "02",
+      "verb": "Create",
+      "tagline": "We create boldly",
+      "title": "Creative & Content",
+      "colour": "#d454b9",
+      "image": "assets/img/client-updates/twobytwo_Adobe_Summit_2023-164.jpg",
+      "imageAlt": "Colourful screens filling an Adobe Summit stage",
+      "summary": "Storytelling, design, motion and multimedia that bring your brand to life at every touchpoint."
+    },
+    {
+      "href": "technical-production.html",
+      "number": "03",
+      "verb": "Deliver",
+      "tagline": "We deliver flawlessly",
+      "title": "Technical Production",
+      "colour": "#f9c429",
+      "image": "assets/img/client-updates/6Y8A3288_2.jpg",
+      "imageAlt": "Live show with bright lighting, large screens and performers",
+      "summary": "Lighting, audio, video, staging and show production, delivered with precision."
+    }
+  ],
+  "caseStudies": [
+    { "href": "case-study-loreal.html", "title": "L’Oréal Colour Trophy" },
+    { "href": "case-study-show-night.html", "title": "A night to remember" },
+    { "href": "case-study-mongodb.html", "title": "MongoDB.local London" },
+    { "href": "case-study-adobe.html", "title": "Adobe MAX London" },
+    { "href": "case-study-bbc.html", "title": "BBC Studio Showcase" }
+  ]
+}

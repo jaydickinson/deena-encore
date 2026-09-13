@@ -1,0 +1,50 @@
+{
+  "$schema": "../page.schema.json",
+  "layout": "homepage",
+  "title": "Encore \u00b7 Homepage (Option 1 \u00b7 client update)",
+  "description": "Encore is the global event production partner: event technology, production, creative and design for events that transform. Option 1 revised to the supplied September homepage design.",
+  "bodyClass": "",
+  "bodyStyle": "",
+  "mainId": "main",
+  "stylesheets": [
+    "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap",
+    "assets/css/pages/homepage-option-1-updated.css"
+  ],
+  "scripts": [
+    "assets/js/partials/testimonials.js",
+    "assets/js/partials/homepage.js",
+    "https://player.vimeo.com/api/player.js",
+    "assets/js/partials/homepage-vimeo.js",
+    "assets/js/partials/header-video.js"
+  ],
+  "sections": [
+    {
+      "component": "headers/homepage-vimeo",
+      "data": {}
+    },
+    {
+      "component": "pages/homepage-option-1-updated/credibility",
+      "data": {}
+    },
+    {
+      "component": "pages/homepage-option-1-updated/services",
+      "data": {}
+    },
+    {
+      "component": "shared/keyline",
+      "data": {}
+    },
+    {
+      "component": "pages/homepage-option-1-updated/recent-shows",
+      "data": {}
+    },
+    {
+      "component": "sections/testimonials",
+      "data": {}
+    },
+    {
+      "component": "pages/homepage-option-1-updated/event-finale",
+      "data": {}
+    }
+  ]
+}

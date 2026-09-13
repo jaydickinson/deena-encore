@@ -1,0 +1,29 @@
+<section class="section wrap" id="project-story">
+  <div class="case-overview" data-reveal>
+    <aside>
+      <span class="cue">The project</span>
+      <dl class="case-facts">
+        {{#each facts}}
+        <div>
+          <dt>{{label}}</dt>
+          <dd>{{value}}</dd>
+        </div>
+        {{/each}}
+      </dl>
+    </aside>
+    <div>
+      <p class="content-pending">{{status}}</p>
+      <h2>{{title}}</h2>
+      <p>{{description}}</p>
+      <div class="story-grid">
+        {{#each items}}
+        <article>
+          <span class="cue">{{eyebrow}}</span>
+          <h3>{{title}}</h3>
+          <p>{{description}}</p>
+        </article>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</section>

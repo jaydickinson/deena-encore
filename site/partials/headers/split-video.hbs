@@ -1,0 +1,39 @@
+<section
+  class="page-header header-split header-glass"
+  style="--header-accent:{{colour}};--header-focus:{{focalPoint}}"
+  data-header-video
+>
+  <div class="header-stage wrap">
+    <div class="header-content">{{> headers/copy}}</div>
+    <div class="header-visual">
+      <img
+        class="header-media"
+        src="{{image}}"
+        alt="{{imageAlt}}"
+        fetchpriority="high"
+      />
+      <video
+        class="header-media header-film"
+        muted
+        loop
+        playsinline
+        preload="none"
+        poster="{{image}}"
+        data-video-src="{{video}}"
+        aria-hidden="true"
+        tabindex="-1"
+      ></video>
+      <div class="glass-frame" aria-hidden="true">
+        <span class="glass-edge glass-top"></span
+        ><span class="glass-edge glass-right"></span
+        ><span class="glass-edge glass-bottom"></span
+        ><span class="glass-edge glass-left"></span
+        ><span class="glass-jewel"></span>
+      </div>
+      <button class="header-video-toggle" type="button" hidden>
+        Play background video
+      </button>
+    </div>
+  </div>
+  {{> headers/caption}}
+</section>

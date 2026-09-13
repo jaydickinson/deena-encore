@@ -1,0 +1,141 @@
+/* Shared motion contract. Keep these values when porting the blocks to a CMS. */
+:root {
+  --motion-fast: 180ms;
+  --motion-base: 260ms;
+  --motion-reveal: 480ms;
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-distance: 14px;
+}
+[data-microinteractions] .btn {
+  transition:
+    background var(--motion-fast) ease,
+    border-color var(--motion-fast) ease,
+    box-shadow var(--motion-fast) ease,
+    transform var(--motion-fast) var(--motion-ease);
+}
+[data-microinteractions] .btn > [aria-hidden="true"] {
+  display: inline-block;
+  transition: transform var(--motion-base) var(--motion-ease);
+}
+[data-microinteractions] .btn:focus-visible > [aria-hidden="true"] {
+  transform: translate(3px, -3px);
+}
+[data-microinteractions] .btn:active {
+  transform: translateY(1px);
+}
+[data-microinteractions] .btn:disabled {
+  cursor: default;
+  opacity: 0.6;
+  transform: none;
+}
+[data-card] :is(h2, h3) {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+  transition: text-decoration-color var(--motion-base) ease;
+}
+[data-card] img {
+  transition:
+    filter var(--motion-base) ease,
+    transform var(--motion-reveal) var(--motion-ease);
+}
+[data-card] .cue::before {
+  transition: transform var(--motion-base) var(--motion-ease);
+}
+[data-card]:focus-visible :is(h2, h3) {
+  text-decoration-color: currentColor;
+}
+[data-card]:focus-visible .cue::before {
+  transform: rotate(135deg);
+}
+[data-microinteractions] .site-nav > a:not(.btn) {
+  position: relative;
+}
+[data-microinteractions] .site-nav > a:not(.btn)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 5px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--motion-base) var(--motion-ease);
+}
+[data-microinteractions] .site-nav > a:focus-visible::after,
+[data-microinteractions] .site-nav > a[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+[data-microinteractions] .site-submenu:not([hidden]) {
+  animation: menu-enter var(--motion-fast) var(--motion-ease);
+}
+@keyframes menu-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+/* Static focus feedback also works for keyboard and touch. */
+[data-microinteractions] .field :is(input, select, textarea) {
+  transition:
+    border-color var(--motion-fast) ease,
+    background var(--motion-fast) ease,
+    box-shadow var(--motion-fast) ease;
+}
+[data-microinteractions] .field:focus-within > span {
+  color: var(--amber);
+}
+[data-microinteractions] .field :is(input, select, textarea):focus-visible {
+  border-color: var(--amber);
+  background: #211b32;
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+}
+@media (hover: hover) and (pointer: fine) {
+  [data-microinteractions] .btn:hover > [aria-hidden="true"] {
+    transform: translate(3px, -3px);
+  }
+  [data-microinteractions] .btn:hover {
+    box-shadow: 0 5px 20px #0002;
+  }
+  [data-card]:hover :is(h2, h3) {
+    text-decoration-color: currentColor;
+  }
+  [data-card]:hover img {
+    filter: brightness(1.07);
+  }
+  [data-card]:hover .cue::before {
+    transform: rotate(135deg);
+  }
+  [data-microinteractions] .site-nav > a:hover::after {
+    transform: scaleX(1);
+  }
+  [data-microinteractions].case-page .work-card:hover img,
+  [data-card]:hover [data-card-media] img {
+    transform: scale(1.025);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-microinteractions] *,
+  [data-microinteractions] *::before,
+  [data-microinteractions] *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  [data-microinteractions] .btn:active,
+  [data-microinteractions]
+    .btn:is(:hover, :focus-visible)
+    > [aria-hidden="true"],
+  [data-card]:is(:hover, :focus-visible) img {
+    transform: none !important;
+  }
+  [data-card]:is(:hover, :focus-visible) .cue::before {
+    transform: rotate(45deg);
+  }
+}

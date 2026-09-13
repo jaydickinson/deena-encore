@@ -1,0 +1,131 @@
+<section
+  class="finale"
+  id="venues"
+  data-header-video
+  style="padding: clamp(110px, 14vw, 190px) 0"
+>
+  <video
+    muted
+    loop
+    playsinline
+    preload="none"
+    data-video-src="assets/video/encore-lighting.mp4"
+    aria-hidden="true"
+    tabindex="-1"
+    poster="assets/video/encore-lighting-poster.jpg"
+  ></video>
+  <button class="header-video-toggle" type="button" hidden>
+    Play background video
+  </button>
+  <div class="scrim"></div>
+  <div class="grain"></div>
+  <div
+    class="wrap"
+    style="
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto;
+    "
+  >
+    <div class="reveal">
+      <div class="cue" style="--gel: var(--amber); justify-content: center">
+        Standing by
+      </div>
+      <h2 style="margin: 18px 0 14px; font-size: clamp(44px, 7.5vw, 104px)">
+        Let's build<br />your show.
+      </h2>
+      <p class="lead" style="margin-bottom: 0">
+        On-site at 2,200+ venues worldwide, or anywhere you can get a truck.
+      </p>
+      <form class="brief" id="brief" aria-describedby="brief-instructions">
+        <p id="brief-instructions" class="brief-instructions">
+          Event type, name and email are required. Design preview only; nothing
+          is sent or saved.
+        </p>
+        <p class="line">
+          We're planning
+          <label class="sr" for="bf-type">Event type</label>
+          <select id="bf-type" name="event-type" required>
+            <option value="" selected>an event…</option>
+            <option>a meeting or conference</option>
+            <option>a hybrid or virtual event</option>
+            <option>a product launch</option>
+            <option>a convention or tradeshow</option>
+            <option>a gala or award show</option>
+            <option>a wedding or celebration</option>
+            <option>something else entirely</option>
+          </select>
+          for
+          <label class="sr" for="bf-size">Guest count</label>
+          <input
+            id="bf-size"
+            name="guests"
+            type="text"
+            inputmode="numeric"
+            placeholder="how many"
+            style="width: 10ch"
+          />
+          guests in
+          <label class="sr" for="bf-city">City or venue</label>
+          <input
+            id="bf-city"
+            name="city"
+            type="text"
+            placeholder="which city"
+            style="width: 10ch"
+          />, around
+          <label class="sr" for="bf-when">When</label>
+          <input
+            id="bf-when"
+            name="when"
+            type="text"
+            placeholder="when"
+            style="width: 7ch"
+          />.
+        </p>
+        <p class="line">
+          I'm
+          <label class="sr" for="bf-name">Your name</label>
+          <input
+            id="bf-name"
+            name="name"
+            type="text"
+            autocomplete="name"
+            required
+            placeholder="your name"
+            style="width: 11ch"
+          />, reach me at
+          <label class="sr" for="bf-email">Work email</label>
+          <input
+            id="bf-email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            required
+            placeholder="work email"
+            style="width: 14ch"
+          />.
+        </p>
+        <div class="send">
+          <button class="btn btn-gel" type="submit" disabled>
+            Preview your brief
+            <svg class="ico" viewBox="0 0 24 24">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </button>
+          <span class="note">Nothing is sent or saved.</span>
+        </div>
+        <p class="ok" role="status" tabindex="-1" hidden>
+          Your brief is ready to review. This is a design preview; nothing has
+          been sent.
+        </p>
+        <noscript><p>Enable JavaScript to preview this brief.</p></noscript>
+        <a class="alt" href="case-studies.html"
+          >Prefer to browse first? Explore recent shows →</a
+        >
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,43 @@
+<section class="loreal-opening" aria-labelledby="loreal-title">
+  <div class="loreal-hero">
+    <picture>
+      <source
+        media="(max-width: 700px)"
+        srcset="assets/img/loreal/loreal-104-1600.webp"
+      />
+      <img
+        src="{{hero.src}}"
+        srcset="{{hero.srcset}}"
+        sizes="100vw"
+        width="{{hero.width}}"
+        height="{{hero.height}}"
+        alt="Colour Trophy stage production with lighting and overhead screens."
+        fetchpriority="high"
+      />
+    </picture>
+    <div class="loreal-hero-light" aria-hidden="true"></div>
+    <div class="loreal-hero-copy wrap">
+      {{> shared/breadcrumb breadcrumb}}
+      <span class="cue">Platinum anniversary · London &amp; Dublin</span>
+      <h1 id="loreal-title">70 years of<br />L’Oréal Colour Trophy.</h1>
+      <span class="loreal-hero-year">2026 / Event design &amp; production</span>
+    </div>
+  </div>
+  <div class="wrap loreal-intro">
+    <div class="loreal-intro-bottom">
+      <p>
+        For the 70th anniversary of L’Oréal Colour Trophy, we developed two
+        distinctive final experiences in London and Dublin. Both were linked by
+        a single creative vision rooted in colour, creativity and the history of
+        the competition.
+      </p>
+      <a class="loreal-story-link" href="#project-story">Explore the story ↓</a>
+    </div>
+    <nav class="loreal-chapters" aria-label="Case study chapters">
+      <a href="#project-story">01 / Think</a
+      ><a href="#loreal-create">02 / Create</a
+      ><a href="#loreal-deliver">03 / Deliver</a
+      ><a href="#loreal-gallery">04 / In pictures</a>
+    </nav>
+  </div>
+</section>

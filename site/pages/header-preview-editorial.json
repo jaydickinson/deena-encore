@@ -1,0 +1,35 @@
+{
+  "$schema": "../page.schema.json",
+  "layout": "preview",
+  "title": "Editorial header · Encore",
+  "description": "Explore Encore Experience Design: Audience insight, creative thinking and event design. Connected from the first idea to the last impression.",
+  "bodyClass": "",
+  "bodyStyle": "",
+  "mainId": "main",
+  "stylesheets": [
+    "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap",
+    "assets/css/site-pages.css"
+  ],
+  "scripts": ["assets/js/partials/site-pages.js"],
+  "sections": [
+    {
+      "component": "headers/editorial",
+      "data": {
+        "eyebrow": "Experience Design",
+        "title": "Every experience starts with",
+        "accent": "people.",
+        "description": "Audience insight, creative thinking and event design. Connected from the first idea to the last impression.",
+        "ctaLabel": "Start your event",
+        "ctaHref": "start-event.html",
+        "image": "assets/img/client-updates/_DSC1103.jpg",
+        "imageAlt": "Guests exploring an illuminated exhibition floor",
+        "focalPoint": "center center",
+        "colour": "#11bfdd",
+        "caption": "Think differently. Design the journey, from the first impression to the last.",
+        "backHref": "",
+        "backLabel": "",
+        "video": ""
+      }
+    }
+  ]
+}

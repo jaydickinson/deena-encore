@@ -1,0 +1,77 @@
+/* Trial: sticky chapter bar. Remove the chapter-bar section, this stylesheet and
+   loreal-chapter-bar.js from case-study-loreal.json to roll back. */
+.loreal-chapter-bar {
+  position: fixed;
+  z-index: 90;
+  top: var(--chapter-bar-top, 88px);
+  left: 50%;
+  width: min(1360px, calc(100% - 2 * clamp(16px, 3vw, 40px)));
+  background: #12101ef2;
+  border: 1px solid var(--line);
+  border-top: 0;
+  backdrop-filter: blur(18px);
+  transform: translate(-50%, -12px);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--motion-base, 260ms) ease,
+    transform var(--motion-base, 260ms) ease,
+    visibility 0s linear var(--motion-base, 260ms);
+}
+.loreal-chapter-bar.is-visible {
+  transform: translate(-50%, 0);
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+.loreal-chapter-bar-inner {
+  display: flex;
+  gap: 4px 30px;
+  padding: 0 24px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.loreal-chapter-bar a {
+  flex: none;
+  padding: 13px 0 12px;
+  font-size: 12px;
+  color: var(--muted);
+  transition: color var(--motion-base, 260ms) ease;
+}
+.loreal-chapter-bar a span {
+  color: var(--chapter-colour);
+  margin-right: 4px;
+}
+.loreal-page .loreal-chapter-bar a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.loreal-chapter-bar a[aria-current] {
+  color: var(--chapter-colour);
+}
+.loreal-chapter-bar-progress {
+  display: block;
+  height: 2px;
+  background: var(--bar-colour, var(--gel));
+  transform: scaleX(var(--bar-progress, 0));
+  transform-origin: left;
+  transition: background var(--motion-base, 260ms) ease;
+}
+html:has(.loreal-chapter-bar) {
+  scroll-padding-top: 150px;
+}
+@media (max-width: 700px) {
+  .loreal-chapter-bar-inner {
+    padding-inline: 16px;
+    gap: 22px;
+  }
+  .loreal-chapter-bar a {
+    font-size: 11px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .loreal-chapter-bar,
+  .loreal-chapter-bar-progress {
+    transition: none;
+  }
+}

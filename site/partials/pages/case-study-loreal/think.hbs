@@ -1,0 +1,43 @@
+<section
+  class="loreal-chapter"
+  id="project-story"
+  aria-labelledby="think-chapter"
+>
+  {{> sections/case-chapter-heading chapter}}
+
+  <figure class="loreal-feature">
+    <div class="loreal-drift">{{> pages/case-study-loreal/image think}}</div>
+    <figcaption>{{think.caption}}</figcaption>
+  </figure>
+  <div class="wrap loreal-editorial">
+    <div>
+      <h3 id="think-title">One vision.<br />Two experiences.</h3>
+      <a class="loreal-service-link" href="experience-design.html"
+        >Event strategy ↗</a
+      >
+    </div>
+    <div class="loreal-copy">
+      <p>
+        L’Oréal Colour Trophy 2026 marked the 70th anniversary of one of the
+        hair industry’s most prestigious competitions, recognising creativity,
+        innovation and excellence across the UK and Ireland.
+      </p>
+      <p>
+        Inspired by the Chroma theme, we created two experiences for the UK
+        Grand Final at The O2, London and the Ireland Final in Dublin. Each was
+        shaped around its venue, audience and technical environment, while both
+        remained connected to the same creative direction.
+      </p>
+      <p>
+        We worked closely with L’Oréal’s creative production teams and Encore
+        APAC’s Design Studio to develop an approach that could be adapted across
+        regions without losing the character of either event.
+      </p>
+      <ul class="loreal-services" aria-label="Event strategy services">
+        {{#each thinkServices}}
+        <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</section>

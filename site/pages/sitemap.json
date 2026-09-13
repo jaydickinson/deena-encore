@@ -1,0 +1,25 @@
+{
+  "$schema": "../page.schema.json",
+  "layout": "default",
+  "title": "Site map · Encore design review",
+  "description": "Browse the Encore website design hierarchy and open every page prototype.",
+  "bodyClass": "",
+  "bodyStyle": "",
+  "mainId": "main-content",
+  "stylesheets": [
+    "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap",
+    "assets/css/site-pages.css",
+    "assets/css/pages/sitemap.css"
+  ],
+  "scripts": ["assets/js/partials/site-pages.js"],
+  "sections": [
+    {
+      "component": "pages/sitemap/introduction",
+      "data": {}
+    },
+    {
+      "component": "pages/sitemap/hierarchy",
+      "data": {}
+    }
+  ]
+}

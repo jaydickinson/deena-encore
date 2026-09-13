@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Encore page composition",
+  "type": "object",
+  "required": [
+    "layout",
+    "title",
+    "description",
+    "mainId",
+    "stylesheets",
+    "scripts",
+    "sections"
+  ],
+  "properties": {
+    "$schema": { "type": "string" },
+    "layout": { "enum": ["default", "homepage", "preview"] },
+    "title": { "type": "string", "minLength": 1 },
+    "description": { "type": "string" },
+    "bodyClass": { "type": "string" },
+    "bodyStyle": { "type": "string" },
+    "mainId": { "type": "string", "minLength": 1 },
+    "stylesheets": { "type": "array", "items": { "type": "string" } },
+    "scripts": { "type": "array", "items": { "type": "string" } },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["component", "data"],
+        "additionalProperties": false,
+        "properties": {
+          "component": {
+            "type": "string",
+            "description": "Partial path relative to site/partials, without .hbs"
+          },
+          "data": { "type": "object" }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,34 @@
+{{#if embedUrl}}
+<section class="case-video section wrap" aria-label="{{title}}" data-case-video>
+  <div class="case-video-heading">
+    <span class="cue">{{eyebrow}}</span>
+    <h2>{{title}}</h2>
+    <p>{{description}}</p>
+  </div>
+  <div
+    class="case-video-player"
+    data-embed-url="{{embedUrl}}"
+    data-video-title="{{title}}"
+  >
+    <button class="case-video-play" type="button" aria-label="Play {{title}}">
+      <img
+        src="{{poster}}"
+        alt="{{posterAlt}}"
+        width="{{width}}"
+        height="{{height}}"
+        loading="lazy"
+      />
+      <span class="case-video-play-label"
+        ><span aria-hidden="true">▶</span> Watch the film</span
+      >
+    </button>
+  </div>
+  <a
+    class="case-video-external"
+    href="{{videoUrl}}"
+    target="_blank"
+    rel="noopener"
+    >Watch on Vimeo ↗</a
+  >
+</section>
+{{/if}}

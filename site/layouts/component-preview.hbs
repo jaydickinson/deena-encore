@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{{name}} · Component preview · Encore</title>
+    <link rel="icon" href="assets/favicon.png" />
+    <link rel="stylesheet" href="assets/css/pages/component-preview.css" />
+  </head>
+  <body>
+    <header class="preview-toolbar">
+      <div>
+        <a href="component-library.html#component-index">← Component library</a>
+        <h1>{{name}}</h1>
+      </div>
+      <a href="{{pageHref}}">View example page ↗</a>
+    </header>
+    <p class="preview-note">{{note}}</p>
+    <iframe
+      class="component-canvas"
+      srcdoc="{{canvas}}"
+      title="{{name}} isolated component preview"
+    ></iframe>
+  </body>
+</html>

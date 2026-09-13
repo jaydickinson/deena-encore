@@ -1,0 +1,50 @@
+<section
+  class="loreal-chapter"
+  id="loreal-deliver"
+  aria-labelledby="deliver-chapter"
+>
+  {{> sections/case-chapter-heading chapter}}
+
+  <figure class="loreal-feature">
+    <div class="loreal-drift">{{> pages/case-study-loreal/image deliver}}</div>
+    <figcaption>{{deliver.caption}}</figcaption>
+  </figure>
+  <div class="wrap loreal-editorial">
+    <div>
+      <h3 id="deliver-title" class="loreal-proof">
+        <span>4 hours.</span>Full production removed.
+      </h3>
+      <a class="loreal-service-link" href="technical-production.html"
+        >Technical production ↗</a
+      >
+    </div>
+    <div class="loreal-copy">
+      <p>
+        The scale and complexity of the productions required extensive
+        pre-production and technical coordination. At The O2, equipment was
+        prepared in advance, rigging requirements were optimised and the teams
+        worked closely with the venue to deliver the ambitious in-the-round
+        production within a demanding schedule.
+      </p>
+      <p>
+        Across London and Dublin, Encore combined creative design, technical
+        expertise and local venue knowledge to deliver two distinctive
+        productions for L’Oréal Colour Trophy’s Platinum anniversary.
+      </p>
+    </div>
+  </div>
+  <div
+    class="loreal-ticker"
+    data-ticker
+    data-ticker-reverse
+    style="--ticker-colour:{{chapter.colour}}"
+  >
+    <div class="loreal-ticker-track">
+      <ul class="loreal-ticker-list" aria-label="Technical production services">
+        {{#each deliverServices}}
+        <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</section>

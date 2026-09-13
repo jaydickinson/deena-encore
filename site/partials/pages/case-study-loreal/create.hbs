@@ -1,0 +1,86 @@
+<section
+  class="loreal-chapter"
+  id="loreal-create"
+  aria-labelledby="create-chapter"
+>
+  {{> sections/case-chapter-heading chapter}}
+
+  <div class="wrap loreal-section-heading">
+    <h3 id="create-title">Creativity takes centre stage.</h3>
+  </div>
+  <div class="wrap loreal-filmstrip-controls">
+    <span>Drag to explore <span aria-hidden="true">↔</span></span>
+    <div>
+      <button
+        type="button"
+        data-filmstrip-prev
+        aria-label="Previous stage photograph"
+        aria-controls="loreal-filmstrip"
+      >
+        ←</button
+      ><button
+        type="button"
+        data-filmstrip-next
+        aria-label="Next stage photograph"
+        aria-controls="loreal-filmstrip"
+      >
+        →
+      </button>
+    </div>
+  </div>
+  <div
+    class="loreal-create-images"
+    id="loreal-filmstrip"
+    tabindex="0"
+    role="region"
+    aria-label="Stage design photographs"
+  >
+    {{#each createImages}}
+    <figure>
+      {{> pages/case-study-loreal/image this sizes="(max-width: 700px) 100vw,
+      66vw"}}
+      <figcaption>{{caption}}</figcaption>
+    </figure>
+    {{/each}}
+  </div>
+  <div class="wrap loreal-regions">
+    <article>
+      <span class="cue">London / The O2</span>
+      <h3>UK Grand Final</h3>
+      <p>
+        For the UK Grand Final, the traditional competition format was
+        reimagined around an ambitious 50 m catwalk and 360 degree in-the-round
+        stage, placing finalists at the centre of the experience. Dynamic
+        lighting, video, lasers and special effects created an immersive setting
+        for the competition and its celebration of creativity and craftsmanship.
+      </p>
+    </article>
+    <article>
+      <span class="cue">Dublin</span>
+      <h3>Ireland Final</h3>
+      <p>
+        For the Ireland Final, a bespoke black gloss thrust stage brought models
+        further into the audience. Venue branding, a custom judging system and
+        an interactive foil selfie booth completed the experience.
+      </p>
+      <p>
+        Both productions followed the Chroma creative vision while reflecting
+        the character and practical requirements of their venues.
+      </p>
+    </article>
+  </div>
+  <div class="wrap loreal-create-services">
+    <a class="loreal-service-link" href="creative-content.html"
+      >Creative &amp; content ↗</a
+    >
+  </div>
+  <div class="loreal-ticker" data-ticker style="--ticker-colour:{{chapter.colour}}">
+    <div class="loreal-ticker-track">
+      <ul class="loreal-ticker-list" aria-label="Creative and content services">
+        {{#each createServices}}
+        <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,116 @@
+.header-library-intro {
+  padding-bottom: 45px;
+}
+.header-library-intro h1 {
+  margin: 25px 0 30px;
+}
+.library-back {
+  display: inline-block;
+  margin-top: 25px;
+  font-size: 13px;
+  color: var(--dim);
+}
+.library-controls {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+.library-options,
+.library-sizes {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.library-options a,
+.library-sizes button {
+  border: 1px solid var(--line);
+  background: none;
+  color: var(--dim);
+  padding: 12px 15px;
+  font-size: 12px;
+}
+.library-options a[aria-current],
+.library-sizes button[aria-pressed="true"] {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+.library-options a:hover,
+.library-sizes button:hover {
+  border-color: #fff;
+}
+.library-canvas {
+  background: #211c30;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.library-frame {
+  width: 100%;
+  height: 780px;
+  border: 1px solid var(--line);
+  background: var(--void);
+}
+.library-frame.is-mobile {
+  width: 390px;
+  max-width: 100%;
+  height: 844px;
+}
+.library-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: 12px;
+  padding-block: 20px;
+  border-bottom: 1px solid var(--line);
+}
+.library-caption a {
+  color: #fff;
+}
+.library-examples h2 {
+  margin-top: 25px;
+}
+.library-example-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+.library-example-grid a {
+  border-top: 1px solid var(--line);
+  padding-top: 22px;
+}
+.library-example-grid a:hover {
+  border-color: var(--amber);
+}
+.library-example-grid span {
+  color: var(--muted);
+  font-size: 12px;
+}
+.library-example-grid h3 {
+  font-size: 23px;
+  margin: 22px 0 18px;
+}
+.library-example-grid p {
+  color: var(--dim);
+  font-size: 15px;
+}
+@media (max-width: 700px) {
+  .library-example-grid {
+    grid-template-columns: 1fr;
+  }
+  .library-canvas {
+    padding: 8px;
+  }
+  .library-frame {
+    height: 800px;
+  }
+  .library-options a {
+    padding: 10px;
+    font-size: 11px;
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "../page.schema.json",
+  "layout": "default",
+  "title": "Event types · Encore",
+  "description": "Encore website design prototype.",
+  "bodyClass": "",
+  "bodyStyle": "",
+  "mainId": "main-content",
+  "stylesheets": [
+    "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap",
+    "assets/css/site-pages.css",
+    "assets/css/pages/event-types.css"
+  ],
+  "scripts": [
+    "assets/js/partials/site-pages.js"
+  ],
+  "sections": [
+    {
+      "component": "headers/parallax",
+      "data": {
+        "eyebrow": "Event Type",
+        "title": "Many formats.",
+        "accent": "One shared ambition.",
+        "description": "Bring people together for an experience that matters.",
+        "ctaLabel": "Start your event",
+        "ctaHref": "start-event.html",
+        "image": "assets/video/hum-tv-awards-poster.jpg",
+        "imageAlt": "Awards show stage set with performers and audience",
+        "focalPoint": "center center",
+        "colour": "#90c74f",
+        "caption": "Page design in progress · Event categories are TBC in the client brief.",
+        "backHref": "",
+        "backLabel": "",
+        "video": "assets/video/hum-tv-awards.mp4",
+        "word": "Events",
+        "breadcrumb": {
+          "parents": [],
+          "current": "Event types"
+        }
+      }
+    },
+    {
+      "component": "pages/event-types/pending-content",
+      "data": {}
+    }
+  ]
+}

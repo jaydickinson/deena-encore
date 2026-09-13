@@ -1,14 +1,46 @@
+import { resolve } from "node:path";
+import { hasPage, renderPage } from "../scripts/render-site";
 const root = process.argv[2] || ".";
 const port = Number(process.argv[3] || 8741);
 const types: Record<string, string> = {
-  html: "text/html", css: "text/css", js: "text/javascript", mjs: "text/javascript",
-  png: "image/png", jpg: "image/jpeg", jpeg: "image/jpeg", webp: "image/webp", svg: "image/svg+xml",
-  mp4: "video/mp4", webm: "video/webm", ico: "image/x-icon", json: "application/json",
+  html: "text/html",
+  css: "text/css",
+  js: "text/javascript",
+  mjs: "text/javascript",
+  png: "image/png",
+  jpg: "image/jpeg",
+  jpeg: "image/jpeg",
+  webp: "image/webp",
+  svg: "image/svg+xml",
+  mp4: "video/mp4",
+  webm: "video/webm",
+  ico: "image/x-icon",
+  json: "application/json",
 };
 const handlers = {
   async fetch(req: Request) {
     let path = decodeURIComponent(new URL(req.url).pathname);
     if (path.endsWith("/")) path += "index.html";
+    // Live source rendering keeps partial edits visible on refresh. Dist preview
+    // serves only the compiled bundle, so it matches production exactly.
+    const pageName = path.slice(1).replace(/\.html$/, "");
+    if (
+      resolve(root) === resolve(import.meta.dir) &&
+      path.endsWith(".html") &&
+      hasPage(pageName)
+    ) {
+      try {
+        return new Response(renderPage(pageName), {
+          headers: { "Content-Type": "text/html", "Cache-Control": "no-store" },
+        });
+      } catch (error) {
+        console.error(error);
+        return new Response(
+          "Page render failed. Check the terminal for the source error.",
+          { status: 500 },
+        );
+      }
+    }
     const file = Bun.file(`${root}${path}`);
     if (!(await file.exists())) return new Response("404", { status: 404 });
     const ext = path.split(".").pop() || "";
@@ -30,7 +62,9 @@ const handlers = {
         },
       });
     }
-    return new Response(file, { headers: { "Content-Type": type, "Accept-Ranges": "bytes" } });
+    return new Response(file, {
+      headers: { "Content-Type": type, "Accept-Ranges": "bytes" },
+    });
   },
 };
 

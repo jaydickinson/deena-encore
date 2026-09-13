@@ -1,0 +1,176 @@
+{
+  "$schema": "../page.schema.json",
+  "layout": "default",
+  "title": "Creative & Content — Encore",
+  "description": "Explore Encore Creative & Content: From the first invitation to the final screen, we turn your message into a shared experience.",
+  "bodyClass": "service-page creative-page",
+  "bodyStyle": "--gel:#d454b9",
+  "mainId": "main",
+  "stylesheets": [
+    "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap",
+    "assets/css/site-pages.css",
+    "assets/css/pages/services.css"
+  ],
+  "scripts": [
+    "assets/js/partials/site-pages.js",
+    "assets/js/partials/service-expertise.js"
+  ],
+  "sections": [
+    {
+      "component": "headers/parallax",
+      "data": {
+        "eyebrow": "Creative & Content",
+        "title": "Ideas that move.",
+        "accent": "Stories that stay.",
+        "description": "Storytelling, design, motion and multimedia. A creative thread that runs from the first invitation to the final screen.",
+        "ctaLabel": "Start your event",
+        "ctaHref": "start-event.html",
+        "image": "assets/video/evolution-london-poster.jpg",
+        "imageAlt": "Performers on a stage framed by bright screen content",
+        "focalPoint": "center center",
+        "colour": "#d454b9",
+        "caption": "Design boldly. Connect every moment through one creative idea.",
+        "backHref": "technical-production.html",
+        "backLabel": "Next: Technical Production",
+        "video": "assets/video/evolution-london.mp4",
+        "word": "Create",
+        "breadcrumb": {
+          "parents": [
+            {
+              "href": "homepage-option-1-updated.html#services",
+              "label": "What we do"
+            }
+          ],
+          "current": "Creative & Content"
+        }
+      }
+    },
+    {
+      "component": "sections/service-story",
+      "data": {
+        "eyebrow": "We create boldly",
+        "blocks": [
+          {
+            "title": "Stories designed to be experienced.",
+            "paragraphs": [
+              "Great events need a compelling story and a creative identity that connects every moment.",
+              "Our creative and content teams combine storytelling, graphic design, motion and multimedia to create experiences audiences can see, hear and feel.",
+              "From the first invitation and opening moment to the content on screen and stories shared afterwards, we bring your brand to life before, during and beyond the event."
+            ]
+          },
+          {
+            "title": "One story. Every touchpoint.",
+            "paragraphs": [
+              "We create specifically for live environments, considering how every asset will work across screens, stages, spaces and digital platforms.",
+              "That could mean a distinctive event identity, an opening film that commands the room, motion graphics that transform a stage or content that continues the conversation after the event."
+            ],
+            "emphasis": [
+              "Everything is designed to feel connected, considered and unmistakably yours."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "component": "sections/service-offerings",
+      "data": {
+        "eyebrow": "What we do",
+        "title": "Our Creative & Content expertise",
+        "items": [
+          {
+            "number": "01",
+            "title": "Event creative & art direction",
+            "description": "Developing the central idea, visual language and direction for your event."
+          },
+          {
+            "number": "02",
+            "title": "Event branding & graphic design",
+            "description": "Creating key visuals, presentations and branded assets for every touchpoint."
+          },
+          {
+            "number": "03",
+            "title": "Motion design & animation",
+            "description": "Bringing screens and stages to life through animation, transitions and speaker content."
+          },
+          {
+            "number": "04",
+            "title": "Video & multimedia content",
+            "description": "Creating films, teasers and multimedia experiences that inform and inspire."
+          },
+          {
+            "number": "05",
+            "title": "Show content",
+            "description": "Designing screen content, awards packages and memorable show moments."
+          },
+          {
+            "number": "06",
+            "title": "Digital event content",
+            "description": "Extending the creative identity across apps, platforms and audience communications."
+          },
+          {
+            "number": "07",
+            "title": "3D visualisation & spatial rendering",
+            "description": "Bringing venues, stages and branded environments to life before they are built."
+          }
+        ]
+      }
+    },
+    {
+      "component": "sections/service-process",
+      "data": {
+        "eyebrow": "From first conversation to live experience",
+        "title": "A joined-up approach.",
+        "ctaLabel": "Tell us your brief",
+        "ctaHref": "start-event.html",
+        "items": [
+          {
+            "number": "01",
+            "title": "Find the story",
+            "description": "We explore what you want to say, who you want to reach and what makes this moment matter."
+          },
+          {
+            "number": "02",
+            "title": "Build the world",
+            "description": "We develop creative routes, design systems and visualisations to bring the direction into focus."
+          },
+          {
+            "number": "03",
+            "title": "Make it live",
+            "description": "We develop the content with production in mind, connecting creative intent with the realities of the room."
+          }
+        ]
+      }
+    },
+    {
+      "component": "sections/related-work",
+      "data": {
+        "image": "assets/img/client-updates/twobytwo_Adobe_Summit_2023-164.jpg",
+        "imageAlt": "Large conference stage with colourful screen content",
+        "eyebrow": "Recent shows",
+        "title": "Ideas made for the live moment.",
+        "description": "Explore the work to see where storytelling meets screens, spaces and live performance.",
+        "ctaHref": "case-studies.html",
+        "ctaLabel": "Explore our work"
+      }
+    },
+    {
+      "component": "sections/service-journey",
+      "data": {
+        "eyebrow": "Explore what we do",
+        "title": "Think. Create. Deliver.",
+        "description": "One partner for the full experience. Each service connects to the next, from the first idea to the final cue."
+      }
+    },
+    {
+      "component": "sections/service-cta",
+      "data": {
+        "eyebrow": "Start a conversation",
+        "title": "Tell your story.",
+        "note": "Design prototype · draft copy",
+        "ctaHref": "start-event.html",
+        "ctaLabel": "Start your event",
+        "accent": "Make every moment count."
+      }
+    }
+  ]
+}

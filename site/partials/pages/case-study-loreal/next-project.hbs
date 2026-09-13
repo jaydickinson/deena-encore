@@ -1,0 +1,43 @@
+<section class="loreal-next" id="loreal-next" aria-labelledby="loreal-next-heading">
+  <div class="wrap">
+    <div class="loreal-next-head">
+      <div>
+        <span class="loreal-next-kicker">End of case study</span>
+        <h2 id="loreal-next-heading">Explore more of our work.</h2>
+      </div>
+      <a class="loreal-more-all" href="case-studies.html">All case studies ↗</a>
+    </div>
+    <a class="loreal-next-feature" href="{{next.href}}" data-next-project
+      ><video
+        muted
+        loop
+        playsinline
+        preload="none"
+        poster="{{next.poster}}"
+        aria-hidden="true"
+      >
+        <source src="{{next.video}}" type="video/mp4" /></video
+      ><span class="loreal-next-shade" aria-hidden="true"></span>
+      <span class="loreal-next-badge" style="--gel:{{next.colour}}"
+        >Next case study</span
+      >
+      <span class="loreal-next-copy">
+        <span class="loreal-next-title">{{next.title}}</span>
+        <span class="loreal-next-meta">{{next.meta}}</span>
+        <span class="loreal-next-arrow" aria-hidden="true">↗</span>
+      </span></a
+    >
+    <ul class="loreal-more" aria-label="More case studies">
+      {{#each more}}
+      <li>
+        <a href="{{href}}" style="--gel:{{colour}}"
+          ><img src="{{image}}" alt="" loading="lazy" width="480" height="270" /><span
+            class="loreal-more-title"
+            >{{title}}</span
+          ><span class="loreal-more-meta">{{meta}} ↗</span></a
+        >
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,31 @@
+<section
+  class="page-header header-video"
+  style="--header-accent:{{colour}};--header-focus:{{focalPoint}}"
+  data-header-video
+>
+  <div class="header-stage">
+    <img
+      class="header-media"
+      src="{{image}}"
+      alt="{{imageAlt}}"
+      fetchpriority="high"
+    />
+    <video
+      class="header-media header-film"
+      muted
+      loop
+      playsinline
+      preload="none"
+      poster="{{image}}"
+      data-video-src="{{video}}"
+      aria-hidden="true"
+      tabindex="-1"
+    ></video>
+    <div class="header-shade" aria-hidden="true"></div>
+    <div class="wrap header-content">{{> headers/copy}}</div>
+    <button class="header-video-toggle" type="button" hidden>
+      Play background video
+    </button>
+  </div>
+  {{> headers/caption}}
+</section>

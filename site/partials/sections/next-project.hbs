@@ -1,0 +1,17 @@
+<section class="section wrap">
+  <a class="next-project" data-card href="{{href}}"
+    ><div>
+      <span class="next-label">Next project ↗</span>
+      <h2>{{title}}</h2>
+      <span class="next-caption">{{caption}}</span>
+    </div>
+    <img src="{{image}}" alt="{{imageAlt}}" loading="lazy"
+  /></a>
+  <nav class="project-index" aria-label="Case studies">
+    {{#each @root.site.caseStudies}}<a
+      href="{{href}}"
+      aria-current="{{#if (eq href @root.currentPage)}}page{{else}}false{{/if}}"
+      >{{title}}</a
+    >{{/each}}
+  </nav>
+</section>

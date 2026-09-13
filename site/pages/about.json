@@ -1,0 +1,59 @@
+{
+  "$schema": "../page.schema.json",
+  "layout": "default",
+  "title": "About · Encore",
+  "description": "Encore page design prototype. Editorial copy is a draft for review.",
+  "bodyClass": "",
+  "bodyStyle": "",
+  "mainId": "main",
+  "stylesheets": [
+    "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap",
+    "assets/css/site-pages.css",
+    "assets/css/pages/editorial.css"
+  ],
+  "scripts": [
+    "assets/js/partials/site-pages.js"
+  ],
+  "sections": [
+    {
+      "component": "headers/parallax",
+      "data": {
+        "eyebrow": "About Encore",
+        "title": "Ideas brought to life.",
+        "accent": "Together.",
+        "description": "Experience strategy, creative thinking and technical expertise. Connected around your event.",
+        "ctaLabel": "Meet Encore",
+        "ctaHref": "#about-approach",
+        "image": "assets/video/encore-home-reel-poster.jpg",
+        "imageAlt": "Audience members enjoying a live event",
+        "focalPoint": "center center",
+        "colour": "#d454b9",
+        "caption": "One partner. The full experience.",
+        "backHref": "",
+        "backLabel": "",
+        "video": "assets/video/encore-home-reel.mp4",
+        "word": "Encore",
+        "breadcrumb": {
+          "parents": [],
+          "current": "About"
+        }
+      }
+    },
+    {
+      "component": "pages/about/from-possibility-to-performance",
+      "data": {}
+    },
+    {
+      "component": "pages/about/think-design-deliver",
+      "data": {}
+    },
+    {
+      "component": "pages/about/see-the-thinking-come-to-life",
+      "data": {}
+    },
+    {
+      "component": "sections/editorial-cta",
+      "data": {}
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+.enquiry-hero {
+  border-bottom: 1px solid var(--line);
+  background: radial-gradient(ellipse at 85% 25%, #54234355, transparent 60%);
+}
+.enquiry-hero h1 {
+  max-width: 12ch;
+  margin: 25px 0 30px;
+  font-weight: 400;
+}
+.enquiry-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: clamp(35px, 7vw, 110px);
+}
+.enquiry-aside h2 {
+  font-size: 32px;
+  line-height: 1.2;
+  margin-bottom: 25px;
+}
+.enquiry-aside p {
+  color: var(--dim);
+}
+.next-step {
+  border-top: 1px solid var(--line);
+  padding: 24px 0;
+  display: grid;
+  grid-template-columns: 35px 1fr;
+  gap: 15px;
+}
+.next-step span {
+  color: var(--amber);
+}
+.next-step h3 {
+  font-size: 19px;
+  margin-bottom: 10px;
+}
+.next-step p {
+  font-size: 14px;
+}
+.enquiry-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+}
+.field.full {
+  grid-column: 1/-1;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 15px;
+  background: #19152a;
+  color: white;
+  border: 1px solid #635b75;
+  border-radius: 0;
+  min-width: 0;
+}
+.field textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+.field select option {
+  background: #19152a;
+}
+.required {
+  color: var(--amber);
+}
+.form-note {
+  font-size: 13px;
+  color: var(--dim);
+  margin: 25px 0;
+}
+.form-status {
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+  margin-top: 24px;
+}
+.brief-summary {
+  color: var(--dim);
+  white-space: pre-wrap;
+  margin-top: 18px;
+}
+.enquiry-photo {
+  height: 320px;
+  width: 100%;
+  object-fit: cover;
+  margin-top: 40px;
+}
+.enquiry-section {
+  padding-top: 75px;
+}
+@media (max-width: 800px) {
+  .enquiry-grid {
+    grid-template-columns: 1fr;
+  }
+  .enquiry-aside {
+    max-width: 600px;
+  }
+}
+@media (max-width: 500px) {
+  .enquiry-fields {
+    grid-template-columns: 1fr;
+  }
+  .field.full {
+    grid-column: auto;
+  }
+}

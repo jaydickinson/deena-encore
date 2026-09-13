@@ -1,0 +1,45 @@
+<section
+  class="loreal-gallery-section"
+  id="loreal-gallery"
+  aria-labelledby="gallery-title"
+>
+  <div class="wrap loreal-section-heading">
+    <span class="cue">04 / In pictures</span>
+    <h2 id="gallery-title">The moments that made it.</h2>
+    <p>On stage at the UK Grand Final.</p>
+  </div>
+  <div class="loreal-gallery">
+    {{#each gallery}}
+    <figure class="{{style}}">
+      <button
+        class="loreal-gallery-open"
+        type="button"
+        aria-label="Enlarge photograph: {{alt}}"
+      >
+        {{> pages/case-study-loreal/image this sizes="(max-width: 700px) 100vw,
+        50vw"}}<span class="loreal-view-label" aria-hidden="true"
+          >View photograph ↗</span
+        >
+      </button>
+    </figure>
+    {{/each}}
+  </div>
+</section>
+<dialog class="loreal-viewer" aria-label="Event photography gallery">
+  <div class="loreal-viewer-toolbar">
+    <span class="loreal-viewer-count" aria-live="polite"></span
+    ><button type="button" data-gallery-close aria-label="Close gallery">
+      Close ×
+    </button>
+  </div>
+  <img class="loreal-viewer-image" alt="" />
+  <div class="loreal-viewer-bottom">
+    <button type="button" data-gallery-prev aria-label="Previous photograph">
+      ←
+    </button>
+    <p class="loreal-viewer-caption"></p>
+    <button type="button" data-gallery-next aria-label="Next photograph">
+      →
+    </button>
+  </div>
+</dialog>

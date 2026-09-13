@@ -1,0 +1,55 @@
+{
+  "$schema": "../page.schema.json",
+  "layout": "default",
+  "title": "See the event through your audience’s eyes · Encore",
+  "description": "Encore page design prototype. Editorial copy is a draft for review.",
+  "bodyClass": "",
+  "bodyStyle": "",
+  "mainId": "main",
+  "stylesheets": [
+    "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap",
+    "assets/css/site-pages.css",
+    "assets/css/pages/editorial.css"
+  ],
+  "scripts": [
+    "assets/js/partials/site-pages.js"
+  ],
+  "sections": [
+    {
+      "component": "headers/split",
+      "data": {
+        "eyebrow": "Experience Design",
+        "title": "See the event through your audience’s eyes",
+        "accent": "",
+        "description": "The experience starts before the doors open. Looking at the whole journey helps each moment feel connected.",
+        "ctaLabel": "Read the story",
+        "ctaHref": "#article-story",
+        "image": "assets/img/client-updates/_DSC1103.jpg",
+        "imageAlt": "Visitors exploring an exhibition floor",
+        "focalPoint": "center center",
+        "colour": "#d454b9",
+        "caption": "Design prototype · Draft editorial copy for review.",
+        "backHref": "news.html",
+        "backLabel": "All news",
+        "video": "",
+        "breadcrumb": {
+          "parents": [
+            {
+              "href": "news.html",
+              "label": "News"
+            }
+          ],
+          "current": "See the event through your audience’s eyes"
+        }
+      }
+    },
+    {
+      "component": "pages/news-audience-experience/walk-through-the-whole-journey",
+      "data": {}
+    },
+    {
+      "component": "sections/editorial-cta",
+      "data": {}
+    }
+  ]
+}

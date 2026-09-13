@@ -1,0 +1,1476 @@
+<!-- Generated from site/pages/component-library.json; edit source partials, not this file. -->
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Component library · Encore</title>
+    <meta name="description" content="Shared components, interaction examples and the automatically generated Encore design inventory." />
+    <meta name="theme-color" content="#12101e" />
+    <link rel="icon" href="assets/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family&#x3D;Open+Sans:wght@400;500;600;700&amp;display&#x3D;swap" />
+      <link rel="stylesheet" href="assets/css/site-pages.css" />
+      <link rel="stylesheet" href="assets/css/pages/component-library.css" />
+      <link rel="stylesheet" href="assets/css/partials/layout.css" />
+      <link rel="stylesheet" href="assets/css/partials/microinteractions.css" />
+     
+    <script src="assets/js/partials/site-pages.js" defer></script>
+  
+    <script src="assets/js/partials/microinteractions.js" defer></script>
+  </head>
+  <body data-microinteractions class="" style="">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header
+      class="site-header"
+      aria-label="Site header"
+    >
+      <div class="site-header-inner">
+        <a
+          class="site-brand"
+          href="homepage-option-1-updated.html"
+          aria-label="Encore home"
+          ><img src="assets/encore-logo-white.png" alt="Encore"
+        /></a>
+        <button
+          class="site-menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-navigation"
+        >
+          Menu +
+        </button>
+        <nav
+          class="site-nav"
+          id="site-navigation"
+          aria-label="Main navigation"
+        >
+          <div class="site-service-menu">
+            <button
+              class="site-service-trigger"
+              type="button"
+              aria-expanded="false"
+              aria-controls="site-services"
+            >
+              What we do<svg viewBox="0 0 16 16" aria-hidden="true">
+                <path d="m3 6 5 5 5-5" />
+              </svg>
+            </button>
+            <div class="site-submenu" id="site-services" hidden>
+              <a
+                  href="experience-design.html"
+                  
+                  ><span>01 · Think</span>Experience Design</a
+                ><a
+                  href="creative-content.html"
+                  
+                  ><span>02 · Create</span>Creative &amp; Content</a
+                ><a
+                  href="technical-production.html"
+                  
+                  ><span>03 · Deliver</span>Technical Production</a
+                >
+            </div>
+          </div>
+          <a href="case-studies.html">Recent Show</a
+          ><a href="event-types.html">Event Type</a><a href="news.html">News</a
+          ><a href="about.html">About</a
+          ><a class="btn btn-gel" href="start-event.html">Start Event</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main-content" tabindex="-1">
+       <section class="page-hero wrap component-intro">
+  <div class="cue" style="--gel: var(--amber)">Design system</div>
+  <h1>The details make<br />the experience.</h1>
+  <p class="lead">
+    Small, consistent interactions bring the pages to life. Explore the
+    behaviour below, then browse the shared building blocks.
+  </p>
+  <div class="component-jumps">
+    <a class="btn btn-ghost" href="#interaction-examples"
+      >Try the interactions <span aria-hidden="true">↓</span></a
+    ><a class="btn btn-ghost" href="header-library.html"
+      >Header options <span aria-hidden="true">↗</span></a
+    ><a class="btn btn-ghost" href="#component-index"
+      >Component index <span aria-hidden="true">↓</span></a
+    >
+  </div>
+</section>
+<section class="section wrap interaction-examples" id="interaction-examples">
+  <div class="cue">01 / Touchpoints</div>
+  <h2>Quiet movement.<br />Clear feedback.</h2>
+  <div class="interaction-grid">
+    <div class="interaction-panel">
+      <span class="demo-label">Buttons & links</span>
+      <h3>A little direction.</h3>
+      <p>
+        Hover or use the keyboard to focus a link. The arrow responds without
+        moving the text or changing the layout.
+      </p>
+      <a class="btn btn-gel" href="start-event.html"
+        >Start your event <span aria-hidden="true">↗</span></a
+      >
+    </div>
+    <div class="interaction-panel">
+      <span class="demo-label">Cards & diamonds</span
+      ><a class="motion-card" data-card href="case-studies.html"
+        ><div data-card-media>
+          <img
+            src="assets/img/client-updates/6Y8A3288_2.jpg"
+            alt="A live stage with dramatic lighting"
+            loading="lazy"
+          />
+        </div>
+        <span class="cue">Recent shows</span>
+        <h3>Look a little closer.</h3>
+        <p>Explore the work <span aria-hidden="true">↗</span></p></a
+      >
+    </div>
+    <div class="interaction-panel">
+      <span class="demo-label">Form focus</span>
+      <h3>A clear place to start.</h3>
+      <p>
+        Focus moves the accent to the field you’re using. This is a local
+        example and does not submit anything.
+      </p>
+      <label class="field"
+        ><span>Event idea</span
+        ><input
+          type="text"
+          placeholder="What do you have in mind?"
+          autocomplete="off"
+      /></label>
+    </div>
+  </div>
+</section>
+<section class="section motion-demo" id="motion-demo">
+  <div class="wrap">
+    <div class="motion-demo-heading">
+      <div>
+        <div class="cue">02 / Arriving in view</div>
+        <h2>Make an entrance.</h2>
+      </div>
+      <button
+        class="btn btn-ghost"
+        type="button"
+        data-motion-replay
+        aria-controls="reveal-examples"
+      >
+        Replay entrance <span aria-hidden="true">↻</span>
+      </button>
+    </div>
+    <p class="motion-preference-note">
+      Reduced motion is enabled: the content stays still and fully visible.
+    </p>
+    <div class="motion-demo-grid" id="reveal-examples">
+      <article data-reveal data-reveal-step="0">
+        <span class="cue">01 / Think differently</span>
+        <h3>Experience.</h3>
+        <p>A short rise as the section enters view.</p>
+        <a href="experience-design.html">Explore Experience Design ↗</a>
+      </article>
+      <article data-reveal data-reveal-step="1" style="--gel: var(--magenta)">
+        <span class="cue">02 / Design boldly</span>
+        <h3>Creative.</h3>
+        <p>A small stagger gives related ideas their own moment.</p>
+        <a href="creative-content.html">Explore Creative &amp; Content ↗</a>
+      </article>
+      <article data-reveal data-reveal-step="2" style="--gel: var(--amber)">
+        <span class="cue">03 / Deliver flawlessly</span>
+        <h3>Production.</h3>
+        <p>
+          Content remains available when motion or JavaScript is switched off.
+        </p>
+        <a href="technical-production.html">Explore Technical Production ↗</a>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="section wrap component-index" id="component-index">
+  <div class="cue">03 / Building blocks</div>
+  <h2>One source for every section.</h2>
+  <p class="lead">
+    58 partials used across 26
+    site and review pages. This index is generated from the page configurations.
+  </p>
+  <details class="component-group">
+    <summary>Headers <span>9 partials</span></summary>
+    <div class="component-list">
+      <article>
+        <h3>
+          <a href="component--headers--caption.html" target="_blank" rel="noopener"
+            ><code>headers/caption</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--headers--caption.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/headers/caption.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="about.html">About ↗</a><a href="case-studies.html">Case studies ↗</a><a href="case-study-adobe.html">Adobe MAX London creativity conference ↗</a><a href="case-study-bbc.html">BBC Studio Showcase ↗</a><a href="case-study-mongodb.html">An immersive experience for MongoDB.local London ↗</a><a href="case-study-show-night.html">A night to remember ↗</a><a href="creative-content.html">Creative &amp; Content ↗</a><a href="event-types.html">Event types ↗</a><a href="experience-design.html">Experience Design ↗</a><a href="header-preview-editorial.html">Editorial header ↗</a><a href="header-preview-image.html">Image header ↗</a><a href="header-preview-parallax.html">Parallax header ↗</a><a href="header-preview-split-video.html">Glass video header ↗</a><a href="header-preview-split.html">Split header ↗</a><a href="header-preview-video.html">Video header ↗</a><a href="news-audience-experience.html">See the event through your audience’s eyes ↗</a><a href="news-creative-process.html">From a first idea to a shared experience ↗</a><a href="news-production-planning.html">The planning behind a seamless show ↗</a><a href="news.html">News &amp; insights ↗</a><a href="start-event.html">Start your event ↗</a><a href="technical-production.html">Technical Production ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--headers--copy.html" target="_blank" rel="noopener"
+            ><code>headers/copy</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--headers--copy.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/headers/copy.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="about.html">About ↗</a><a href="case-studies.html">Case studies ↗</a><a href="case-study-adobe.html">Adobe MAX London creativity conference ↗</a><a href="case-study-bbc.html">BBC Studio Showcase ↗</a><a href="case-study-mongodb.html">An immersive experience for MongoDB.local London ↗</a><a href="case-study-show-night.html">A night to remember ↗</a><a href="creative-content.html">Creative &amp; Content ↗</a><a href="event-types.html">Event types ↗</a><a href="experience-design.html">Experience Design ↗</a><a href="header-preview-editorial.html">Editorial header ↗</a><a href="header-preview-image.html">Image header ↗</a><a href="header-preview-parallax.html">Parallax header ↗</a><a href="header-preview-split-video.html">Glass video header ↗</a><a href="header-preview-split.html">Split header ↗</a><a href="header-preview-video.html">Video header ↗</a><a href="news-audience-experience.html">See the event through your audience’s eyes ↗</a><a href="news-creative-process.html">From a first idea to a shared experience ↗</a><a href="news-production-planning.html">The planning behind a seamless show ↗</a><a href="news.html">News &amp; insights ↗</a><a href="start-event.html">Start your event ↗</a><a href="technical-production.html">Technical Production ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--headers--editorial.html" target="_blank" rel="noopener"
+            ><code>headers/editorial</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--headers--editorial.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/headers/editorial.hbs</p>
+        <p class="component-fields">
+          Content fields: <code>accent</code> <code>backHref</code> <code>backLabel</code> <code>caption</code> <code>colour</code> <code>ctaHref</code> <code>ctaLabel</code> <code>description</code> <code>eyebrow</code> <code>focalPoint</code> <code>image</code> <code>imageAlt</code> <code>title</code> <code>video</code> 
+        </p>
+        <div class="component-usage">
+          <a href="header-preview-editorial.html">Editorial header ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--headers--homepage-vimeo.html" target="_blank" rel="noopener"
+            ><code>headers/homepage-vimeo</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--headers--homepage-vimeo.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/headers/homepage-vimeo.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="homepage-option-1-updated.html">Encore ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--headers--image.html" target="_blank" rel="noopener"
+            ><code>headers/image</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--headers--image.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/headers/image.hbs</p>
+        <p class="component-fields">
+          Content fields: <code>accent</code> <code>backHref</code> <code>backLabel</code> <code>caption</code> <code>colour</code> <code>ctaHref</code> <code>ctaLabel</code> <code>description</code> <code>eyebrow</code> <code>focalPoint</code> <code>image</code> <code>imageAlt</code> <code>title</code> <code>video</code> 
+        </p>
+        <div class="component-usage">
+          <a href="header-preview-image.html">Image header ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--headers--parallax.html" target="_blank" rel="noopener"
+            ><code>headers/parallax</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--headers--parallax.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/headers/parallax.hbs</p>
+        <p class="component-fields">
+          Content fields: <code>accent</code> <code>backHref</code> <code>backLabel</code> <code>breadcrumb</code> <code>caption</code> <code>colour</code> <code>ctaHref</code> <code>ctaLabel</code> <code>description</code> <code>eyebrow</code> <code>focalPoint</code> <code>image</code> <code>imageAlt</code> <code>title</code> <code>video</code> <code>word</code> 
+        </p>
+        <div class="component-usage">
+          <a href="about.html">About ↗</a><a href="case-studies.html">Case studies ↗</a><a href="creative-content.html">Creative &amp; Content ↗</a><a href="event-types.html">Event types ↗</a><a href="experience-design.html">Experience Design ↗</a><a href="header-preview-parallax.html">Parallax header ↗</a><a href="news.html">News &amp; insights ↗</a><a href="technical-production.html">Technical Production ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--headers--split-video.html" target="_blank" rel="noopener"
+            ><code>headers/split-video</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--headers--split-video.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/headers/split-video.hbs</p>
+        <p class="component-fields">
+          Content fields: <code>accent</code> <code>backHref</code> <code>backLabel</code> <code>breadcrumb</code> <code>caption</code> <code>colour</code> <code>ctaHref</code> <code>ctaLabel</code> <code>description</code> <code>eyebrow</code> <code>focalPoint</code> <code>image</code> <code>imageAlt</code> <code>title</code> <code>video</code> 
+        </p>
+        <div class="component-usage">
+          <a href="header-preview-split-video.html">Glass video header ↗</a><a href="start-event.html">Start your event ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--headers--split.html" target="_blank" rel="noopener"
+            ><code>headers/split</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--headers--split.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/headers/split.hbs</p>
+        <p class="component-fields">
+          Content fields: <code>accent</code> <code>backHref</code> <code>backLabel</code> <code>breadcrumb</code> <code>caption</code> <code>colour</code> <code>ctaHref</code> <code>ctaLabel</code> <code>description</code> <code>eyebrow</code> <code>focalPoint</code> <code>image</code> <code>imageAlt</code> <code>title</code> <code>video</code> 
+        </p>
+        <div class="component-usage">
+          <a href="case-study-adobe.html">Adobe MAX London creativity conference ↗</a><a href="case-study-bbc.html">BBC Studio Showcase ↗</a><a href="case-study-mongodb.html">An immersive experience for MongoDB.local London ↗</a><a href="case-study-show-night.html">A night to remember ↗</a><a href="header-preview-split.html">Split header ↗</a><a href="news-audience-experience.html">See the event through your audience’s eyes ↗</a><a href="news-creative-process.html">From a first idea to a shared experience ↗</a><a href="news-production-planning.html">The planning behind a seamless show ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--headers--video.html" target="_blank" rel="noopener"
+            ><code>headers/video</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--headers--video.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/headers/video.hbs</p>
+        <p class="component-fields">
+          Content fields: <code>accent</code> <code>backHref</code> <code>backLabel</code> <code>caption</code> <code>colour</code> <code>ctaHref</code> <code>ctaLabel</code> <code>description</code> <code>eyebrow</code> <code>focalPoint</code> <code>image</code> <code>imageAlt</code> <code>title</code> <code>video</code> 
+        </p>
+        <div class="component-usage">
+          <a href="header-preview-video.html">Video header ↗</a>
+        </div>
+      </article>
+    </div>
+  </details>
+  <details class="component-group">
+    <summary>Reusable sections <span>17 partials</span></summary>
+    <div class="component-list">
+      <article>
+        <h3>
+          <a href="component--sections--case-chapter-heading.html" target="_blank" rel="noopener"
+            ><code>sections/case-chapter-heading</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--sections--case-chapter-heading.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/sections/case-chapter-heading.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="case-study-loreal.html">L’Oréal Colour Trophy 2026 | Platinum anniversary ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--sections--case-video.html" target="_blank" rel="noopener"
+            ><code>sections/case-video</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--sections--case-video.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/sections/case-video.hbs</p>
+        <p class="component-fields">
+          Content fields: <code>description</code> <code>embedUrl</code> <code>eyebrow</code> <code>height</code> <code>poster</code> <code>posterAlt</code> <code>title</code> <code>videoUrl</code> <code>width</code> 
+        </p>
+        <div class="component-usage">
+          <a href="case-study-loreal.html">L’Oréal Colour Trophy 2026 | Platinum anniversary ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--sections--component-library.html" target="_blank" rel="noopener"
+            ><code>sections/component-library</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--sections--component-library.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/sections/component-library.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="component-library.html">Component library ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--sections--editorial-cta.html" target="_blank" rel="noopener"
+            ><code>sections/editorial-cta</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--sections--editorial-cta.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/sections/editorial-cta.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="about.html">About ↗</a><a href="news-audience-experience.html">See the event through your audience’s eyes ↗</a><a href="news-creative-process.html">From a first idea to a shared experience ↗</a><a href="news-production-planning.html">The planning behind a seamless show ↗</a><a href="news.html">News &amp; insights ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--sections--event-enquiry.html" target="_blank" rel="noopener"
+            ><code>sections/event-enquiry</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--sections--event-enquiry.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/sections/event-enquiry.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="start-event.html">Start your event ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--sections--header-library.html" target="_blank" rel="noopener"
+            ><code>sections/header-library</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--sections--header-library.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/sections/header-library.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="header-library.html">Header library ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--sections--next-project.html" target="_blank" rel="noopener"
+            ><code>sections/next-project</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--sections--next-project.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/sections/next-project.hbs</p>
+        <p class="component-fields">
+          Content fields: <code>caption</code> <code>href</code> <code>image</code> <code>imageAlt</code> <code>title</code> 
+        </p>
+        <div class="component-usage">
+          <a href="case-study-adobe.html">Adobe MAX London creativity conference ↗</a><a href="case-study-bbc.html">BBC Studio Showcase ↗</a><a href="case-study-mongodb.html">An immersive experience for MongoDB.local London ↗</a><a href="case-study-show-night.html">A night to remember ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--sections--project-gallery.html" target="_blank" rel="noopener"
+            ><code>sections/project-gallery</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--sections--project-gallery.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/sections/project-gallery.hbs</p>
+        <p class="component-fields">
+          Content fields: <code>caption</code> <code>image</code> <code>imageAlt</code> 
+        </p>
+        <div class="component-usage">
+          <a href="case-study-adobe.html">Adobe MAX London creativity conference ↗</a><a href="case-study-bbc.html">BBC Studio Showcase ↗</a><a href="case-study-mongodb.html">An immersive experience for MongoDB.local London ↗</a><a href="case-study-show-night.html">A night to remember ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--sections--project-story.html" target="_blank" rel="noopener"
+            ><code>sections/project-story</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--sections--project-story.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/sections/project-story.hbs</p>
+        <p class="component-fields">
+          Content fields: <code>description</code> <code>facts</code> <code>items</code> <code>status</code> <code>title</code> 
+        </p>
+        <div class="component-usage">
+          <a href="case-study-adobe.html">Adobe MAX London creativity conference ↗</a><a href="case-study-bbc.html">BBC Studio Showcase ↗</a><a href="case-study-mongodb.html">An immersive experience for MongoDB.local London ↗</a><a href="case-study-show-night.html">A night to remember ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--sections--related-work.html" target="_blank" rel="noopener"
+            ><code>sections/related-work</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--sections--related-work.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/sections/related-work.hbs</p>
+        <p class="component-fields">
+          Content fields: <code>ctaHref</code> <code>ctaLabel</code> <code>description</code> <code>eyebrow</code> <code>image</code> <code>imageAlt</code> <code>title</code> 
+        </p>
+        <div class="component-usage">
+          <a href="creative-content.html">Creative &amp; Content ↗</a><a href="experience-design.html">Experience Design ↗</a><a href="technical-production.html">Technical Production ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--sections--service-cta.html" target="_blank" rel="noopener"
+            ><code>sections/service-cta</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--sections--service-cta.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/sections/service-cta.hbs</p>
+        <p class="component-fields">
+          Content fields: <code>accent</code> <code>ctaHref</code> <code>ctaLabel</code> <code>eyebrow</code> <code>note</code> <code>title</code> 
+        </p>
+        <div class="component-usage">
+          <a href="creative-content.html">Creative &amp; Content ↗</a><a href="experience-design.html">Experience Design ↗</a><a href="technical-production.html">Technical Production ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--sections--service-journey.html" target="_blank" rel="noopener"
+            ><code>sections/service-journey</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--sections--service-journey.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/sections/service-journey.hbs</p>
+        <p class="component-fields">
+          Content fields: <code>description</code> <code>eyebrow</code> <code>title</code> 
+        </p>
+        <div class="component-usage">
+          <a href="creative-content.html">Creative &amp; Content ↗</a><a href="experience-design.html">Experience Design ↗</a><a href="technical-production.html">Technical Production ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--sections--service-offerings.html" target="_blank" rel="noopener"
+            ><code>sections/service-offerings</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--sections--service-offerings.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/sections/service-offerings.hbs</p>
+        <p class="component-fields">
+          Content fields: <code>eyebrow</code> <code>items</code> <code>title</code> 
+        </p>
+        <div class="component-usage">
+          <a href="creative-content.html">Creative &amp; Content ↗</a><a href="experience-design.html">Experience Design ↗</a><a href="technical-production.html">Technical Production ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--sections--service-process.html" target="_blank" rel="noopener"
+            ><code>sections/service-process</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--sections--service-process.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/sections/service-process.hbs</p>
+        <p class="component-fields">
+          Content fields: <code>ctaHref</code> <code>ctaLabel</code> <code>eyebrow</code> <code>items</code> <code>title</code> 
+        </p>
+        <div class="component-usage">
+          <a href="creative-content.html">Creative &amp; Content ↗</a><a href="experience-design.html">Experience Design ↗</a><a href="technical-production.html">Technical Production ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--sections--service-story.html" target="_blank" rel="noopener"
+            ><code>sections/service-story</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--sections--service-story.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/sections/service-story.hbs</p>
+        <p class="component-fields">
+          Content fields: <code>blocks</code> <code>eyebrow</code> 
+        </p>
+        <div class="component-usage">
+          <a href="creative-content.html">Creative &amp; Content ↗</a><a href="experience-design.html">Experience Design ↗</a><a href="technical-production.html">Technical Production ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--sections--testimonials.html" target="_blank" rel="noopener"
+            ><code>sections/testimonials</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--sections--testimonials.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/sections/testimonials.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="homepage-option-1-updated.html">Encore ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--sections--work-cta.html" target="_blank" rel="noopener"
+            ><code>sections/work-cta</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--sections--work-cta.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/sections/work-cta.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="case-study-adobe.html">Adobe MAX London creativity conference ↗</a><a href="case-study-bbc.html">BBC Studio Showcase ↗</a><a href="case-study-loreal.html">L’Oréal Colour Trophy 2026 | Platinum anniversary ↗</a><a href="case-study-mongodb.html">An immersive experience for MongoDB.local London ↗</a><a href="case-study-show-night.html">A night to remember ↗</a>
+        </div>
+      </article>
+    </div>
+  </details>
+  <details class="component-group">
+    <summary>Page-specific sections <span>25 partials</span></summary>
+    <div class="component-list">
+      <article>
+        <h3>
+          <a href="component--pages--about--from-possibility-to-performance.html" target="_blank" rel="noopener"
+            ><code>pages/about/from-possibility-to-performance</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--pages--about--from-possibility-to-performance.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/pages/about/from-possibility-to-performance.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="about.html">About ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--pages--about--see-the-thinking-come-to-life.html" target="_blank" rel="noopener"
+            ><code>pages/about/see-the-thinking-come-to-life</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--pages--about--see-the-thinking-come-to-life.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/pages/about/see-the-thinking-come-to-life.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="about.html">About ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--pages--about--think-design-deliver.html" target="_blank" rel="noopener"
+            ><code>pages/about/think-design-deliver</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--pages--about--think-design-deliver.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/pages/about/think-design-deliver.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="about.html">About ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--pages--case-studies--enquiry-cta.html" target="_blank" rel="noopener"
+            ><code>pages/case-studies/enquiry-cta</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--pages--case-studies--enquiry-cta.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/pages/case-studies/enquiry-cta.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="case-studies.html">Case studies ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--pages--case-studies--project-grid.html" target="_blank" rel="noopener"
+            ><code>pages/case-studies/project-grid</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--pages--case-studies--project-grid.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/pages/case-studies/project-grid.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="case-studies.html">Case studies ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--pages--case-study-loreal--chapter-bar.html" target="_blank" rel="noopener"
+            ><code>pages/case-study-loreal/chapter-bar</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--pages--case-study-loreal--chapter-bar.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/pages/case-study-loreal/chapter-bar.hbs</p>
+        <p class="component-fields">
+          Content fields: <code>chapters</code> 
+        </p>
+        <div class="component-usage">
+          <a href="case-study-loreal.html">L’Oréal Colour Trophy 2026 | Platinum anniversary ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--pages--case-study-loreal--closing.html" target="_blank" rel="noopener"
+            ><code>pages/case-study-loreal/closing</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--pages--case-study-loreal--closing.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/pages/case-study-loreal/closing.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="case-study-loreal.html">L’Oréal Colour Trophy 2026 | Platinum anniversary ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--pages--case-study-loreal--create.html" target="_blank" rel="noopener"
+            ><code>pages/case-study-loreal/create</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--pages--case-study-loreal--create.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/pages/case-study-loreal/create.hbs</p>
+        <p class="component-fields">
+          Content fields: <code>chapter</code> <code>createImages</code> <code>createServices</code> 
+        </p>
+        <div class="component-usage">
+          <a href="case-study-loreal.html">L’Oréal Colour Trophy 2026 | Platinum anniversary ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--pages--case-study-loreal--deliver.html" target="_blank" rel="noopener"
+            ><code>pages/case-study-loreal/deliver</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--pages--case-study-loreal--deliver.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/pages/case-study-loreal/deliver.hbs</p>
+        <p class="component-fields">
+          Content fields: <code>chapter</code> <code>deliver</code> <code>deliverServices</code> 
+        </p>
+        <div class="component-usage">
+          <a href="case-study-loreal.html">L’Oréal Colour Trophy 2026 | Platinum anniversary ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--pages--case-study-loreal--gallery.html" target="_blank" rel="noopener"
+            ><code>pages/case-study-loreal/gallery</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--pages--case-study-loreal--gallery.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/pages/case-study-loreal/gallery.hbs</p>
+        <p class="component-fields">
+          Content fields: <code>gallery</code> 
+        </p>
+        <div class="component-usage">
+          <a href="case-study-loreal.html">L’Oréal Colour Trophy 2026 | Platinum anniversary ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--pages--case-study-loreal--image.html" target="_blank" rel="noopener"
+            ><code>pages/case-study-loreal/image</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--pages--case-study-loreal--image.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/pages/case-study-loreal/image.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="case-study-loreal.html">L’Oréal Colour Trophy 2026 | Platinum anniversary ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--pages--case-study-loreal--next-project.html" target="_blank" rel="noopener"
+            ><code>pages/case-study-loreal/next-project</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--pages--case-study-loreal--next-project.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/pages/case-study-loreal/next-project.hbs</p>
+        <p class="component-fields">
+          Content fields: <code>more</code> <code>next</code> 
+        </p>
+        <div class="component-usage">
+          <a href="case-study-loreal.html">L’Oréal Colour Trophy 2026 | Platinum anniversary ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--pages--case-study-loreal--opening.html" target="_blank" rel="noopener"
+            ><code>pages/case-study-loreal/opening</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--pages--case-study-loreal--opening.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/pages/case-study-loreal/opening.hbs</p>
+        <p class="component-fields">
+          Content fields: <code>breadcrumb</code> <code>hero</code> 
+        </p>
+        <div class="component-usage">
+          <a href="case-study-loreal.html">L’Oréal Colour Trophy 2026 | Platinum anniversary ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--pages--case-study-loreal--think.html" target="_blank" rel="noopener"
+            ><code>pages/case-study-loreal/think</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--pages--case-study-loreal--think.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/pages/case-study-loreal/think.hbs</p>
+        <p class="component-fields">
+          Content fields: <code>chapter</code> <code>think</code> <code>thinkServices</code> 
+        </p>
+        <div class="component-usage">
+          <a href="case-study-loreal.html">L’Oréal Colour Trophy 2026 | Platinum anniversary ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--pages--event-types--pending-content.html" target="_blank" rel="noopener"
+            ><code>pages/event-types/pending-content</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--pages--event-types--pending-content.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/pages/event-types/pending-content.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="event-types.html">Event types ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--pages--homepage-option-1-updated--credibility.html" target="_blank" rel="noopener"
+            ><code>pages/homepage-option-1-updated/credibility</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--pages--homepage-option-1-updated--credibility.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/pages/homepage-option-1-updated/credibility.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="homepage-option-1-updated.html">Encore ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--pages--homepage-option-1-updated--event-finale.html" target="_blank" rel="noopener"
+            ><code>pages/homepage-option-1-updated/event-finale</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--pages--homepage-option-1-updated--event-finale.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/pages/homepage-option-1-updated/event-finale.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="homepage-option-1-updated.html">Encore ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--pages--homepage-option-1-updated--recent-shows.html" target="_blank" rel="noopener"
+            ><code>pages/homepage-option-1-updated/recent-shows</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--pages--homepage-option-1-updated--recent-shows.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/pages/homepage-option-1-updated/recent-shows.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="homepage-option-1-updated.html">Encore ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--pages--homepage-option-1-updated--services.html" target="_blank" rel="noopener"
+            ><code>pages/homepage-option-1-updated/services</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--pages--homepage-option-1-updated--services.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/pages/homepage-option-1-updated/services.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="homepage-option-1-updated.html">Encore ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--pages--news-audience-experience--walk-through-the-whole-journey.html" target="_blank" rel="noopener"
+            ><code>pages/news-audience-experience/walk-through-the-whole-journey</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--pages--news-audience-experience--walk-through-the-whole-journey.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/pages/news-audience-experience/walk-through-the-whole-journey.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="news-audience-experience.html">See the event through your audience’s eyes ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--pages--news-creative-process--start-with-the-audience.html" target="_blank" rel="noopener"
+            ><code>pages/news-creative-process/start-with-the-audience</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--pages--news-creative-process--start-with-the-audience.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/pages/news-creative-process/start-with-the-audience.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="news-creative-process.html">From a first idea to a shared experience ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--pages--news-production-planning--bring-the-teams-together-early.html" target="_blank" rel="noopener"
+            ><code>pages/news-production-planning/bring-the-teams-together-early</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--pages--news-production-planning--bring-the-teams-together-early.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/pages/news-production-planning/bring-the-teams-together-early.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="news-production-planning.html">The planning behind a seamless show ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--pages--news--story-grid.html" target="_blank" rel="noopener"
+            ><code>pages/news/story-grid</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--pages--news--story-grid.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/pages/news/story-grid.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="news.html">News &amp; insights ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--pages--sitemap--hierarchy.html" target="_blank" rel="noopener"
+            ><code>pages/sitemap/hierarchy</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--pages--sitemap--hierarchy.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/pages/sitemap/hierarchy.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="sitemap.html">Site map ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--pages--sitemap--introduction.html" target="_blank" rel="noopener"
+            ><code>pages/sitemap/introduction</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--pages--sitemap--introduction.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/pages/sitemap/introduction.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="sitemap.html">Site map ↗</a>
+        </div>
+      </article>
+    </div>
+  </details>
+  <details class="component-group">
+    <summary>Global elements <span>7 partials</span></summary>
+    <div class="component-list">
+      <article>
+        <h3>
+          <a href="component--shared--breadcrumb.html" target="_blank" rel="noopener"
+            ><code>shared/breadcrumb</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--shared--breadcrumb.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/shared/breadcrumb.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="about.html">About ↗</a><a href="case-studies.html">Case studies ↗</a><a href="case-study-adobe.html">Adobe MAX London creativity conference ↗</a><a href="case-study-bbc.html">BBC Studio Showcase ↗</a><a href="case-study-loreal.html">L’Oréal Colour Trophy 2026 | Platinum anniversary ↗</a><a href="case-study-mongodb.html">An immersive experience for MongoDB.local London ↗</a><a href="case-study-show-night.html">A night to remember ↗</a><a href="creative-content.html">Creative &amp; Content ↗</a><a href="event-types.html">Event types ↗</a><a href="experience-design.html">Experience Design ↗</a><a href="header-preview-editorial.html">Editorial header ↗</a><a href="header-preview-image.html">Image header ↗</a><a href="header-preview-parallax.html">Parallax header ↗</a><a href="header-preview-split-video.html">Glass video header ↗</a><a href="header-preview-split.html">Split header ↗</a><a href="header-preview-video.html">Video header ↗</a><a href="news-audience-experience.html">See the event through your audience’s eyes ↗</a><a href="news-creative-process.html">From a first idea to a shared experience ↗</a><a href="news-production-planning.html">The planning behind a seamless show ↗</a><a href="news.html">News &amp; insights ↗</a><a href="start-event.html">Start your event ↗</a><a href="technical-production.html">Technical Production ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--shared--head.html" target="_blank" rel="noopener"
+            ><code>shared/head</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--shared--head.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/shared/head.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="about.html">About ↗</a><a href="case-studies.html">Case studies ↗</a><a href="case-study-adobe.html">Adobe MAX London creativity conference ↗</a><a href="case-study-bbc.html">BBC Studio Showcase ↗</a><a href="case-study-loreal.html">L’Oréal Colour Trophy 2026 | Platinum anniversary ↗</a><a href="case-study-mongodb.html">An immersive experience for MongoDB.local London ↗</a><a href="case-study-show-night.html">A night to remember ↗</a><a href="component-library.html">Component library ↗</a><a href="creative-content.html">Creative &amp; Content ↗</a><a href="event-types.html">Event types ↗</a><a href="experience-design.html">Experience Design ↗</a><a href="header-library.html">Header library ↗</a><a href="header-preview-editorial.html">Editorial header ↗</a><a href="header-preview-image.html">Image header ↗</a><a href="header-preview-parallax.html">Parallax header ↗</a><a href="header-preview-split-video.html">Glass video header ↗</a><a href="header-preview-split.html">Split header ↗</a><a href="header-preview-video.html">Video header ↗</a><a href="homepage-option-1-updated.html">Encore ↗</a><a href="news-audience-experience.html">See the event through your audience’s eyes ↗</a><a href="news-creative-process.html">From a first idea to a shared experience ↗</a><a href="news-production-planning.html">The planning behind a seamless show ↗</a><a href="news.html">News &amp; insights ↗</a><a href="sitemap.html">Site map ↗</a><a href="start-event.html">Start your event ↗</a><a href="technical-production.html">Technical Production ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--shared--homepage-footer.html" target="_blank" rel="noopener"
+            ><code>shared/homepage-footer</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--shared--homepage-footer.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/shared/homepage-footer.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="homepage-option-1-updated.html">Encore ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--shared--homepage-header.html" target="_blank" rel="noopener"
+            ><code>shared/homepage-header</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--shared--homepage-header.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/shared/homepage-header.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="homepage-option-1-updated.html">Encore ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--shared--keyline.html" target="_blank" rel="noopener"
+            ><code>shared/keyline</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--shared--keyline.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/shared/keyline.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="homepage-option-1-updated.html">Encore ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--shared--site-footer.html" target="_blank" rel="noopener"
+            ><code>shared/site-footer</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--shared--site-footer.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/shared/site-footer.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="about.html">About ↗</a><a href="case-studies.html">Case studies ↗</a><a href="case-study-adobe.html">Adobe MAX London creativity conference ↗</a><a href="case-study-bbc.html">BBC Studio Showcase ↗</a><a href="case-study-loreal.html">L’Oréal Colour Trophy 2026 | Platinum anniversary ↗</a><a href="case-study-mongodb.html">An immersive experience for MongoDB.local London ↗</a><a href="case-study-show-night.html">A night to remember ↗</a><a href="component-library.html">Component library ↗</a><a href="creative-content.html">Creative &amp; Content ↗</a><a href="event-types.html">Event types ↗</a><a href="experience-design.html">Experience Design ↗</a><a href="header-library.html">Header library ↗</a><a href="news-audience-experience.html">See the event through your audience’s eyes ↗</a><a href="news-creative-process.html">From a first idea to a shared experience ↗</a><a href="news-production-planning.html">The planning behind a seamless show ↗</a><a href="news.html">News &amp; insights ↗</a><a href="sitemap.html">Site map ↗</a><a href="start-event.html">Start your event ↗</a><a href="technical-production.html">Technical Production ↗</a>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a href="component--shared--site-header.html" target="_blank" rel="noopener"
+            ><code>shared/site-header</code></a
+          >
+        </h3>
+        <a
+          class="component-open"
+          href="component--shared--site-header.html"
+          target="_blank"
+          rel="noopener"
+          >Open component ↗</a
+        >
+        <p class="component-path">site/partials/shared/site-header.hbs</p>
+        <p class="component-fields">
+          Content lives in the template or comes from its parent section.
+        </p>
+        <div class="component-usage">
+          <a href="about.html">About ↗</a><a href="case-studies.html">Case studies ↗</a><a href="case-study-adobe.html">Adobe MAX London creativity conference ↗</a><a href="case-study-bbc.html">BBC Studio Showcase ↗</a><a href="case-study-loreal.html">L’Oréal Colour Trophy 2026 | Platinum anniversary ↗</a><a href="case-study-mongodb.html">An immersive experience for MongoDB.local London ↗</a><a href="case-study-show-night.html">A night to remember ↗</a><a href="component-library.html">Component library ↗</a><a href="creative-content.html">Creative &amp; Content ↗</a><a href="event-types.html">Event types ↗</a><a href="experience-design.html">Experience Design ↗</a><a href="header-library.html">Header library ↗</a><a href="header-preview-editorial.html">Editorial header ↗</a><a href="header-preview-image.html">Image header ↗</a><a href="header-preview-parallax.html">Parallax header ↗</a><a href="header-preview-split-video.html">Glass video header ↗</a><a href="header-preview-split.html">Split header ↗</a><a href="header-preview-video.html">Video header ↗</a><a href="news-audience-experience.html">See the event through your audience’s eyes ↗</a><a href="news-creative-process.html">From a first idea to a shared experience ↗</a><a href="news-production-planning.html">The planning behind a seamless show ↗</a><a href="news.html">News &amp; insights ↗</a><a href="sitemap.html">Site map ↗</a><a href="start-event.html">Start your event ↗</a><a href="technical-production.html">Technical Production ↗</a>
+        </div>
+      </article>
+    </div>
+  </details>
+</section>
+ 
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="site-footer-grid">
+          <div>
+            <a class="site-brand" href="homepage-option-1-updated.html"
+              ><img src="assets/encore-logo-white.png" alt="Encore" width="128"
+            /></a>
+            <p>One partner.<br />The full experience.</p>
+          </div>
+          <div>
+            <h2>What we do</h2>
+            <a href="experience-design.html">Experience Design</a
+            ><a href="creative-content.html">Creative &amp; Content</a
+            ><a href="technical-production.html">Technical Production</a>
+          </div>
+          <div>
+            <h2>Explore</h2>
+            <a href="case-studies.html">Recent Show</a
+            ><a href="event-types.html">Event Type</a
+            ><a href="news.html">News &amp; insights</a>
+          </div>
+          <div>
+            <h2>Encore</h2>
+            <a href="about.html">About</a><a href="start-event.html">Start Event</a
+            ><a href="sitemap.html">Site map</a
+            ><a href="component-library.html">Component library</a
+            ><a href="header-library.html">Header library</a
+            ><a href="index.html">Design concepts</a>
+          </div>
+        </div>
+        <div class="site-footer-bottom">
+          <span>Encore · Website design prototype</span
+          ><span>Draft copy and imagery · for design review</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,103 @@
+{
+  "$schema": "../page.schema.json",
+  "layout": "default",
+  "title": "BBC Studio Showcase — Encore",
+  "description": "Encore event production case study design prototype.",
+  "bodyClass": "case-page",
+  "bodyStyle": "--gel:#9276ff",
+  "mainId": "main",
+  "stylesheets": [
+    "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap",
+    "assets/css/site-pages.css",
+    "assets/css/pages/case-studies.css"
+  ],
+  "scripts": [
+    "assets/js/partials/site-pages.js"
+  ],
+  "sections": [
+    {
+      "component": "headers/split",
+      "data": {
+        "eyebrow": "Stories take the stage",
+        "title": "BBC Studio Showcase",
+        "accent": "",
+        "description": "Bringing the story into the room.",
+        "ctaLabel": "Explore the story",
+        "ctaHref": "#project-story",
+        "image": "assets/video/cvent-connect-poster.jpg",
+        "imageAlt": "Reference image of a conference stage",
+        "focalPoint": "center center",
+        "colour": "#90c74f",
+        "caption": "Temporary reference: Cvent Connect. BBC Studio Showcase photography pending.",
+        "backHref": "case-studies.html",
+        "backLabel": "All case studies",
+        "video": "",
+        "breadcrumb": {
+          "parents": [
+            {
+              "href": "case-studies.html",
+              "label": "Case studies"
+            }
+          ],
+          "current": "BBC Studio Showcase"
+        }
+      }
+    },
+    {
+      "component": "sections/project-story",
+      "data": {
+        "facts": [
+          {
+            "label": "Project",
+            "value": "BBC Studio Showcase"
+          },
+          {
+            "label": "Location / date",
+            "value": "To be confirmed"
+          },
+          {
+            "label": "Encore’s role",
+            "value": "Scope of services pending"
+          }
+        ],
+        "status": "Overview · Content pending",
+        "title": "Bringing the story into the room.",
+        "description": "The showcase purpose, its audience and the experience Encore was asked to help create. This space will introduce the approved project story and set the context for the work below.",
+        "items": [
+          {
+            "eyebrow": "01 / The challenge",
+            "title": "The ambition.",
+            "description": "Content pending: the client’s brief, audience needs and the production challenges that shaped the response."
+          },
+          {
+            "eyebrow": "02 / The approach",
+            "title": "Bringing it to life.",
+            "description": "Content pending: the creative idea, technical decisions and collaboration that brought the experience together."
+          }
+        ]
+      }
+    },
+    {
+      "component": "sections/project-gallery",
+      "data": {
+        "image": "assets/video/cvent-connect-poster.jpg",
+        "imageAlt": "Reference image of a conference stage",
+        "caption": "Temporary reference: Cvent Connect. BBC Studio Showcase photography pending."
+      }
+    },
+    {
+      "component": "sections/next-project",
+      "data": {
+        "href": "case-study-loreal.html",
+        "title": "Celebrating 70 years of L’Oréal Colour Trophy",
+        "caption": "Still from the supplied L’Oréal Colour Trophy highlights film.",
+        "image": "https://i.vimeocdn.com/video/2182731266-7e80ac7324b1f19f13bb13b6790561fc9a73d9ab08003f8ba73489fb521b785b-d_1280?region=us",
+        "imageAlt": "L’Oréal Colour Trophy highlights film still"
+      }
+    },
+    {
+      "component": "sections/work-cta",
+      "data": {}
+    }
+  ]
+}

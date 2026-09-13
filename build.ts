@@ -1,8 +1,8 @@
+import { renderSite } from "./scripts/render-site";
 import { cpSync, rmSync, existsSync } from "node:fs";
 
 // Build a self-contained static bundle in dist/ that can be uploaded anywhere
-// (Netlify, S3, any static host). The site has no build step: dist is just a
-// clean copy of mockups/ minus the dev-only server.
+// Current page designs are rendered from site/; earlier concepts stay standalone.
 
 const src = "mockups";
 const out = "dist";
@@ -20,4 +20,8 @@ cpSync(src, out, {
   },
 });
 
-console.log(`Built ${out}/ from ${src}/ - upload the dist/ folder to any static host.`);
+renderSite(out);
+
+console.log(
+  `Built ${out}/ from ${src}/ - upload the dist/ folder to any static host.`,
+);

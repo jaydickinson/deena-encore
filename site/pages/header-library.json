@@ -1,0 +1,24 @@
+{
+  "$schema": "../page.schema.json",
+  "layout": "default",
+  "title": "Header library · Encore",
+  "description": "Compare reusable image, split, video and editorial page headers.",
+  "bodyClass": "",
+  "bodyStyle": "",
+  "mainId": "main-content",
+  "stylesheets": [
+    "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap",
+    "assets/css/site-pages.css",
+    "assets/css/pages/header-library.css"
+  ],
+  "scripts": [
+    "assets/js/partials/site-pages.js",
+    "assets/js/partials/header-library.js"
+  ],
+  "sections": [
+    {
+      "component": "sections/header-library",
+      "data": {}
+    }
+  ]
+}

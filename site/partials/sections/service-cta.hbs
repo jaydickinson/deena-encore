@@ -1,0 +1,15 @@
+<section class="service-cta">
+  <div class="wrap" data-reveal>
+    <div>
+      <div class="cue">{{eyebrow}}</div>
+      <h2>
+        {{title}}{{#if accent}}<span class="cta-accent">{{accent}}</span>{{/if}}
+      </h2>
+      {{#if note}}
+        <p class="draft-note">{{note}}</p>
+      {{/if}}
+    </div>
+    <a class="btn btn-gel" href="{{ctaHref}}">{{ctaLabel}}
+      <span aria-hidden="true">↗</span></a>
+  </div>
+</section>

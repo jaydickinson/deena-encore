@@ -1,0 +1,14 @@
+<div class="header-copy" data-reveal>
+  {{#if breadcrumb}}{{> shared/breadcrumb breadcrumb}}{{/if}}
+  {{#if eyebrow}}
+  <div class="cue">{{eyebrow}}</div>
+  {{/if}}
+  <h1 class="header-title">
+    {{title}} {{#if accent}}<span>{{accent}}</span>{{/if}}
+  </h1>
+  {{#if description}}
+  <p class="header-description">{{description}}</p>
+  {{/if}} {{#if ctaLabel}}<a class="btn btn-gel" href="{{ctaHref}}"
+    >{{ctaLabel}} <span aria-hidden="true">↗</span></a
+  >{{/if}}
+</div>

@@ -1,0 +1,35 @@
+{
+  "$schema": "../page.schema.json",
+  "layout": "preview",
+  "title": "Glass video header · Encore",
+  "description": "Explore Encore Experience Design: Audience insight, creative thinking and event design. Connected from the first idea to the last impression.",
+  "bodyClass": "",
+  "bodyStyle": "",
+  "mainId": "main",
+  "stylesheets": [
+    "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap",
+    "assets/css/site-pages.css"
+  ],
+  "scripts": ["assets/js/partials/site-pages.js"],
+  "sections": [
+    {
+      "component": "headers/split-video",
+      "data": {
+        "eyebrow": "Experience Design",
+        "title": "Every experience starts with",
+        "accent": "people.",
+        "description": "Audience insight, creative thinking and event design. Connected from the first idea to the last impression.",
+        "ctaLabel": "Start your event",
+        "ctaHref": "start-event.html",
+        "image": "assets/video/encore-home-reel-poster.jpg",
+        "imageAlt": "Guests enjoying a live event",
+        "focalPoint": "center center",
+        "colour": "#11bfdd",
+        "caption": "Think differently. Design the journey, from the first impression to the last.",
+        "backHref": "",
+        "backLabel": "",
+        "video": "assets/video/encore-home-reel.mp4"
+      }
+    }
+  ]
+}

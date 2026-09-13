@@ -1,0 +1,29 @@
+.pending {
+  max-width: 850px;
+}
+.pending h1 {
+  margin: 28px 0 32px;
+}
+.pending p {
+  max-width: 55ch;
+}
+.pending-image {
+  margin-top: 55px;
+  width: 100%;
+  height: clamp(250px, 40vw, 530px);
+  object-fit: cover;
+}
+.pending-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 35px;
+}
+.pending-band {
+  border-top: 1px solid var(--line);
+  padding: 45px 0;
+}
+.pending-band p {
+  color: var(--dim);
+  max-width: 70ch;
+}

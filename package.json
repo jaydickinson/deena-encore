@@ -1,14 +1,23 @@
 {
   "name": "encore-homepage-redesign",
   "private": true,
-  "description": "Homepage redesign concepts for Encore EMEA (standalone HTML mockups)",
+  "description": "Encore website design prototype \u2014 static pages assembled from CMS-ready section partials",
   "scripts": {
     "dev": "bun mockups/serve.ts mockups",
     "build": "bun build.ts",
     "preview": "bun mockups/serve.ts dist",
-    "deploy": "bun build.ts && rsync -az --delete dist/ root@hetzner.jakedickinson.co.uk:/var/www/decks/encore-emea/"
+    "deploy": "bun build.ts && rsync -az --delete dist/ root@hetzner.jakedickinson.co.uk:/var/www/decks/encore-emea/",
+    "render": "bun scripts/render-site.ts",
+    "test": "bun run build && node tests/site-smoke.cjs",
+    "format": "prettier --write \"site/**/*.hbs\" --parser html && prettier --write \"site/**/*.json\" \"scripts/*.ts\" \"tests/*.cjs\" \"mockups/assets/css/**/*.css\" \"mockups/assets/js/partials/*.js\"",
+    "inventory": "bun scripts/component-inventory.ts",
+    "handover": "bun run inventory && bun run render && bun run test && bun run test:a11y",
+    "test:a11y": "bun run build && node tests/accessibility.cjs"
   },
   "devDependencies": {
-    "playwright": "^1.61.1"
+    "@axe-core/playwright": "^4.13.0",
+    "handlebars": "^4.7.9",
+    "playwright": "^1.61.1",
+    "prettier": "^3.9.6"
   }
 }

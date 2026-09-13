@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en-GB">
+  {{> shared/head}}
+  <body data-microinteractions>
+    <a class="skip-link" href="#{{mainId}}">Skip to content</a>
+    {{> shared/site-header preview=true}}
+    <main id="{{mainId}}" tabindex="-1" aria-label="Header preview content">
+      {{#each sections}}{{> (lookup this "component") data}}{{/each}}
+    </main>
+  </body>
+</html>

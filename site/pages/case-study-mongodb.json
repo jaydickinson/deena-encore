@@ -1,0 +1,103 @@
+{
+  "$schema": "../page.schema.json",
+  "layout": "default",
+  "title": "An immersive experience for MongoDB.local London — Encore",
+  "description": "Encore event production case study design prototype.",
+  "bodyClass": "case-page",
+  "bodyStyle": "--gel:#90c74f",
+  "mainId": "main",
+  "stylesheets": [
+    "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap",
+    "assets/css/site-pages.css",
+    "assets/css/pages/case-studies.css"
+  ],
+  "scripts": [
+    "assets/js/partials/site-pages.js"
+  ],
+  "sections": [
+    {
+      "component": "headers/split",
+      "data": {
+        "eyebrow": "Ideas brought together",
+        "title": "An immersive experience for MongoDB.local London",
+        "accent": "",
+        "description": "A shared space for new ideas.",
+        "ctaLabel": "Explore the story",
+        "ctaHref": "#project-story",
+        "image": "assets/video/evolution-london-poster.jpg",
+        "imageAlt": "Reference image of a large event space",
+        "focalPoint": "center center",
+        "colour": "#90c74f",
+        "caption": "Temporary reference: Evolution London. MongoDB event photography pending.",
+        "backHref": "case-studies.html",
+        "backLabel": "All case studies",
+        "video": "",
+        "breadcrumb": {
+          "parents": [
+            {
+              "href": "case-studies.html",
+              "label": "Case studies"
+            }
+          ],
+          "current": "MongoDB.local London"
+        }
+      }
+    },
+    {
+      "component": "sections/project-story",
+      "data": {
+        "facts": [
+          {
+            "label": "Project",
+            "value": "MongoDB.local London"
+          },
+          {
+            "label": "Location / date",
+            "value": "To be confirmed"
+          },
+          {
+            "label": "Encore’s role",
+            "value": "Scope of services pending"
+          }
+        ],
+        "status": "Overview · Content pending",
+        "title": "A shared space for new ideas.",
+        "description": "The purpose of the London event, its audience and what the experience needed to achieve. This space will introduce the approved project story and set the context for the work below.",
+        "items": [
+          {
+            "eyebrow": "01 / The challenge",
+            "title": "The ambition.",
+            "description": "Content pending: the client’s brief, audience needs and the production challenges that shaped the response."
+          },
+          {
+            "eyebrow": "02 / The approach",
+            "title": "Bringing it to life.",
+            "description": "Content pending: the creative idea, technical decisions and collaboration that brought the experience together."
+          }
+        ]
+      }
+    },
+    {
+      "component": "sections/project-gallery",
+      "data": {
+        "image": "assets/video/evolution-london-poster.jpg",
+        "imageAlt": "Reference image of a large event space",
+        "caption": "Temporary reference: Evolution London. MongoDB event photography pending."
+      }
+    },
+    {
+      "component": "sections/next-project",
+      "data": {
+        "href": "case-study-adobe.html",
+        "title": "Adobe MAX London creativity conference",
+        "caption": "Temporary reference: Adobe Summit 2023, supplied in the brief. Adobe MAX photography pending.",
+        "image": "assets/img/client-updates/twobytwo_Adobe_Summit_2023-164.jpg",
+        "imageAlt": "Reference image of a colourful Adobe Summit stage"
+      }
+    },
+    {
+      "component": "sections/work-cta",
+      "data": {}
+    }
+  ]
+}

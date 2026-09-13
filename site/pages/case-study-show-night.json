@@ -1,0 +1,103 @@
+{
+  "$schema": "../page.schema.json",
+  "layout": "default",
+  "title": "A night to remember — Encore",
+  "description": "Encore event production case study design prototype.",
+  "bodyClass": "case-page",
+  "bodyStyle": "--gel:#d454b9",
+  "mainId": "main",
+  "stylesheets": [
+    "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap",
+    "assets/css/site-pages.css",
+    "assets/css/pages/case-studies.css"
+  ],
+  "scripts": [
+    "assets/js/partials/site-pages.js"
+  ],
+  "sections": [
+    {
+      "component": "headers/split",
+      "data": {
+        "eyebrow": "Working project title",
+        "title": "A night to remember",
+        "accent": "",
+        "description": "The moment the room comes alive.",
+        "ctaLabel": "Explore the story",
+        "ctaHref": "#project-story",
+        "image": "assets/video/hum-tv-awards-poster.jpg",
+        "imageAlt": "Reference image of a live awards stage",
+        "focalPoint": "center center",
+        "colour": "#90c74f",
+        "caption": "Temporary reference: HUM TV Awards. Final project and photography to be confirmed.",
+        "backHref": "case-studies.html",
+        "backLabel": "All case studies",
+        "video": "",
+        "breadcrumb": {
+          "parents": [
+            {
+              "href": "case-studies.html",
+              "label": "Case studies"
+            }
+          ],
+          "current": "A night to remember"
+        }
+      }
+    },
+    {
+      "component": "sections/project-story",
+      "data": {
+        "facts": [
+          {
+            "label": "Project",
+            "value": "A night to remember"
+          },
+          {
+            "label": "Location / date",
+            "value": "To be confirmed"
+          },
+          {
+            "label": "Encore’s role",
+            "value": "Scope of services pending"
+          }
+        ],
+        "status": "Overview · Content pending",
+        "title": "The moment the room comes alive.",
+        "description": "Confirm the project name, client and event before adding the approved overview. This space will introduce the approved project story and set the context for the work below.",
+        "items": [
+          {
+            "eyebrow": "01 / The challenge",
+            "title": "The ambition.",
+            "description": "Content pending: the client’s brief, audience needs and the production challenges that shaped the response."
+          },
+          {
+            "eyebrow": "02 / The approach",
+            "title": "Bringing it to life.",
+            "description": "Content pending: the creative idea, technical decisions and collaboration that brought the experience together."
+          }
+        ]
+      }
+    },
+    {
+      "component": "sections/project-gallery",
+      "data": {
+        "image": "assets/video/hum-tv-awards-poster.jpg",
+        "imageAlt": "Reference image of a live awards stage",
+        "caption": "Temporary reference: HUM TV Awards. Final project and photography to be confirmed."
+      }
+    },
+    {
+      "component": "sections/next-project",
+      "data": {
+        "href": "case-study-mongodb.html",
+        "title": "An immersive experience for MongoDB.local London",
+        "caption": "Temporary reference: Evolution London. MongoDB event photography pending.",
+        "image": "assets/video/evolution-london-poster.jpg",
+        "imageAlt": "Reference image of a large event space"
+      }
+    },
+    {
+      "component": "sections/work-cta",
+      "data": {}
+    }
+  ]
+}

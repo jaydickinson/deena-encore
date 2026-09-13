@@ -1,0 +1,50 @@
+<header
+  class="site-header"
+  aria-label="{{#if preview}}Header preview{{else}}Site header{{/if}}"
+>
+  <div class="site-header-inner">
+    <a
+      class="site-brand"
+      href="homepage-option-1-updated.html"
+      aria-label="Encore home"
+      ><img src="assets/encore-logo-white.png" alt="Encore"
+    /></a>
+    <button
+      class="site-menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-navigation"
+    >
+      Menu +
+    </button>
+    <nav
+      class="site-nav"
+      id="site-navigation"
+      aria-label="{{#if preview}}Header preview navigation{{else}}Main navigation{{/if}}"
+    >
+      <div class="site-service-menu">
+        <button
+          class="site-service-trigger"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-services"
+        >
+          What we do<svg viewBox="0 0 16 16" aria-hidden="true">
+            <path d="m3 6 5 5 5-5" />
+          </svg>
+        </button>
+        <div class="site-submenu" id="site-services" hidden>
+          {{#each @root.site.services}}<a
+              href="{{href}}"
+              {{#if (eq href @root.currentPage)}}aria-current="page"{{/if}}
+              ><span>{{number}} · {{verb}}</span>{{title}}</a
+            >{{/each}}
+        </div>
+      </div>
+      <a href="case-studies.html">Recent Show</a
+      ><a href="event-types.html">Event Type</a><a href="news.html">News</a
+      ><a href="about.html">About</a
+      ><a class="btn btn-gel" href="start-event.html">Start Event</a>
+    </nav>
+  </div>
+</header>

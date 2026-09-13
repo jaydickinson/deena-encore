@@ -1,0 +1,40 @@
+<section class="section service-journey" aria-labelledby="service-journey-title">
+  <div class="wrap">
+    <div class="journey-top" data-reveal>
+      <div>
+        <div class="cue">{{eyebrow}}</div>
+        <h2 id="service-journey-title">{{title}}</h2>
+      </div>
+      {{#if description}}
+        <p>{{description}}</p>
+      {{/if}}
+    </div>
+    <ol class="journey-grid">
+      {{#each @root.site.services}}
+        <li data-reveal data-reveal-step="{{@index}}">
+          <a
+            class="journey-card"
+            href="{{href}}"
+            style="--card-gel:{{colour}}"
+            {{#if (eq href @root.currentPage)}}aria-current="page"{{/if}}
+          >
+            <span class="journey-media">
+              <img src="{{image}}" alt="" loading="lazy" />
+            </span>
+            <span class="journey-meta">
+              <span class="journey-number">{{number}}</span>
+              <span class="journey-verb">{{verb}}</span>
+            </span>
+            <span class="journey-title">{{title}}</span>
+            <span class="journey-summary">{{summary}}</span>
+            <span class="journey-link">
+              {{#if (eq href @root.currentPage)}}You are here{{else}}Explore
+                {{title}}
+                <span aria-hidden="true">→</span>{{/if}}
+            </span>
+          </a>
+        </li>
+      {{/each}}
+    </ol>
+  </div>
+</section>

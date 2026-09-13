@@ -2,7 +2,7 @@
 FROM oven/bun:1 AS build
 WORKDIR /app
 COPY . .
-RUN bun build.ts
+RUN bun install --frozen-lockfile && bun build.ts
 
 FROM nginx:alpine
 # Serve under /encore/ so the site works at ds-design.uk/encore with its

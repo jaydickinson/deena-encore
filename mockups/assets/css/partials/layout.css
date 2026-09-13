@@ -1,0 +1,49 @@
+/* One desktop container shared by navigation, headers and section grids. */
+:root {
+  --page-max: 1360px;
+  --page-gutter: clamp(16px, 3vw, 40px);
+  --page-inset: 24px;
+}
+.wrap {
+  width: calc(100% - 2 * var(--page-gutter));
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--page-inset);
+}
+.site-header {
+  padding-inline: var(--page-gutter);
+}
+.site-header-inner {
+  max-width: var(--page-max);
+}
+header.nav {
+  padding-inline: var(--page-gutter);
+}
+header.nav .row {
+  max-width: var(--page-max);
+  padding-left: var(--page-inset);
+}
+/* Keep reading measure and small-screen breathing room intentional. */
+.wrap.article-heading {
+  max-width: 1080px;
+}
+@media (max-width: 800px) {
+  .wrap {
+    width: 100%;
+    padding-inline: 22px;
+  }
+}
+
+/* Available on every layout, including the homepage. */
+.skip-link {
+  position: fixed;
+  top: -80px;
+  left: 20px;
+  z-index: 200;
+  padding: 12px 20px;
+  background: var(--amber);
+  color: var(--void);
+}
+.skip-link:focus {
+  top: 12px;
+}

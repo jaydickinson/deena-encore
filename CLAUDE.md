@@ -1,6 +1,8 @@
 # Encore EMEA homepage redesign
 
-Homepage redesign concepts for https://www.encore-emea.com/ (Encore, global event production). We present multiple design options to the client as standalone mockups. Each option is a single self-contained HTML file in `mockups/`; there is no build step, no framework, no shared CSS files.
+Website design prototypes for https://www.encore-emea.com/ (Encore, global event production). The current Option 1 site is assembled from `site/pages/*.json` and `site/partials/**/*.hbs`. Read `README.md` and `docs/developer-handover.md` before editing it. Current HTML files in `mockups/` are generated snapshots; edit the source partials/data and run `bun run render`. `bun run dev` renders source edits on refresh; `bun run build` compiles the static bundle.
+
+The older homepage concepts remain standalone HTML mockups. The self-contained-file conventions and original concept/content notes below apply to those earlier concepts; the current site follows the client updates and the partial-based handover structure.
 
 ## Running
 
@@ -12,20 +14,19 @@ cd mockups && bun serve.ts
 
 ## Deploying
 
-The client-facing build is hosted as a "deck" on the **hetzner** Dokploy server (`root@hetzner.jakedickinson.co.uk`), served by an nginx container that bind-mounts `/var/www/decks` read-only. Each deck is a subfolder reachable at `decks.jakedickinson.co.uk/<slug>/`. Ours is **`encore-emea`**: live at https://decks.jakedickinson.co.uk/encore-emea/
+Deployed as a **Dokploy application** on the **hetzner** panel, built straight from GitHub (not the old bind-mounted "deck"). The repo is `github.com/jaydickinson/deena-encore` (git remote `jaydickinson-deena-encore.git`); Dokploy watches the **`open-sans`** branch and rebuilds on every push. Live at **https://ds-design.uk/encore**.
 
-`bun build.ts` copies `mockups/` to `dist/` (a clean, self-contained bundle; drops the dev-only `serve.ts`). All asset paths are relative, so the bundle works unchanged under the `/encore-emea/` subpath, do not introduce root-absolute (`/...`) `src`/`href`/`poster` paths.
-
-To build and push (overwrites the deck in place; `--delete` prunes removed files):
+To deploy, commit and push to `open-sans`:
 
 ```sh
-bun build.ts
-rsync -az --delete dist/ root@hetzner.jakedickinson.co.uk:/var/www/decks/encore-emea/
+git push jaydickinson-deena-encore.git open-sans
 ```
 
-Or `bun run deploy`. Note: hetzner is a separate box from `dokploy.jakedickinson.co.uk` (the other Dokploy server); the deck lives only on hetzner. macOS ships openrsync, so avoid `--info=*` flags (use `--stats`).
+Dokploy builds the root **`Dockerfile`**: stage one runs `bun build.ts` to produce the self-contained `dist/` bundle, stage two serves it with nginx (native HTTP range support for video seeking). The site lives under the **`/encore/`** URL prefix, the Dockerfile copies `dist/` to `/usr/share/nginx/html/encore` and Traefik routes the `/encore` prefix *without* stripping it, so the on-disk path and URL path line up. Keep every asset path relative; do not introduce root-absolute (`/...`) `src`/`href`/`poster` paths (they would break under the subpath). `.dockerignore` keeps `node_modules`, `dist`, `original-assets` and the raw `encore-videos` out of the build context.
 
-The deck is fronted by **Cloudflare** with a 4-hour edge cache (`cache-control: max-age=14400`). After a redeploy, already-cached URLs (HTML, videos) can serve stale at the edge for up to 4h, purge the Cloudflare cache, or verify origin freshness with a cache-buster (`?v=<epoch>`) which forces a MISS. First-time visitors to newly-added files always get fresh bytes.
+`bun build.ts` copies `mockups/` to `dist/` (drops the dev-only `serve.ts`); run `bun run build` then `bun run preview` to check the exact bundle locally before pushing.
+
+Legacy: `bun run deploy` still rsyncs `dist/` to the older **`encore-emea`** deck at `decks.jakedickinson.co.uk/encore-emea/` (fronted by Cloudflare with a 4-hour edge cache). That deck is superseded by the `ds-design.uk/encore` app above; prefer the git-push flow.
 
 ## Structure
 

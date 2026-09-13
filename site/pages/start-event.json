@@ -1,0 +1,47 @@
+{
+  "$schema": "../page.schema.json",
+  "layout": "default",
+  "title": "Start your event · Encore",
+  "description": "Encore website design prototype.",
+  "bodyClass": "",
+  "bodyStyle": "",
+  "mainId": "main-content",
+  "stylesheets": [
+    "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap",
+    "assets/css/site-pages.css",
+    "assets/css/pages/start-event.css"
+  ],
+  "scripts": [
+    "assets/js/partials/site-pages.js",
+    "assets/js/partials/event-enquiry.js"
+  ],
+  "sections": [
+    {
+      "component": "headers/split-video",
+      "data": {
+        "eyebrow": "Start Event",
+        "title": "Let’s build",
+        "accent": "your show.",
+        "description": "A first idea, an ambitious brief or a date in the diary. Tell us where you’re starting.",
+        "ctaLabel": "Tell us your idea",
+        "ctaHref": "#event-enquiry",
+        "image": "assets/video/encore-home-reel-poster.jpg",
+        "imageAlt": "Guests enjoying a live event",
+        "focalPoint": "center center",
+        "colour": "#f9c429",
+        "caption": "Design prototype · Preview your brief below. Nothing is sent or saved.",
+        "backHref": "",
+        "backLabel": "",
+        "video": "assets/video/encore-home-reel.mp4",
+        "breadcrumb": {
+          "parents": [],
+          "current": "Start your event"
+        }
+      }
+    },
+    {
+      "component": "sections/event-enquiry",
+      "data": {}
+    }
+  ]
+}

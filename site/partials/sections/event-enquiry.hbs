@@ -1,0 +1,134 @@
+<section class="section enquiry-section">
+  <div class="wrap enquiry-grid">
+    <aside class="enquiry-aside">
+      <h2>Every great experience<br />starts with a conversation.</h2>
+      <p>
+        Share what you know so far. There’s room to work out the rest together.
+      </p>
+      <div class="next-step">
+        <span>01</span>
+        <div>
+          <h3>Your ambition</h3>
+          <p>What should your guests feel, understand or do?</p>
+        </div>
+      </div>
+      <div class="next-step">
+        <span>02</span>
+        <div>
+          <h3>Your starting point</h3>
+          <p>
+            A location, a format, a creative idea. Bring the details you have.
+          </p>
+        </div>
+      </div>
+      <div class="next-step">
+        <span>03</span>
+        <div>
+          <h3>The next conversation</h3>
+          <p>
+            Explore how experience design, content and production can come
+            together.
+          </p>
+        </div>
+      </div>
+      <img
+        class="enquiry-photo"
+        src="assets/img/client-updates/6Y8A3288_2.jpg"
+        alt="Live event with colourful stage lighting"
+        loading="lazy"
+      />
+    </aside>
+    <div>
+      <form
+        id="event-enquiry"
+        aria-describedby="enquiry-instructions"
+        onsubmit="return false;"
+      >
+        <div class="enquiry-fields">
+          <label class="field"
+            ><span>Your name</span
+            ><input
+              name="name"
+              autocomplete="name"
+              required
+              placeholder="Full name"
+          /></label>
+          <label class="field"
+            ><span>Work email</span
+            ><input
+              name="email"
+              autocomplete="email"
+              type="email"
+              required
+              placeholder="you@company.com"
+          /></label>
+          <label class="field"
+            ><span>Company</span
+            ><input name="company" autocomplete="organization" required
+          /></label>
+          <label class="field"
+            ><span>Phone <span>(optional)</span></span
+            ><input name="phone" autocomplete="tel" type="tel"
+          /></label>
+          <label class="field"
+            ><span>Location <span>(optional)</span></span
+            ><input name="location" placeholder="City or venue"
+          /></label>
+          <label class="field"
+            ><span>Event date <span>(optional)</span></span
+            ><input name="date" type="date"
+          /></label>
+          <label class="field"
+            ><span>Approximate guest count <span>(optional)</span></span
+            ><input name="guests" type="number" min="1" step="1"
+          /></label>
+          <label class="field"
+            ><span>Where can we help?</span
+            ><select name="service">
+              <option>Let’s work it out together</option>
+              <option>Experience Design</option>
+              <option>Creative &amp; Content</option>
+              <option>Technical Production</option>
+              <option>The full experience</option>
+            </select></label
+          >
+          <label class="field full"
+            ><span>Tell us about your event</span
+            ><textarea
+              name="brief"
+              required
+              placeholder="Your idea, your audience, and what you want to achieve…"
+            ></textarea>
+          </label>
+        </div>
+        <p class="form-note" id="enquiry-instructions">
+          Name, work email, company and event brief are required. This design
+          preview prepares a summary only. Nothing is sent or saved.
+        </p>
+        <button class="btn btn-gel" type="submit" disabled>
+          Preview your brief →</button
+        ><noscript
+          ><p class="form-note">
+            Enable JavaScript to preview your brief. This prototype cannot send
+            enquiries.
+          </p></noscript
+        >
+      </form>
+      <div class="form-status" id="form-status" tabindex="-1" hidden>
+        <h2 style="font-size: 27px">Your brief, ready to review.</h2>
+        <p class="form-note">
+          Preview only — this enquiry has not been submitted.
+        </p>
+        <div class="brief-summary" id="brief-summary"></div>
+        <button
+          class="btn btn-ghost"
+          id="edit-brief"
+          type="button"
+          style="margin-top: 25px"
+        >
+          Edit brief
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

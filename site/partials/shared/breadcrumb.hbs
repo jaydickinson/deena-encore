@@ -1,0 +1,9 @@
+<nav class="site-breadcrumb" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="homepage-option-1-updated.html">Home</a></li>
+    {{#each parents}}
+    <li><a href="{{href}}">{{label}}</a></li>
+    {{/each}}
+    <li><span aria-current="page">{{current}}</span></li>
+  </ol>
+</nav>

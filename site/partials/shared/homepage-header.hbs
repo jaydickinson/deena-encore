@@ -1,0 +1,59 @@
+<header class="nav" id="nav">
+  <div class="row">
+    <a
+      class="brand"
+      href="homepage-option-1-updated.html"
+      aria-label="Encore home"
+      ><img src="assets/encore-logo-white.png" alt="Encore"
+    /></a>
+    <nav class="menu" aria-label="Main navigation">
+      <div class="service-menu">
+        <button
+          class="service-trigger"
+          type="button"
+          aria-expanded="false"
+          aria-controls="services-dropdown"
+        >
+          What we do<svg viewBox="0 0 16 16" aria-hidden="true">
+            <path d="m3 6 5 5 5-5" />
+          </svg>
+        </button>
+        <div class="submenu" id="services-dropdown" hidden>
+          <a href="experience-design.html">Experience Design</a
+          ><a href="creative-content.html">Creative &amp; Content</a
+          ><a href="technical-production.html">Technical Production</a>
+        </div>
+      </div>
+      <a class="lnk" href="case-studies.html">Recent Show</a>
+      <a class="lnk" href="event-types.html">Event Type</a>
+      <a class="lnk" href="news.html">News</a>
+      <a class="lnk" href="about.html">About</a>
+      <a class="btn btn-gel" href="start-event.html">Start Event</a>
+    </nav>
+    <button
+      class="hamb"
+      id="hamb"
+      aria-controls="mobmenu"
+      aria-label="Open menu"
+      aria-expanded="false"
+    >
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<div class="mobmenu" id="mobmenu" inert>
+  <nav aria-label="Mobile navigation">
+    <a href="#services">What we do</a>
+    <a class="service-sub" href="experience-design.html">Experience Design</a>
+    <a class="service-sub" href="creative-content.html"
+      >Creative &amp; Content</a
+    >
+    <a class="service-sub" href="technical-production.html"
+      >Technical Production</a
+    >
+    <a href="case-studies.html">Recent Show</a
+    ><a href="event-types.html">Event Type</a> <a href="news.html">News</a
+    ><a href="about.html">About</a>
+    <a href="start-event.html" class="btn btn-gel">Start Event</a>
+  </nav>
+</div>

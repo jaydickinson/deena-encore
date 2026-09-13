@@ -1,0 +1,22 @@
+<section class="section service-story">
+  <div class="wrap">
+    {{#if eyebrow}}
+      <div class="cue" data-reveal>{{eyebrow}}</div>
+    {{/if}}
+    {{#each blocks}}
+      <div class="story-block" data-reveal>
+        <h2>{{title}}</h2>
+        <div class="story-copy">
+          {{#each paragraphs}}
+            <p>{{this}}</p>
+          {{/each}}
+          {{#if emphasis}}
+            <p class="story-emphasis">
+              {{#each emphasis}}<span>{{this}}</span>{{/each}}
+            </p>
+          {{/if}}
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</section>

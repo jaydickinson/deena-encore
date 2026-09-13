@@ -1,0 +1,180 @@
+{
+  "$schema": "../page.schema.json",
+  "layout": "default",
+  "title": "Technical Production — Encore",
+  "description": "Explore Encore Technical Production: Lighting, sound, video and staging. The expertise behind the experience, from planning to the final cue.",
+  "bodyClass": "service-page technical-page",
+  "bodyStyle": "--gel:#f9c429",
+  "mainId": "main",
+  "stylesheets": [
+    "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap",
+    "assets/css/site-pages.css",
+    "assets/css/pages/services.css"
+  ],
+  "scripts": [
+    "assets/js/partials/site-pages.js",
+    "assets/js/partials/service-expertise.js"
+  ],
+  "sections": [
+    {
+      "component": "headers/parallax",
+      "data": {
+        "eyebrow": "Technical Production",
+        "title": "Big ideas.",
+        "accent": "Every detail.",
+        "description": "Lighting, sound, video and staging. The expertise behind the experience, from planning to the final cue.",
+        "ctaLabel": "Start your event",
+        "ctaHref": "start-event.html",
+        "image": "assets/video/encore-lighting-poster.jpg",
+        "imageAlt": "Colourful beams from production lighting",
+        "focalPoint": "center center",
+        "colour": "#f9c429",
+        "caption": "Deliver flawlessly. Light / Sound / Vision / Stage.",
+        "backHref": "experience-design.html",
+        "backLabel": "Back to the start: Experience Design",
+        "video": "assets/video/encore-lighting.mp4",
+        "word": "Deliver",
+        "breadcrumb": {
+          "parents": [
+            {
+              "href": "homepage-option-1-updated.html#services",
+              "label": "What we do"
+            }
+          ],
+          "current": "Technical Production"
+        }
+      }
+    },
+    {
+      "component": "sections/service-story",
+      "data": {
+        "eyebrow": "We deliver flawlessly",
+        "blocks": [
+          {
+            "title": "Bringing big ideas brilliantly to life.",
+            "paragraphs": [
+              "Our technical production teams combine creativity, expertise and technology to transform ideas into extraordinary live experiences.",
+              "From lighting, sound and video to staging, rigging and power, we bring every technical element together with precision."
+            ],
+            "emphasis": [
+              "Whatever the scale. Whatever the space. Whatever the ambition.",
+              "We make it happen."
+            ]
+          },
+          {
+            "title": "Where creativity meets technology.",
+            "paragraphs": [
+              "Technical production is about more than equipment. It creates atmosphere, builds anticipation and focuses attention where it matters.",
+              "Our specialists work with you from planning to showtime, bringing together the right people, technology and expertise to deliver every moment seamlessly.",
+              "Behind the scenes, we plan, test and coordinate every detail. We anticipate challenges, manage complexity and make sure that when the experience begins, everything simply works."
+            ],
+            "emphasis": [
+              "Because live events give you one chance to get it right."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "component": "sections/service-offerings",
+      "data": {
+        "eyebrow": "What we do",
+        "title": "Our Technical Production expertise",
+        "items": [
+          {
+            "number": "01",
+            "title": "Lighting",
+            "description": "Transforming environments, creating atmosphere and focusing attention."
+          },
+          {
+            "number": "02",
+            "title": "Audio",
+            "description": "Delivering clear, powerful sound designed around your content and environment."
+          },
+          {
+            "number": "03",
+            "title": "Video",
+            "description": "Using LED, projection, displays and video systems to make content unmissable."
+          },
+          {
+            "number": "04",
+            "title": "Staging & scenic",
+            "description": "Building stages and environments that give your experience a physical presence."
+          },
+          {
+            "number": "05",
+            "title": "Rigging & power",
+            "description": "Providing the infrastructure behind ambitious event environments."
+          },
+          {
+            "number": "06",
+            "title": "Technical & show production",
+            "description": "Uniting people and technology to deliver every live moment seamlessly."
+          },
+          {
+            "number": "07",
+            "title": "Production & project management",
+            "description": "Coordinating every moving part from preparation through to onsite delivery."
+          }
+        ]
+      }
+    },
+    {
+      "component": "sections/service-process",
+      "data": {
+        "eyebrow": "From first conversation to live experience",
+        "title": "A joined-up approach.",
+        "ctaLabel": "Tell us your brief",
+        "ctaHref": "start-event.html",
+        "items": [
+          {
+            "number": "01",
+            "title": "Plan the production",
+            "description": "We translate the creative ambition into a coordinated technical approach, with the venue and programme in view."
+          },
+          {
+            "number": "02",
+            "title": "Bring it together",
+            "description": "Equipment, staging and show systems come together as one production, ready for rehearsals and refinements."
+          },
+          {
+            "number": "03",
+            "title": "Run the show",
+            "description": "The technical team supports the live programme, connecting each element from the opening moment to the final cue."
+          }
+        ]
+      }
+    },
+    {
+      "component": "sections/related-work",
+      "data": {
+        "image": "assets/img/client-updates/6Y8A3288_2.jpg",
+        "imageAlt": "Live show with bright lighting, large screens and performers",
+        "eyebrow": "Recent shows",
+        "title": "The production behind the moment.",
+        "description": "Discover recent shows and explore how creative ambition takes shape through live production.",
+        "ctaHref": "case-studies.html",
+        "ctaLabel": "Explore our work"
+      }
+    },
+    {
+      "component": "sections/service-journey",
+      "data": {
+        "eyebrow": "Explore what we do",
+        "title": "Think. Create. Deliver.",
+        "description": "One partner for the full experience. Each service connects to the next, from the first idea to the final cue."
+      }
+    },
+    {
+      "component": "sections/service-cta",
+      "data": {
+        "eyebrow": "Start a conversation",
+        "title": "Big ideas deserve brilliant delivery.",
+        "note": "Design prototype · draft copy",
+        "ctaHref": "start-event.html",
+        "ctaLabel": "Start your event",
+        "accent": "Let’s bring yours to life."
+      }
+    }
+  ]
+}

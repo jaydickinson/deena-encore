@@ -1,0 +1,122 @@
+.case-chapter-heading {
+  padding-block: 24px 40px;
+}
+.case-chapter-word {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  border-top: 1px solid var(--line);
+  padding-top: 30px;
+}
+.case-chapter-number {
+  font-size: 14px;
+  color: var(--chapter-colour);
+}
+.case-chapter-word h2 {
+  font-size: clamp(64px, 10.5vw, 152px);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.065em;
+}
+.case-chapter-diamond {
+  width: clamp(18px, 3vw, 38px);
+  height: clamp(18px, 3vw, 38px);
+  background: var(--chapter-colour);
+  transform: rotate(45deg);
+  margin-left: auto;
+  align-self: center;
+  flex-shrink: 0;
+}
+.case-chapter-heading > p {
+  margin: 20px 0 0 42px;
+  font-size: clamp(14px, 1.6vw, 21px);
+  color: var(--dim);
+}
+.case-video-heading h2 {
+  margin: 18px 0;
+}
+.case-video-heading p {
+  color: var(--dim);
+  max-width: 650px;
+}
+.case-video-player {
+  aspect-ratio: 16/9;
+  position: relative;
+  background: #09080d;
+  margin-top: 30px;
+}
+.case-video-play {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: white;
+  overflow: hidden;
+  position: relative;
+}
+.case-video-play img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.65);
+  transition:
+    transform 480ms ease,
+    filter 260ms ease;
+}
+.case-video-play-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-size: clamp(16px, 2vw, 26px);
+}
+.case-video-play-label > span {
+  width: 70px;
+  height: 70px;
+  border: 1px solid #fff;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+.case-video-player iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  position: absolute;
+  inset: 0;
+}
+.case-video-external {
+  display: inline-block;
+  font-size: 12px;
+  margin-top: 16px;
+  border-bottom: 1px solid var(--line);
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .case-video-play:hover img {
+    transform: scale(1.025);
+    filter: brightness(0.8);
+  }
+}
+@media (max-width: 700px) {
+  .case-chapter-word {
+    gap: 14px;
+  }
+  .case-chapter-word h2 {
+    font-size: clamp(48px, 13vw, 90px);
+  }
+  .case-chapter-heading > p {
+    margin-left: 30px;
+  }
+  .case-chapter-diamond {
+    width: 14px;
+    height: 14px;
+  }
+  .case-video-play-label > span {
+    width: 46px;
+    height: 46px;
+  }
+}

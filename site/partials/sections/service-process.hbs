@@ -1,0 +1,21 @@
+<section class="section process-section">
+  <div class="wrap">
+    <div class="process-top" data-reveal>
+      <div>
+        <div class="cue">{{eyebrow}}</div>
+        <h2>{{title}}</h2>
+      </div>
+      <a class="btn btn-ghost" href="{{ctaHref}}">{{ctaLabel}}
+        <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="process-grid">
+      {{#each items}}
+        <article class="process-step" data-reveal data-reveal-step="{{@index}}">
+          <strong>{{number}}</strong>
+          <h3>{{title}}</h3>
+          <p>{{description}}</p>
+        </article>
+      {{/each}}
+    </div>
+  </div>
+</section>

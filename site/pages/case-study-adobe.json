@@ -1,0 +1,103 @@
+{
+  "$schema": "../page.schema.json",
+  "layout": "default",
+  "title": "Adobe MAX London creativity conference — Encore",
+  "description": "Encore event production case study design prototype.",
+  "bodyClass": "case-page",
+  "bodyStyle": "--gel:#11bfdd",
+  "mainId": "main",
+  "stylesheets": [
+    "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap",
+    "assets/css/site-pages.css",
+    "assets/css/pages/case-studies.css"
+  ],
+  "scripts": [
+    "assets/js/partials/site-pages.js"
+  ],
+  "sections": [
+    {
+      "component": "headers/split",
+      "data": {
+        "eyebrow": "Creativity in the spotlight",
+        "title": "Adobe MAX London creativity conference",
+        "accent": "",
+        "description": "A stage for creative possibilities.",
+        "ctaLabel": "Explore the story",
+        "ctaHref": "#project-story",
+        "image": "assets/img/client-updates/twobytwo_Adobe_Summit_2023-164.jpg",
+        "imageAlt": "Reference image of a colourful Adobe Summit stage",
+        "focalPoint": "center center",
+        "colour": "#90c74f",
+        "caption": "Temporary reference: Adobe Summit 2023, supplied in the brief. Adobe MAX photography pending.",
+        "backHref": "case-studies.html",
+        "backLabel": "All case studies",
+        "video": "",
+        "breadcrumb": {
+          "parents": [
+            {
+              "href": "case-studies.html",
+              "label": "Case studies"
+            }
+          ],
+          "current": "Adobe MAX London"
+        }
+      }
+    },
+    {
+      "component": "sections/project-story",
+      "data": {
+        "facts": [
+          {
+            "label": "Project",
+            "value": "Adobe MAX London"
+          },
+          {
+            "label": "Location / date",
+            "value": "To be confirmed"
+          },
+          {
+            "label": "Encore’s role",
+            "value": "Scope of services pending"
+          }
+        ],
+        "status": "Overview · Content pending",
+        "title": "A stage for creative possibilities.",
+        "description": "The conference brief, the creative community and the role Encore played in the event. This space will introduce the approved project story and set the context for the work below.",
+        "items": [
+          {
+            "eyebrow": "01 / The challenge",
+            "title": "The ambition.",
+            "description": "Content pending: the client’s brief, audience needs and the production challenges that shaped the response."
+          },
+          {
+            "eyebrow": "02 / The approach",
+            "title": "Bringing it to life.",
+            "description": "Content pending: the creative idea, technical decisions and collaboration that brought the experience together."
+          }
+        ]
+      }
+    },
+    {
+      "component": "sections/project-gallery",
+      "data": {
+        "image": "assets/img/client-updates/twobytwo_Adobe_Summit_2023-164.jpg",
+        "imageAlt": "Reference image of a colourful Adobe Summit stage",
+        "caption": "Temporary reference: Adobe Summit 2023, supplied in the brief. Adobe MAX photography pending."
+      }
+    },
+    {
+      "component": "sections/next-project",
+      "data": {
+        "href": "case-study-bbc.html",
+        "title": "BBC Studio Showcase",
+        "caption": "Temporary reference: Cvent Connect. BBC Studio Showcase photography pending.",
+        "image": "assets/video/cvent-connect-poster.jpg",
+        "imageAlt": "Reference image of a conference stage"
+      }
+    },
+    {
+      "component": "sections/work-cta",
+      "data": {}
+    }
+  ]
+}

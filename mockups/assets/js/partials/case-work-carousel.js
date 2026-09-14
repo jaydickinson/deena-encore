@@ -3,56 +3,74 @@
   const reduced = matchMedia("(prefers-reduced-motion: reduce)");
   document.querySelectorAll("[data-work-carousel]").forEach((section) => {
     const track = section.querySelector(".case-work-track");
-    const toggle = section.querySelector("[data-work-toggle]");
-    let paused = reduced.matches;
+    const originals = [...track.children];
+    // Copies either side let the final card flow back into the first one.
+    function copies() {
+      return originals.map((item) => {
+        const clone = item.cloneNode(true);
+        clone.setAttribute("aria-hidden", "true");
+        clone.querySelectorAll("a").forEach((link) => (link.tabIndex = -1));
+        return clone;
+      });
+    }
+    track.prepend(...copies());
+    track.append(...copies());
+    let touching = false;
+    let settling;
+
     let visible = false;
     let hovered = false;
     let timer;
-    const max = () => track.scrollWidth - track.clientWidth;
     const step = () =>
       track.children[1].offsetLeft - track.children[0].offsetLeft;
+    const cycle = () => step() * originals.length;
+    function normalize() {
+      if (drag) return;
+      const length = cycle();
+      if (!length) return;
+      if (track.scrollLeft < length - 2)
+        track.scrollTo({
+          left: track.scrollLeft + length,
+          behavior: "instant",
+        });
+      else if (track.scrollLeft >= length * 2 - 2)
+        track.scrollTo({
+          left: track.scrollLeft - length,
+          behavior: "instant",
+        });
+    }
     function move(direction) {
-      const current = track.scrollLeft;
-      const target =
-        direction > 0
-          ? current >= max() - 2
-            ? 0
-            : Math.min(max(), current + step())
-          : current <= 2
-            ? max()
-            : Math.max(0, current - step());
       track.scrollTo({
-        left: target,
+        left: track.scrollLeft + direction * step(),
         behavior: reduced.matches ? "instant" : "smooth",
       });
     }
     function sync() {
       clearInterval(timer);
-      toggle.textContent = paused ? "Play rotation" : "Pause rotation";
-      if (!paused && visible && !hovered && !document.hidden && max() > 2)
+      const focused =
+        section.contains(document.activeElement) &&
+        document.activeElement.matches(":focus-visible");
+      if (
+        !reduced.matches &&
+        visible &&
+        !hovered &&
+        !touching &&
+        !focused &&
+        !document.hidden
+      )
         timer = setInterval(() => move(1), 4500);
     }
-    function stop() {
-      paused = true;
-      sync();
-    }
     section.querySelector(".case-work-controls").hidden = false;
-    toggle.addEventListener("click", () => {
-      paused = !paused;
-      sync();
-    });
     section.querySelector("[data-work-prev]").addEventListener("click", () => {
-      stop();
       move(-1);
+      sync();
     });
     section.querySelector("[data-work-next]").addEventListener("click", () => {
-      stop();
       move(1);
+      sync();
     });
-    // Keyboard focus stops rotation until the visitor explicitly restarts it.
-    section.addEventListener("focusin", (event) => {
-      if (event.target !== toggle) stop();
-    });
+    section.addEventListener("focusin", sync);
+    section.addEventListener("focusout", () => setTimeout(sync, 0));
     section.addEventListener("pointerenter", (event) => {
       if (event.pointerType === "mouse") {
         hovered = true;
@@ -67,7 +85,8 @@
     let suppressClick = false;
     track.addEventListener("dragstart", (event) => event.preventDefault());
     track.addEventListener("pointerdown", (event) => {
-      stop();
+      touching = true;
+      sync();
       suppressClick = false;
       if (event.pointerType !== "mouse" || event.button !== 0) return;
       drag = {
@@ -90,6 +109,8 @@
       track.scrollLeft = drag.scroll - distance;
     });
     function endDrag(event) {
+      touching = false;
+      sync();
       if (!drag || event.pointerId !== drag.id) return;
       suppressClick = drag.moved;
       drag = null;
@@ -117,7 +138,15 @@
       },
       true,
     );
-    track.addEventListener("wheel", stop, { passive: true });
+    track.addEventListener("wheel", sync, { passive: true });
+    track.addEventListener(
+      "scroll",
+      () => {
+        clearTimeout(settling);
+        settling = setTimeout(normalize, 160);
+      },
+      { passive: true },
+    );
     new IntersectionObserver(
       ([entry]) => {
         visible = entry.isIntersecting;
@@ -125,14 +154,19 @@
       },
       { threshold: 0.2 },
     ).observe(section);
-    new ResizeObserver(sync).observe(track);
+    new ResizeObserver(() => {
+      track.scrollTo({ left: cycle(), behavior: "instant" });
+      sync();
+    }).observe(track);
     document.addEventListener("visibilitychange", sync);
     reduced.addEventListener("change", () => {
       if (reduced.matches) {
         track.scrollTo({ left: track.scrollLeft, behavior: "instant" });
-        stop();
+        sync();
       }
+      sync();
     });
+    track.scrollTo({ left: cycle(), behavior: "instant" });
     sync();
   });
 })();

@@ -353,7 +353,7 @@
 .case-work-controls {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-top: 14px;
 }
 .case-work-controls[hidden] {
@@ -391,10 +391,14 @@
   display: none;
 }
 .case-work-track a {
-  cursor: inherit;
+  cursor: pointer;
 }
 .case-work-track.is-dragging {
   cursor: grabbing;
   scroll-snap-type: none;
   user-select: none;
+}
+
+.case-work-track.is-dragging a {
+  cursor: grabbing;
 }

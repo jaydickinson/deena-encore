@@ -31,6 +31,10 @@ A page JSON contains document metadata, a layout and an ordered `sections` array
 
 The complete, working example is `site/pages/experience-design.json`. The page schema provides editor validation for the composition envelope. `scripts/render-site.ts` resolves and checks partials and required header fields; the dev server uses the same renderer as the static build. A broken partial fails visibly instead of leaving an empty section.
 
+## Compact case study V2
+
+Review `/case-study-loreal-v2.html` (also linked from the sitemap) alongside the original L’Oréal case study. Its three reusable `sections/case-compact/` partials contain a shallow image hero, six-image gallery and service groups. All copy and media are in `site/pages/case-study-loreal-v2.json`; the original page remains available for comparison. The gallery reuses `loreal-gallery.js` for full-screen viewing, keyboard navigation and touch swiping. The hero reuses `header-parallax.js`, with a pronounced 180px scroll offset on desktop and 140px of left-to-right cursor travel behind the stationary title. Mobile and reduced-motion preferences retain a static image. V2 ends with a compact white carousel of four equally sized related projects. It rotates every 4.5 seconds while visible, pauses on hover, and stops on manual interaction or reduced motion. Previous, next and play/pause controls supplement mouse dragging and native touch scrolling; the scrollbar is hidden and a drag does not activate project links. The long page retains its featured-project layout. No long story chapters, standalone highlights film or large closing CTA are included in V2.
+
 ## Swap a header
 
 Set the first section's `component` to one of these options:

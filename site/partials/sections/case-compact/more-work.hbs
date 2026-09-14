@@ -1,0 +1,50 @@
+<section
+  class="case-work-carousel"
+  aria-labelledby="more-work-title"
+  aria-roledescription="carousel"
+  data-work-carousel
+>
+  <div class="wrap">
+    <div class="case-compact-heading">
+      <h2 id="more-work-title">Explore more of our work.</h2>
+      <a href="case-studies.html">All case studies ↗</a>
+    </div>
+    <ul
+      class="case-work-track"
+      id="case-work-track"
+      aria-label="Other case studies"
+    >
+      {{#each projects}}
+      <li>
+        <a href="{{href}}" style="--project-colour:{{colour}}">
+          <img src="{{image}}" alt="" width="480" height="270" loading="lazy" />
+          <h3>{{title}}</h3>
+          <span>{{meta}} ↗</span>
+        </a>
+      </li>
+      {{/each}}
+    </ul>
+    <div class="case-work-controls" hidden>
+      <button type="button" data-work-toggle aria-controls="case-work-track">
+        Pause rotation
+      </button>
+      <div>
+        <button
+          type="button"
+          data-work-prev
+          aria-label="Previous case studies"
+          aria-controls="case-work-track"
+        >
+          ←</button
+        ><button
+          type="button"
+          data-work-next
+          aria-label="Next case studies"
+          aria-controls="case-work-track"
+        >
+          →
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

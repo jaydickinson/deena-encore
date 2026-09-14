@@ -1,0 +1,21 @@
+<section class="case-compact-services wrap" aria-labelledby="services-title">
+  <div class="case-compact-heading">
+    <h2 id="services-title">{{title}}</h2>
+    <a href="start-event.html">Start your event ↗</a>
+  </div>
+  <div class="case-compact-service-grid">
+    {{#each groups}}
+    <div class="case-compact-service" style="--service-colour:{{colour}}">
+      <a href="{{href}}"
+        ><span class="cue">{{label}}</span>
+        <h3>{{title}} ↗</h3></a
+      >
+      <ul>
+        {{#each items}}
+        <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    </div>
+    {{/each}}
+  </div>
+</section>

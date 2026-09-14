@@ -1,0 +1,26 @@
+<section
+  class="case-compact-hero"
+  data-header-parallax
+  aria-labelledby="case-title"
+>
+  <div class="header-stage">
+    <img
+      class="case-compact-hero-image"
+      src="{{hero.src}}"
+      srcset="{{hero.srcset}}"
+      sizes="100vw"
+      width="{{hero.width}}"
+      height="{{hero.height}}"
+      alt="{{hero.alt}}"
+      fetchpriority="high"
+    />
+    <div class="wrap case-compact-hero-copy">
+      {{> shared/breadcrumb breadcrumb}}
+      <span class="cue">{{eyebrow}}</span>
+      <h1 id="case-title">{{title}}</h1>
+      <div class="case-compact-meta">
+        <span>{{meta}}</span><a href="#case-gallery">In pictures ↓</a>
+      </div>
+    </div>
+  </div>
+</section>

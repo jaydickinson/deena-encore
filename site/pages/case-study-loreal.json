@@ -12,7 +12,8 @@
     "assets/css/pages/case-studies.css",
     "assets/css/pages/loreal.css",
     "assets/css/partials/case-study-components.css",
-    "assets/css/partials/loreal-chapter-bar.css"
+    "assets/css/partials/loreal-chapter-bar.css",
+    "assets/css/partials/case-more-work.css"
   ],
   "scripts": [
     "assets/js/partials/site-pages.js",

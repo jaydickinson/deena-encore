@@ -145,6 +145,19 @@ export function renderPage(name: string, hbs = engine()): string {
       inventory:
         name === "component-library" ? componentInventory() : undefined,
       currentPage: `${name}.html`,
+      recentShowsCurrent:
+        name === "case-studies"
+          ? "page"
+          : page.sections.some(
+                (section: {
+                  data?: { breadcrumb?: { parents?: { href: string }[] } };
+                }) =>
+                  section.data?.breadcrumb?.parents?.some(
+                    (parent) => parent.href === "case-studies.html",
+                  ),
+              )
+            ? "location"
+            : undefined,
       site: JSON.parse(
         readFileSync(join(sourceRoot, "data/site.json"), "utf8"),
       ),

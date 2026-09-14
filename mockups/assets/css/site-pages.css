@@ -202,7 +202,8 @@ p:last-child {
 .site-nav .btn:hover {
   color: var(--void);
 }
-.site-nav [aria-current="page"] {
+.site-nav [aria-current="page"],
+.site-nav [aria-current="location"] {
   color: var(--amber);
 }
 .site-service-menu {

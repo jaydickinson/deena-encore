@@ -65,7 +65,8 @@
   transition: transform var(--motion-base) var(--motion-ease);
 }
 [data-microinteractions] .site-nav > a:focus-visible::after,
-[data-microinteractions] .site-nav > a[aria-current="page"]::after {
+[data-microinteractions] .site-nav > a[aria-current="page"]::after,
+[data-microinteractions] .site-nav > a[aria-current="location"]::after {
   transform: scaleX(1);
 }
 [data-microinteractions] .site-submenu:not([hidden]) {

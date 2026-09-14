@@ -1,0 +1,199 @@
+{
+  "$schema": "../page.schema.json",
+  "layout": "default",
+  "description": "Two distinctive finals. One Chroma creative vision. Explore Encore’s creative design and technical production for 70 years of L’Oréal Colour Trophy in London and Dublin.",
+  "bodyStyle": "--gel:#f9c429",
+  "mainId": "main",
+  "title": "L’Oréal Colour Trophy 2026 | V2 — Encore",
+  "bodyClass": "case-page case-compact-page",
+  "stylesheets": [
+    "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap",
+    "assets/css/site-pages.css",
+    "assets/css/pages/case-compact.css"
+  ],
+  "scripts": [
+    "assets/js/partials/site-pages.js",
+    "assets/js/partials/header-parallax.js",
+    "assets/js/partials/loreal-gallery.js",
+    "assets/js/partials/case-work-carousel.js"
+  ],
+  "sections": [
+    {
+      "component": "sections/case-compact/hero",
+      "data": {
+        "hero": {
+          "src": "assets/img/loreal/loreal-100-2400.webp",
+          "srcset": "assets/img/loreal/loreal-100-800.webp 800w, assets/img/loreal/loreal-100-1600.webp 1600w, assets/img/loreal/loreal-100-2400.webp 2400w",
+          "width": 2400,
+          "height": 600,
+          "alt": "Colour-led visuals fill the overhead screens above the Colour Trophy audience.",
+          "caption": "",
+          "style": ""
+        },
+        "breadcrumb": {
+          "parents": [
+            {
+              "href": "case-studies.html",
+              "label": "Case studies"
+            }
+          ],
+          "current": "L’Oréal Colour Trophy 2026"
+        },
+        "eyebrow": "Platinum anniversary · 2026",
+        "title": "70 years of L’Oréal Colour Trophy.",
+        "meta": "London & Dublin / Event design & production"
+      }
+    },
+    {
+      "component": "sections/case-compact/gallery",
+      "data": {
+        "title": "Colour takes centre stage.",
+        "label": "UK Grand Final · The O2, London",
+        "gallery": [
+          {
+            "src": "assets/img/loreal/loreal-141-2400.webp",
+            "srcset": "assets/img/loreal/loreal-141-800.webp 800w, assets/img/loreal/loreal-141-1600.webp 1600w, assets/img/loreal/loreal-141-2400.webp 2400w",
+            "width": 2400,
+            "height": 1350,
+            "alt": "The Colour Trophy catwalk surrounded by the audience at The O2.",
+            "caption": "A stage at the centre of the experience.",
+            "style": ""
+          },
+          {
+            "src": "assets/img/loreal/loreal-159-2400.webp",
+            "srcset": "assets/img/loreal/loreal-159-800.webp 800w, assets/img/loreal/loreal-159-1600.webp 1600w, assets/img/loreal/loreal-159-2400.webp 2400w",
+            "width": 2400,
+            "height": 1920,
+            "alt": "Models on stage in front of large colour-led video screens.",
+            "caption": "Colour, creativity and craftsmanship.",
+            "style": ""
+          },
+          {
+            "src": "assets/img/loreal/loreal-104-2400.webp",
+            "srcset": "assets/img/loreal/loreal-104-800.webp 640w, assets/img/loreal/loreal-104-1600.webp 1280w, assets/img/loreal/loreal-104-2400.webp 1920w",
+            "width": 1920,
+            "height": 2400,
+            "alt": "Models beneath a cone of red and white stage lighting.",
+            "caption": "Lighting that shapes the moment.",
+            "style": ""
+          },
+          {
+            "src": "assets/img/loreal/loreal-84-2400.webp",
+            "srcset": "assets/img/loreal/loreal-84-800.webp 800w, assets/img/loreal/loreal-84-1600.webp 1600w, assets/img/loreal/loreal-84-2400.webp 2400w",
+            "width": 2400,
+            "height": 1600,
+            "alt": "Models in contrasting looks walk the Colour Trophy catwalk.",
+            "caption": "",
+            "style": "wide"
+          },
+          {
+            "src": "assets/img/loreal/loreal-110-2400.webp",
+            "srcset": "assets/img/loreal/loreal-110-800.webp 800w, assets/img/loreal/loreal-110-1600.webp 1600w, assets/img/loreal/loreal-110-2400.webp 2400w",
+            "width": 2400,
+            "height": 1600,
+            "alt": "Models walk through white spotlights and stage haze.",
+            "caption": "",
+            "style": "wide"
+          },
+          {
+            "src": "assets/img/loreal/loreal-160-2400.webp",
+            "srcset": "assets/img/loreal/loreal-160-800.webp 800w, assets/img/loreal/loreal-160-1600.webp 1600w, assets/img/loreal/loreal-160-2400.webp 2400w",
+            "width": 2400,
+            "height": 1349,
+            "alt": "Wide view of the audience, overhead video system and production lighting.",
+            "caption": "UK Grand Final · Production at scale",
+            "style": ""
+          }
+        ],
+        "introduction": "For the 70th anniversary of L’Oréal Colour Trophy, Encore brought two distinctive finals to life in London and Dublin. One creative vision connected both events, celebrating colour, creativity and the history of the competition."
+      }
+    },
+    {
+      "component": "sections/case-compact/services",
+      "data": {
+        "title": "The services behind the show.",
+        "groups": [
+          {
+            "label": "01 / Think",
+            "title": "Event strategy",
+            "href": "experience-design.html",
+            "colour": "#11bfdd",
+            "items": [
+              "Creative production support",
+              "Experience and production planning",
+              "Technical production strategy",
+              "Cross-regional collaboration",
+              "Venue and technical feasibility planning"
+            ]
+          },
+          {
+            "label": "02 / Create",
+            "title": "Creative & content",
+            "href": "creative-content.html",
+            "colour": "#f9c429",
+            "items": [
+              "Stage design",
+              "Lighting design",
+              "Video and content design",
+              "Special effects and laser design",
+              "Venue branding and environmental design",
+              "Bespoke interactive experience design",
+              "Custom judging system development"
+            ]
+          },
+          {
+            "label": "03 / Deliver",
+            "title": "Technical production",
+            "href": "technical-production.html",
+            "colour": "#d454b9",
+            "items": [
+              "Full technical production",
+              "Stage build",
+              "Lighting production",
+              "Audio production",
+              "Video production and content management",
+              "Rigging and infrastructure management",
+              "Technical production management",
+              "Venue coordination"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "component": "sections/case-compact/more-work",
+      "data": {
+        "projects": [
+          {
+            "href": "case-study-show-night.html",
+            "title": "A night to remember",
+            "meta": "Awards show · Live production",
+            "colour": "#d454b9",
+            "image": "assets/video/hum-tv-awards-poster.jpg"
+          },
+          {
+            "href": "case-study-mongodb.html",
+            "title": "MongoDB.local London",
+            "meta": "Conference",
+            "colour": "#90c74f",
+            "image": "assets/video/evolution-london-poster.jpg"
+          },
+          {
+            "href": "case-study-adobe.html",
+            "title": "Adobe MAX London",
+            "meta": "Creativity conference",
+            "colour": "#11bfdd",
+            "image": "assets/img/client-updates/twobytwo_Adobe_Summit_2023-164.jpg"
+          },
+          {
+            "href": "case-study-bbc.html",
+            "title": "BBC Studio Showcase",
+            "meta": "Showcase",
+            "colour": "#f9c429",
+            "image": "assets/video/cvent-connect-poster.jpg"
+          }
+        ]
+      }
+    }
+  ]
+}

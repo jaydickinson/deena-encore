@@ -1,0 +1,53 @@
+<section
+  class="case-compact-gallery wrap"
+  id="case-gallery"
+  aria-labelledby="gallery-title"
+>
+  <div class="case-compact-heading">
+    <h2 id="gallery-title">{{title}}</h2>
+    <span>{{label}}</span>
+  </div>
+  {{#if introduction}}
+  <p class="case-compact-introduction">{{introduction}}</p>
+  {{/if}}
+  <div class="case-compact-grid">
+    {{#each gallery}}
+    <figure>
+      <button
+        class="loreal-gallery-open"
+        type="button"
+        aria-label="Enlarge photograph: {{alt}}"
+      >
+        <img
+          src="{{src}}"
+          srcset="{{srcset}}"
+          sizes="(max-width: 700px) 50vw, 33vw"
+          width="{{width}}"
+          height="{{height}}"
+          alt="{{alt}}"
+          loading="lazy"
+        />
+        <span class="loreal-view-label" aria-hidden="true">↗</span>
+      </button>
+    </figure>
+    {{/each}}
+  </div>
+</section>
+<dialog class="loreal-viewer" aria-label="Event photography gallery">
+  <div class="loreal-viewer-toolbar">
+    <span class="loreal-viewer-count" aria-live="polite"></span
+    ><button type="button" data-gallery-close aria-label="Close gallery">
+      Close ×
+    </button>
+  </div>
+  <img class="loreal-viewer-image" alt="" />
+  <div class="loreal-viewer-bottom">
+    <button type="button" data-gallery-prev aria-label="Previous photograph">
+      ←
+    </button>
+    <p class="loreal-viewer-caption"></p>
+    <button type="button" data-gallery-next aria-label="Next photograph">
+      →
+    </button>
+  </div>
+</dialog>
